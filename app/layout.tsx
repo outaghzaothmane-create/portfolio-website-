@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 import { Header } from "@/components/layout/Header";
+import { TerminalProvider } from "@/components/providers/terminal-context";
 
 export default function RootLayout({
     children,
@@ -20,8 +21,10 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth">
             <body className={inter.className}>
-                <Header />
-                {children}
+                <TerminalProvider>
+                    <Header />
+                    {children}
+                </TerminalProvider>
             </body>
         </html>
     );

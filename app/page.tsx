@@ -2,8 +2,10 @@ import { DashboardWrapper } from "@/components/layout/DashboardWrapper";
 import { Hero } from "@/components/sections/Hero";
 import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
+import { AutomationStack } from "@/components/sections/AutomationStack";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
+
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 export default function Home() {
@@ -22,12 +24,17 @@ export default function Home() {
             </SectionWrapper>
 
             <SectionWrapper delay={0.1}>
+                <AutomationStack />
+            </SectionWrapper>
+
+            <SectionWrapper delay={0.1}>
                 <Projects />
             </SectionWrapper>
 
             <SectionWrapper delay={0.1}>
                 <Contact />
             </SectionWrapper>
+
         </DashboardWrapper>
     );
 }

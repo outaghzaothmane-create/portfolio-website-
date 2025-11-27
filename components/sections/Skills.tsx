@@ -24,8 +24,8 @@ const skillGroups = [
 
 export function Skills() {
     return (
-        <section id="tech-stack" className="space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">Tools Configuration</h2>
+        <section id="tech-stack" className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Tools Configuration</h2>
             <div className="grid gap-4 md:grid-cols-3">
                 {skillGroups.map((group) => (
                     <Card key={group.title}>

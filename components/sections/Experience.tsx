@@ -37,9 +37,9 @@ const experienceData = [
 
 export function Experience() {
     return (
-        <section id="performance" className="space-y-4">
+        <section id="performance" className="space-y-8">
             <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold tracking-tight text-foreground">Performance Report</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground">Performance Report</h2>
                 <Badge variant="outline" className="text-muted-foreground">Last 3 Years</Badge>
             </div>
             <Card>

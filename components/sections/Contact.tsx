@@ -11,8 +11,8 @@ export function Contact() {
     const [showAudit, setShowAudit] = useState(false);
 
     return (
-        <section id="contact" className="space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">Start a new property</h2>
+        <section id="contact" className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Start a new property</h2>
             <Card className="bg-primary text-primary-foreground">
                 <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="space-y-2 text-center md:text-left">
@@ -37,7 +37,7 @@ export function Contact() {
                         <Button
                             variant="default"
                             size="lg"
-                            className="gap-2 bg-white text-primary hover:bg-white/90"
+                            className="gap-2 bg-orange-500 text-white hover:bg-orange-600"
                             onClick={() => setShowAudit(true)}
                         >
                             Audit My Site

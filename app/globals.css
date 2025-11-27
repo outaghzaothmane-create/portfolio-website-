@@ -83,3 +83,37 @@
         @apply bg-background text-foreground;
     }
 }
+
+.terminal-mode {
+    --background: 120 10% 5%;
+    /* #0a0d0a */
+    --foreground: 120 100% 50%;
+    /* #00ff00 */
+    --card: 120 10% 10%;
+    --card-foreground: 120 100% 50%;
+    --popover: 120 10% 10%;
+    --popover-foreground: 120 100% 50%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 120 20% 10%;
+    --secondary-foreground: 120 100% 50%;
+    --muted: 120 20% 10%;
+    --muted-foreground: 120 60% 40%;
+    --accent: 120 20% 10%;
+    --accent-foreground: 120 100% 50%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 120 100% 50%;
+    --input: 120 100% 50%;
+    --ring: 120 100% 50%;
+
+    font-family: 'Courier New', Courier, monospace !important;
+}
+
+.terminal-mode * {
+    border-color: rgba(0, 255, 0, 0.3) !important;
+}
+
+.terminal-mode .bg-secondary\/30 {
+    background-color: rgba(0, 20, 0, 0.9) !important;
+}
