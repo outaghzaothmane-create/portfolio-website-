@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState, useEffect } from "react";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { useTerminal } from "@/components/providers/terminal-context";
@@ -7,17 +9,28 @@ interface GrowthChartProps {
     data: any[];
     dataKey: string;
     color?: string;
-    formatter?: (value: number) => string;
+    formatType?: "currency" | "number" | "percentage";
+    formatter?: (value: number) => string; // Keep for backward compatibility if needed, but prefer formatType
     chartId: string;
 }
 
-const CustomTooltip = ({ active, payload, label, formatter }: any) => {
+const CustomTooltip = ({ active, payload, label, formatter, formatType }: any) => {
     if (active && payload && payload.length) {
+        let value = payload[0].value;
+        if (formatter) {
+            value = formatter(value);
+        } else if (formatType === "currency") {
+            value = `$${(value / 1000000).toFixed(1)}M`;
+        } else if (formatType === "number") {
+            value = `${(value / 1000).toFixed(1)}k`;
+            if (value.endsWith(".0k")) value = value.replace(".0k", "k");
+        }
+
         return (
             <div className="bg-background border border-border p-4 rounded-lg shadow-lg">
                 <p className="font-bold text-foreground">{label}</p>
                 <p className="text-primary">
-                    {formatter ? formatter(payload[0].value) : payload[0].value}
+                    {value}
                 </p>
                 {payload[0].payload.milestone && (
                     <p className="text-xs text-muted-foreground mt-1">
@@ -30,7 +43,7 @@ const CustomTooltip = ({ active, payload, label, formatter }: any) => {
     return null;
 };
 
-export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, chartId }: GrowthChartProps) {
+export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, formatType, chartId }: GrowthChartProps) {
     const { isTerminalMode } = useTerminal();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -44,6 +57,17 @@ export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, chart
 
     const chartColor = isTerminalMode ? "#00ff00" : color;
     const gradientId = `color${chartId}`;
+
+    const formatValue = (val: number) => {
+        if (formatter) return formatter(val);
+        if (formatType === "currency") return `$${(val / 1000000).toFixed(1)}M`;
+        if (formatType === "number") {
+            let v = `${(val / 1000).toFixed(1)}k`;
+            if (v.endsWith(".0k")) v = v.replace(".0k", "k");
+            return v;
+        }
+        return val.toString();
+    };
 
     return (
         <div ref={ref} className="w-full h-[200px] mt-4">
@@ -68,10 +92,10 @@ export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, chart
                             fontSize={10}
                             tickLine={false}
                             axisLine={false}
-                            tickFormatter={formatter ? (val) => formatter(val).split(' ')[0] : undefined}
+                            tickFormatter={(val) => formatValue(val).split(' ')[0]}
                             width={40}
                         />
-                        <Tooltip content={<CustomTooltip formatter={formatter} />} />
+                        <Tooltip content={<CustomTooltip formatter={formatter} formatType={formatType} />} />
                         <Area
                             type="monotone"
                             dataKey={dataKey}

@@ -48,8 +48,13 @@ export function Header() {
 
     return (
         <>
-            <header className="fixed top-6 left-0 right-0 z-50 max-w-5xl mx-auto w-[95%] md:w-full">
-                <div className="bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300">
+            <motion.header
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="fixed top-6 left-0 right-0 z-50 max-w-6xl mx-auto w-[95%] md:w-full"
+            >
+                <div className="bg-white/90 backdrop-blur-xl border border-white/20 shadow-2xl rounded-full px-8 py-4 flex items-center justify-between transition-all duration-300">
                     <div className="flex items-center gap-2">
                         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-foreground">
                             <span className="text-primary">Othmane</span>
@@ -151,7 +156,7 @@ export function Header() {
                         </Sheet>
                     </div>
                 </div>
-            </header>
+            </motion.header>
             <AuditModal isOpen={showAudit} onClose={() => setShowAudit(false)} />
         </>
     );

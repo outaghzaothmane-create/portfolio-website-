@@ -226,70 +226,73 @@ export function AutomationStack() {
     }, []);
 
     return (
-        <section className="space-y-8">
-            <div className="flex flex-col gap-2">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Automation Pipeline</h2>
-                <p className="text-muted-foreground">Complex logic handling and real-time processing workflows.</p>
-            </div>
+        <section id="tech-stack" className="w-full bg-white py-24 relative overflow-hidden">
+            {/* Dot Pattern Background */}
+            <div
+                className="absolute inset-0 opacity-[0.15] pointer-events-none"
+                style={{
+                    backgroundImage: `radial-gradient(circle, ${isTerminalMode ? '#00ff00' : '#94a3b8'} 1px, transparent 1px)`,
+                    backgroundSize: '24px 24px'
+                }}
+            />
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-                {/* Flowchart Container */}
-                <div className="relative lg:col-span-3 p-4 md:p-6 rounded-xl border bg-background/50 backdrop-blur-sm overflow-hidden flex flex-col gap-8 min-h-[300px]"> {/* Reduced min-h, p-8 -> p-6 */}
-                    {/* Dot Grid Background */}
-                    <div
-                        className="absolute inset-0 opacity-[0.15] pointer-events-none"
-                        style={{
-                            backgroundImage: `radial-gradient(circle, ${isTerminalMode ? '#00ff00' : 'currentColor'} 1px, transparent 1px)`,
-                            backgroundSize: '24px 24px'
-                        }}
-                    />
-
-                    {/* Flowchart Content */}
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-0 h-full w-full"> {/* Changed justify-start to justify-center, removed overflow-x-auto */}
-
-                        {/* Linear Part (Source -> Processor -> Orchestrator) */}
-                        {linearTools.map((tool, index) => (
-                            <div key={tool.id} className="contents">
-                                {index > 0 && (
-                                    <>
-                                        <div className="hidden md:block">
-                                            <Connection isVertical={false} />
-                                        </div>
-                                        <div className="block md:hidden">
-                                            <Connection isVertical={true} />
-                                        </div>
-                                    </>
-                                )}
-                                <NodeCard tool={tool} isActive={activeStep === index} />
-                            </div>
-                        ))}
-
-                        {/* Branching Part */}
-                        <div className="hidden md:flex items-center">
-                            <ForkConnection />
-                            <div className="flex flex-col gap-4"> {/* Reduced gap-8 -> gap-4 */}
-                                {outputTools.map((tool, index) => (
-                                    <NodeCard key={tool.id} tool={tool} isActive={activeStep >= 3} />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Mobile Stack for Outputs (No Fork, just linear continuation) */}
-                        <div className="flex md:hidden flex-col items-center w-full">
-                            {outputTools.map((tool) => (
-                                <div key={tool.id} className="contents">
-                                    <Connection isVertical={true} />
-                                    <NodeCard tool={tool} isActive={activeStep >= 3} />
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+                <div className="flex flex-col gap-2">
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground">Automation Pipeline</h2>
+                    <p className="text-muted-foreground">Complex logic handling and real-time processing workflows.</p>
                 </div>
 
-                {/* Live Console - Right Column */}
-                <div className="lg:col-span-1 h-full">
-                    <Console />
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                    {/* Flowchart Container */}
+                    <div className="relative lg:col-span-3 p-4 md:p-6 rounded-xl border bg-background/50 backdrop-blur-sm overflow-hidden flex flex-col gap-8 min-h-[300px]">
+
+                        {/* Flowchart Content */}
+                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-0 h-full w-full">
+
+                            {/* Linear Part (Source -> Processor -> Orchestrator) */}
+                            {linearTools.map((tool, index) => (
+                                <div key={tool.id} className="contents">
+                                    {index > 0 && (
+                                        <>
+                                            <div className="hidden md:block">
+                                                <Connection isVertical={false} />
+                                            </div>
+                                            <div className="block md:hidden">
+                                                <Connection isVertical={true} />
+                                            </div>
+                                        </>
+                                    )}
+                                    <NodeCard tool={tool} isActive={activeStep === index} />
+                                </div>
+                            ))}
+
+                            {/* Branching Part */}
+                            <div className="hidden md:flex items-center">
+                                <ForkConnection />
+                                <div className="flex flex-col gap-4">
+                                    {outputTools.map((tool, index) => (
+                                        <NodeCard key={tool.id} tool={tool} isActive={activeStep >= 3} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Mobile Stack for Outputs (No Fork, just linear continuation) */}
+                            <div className="flex md:hidden flex-col items-center w-full">
+                                {outputTools.map((tool) => (
+                                    <div key={tool.id} className="contents">
+                                        <Connection isVertical={true} />
+                                        <NodeCard tool={tool} isActive={activeStep >= 3} />
+                                    </div>
+                                ))}
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {/* Live Console - Right Column */}
+                    <div className="lg:col-span-1 h-full">
+                        <Console />
+                    </div>
                 </div>
             </div>
         </section>

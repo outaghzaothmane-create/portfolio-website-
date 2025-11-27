@@ -14,6 +14,7 @@ interface MetricCardProps {
     subtext?: string;
     prefix?: string;
     suffix?: string;
+    icon?: React.ReactNode;
 }
 
 export function MetricCard({
@@ -24,6 +25,7 @@ export function MetricCard({
     subtext,
     prefix = "",
     suffix = "",
+    icon,
 }: MetricCardProps) {
     const ref = useRef<HTMLSpanElement>(null);
     const inView = useInView(ref, { once: true });
@@ -58,7 +60,8 @@ export function MetricCard({
     return (
         <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">
+                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+                    {icon}
                     {title}
                 </CardTitle>
                 {trend && (

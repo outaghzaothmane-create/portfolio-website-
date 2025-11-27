@@ -42,7 +42,7 @@ const projects = [
             { label: "Revenue", value: "$1.3M+", icon: TrendingUp },
             { label: "Efficiency", value: "100%", icon: Zap },
         ],
-        link: "#",
+        link: "/projects/health-supply-770",
     },
     {
         title: "Shopify SEO & UX Architecture",
@@ -53,7 +53,7 @@ const projects = [
             { label: "Traffic", value: "+80%", icon: Users },
             { label: "Conv. Rate", value: "+2.5%", icon: TrendingUp },
         ],
-        link: "#",
+        link: "/projects/fantasialife",
     },
     {
         title: "E-commerce SEO & Content Strategy",
@@ -64,7 +64,7 @@ const projects = [
             { label: "Traffic", value: "+150%", icon: Users },
             { label: "Keywords", value: "500+", icon: TrendingUp },
         ],
-        link: "#",
+        link: "/projects/epoptique",
     },
 ];
 
@@ -73,106 +73,108 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export function Projects() {
     return (
-        <section id="projects" className="space-y-12">
-            <div className="flex items-center justify-between">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Case Studies</h2>
-                <Button variant="outline" size="sm" asChild>
-                    <Link href="https://www.linkedin.com/in/othmaneoutaghza/" target="_blank">View All Projects</Link>
-                </Button>
-            </div>
-            <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                className="grid gap-6 md:grid-cols-3"
-            >
-                {projects.map((project) => (
-                    <motion.div
-                        key={project.title}
-                        variants={fadeInUp}
-                        whileHover={{ y: -5, boxShadow: "0px 10px 30px rgba(0,0,0,0.1)" }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                        <Card className="flex flex-col group hover:shadow-lg transition-all duration-300 border-muted-foreground/20 h-full">
-                            <CardHeader>
-                                <div className="flex justify-between items-start">
-                                    <div className="space-y-1">
-                                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                                            {project.title}
-                                        </CardTitle>
-                                        <CardDescription className="font-medium text-primary/80">{project.client}</CardDescription>
-                                    </div>
-                                    <div className="p-2 bg-secondary rounded-full group-hover:bg-primary/10 transition-colors">
-                                        <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                                    </div>
-                                </div>
-                            </CardHeader>
-                            <CardContent className="space-y-4 flex-1">
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {project.description}
-                                </p>
-
-                                {project.client === "Health Supply 770" && (
-                                    <GrowthChart
-                                        chartId="hs770"
-                                        data={healthSupplyData}
-                                        dataKey="value"
-                                        formatter={(val) => `$${(val / 1000000).toFixed(1)}M`}
-                                    />
-                                )}
-
-                                {project.client === "Fantasialife.com" && (
-                                    <GrowthChart
-                                        chartId="fantasia"
-                                        data={fantasiaData}
-                                        dataKey="value"
-                                        formatter={(val) => `${(val / 1000).toFixed(0)}k`}
-                                    />
-                                )}
-
-                                {project.client === "Epoptique.ma" && (
-                                    <GrowthChart
-                                        chartId="epoptique"
-                                        data={epoptiqueData}
-                                        dataKey="value"
-                                        formatter={(val) => `${(val / 1000).toFixed(1)}k`}
-                                    />
-                                )}
-
-                                <div className="grid grid-cols-2 gap-4 py-2">
-                                    {project.metrics.map((metric) => (
-                                        <div key={metric.label} className="flex items-center gap-2">
-                                            <div className="p-1.5 bg-primary/10 rounded-md">
-                                                <metric.icon className="h-3.5 w-3.5 text-primary" />
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-muted-foreground">{metric.label}</p>
-                                                <p className="text-sm font-bold text-foreground">{metric.value}</p>
-                                            </div>
+        <section id="projects" className="w-full bg-slate-50 py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div className="flex items-center justify-between">
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground">Case Studies</h2>
+                    <Button variant="outline" size="sm" asChild>
+                        <Link href="https://www.linkedin.com/in/othmaneoutaghza/" target="_blank">View All Projects</Link>
+                    </Button>
+                </div>
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid gap-6 md:grid-cols-3"
+                >
+                    {projects.map((project) => (
+                        <motion.div
+                            key={project.title}
+                            variants={fadeInUp}
+                            whileHover={{ y: -5, boxShadow: "0px 10px 30px rgba(0,0,0,0.1)" }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        >
+                            <Card className="flex flex-col group hover:shadow-lg transition-all duration-300 border-muted-foreground/20 h-full bg-white">
+                                <CardHeader>
+                                    <div className="flex justify-between items-start">
+                                        <div className="space-y-1">
+                                            <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                                                {project.title}
+                                            </CardTitle>
+                                            <CardDescription className="font-medium text-primary/80">{project.client}</CardDescription>
                                         </div>
-                                    ))}
-                                </div>
+                                        <div className="p-2 bg-secondary rounded-full group-hover:bg-primary/10 transition-colors">
+                                            <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                        </div>
+                                    </div>
+                                </CardHeader>
+                                <CardContent className="space-y-4 flex-1">
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {project.description}
+                                    </p>
 
-                                <div className="flex flex-wrap gap-2 pt-2">
-                                    {project.tags.map((tag) => (
-                                        <Badge key={tag} variant="secondary" className="text-xs font-normal">
-                                            {tag}
-                                        </Badge>
-                                    ))}
-                                </div>
-                            </CardContent>
-                            <CardFooter className="pt-0">
-                                <Button variant="ghost" className="w-full justify-between text-muted-foreground hover:text-primary group-hover:translate-x-1 transition-transform" asChild>
-                                    <Link href={project.link}>
-                                        Read Case Study <ArrowUpRight className="h-4 w-4 ml-2" />
-                                    </Link>
-                                </Button>
-                            </CardFooter>
-                        </Card>
-                    </motion.div>
-                ))}
-            </motion.div>
+                                    {project.client === "Health Supply 770" && (
+                                        <GrowthChart
+                                            chartId="hs770"
+                                            data={healthSupplyData}
+                                            dataKey="value"
+                                            formatter={(val) => `$${(val / 1000000).toFixed(1)}M`}
+                                        />
+                                    )}
+
+                                    {project.client === "Fantasialife.com" && (
+                                        <GrowthChart
+                                            chartId="fantasia"
+                                            data={fantasiaData}
+                                            dataKey="value"
+                                            formatter={(val) => `${(val / 1000).toFixed(0)}k`}
+                                        />
+                                    )}
+
+                                    {project.client === "Epoptique.ma" && (
+                                        <GrowthChart
+                                            chartId="epoptique"
+                                            data={epoptiqueData}
+                                            dataKey="value"
+                                            formatter={(val) => `${(val / 1000).toFixed(1)}k`}
+                                        />
+                                    )}
+
+                                    <div className="grid grid-cols-2 gap-4 py-2">
+                                        {project.metrics.map((metric) => (
+                                            <div key={metric.label} className="flex items-center gap-2">
+                                                <div className="p-1.5 bg-primary/10 rounded-md">
+                                                    <metric.icon className="h-3.5 w-3.5 text-primary" />
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs text-muted-foreground">{metric.label}</p>
+                                                    <p className="text-sm font-bold text-foreground">{metric.value}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2 pt-2">
+                                        {project.tags.map((tag) => (
+                                            <Badge key={tag} variant="secondary" className="text-xs font-normal">
+                                                {tag}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                                <CardFooter className="pt-0">
+                                    <Button variant="ghost" className="w-full justify-between text-muted-foreground hover:text-primary group-hover:translate-x-1 transition-transform" asChild>
+                                        <Link href={project.link}>
+                                            Read Case Study <ArrowUpRight className="h-4 w-4 ml-2" />
+                                        </Link>
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
         </section>
     );
 }

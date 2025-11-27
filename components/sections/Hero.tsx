@@ -30,77 +30,34 @@ export function Hero() {
     };
 
     return (
-        <section id="overview" className="space-y-12">
-            <div className="space-y-4">
-                <motion.h1
-                    variants={container}
-                    initial="hidden"
-                    animate="show"
-                    className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl flex flex-wrap gap-x-3 gap-y-1"
-                >
-                    {words.map((word, i) => (
-                        <motion.span key={i} variants={item}>
-                            {word}
-                        </motion.span>
-                    ))}
-                </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1, duration: 0.5 }}
-                    className="text-xl text-muted-foreground sm:text-2xl"
-                >
-                    Othmane Outaghza - Senior SEO & Automation Manager.
-                </motion.p>
-            </div>
+        <section id="overview" className="w-full bg-white py-24 relative overflow-hidden">
+            {/* Grid Pattern Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none" />
 
-            <motion.div
-                variants={container}
-                initial="hidden"
-                animate="show"
-                className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-            >
-                <motion.div variants={item}>
-                    <MetricCard
-                        title="Total Revenue Generated"
-                        value={1.3}
-                        prefix="$"
-                        suffix="M+"
-                        trend="up"
-                        trendValue="Trending"
-                        subtext="Organic Growth Impact"
-                    />
-                </motion.div>
-                <motion.div variants={item}>
-                    <MetricCard
-                        title="Organic Growth"
-                        value={7000}
-                        suffix="%"
-                        trend="up"
-                        trendValue="Year over Year"
-                        subtext="Consistent Scaling"
-                    />
-                </motion.div>
-                <motion.div variants={item}>
-                    <MetricCard
-                        title="Top 3 Keywords"
-                        value={54}
-                        trend="up"
-                        trendValue="Up from 6"
-                        subtext="High Intent Rankings"
-                    />
-                </motion.div>
-                <motion.div variants={item}>
-                    <MetricCard
-                        title="Clicks/Month"
-                        value={5000}
-                        suffix="+"
-                        trend="up"
-                        trendValue="Up from 700"
-                        subtext="Qualified Traffic"
-                    />
-                </motion.div>
-            </motion.div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="space-y-4 max-w-4xl">
+                    <motion.h1
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                        className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl flex flex-wrap gap-x-3 gap-y-1"
+                    >
+                        {words.map((word, i) => (
+                            <motion.span key={i} variants={item}>
+                                {word}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1, duration: 0.5 }}
+                        className="text-xl text-muted-foreground sm:text-2xl pt-4"
+                    >
+                        Othmane Outaghza - Senior SEO & Automation Manager.
+                    </motion.p>
+                </div>
+            </div>
         </section>
     );
 }
