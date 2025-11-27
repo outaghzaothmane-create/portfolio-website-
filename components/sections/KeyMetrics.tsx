@@ -29,7 +29,7 @@ export function KeyMetrics() {
     };
 
     return (
-        <section className="w-full bg-gray-50/80 border-y border-gray-100 py-24">
+        <section className="w-full bg-gray-50/80 border-y border-gray-100 py-12 md:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper>
                     <motion.div
@@ -37,7 +37,7 @@ export function KeyMetrics() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+                        className="grid gap-4 grid-cols-2 md:grid-cols-4"
                     >
                         <motion.div variants={item}>
                             <MetricCard

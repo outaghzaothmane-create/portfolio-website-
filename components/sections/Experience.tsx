@@ -46,41 +46,43 @@ export function Experience() {
                 <CardHeader>
                     <CardTitle>Experience History</CardTitle>
                 </CardHeader>
-                <CardContent>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[200px]">Role</TableHead>
-                                <TableHead className="w-[200px]">Company</TableHead>
-                                <TableHead className="w-[150px]">Period</TableHead>
-                                <TableHead>Impact & Key Metrics</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {experienceData.map((item) => (
-                                <TableRow key={item.company}>
-                                    <TableCell className="font-medium">
-                                        <div>{item.role}</div>
-                                        <div className="md:hidden text-xs text-muted-foreground">{item.company}</div>
-                                    </TableCell>
-                                    <TableCell className="hidden md:table-cell">{item.company}</TableCell>
-                                    <TableCell className="text-muted-foreground text-sm">{item.period}</TableCell>
-                                    <TableCell>
-                                        <div className="space-y-1">
-                                            <p>{item.impact}</p>
-                                            <div className="flex flex-wrap gap-1">
-                                                {item.tags.map((tag) => (
-                                                    <Badge key={tag} variant="secondary" className="text-xs">
-                                                        {tag}
-                                                    </Badge>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </TableCell>
+                <CardContent className="p-0 md:p-6">
+                    <div className="overflow-x-auto">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="min-w-[150px] md:w-[200px]">Role</TableHead>
+                                    <TableHead className="min-w-[120px] md:w-[200px] hidden md:table-cell">Company</TableHead>
+                                    <TableHead className="min-w-[100px] md:w-[150px]">Period</TableHead>
+                                    <TableHead className="min-w-[250px]">Impact & Key Metrics</TableHead>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                            </TableHeader>
+                            <TableBody>
+                                {experienceData.map((item) => (
+                                    <TableRow key={item.company}>
+                                        <TableCell className="font-medium">
+                                            <div>{item.role}</div>
+                                            <div className="md:hidden text-xs text-muted-foreground mt-1">{item.company}</div>
+                                        </TableCell>
+                                        <TableCell className="hidden md:table-cell">{item.company}</TableCell>
+                                        <TableCell className="text-muted-foreground text-sm whitespace-nowrap">{item.period}</TableCell>
+                                        <TableCell>
+                                            <div className="space-y-2">
+                                                <p className="text-sm">{item.impact}</p>
+                                                <div className="flex flex-wrap gap-1">
+                                                    {item.tags.map((tag) => (
+                                                        <Badge key={tag} variant="secondary" className="text-xs">
+                                                            {tag}
+                                                        </Badge>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
                 </CardContent>
             </Card>
         </section>

@@ -6,9 +6,9 @@ import { Settings, BarChart, Code2 } from "lucide-react";
 
 const skillGroups = [
     {
-        title: "Google Ecosystem",
+        title: "SEO & Analytics",
         icon: BarChart,
-        skills: ["GA4", "Google Search Console", "Looker Studio", "Google Tag Manager"],
+        skills: ["GA4", "Google Search Console", "Screaming Frog", "Looker Studio", "Google Tag Manager"],
     },
     {
         title: "Automation",

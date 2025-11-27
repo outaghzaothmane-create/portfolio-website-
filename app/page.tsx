@@ -4,7 +4,9 @@ import { KeyMetrics } from "@/components/sections/KeyMetrics";
 import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
 import { AutomationStack } from "@/components/sections/AutomationStack";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Projects } from "@/components/sections/Projects";
+import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
 
@@ -17,6 +19,14 @@ export default function Home() {
 
             <KeyMetrics />
 
+            <AutomationStack />
+
+            <Projects />
+
+            <Testimonials />
+
+            <Services />
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <SectionWrapper delay={0.1}>
                     <Experience />
@@ -28,10 +38,6 @@ export default function Home() {
                     <Skills />
                 </SectionWrapper>
             </div>
-
-            <AutomationStack />
-
-            <Projects />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <SectionWrapper delay={0.1}>

@@ -58,30 +58,30 @@ export function MetricCard({
     }, [springValue, prefix, suffix, value]);
 
     return (
-        <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+        <Card className="h-full">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 px-3 pt-3 md:px-6 md:pt-6">
+                <CardTitle className="text-xs md:text-sm font-medium text-muted-foreground flex items-center gap-2 leading-tight">
                     {icon}
-                    {title}
+                    <span className="line-clamp-2">{title}</span>
                 </CardTitle>
                 {trend && (
                     <div
                         className={cn(
-                            "flex items-center text-xs font-medium",
+                            "flex items-center text-xs font-medium shrink-0",
                             trend === "up" ? "text-green-600" : "text-red-600"
                         )}
                     >
                         {trend === "up" ? (
-                            <ArrowUpRight className="mr-1 h-4 w-4" />
+                            <ArrowUpRight className="mr-1 h-3 w-3 md:h-4 md:w-4" />
                         ) : (
-                            <ArrowDownRight className="mr-1 h-4 w-4" />
+                            <ArrowDownRight className="mr-1 h-3 w-3 md:h-4 md:w-4" />
                         )}
-                        {trendValue}
+                        <span className="hidden md:inline">{trendValue}</span>
                     </div>
                 )}
             </CardHeader>
-            <CardContent>
-                <div className="text-2xl font-bold text-foreground">
+            <CardContent className="px-3 pb-3 md:px-6 md:pb-6">
+                <div className="text-xl md:text-2xl font-bold text-foreground">
                     {/* If value is not numeric (e.g. complex string), just show it. Otherwise animate. */}
                     {isNaN(numericValue) ? (
                         <span>{value}</span>
@@ -90,7 +90,7 @@ export function MetricCard({
                     )}
                 </div>
                 {subtext && (
-                    <p className="text-xs text-muted-foreground mt-1">{subtext}</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground mt-1 line-clamp-2">{subtext}</p>
                 )}
             </CardContent>
         </Card>

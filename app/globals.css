@@ -85,35 +85,70 @@
 }
 
 .terminal-mode {
-    --background: 120 10% 5%;
-    /* #0a0d0a */
-    --foreground: 120 100% 50%;
-    /* #00ff00 */
-    --card: 120 10% 10%;
-    --card-foreground: 120 100% 50%;
-    --popover: 120 10% 10%;
-    --popover-foreground: 120 100% 50%;
-    --primary: 120 100% 50%;
+    --background: 0 0% 0%;
+    /* #000000 */
+    --foreground: 142 71% 45%;
+    /* #22c55e (green-500) */
+    --card: 0 0% 0%;
+    --card-foreground: 142 71% 45%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 142 71% 45%;
+    --primary: 142 71% 45%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 120 20% 10%;
-    --secondary-foreground: 120 100% 50%;
-    --muted: 120 20% 10%;
-    --muted-foreground: 120 60% 40%;
-    --accent: 120 20% 10%;
-    --accent-foreground: 120 100% 50%;
+    --secondary: 142 71% 45%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 142 71% 45%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 142 71% 45%;
     --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 120 100% 50%;
-    --input: 120 100% 50%;
-    --ring: 120 100% 50%;
+    --border: 142 71% 45%;
+    --input: 142 71% 45%;
+    --ring: 142 71% 45%;
 
     font-family: 'Courier New', Courier, monospace !important;
+    background-color: black !important;
+    color: #22c55e !important;
 }
 
 .terminal-mode * {
-    border-color: rgba(0, 255, 0, 0.3) !important;
+    border-color: #166534 !important;
+    /* green-800 */
 }
 
-.terminal-mode .bg-secondary\/30 {
-    background-color: rgba(0, 20, 0, 0.9) !important;
+/* Force transparency or black on cards in dev mode */
+.terminal-mode .bg-white,
+.terminal-mode .bg-slate-50,
+.terminal-mode .bg-gray-50 {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    color: #22c55e !important;
+}
+
+.terminal-mode .text-gray-900,
+.terminal-mode .text-gray-600,
+.terminal-mode .text-gray-500,
+.terminal-mode .text-muted-foreground {
+    color: #22c55e !important;
+}
+
+.terminal-mode .text-gray-400 {
+    color: #15803d !important;
+    /* green-700 for subtle text */
+}
+
+@keyframes pulse-scale {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-scale {
+    animation: pulse-scale 2s infinite ease-in-out;
 }

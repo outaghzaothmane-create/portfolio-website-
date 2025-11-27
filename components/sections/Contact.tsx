@@ -22,13 +22,13 @@ export function Contact() {
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <Button variant="secondary" size="lg" className="gap-2" asChild>
+                        <Button variant="ghost" size="lg" className="gap-2 bg-transparent border border-white text-white hover:bg-white/10 hover:text-white" asChild>
                             <Link href="mailto:outaghza.othmane@gmail.com">
                                 <Mail className="h-4 w-4" />
                                 Email Me
                             </Link>
                         </Button>
-                        <Button variant="secondary" size="lg" className="gap-2" asChild>
+                        <Button variant="ghost" size="lg" className="gap-2 bg-transparent border border-white text-white hover:bg-white/10 hover:text-white" asChild>
                             <Link href="https://www.linkedin.com/in/othmaneoutaghza/" target="_blank">
                                 <Linkedin className="h-4 w-4" />
                                 LinkedIn
@@ -37,10 +37,10 @@ export function Contact() {
                         <Button
                             variant="default"
                             size="lg"
-                            className="gap-2 bg-orange-500 text-white hover:bg-orange-600"
+                            className="gap-2 bg-white text-blue-600 font-bold shadow-lg shadow-blue-900/20 hover:bg-blue-50 animate-pulse-scale"
                             onClick={() => setShowAudit(true)}
                         >
-                            Audit My Site
+                            Get Free Audit
                             <ArrowRight className="h-4 w-4" />
                         </Button>
                     </div>

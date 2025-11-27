@@ -5,7 +5,7 @@ import { staggerContainer } from "@/lib/animations";
 
 export function DashboardWrapper({ children }: { children: React.ReactNode }) {
     return (
-        <div className="min-h-screen bg-secondary/30">
+        <main className="min-h-screen bg-secondary/30">
             <motion.div
                 variants={staggerContainer}
                 initial="hidden"
@@ -14,6 +14,6 @@ export function DashboardWrapper({ children }: { children: React.ReactNode }) {
             >
                 {children}
             </motion.div>
-        </div>
+        </main>
     );
 }

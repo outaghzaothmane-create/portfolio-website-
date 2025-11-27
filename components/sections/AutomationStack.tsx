@@ -126,10 +126,13 @@ const NodeCard = ({ tool, isActive }: { tool: any, isActive: boolean }) => {
 
     return (
         <motion.div
-            className="relative group z-20"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="relative group z-20 cursor-grab active:cursor-grabbing"
+            drag
+            dragSnapToOrigin
+            dragElastic={0.2}
+            whileHover={{ scale: 1.05 }}
+            whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 50 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
             {/* Ports */}
             <div className="absolute top-1/2 -left-1.5 w-2.5 h-2.5 rounded-full border-2 border-border bg-background -translate-y-1/2 z-30 hidden md:block" />
@@ -244,10 +247,10 @@ export function AutomationStack() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
                     {/* Flowchart Container */}
-                    <div className="relative lg:col-span-3 p-4 md:p-6 rounded-xl border bg-background/50 backdrop-blur-sm overflow-hidden flex flex-col gap-8 min-h-[300px]">
+                    <div className="relative lg:col-span-3 p-4 md:p-6 rounded-xl border bg-background/50 backdrop-blur-sm overflow-x-auto snap-x flex flex-col gap-8 min-h-[300px]">
 
                         {/* Flowchart Content */}
-                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-0 h-full w-full">
+                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-0 h-full w-full min-w-[600px] md:min-w-0">
 
                             {/* Linear Part (Source -> Processor -> Orchestrator) */}
                             {linearTools.map((tool, index) => (

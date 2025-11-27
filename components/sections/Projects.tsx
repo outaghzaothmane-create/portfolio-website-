@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, TrendingUp, Users, Zap } from "lucide-react";
 import Link from "next/link";
 import { GrowthChart } from "@/components/ui/growth-chart";
+import { cn } from "@/lib/utils";
 
 const healthSupplyData = [
     { year: "2022", value: 100000, milestone: "Started SEO" },
@@ -70,8 +71,11 @@ const projects = [
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { useTerminal } from "@/components/providers/terminal-context";
 
 export function Projects() {
+    const { isTerminalMode } = useTerminal();
+
     return (
         <section id="projects" className="w-full bg-slate-50 py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -95,7 +99,10 @@ export function Projects() {
                             whileHover={{ y: -5, boxShadow: "0px 10px 30px rgba(0,0,0,0.1)" }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
-                            <Card className="flex flex-col group hover:shadow-lg transition-all duration-300 border-muted-foreground/20 h-full bg-white">
+                            <Card className={cn(
+                                "flex flex-col group hover:shadow-lg transition-all duration-300 border-muted-foreground/20 h-full",
+                                isTerminalMode ? "bg-black/90 border-green-800" : "bg-white"
+                            )}>
                                 <CardHeader>
                                     <div className="flex justify-between items-start">
                                         <div className="space-y-1">
