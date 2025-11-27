@@ -37,7 +37,7 @@ export function Hero() {
     return (
         <section
             id="overview"
-            className="w-full bg-white py-24 relative overflow-hidden"
+            className="w-full bg-white py-24 relative overflow-hidden min-h-[60vh] md:min-h-[80vh] flex flex-col justify-center"
         >
             <OrbitSpace density="high" />
             {/* Grid Pattern Overlay */}

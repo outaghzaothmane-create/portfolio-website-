@@ -8,8 +8,12 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
+<<<<<<< HEAD
 import { Footer } from "@/components/layout/Footer";
 
+=======
+import { Footer } from "@/components/sections/Footer";
+>>>>>>> 1812924 (feat: responsive hero, new footer, and resume download link)
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 export default function Home() {
@@ -47,6 +51,11 @@ export default function Home() {
 
             <Footer />
 
+            <SectionWrapper delay={0.1}>
+                <Contact />
+            </SectionWrapper>
+
+            <Footer />
         </DashboardWrapper>
     );
 }

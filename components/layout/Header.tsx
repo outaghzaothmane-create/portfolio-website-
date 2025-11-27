@@ -279,6 +279,18 @@ export function Header() {
                                             onCheckedChange={toggleTerminalMode}
                                         />
                                     </div>
+
+                                    <a
+                                        href="/resume.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-lg font-medium transition-colors hover:text-primary text-muted-foreground"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        <Layers className="h-5 w-5" />
+                                        Download Resume
+                                    </a>
+
                                     <Button className="mt-4 w-full rounded-full animate-pulse-scale" onClick={() => { setIsOpen(false); setShowAudit(true); }}>
                                         Get Free Audit
                                     </Button>
