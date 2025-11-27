@@ -78,7 +78,10 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
             ? ["#4285F4", "#EA4335", "#FBBC05", "#34A853", "#9AA0A6"] // Google Colors
             : ["#9CA3AF", "#6B7280", "#4B5563"]; // Grayscale
 
-        const count = density === "high" ? 20 : 10;
+        // Reduce count on mobile for performance
+        const baseCount = density === "high" ? 20 : 10;
+        const count = isMobile ? Math.floor(baseCount / 2) : baseCount;
+
         const sizeMultiplier = density === "high" ? 1 : 0.7;
 
         for (let i = 0; i < count; i++) {
@@ -96,15 +99,11 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
             });
         }
         return items;
-    }, [density]);
+    }, [density, isMobile]);
 
     // Don't render until mounted to avoid hydration mismatch
     if (!mounted) {
         return null;
-    }
-
-    if (isMobile) {
-        return null; // Disable on mobile to prevent hydration errors
     }
 
     return (
