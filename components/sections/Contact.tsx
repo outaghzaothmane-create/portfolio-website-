@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-import { AuditModal } from "@/components/ui/audit-modal";
 import { OrbitSpace } from "@/components/ui/orbit-space";
 import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
@@ -13,7 +11,6 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function Contact() {
     const { isTerminalMode } = useTerminal();
-    const [showAudit, setShowAudit] = useState(false);
 
     return (
         <section id="contact" className="w-full py-16 bg-transparent">
@@ -36,46 +33,19 @@ export function Contact() {
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <MagneticButton className={cn(
-                            "shadow-lg transition-colors",
-                            isTerminalMode
-                                ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
-                                : "bg-black text-white hover:bg-black/90 border-transparent"
-                        )}>
-                            <a
-                                href="mailto:outaghza.othmane@gmail.com"
-                                className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium"
-                            >
-                                <Mail className="h-3 w-3" />
-                                Email Me
-                            </a>
-                        </MagneticButton>
-                        <MagneticButton className={cn(
-                            "shadow-lg transition-colors",
-                            isTerminalMode
-                                ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
-                                : "bg-black text-white hover:bg-black/90 border-transparent"
-                        )}>
-                            <a
-                                href="https://www.linkedin.com/in/othmaneoutaghza/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium"
-                            >
-                                <Linkedin className="h-3 w-3" />
-                                LinkedIn
-                            </a>
-                        </MagneticButton>
-                        <MagneticButton className={cn(
-                            "shadow-lg transition-colors",
-                            isTerminalMode
-                                ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
-                                : "bg-black text-white hover:bg-black/90 border-transparent"
-                        )}>
-                            <div
-                                className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium cursor-pointer"
-                                onClick={() => setShowAudit(true)}
-                            >
+
+                        <MagneticButton
+                            href="https://calendly.com/outaghza-othmane/seo-meeting"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={cn(
+                                "shadow-lg transition-colors",
+                                isTerminalMode
+                                    ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
+                                    : "bg-black text-white hover:bg-black/90 border-transparent"
+                            )}
+                        >
+                            <div className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium">
                                 Get Free Audit
                                 <ArrowRight className="h-3 w-3" />
                             </div>
@@ -83,7 +53,6 @@ export function Contact() {
                     </div>
                 </CardContent>
             </Card>
-            <AuditModal isOpen={showAudit} onClose={() => setShowAudit(false)} />
         </section>
     );
 }

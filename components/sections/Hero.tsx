@@ -40,14 +40,14 @@ export function Hero() {
                         <HyperText
                             text="Driving $1.3M+ in Organic"
                             className={cn(
-                                "text-5xl font-bold tracking-tighter sm:text-7xl",
+                                "text-4xl font-bold tracking-tighter sm:text-6xl",
                                 isTerminalMode ? "text-green-500" : "text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60"
                             )}
                         />
                         <HyperText
                             text="Revenue through Data & Automation."
                             className={cn(
-                                "text-5xl font-bold tracking-tighter sm:text-7xl",
+                                "text-4xl font-bold tracking-tighter sm:text-6xl",
                                 isTerminalMode ? "text-green-500" : "text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60"
                             )}
                         />
@@ -55,7 +55,7 @@ export function Hero() {
 
                     <BlurFade delay={0.25} inView>
                         <p className={cn(
-                            "text-xl sm:text-2xl pt-4 font-light tracking-tight",
+                            "text-xl sm:text-2xl pt-4 font-bold tracking-tight animate-text-shimmer",
                             isTerminalMode ? "text-green-600" : "text-muted-foreground"
                         )}>
                             Othmane Outaghza - Senior SEO & Automation Manager.
@@ -64,21 +64,21 @@ export function Hero() {
 
                     <BlurFade delay={0.5} inView>
                         <div className="pt-4">
-                            <MagneticButton className={cn(
-                                "shadow-sm transition-colors",
-                                isTerminalMode
-                                    ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
-                                    : "bg-black text-white hover:bg-black/90 border-transparent"
-                            )}>
-                                <a
-                                    href="/resume.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2"
-                                >
+                            <MagneticButton
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={cn(
+                                    "shadow-sm transition-colors",
+                                    isTerminalMode
+                                        ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
+                                        : "bg-black text-white hover:bg-black/90 border-transparent"
+                                )}
+                            >
+                                <div className="flex items-center gap-2">
                                     <Download className="h-4 w-4" />
                                     {isTerminalMode ? "export_resume.json" : "Download CV"}
-                                </a>
+                                </div>
                             </MagneticButton>
                         </div>
                     </BlurFade>

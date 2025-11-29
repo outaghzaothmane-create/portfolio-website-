@@ -160,7 +160,7 @@ export function Header() {
                                             : "bg-black text-white hover:bg-black/80"
                                     )}
                                 >
-                                    <Link href="https://calendly.com/outaghza-othmane/seo-meeting" target="_blank">
+                                    <Link href="https://calendly.com/outaghza-othmane/seo-meeting" target="_blank" className={cn(isTerminalMode && "animate-text-shimmer")}>
                                         Get Free Audit
                                     </Link>
                                 </Button>

@@ -65,21 +65,21 @@ export function Footer() {
                                     isTerminalMode ? "bg-green-900/30 text-green-400 border border-green-800/50" : "bg-gray-100 text-gray-600 border border-gray-200"
                                 )}>MA</span>
                             </p>
-                            <MagneticButton className={cn(
-                                "shadow-sm transition-colors",
-                                isTerminalMode
-                                    ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
-                                    : "bg-black text-white hover:bg-black/90 border-transparent"
-                            )}>
-                                <a
-                                    href="/resume.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium"
-                                >
+                            <MagneticButton
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={cn(
+                                    "shadow-sm transition-colors",
+                                    isTerminalMode
+                                        ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
+                                        : "bg-black text-white hover:bg-black/90 border-transparent"
+                                )}
+                            >
+                                <div className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium">
                                     <Download className="h-3 w-3" />
                                     Download Resume
-                                </a>
+                                </div>
                             </MagneticButton>
                         </div>
 
@@ -89,7 +89,7 @@ export function Footer() {
                             <nav className="flex flex-col gap-3 items-center md:items-start">
                                 {[
                                     { name: "Overview", href: "#overview" },
-                                    { name: "Case Studies", href: "#projects" },
+                                    { name: "Case Studies", href: "/#projects" },
                                     { name: "Tech Stack", href: "#tech-stack" },
                                     { name: "Services", href: "#services" }
                                 ].map((item) => (

@@ -64,6 +64,7 @@ export function Footer() {
                             <Button
                                 variant="outline"
                                 size="sm"
+                                asChild
                                 className={cn(
                                     "rounded-full gap-2 transition-all hover:shadow-md",
                                     isTerminalMode ? "border-green-800 text-green-500 hover:bg-green-900/20" : "border-border hover:border-primary/50 hover:text-primary"

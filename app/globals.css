@@ -168,3 +168,26 @@
 .animate-pulse-scale {
     animation: pulse-scale 2s infinite ease-in-out;
 }
+
+@keyframes text-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-text-shimmer {
+    background: linear-gradient(to right,
+            currentColor 20%,
+            #3b82f6 40%,
+            #8b5cf6 60%,
+            currentColor 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: text-shimmer 1s linear infinite;
+}

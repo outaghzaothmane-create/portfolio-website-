@@ -4,10 +4,13 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface MagneticButtonProps extends React.HTMLAttributes<HTMLElement> {
     children: React.ReactNode;
     strength?: number; // Strength of the magnetic pull (default: 0.5)
     textStrength?: number; // Strength of the text parallax (default: 0.3)
+    href?: string;
+    target?: string;
+    rel?: string;
 }
 
 export const MagneticButton = ({
@@ -15,9 +18,10 @@ export const MagneticButton = ({
     strength = 0.5,
     textStrength = 0.3,
     className = '',
+    href,
     ...props
 }: MagneticButtonProps) => {
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const buttonRef = useRef<any>(null);
     const textRef = useRef<HTMLSpanElement>(null);
 
     const xTo = useRef<gsap.QuickToFunc | null>(null);
@@ -36,7 +40,7 @@ export const MagneticButton = ({
         yToText.current = gsap.quickTo(textRef.current, 'y', { duration: 1, ease: 'elastic.out(1, 0.3)' });
     }, { scope: buttonRef });
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
         if (!buttonRef.current || !xTo.current || !yTo.current || !xToText.current || !yToText.current) return;
 
         const { clientX, clientY } = e;
@@ -61,17 +65,20 @@ export const MagneticButton = ({
         yToText.current(0);
     };
 
+    const Component = href ? 'a' : 'div';
+
     return (
-        <button
+        <Component
             ref={buttonRef}
+            href={href}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-colors bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${className}`}
+            className={`relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-colors bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${className}`}
             {...props}
         >
-            <span ref={textRef} className="relative z-10 block pointer-events-none">
+            <span ref={textRef} className="relative z-10 block">
                 {children}
             </span>
-        </button>
+        </Component>
     );
 };
