@@ -8,7 +8,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/sections/Footer";
+import { Footer } from "@/components/layout/Footer";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 
 export default function Home() {
@@ -26,19 +26,19 @@ export default function Home() {
 
             <Services />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
                     <Experience />
                 </SectionWrapper>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
                     <Skills />
                 </SectionWrapper>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
                     <Contact />
                 </SectionWrapper>

@@ -10,15 +10,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "Othmane Outaghza | Senior SEO & Automation Manager (Revenue Focused)",
-    description: "Portfolio of Othmane Outaghza. Specialized in driving $1.3M+ organic revenue through Technical SEO, Python Automation, and Data Science.",
+    metadataBase: new URL("https://othmane.seo"),
+    title: "Othmane.SEO | Senior Automation Manager",
+    description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
     keywords: ["SEO Manager", "Technical SEO", "Python Automation", "Ecommerce SEO", "Make.com Expert"],
     openGraph: {
-        title: "Othmane Outaghza | Senior SEO & Automation Manager",
-        description: "Driving $1.3M+ organic revenue through Technical SEO & Automation.",
-        type: "website",
+        title: "Othmane.SEO | Senior Automation Manager",
+        description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
         url: "https://othmane.seo",
-        // images: [{ url: "/og-image.jpg" }], // Placeholder for now
+        siteName: "Othmane.SEO",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Othmane Outaghza Portfolio Preview",
+            },
+        ],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Othmane.SEO | Senior Automation Manager",
+        description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
+        images: ["/og-image.jpg"],
     },
     alternates: {
         canonical: "https://othmane.seo",
@@ -28,6 +44,8 @@ export const metadata: Metadata = {
 import { Header } from "@/components/layout/Header";
 import { TerminalProvider } from "@/components/providers/terminal-context";
 
+import { GlobalBackground } from "@/components/layout/GlobalBackground";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -35,9 +53,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={inter.className}>
+            <body className={cn(inter.className, "overflow-x-hidden")}>
                 <Schema />
                 <TerminalProvider>
+                    <GlobalBackground />
                     <Header />
                     {children}
                 </TerminalProvider>

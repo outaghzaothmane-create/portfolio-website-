@@ -59,7 +59,9 @@ export function Services() {
     const { isTerminalMode } = useTerminal();
 
     return (
-        <section id="services" className="w-full py-12 md:py-24 bg-slate-50/50">
+        <section id="services" className={cn(
+            "w-full py-16 transition-colors duration-500 bg-transparent"
+        )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-12">
                     <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">Engagement Models</h2>
@@ -68,7 +70,7 @@ export function Services() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -76,26 +78,28 @@ export function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            whileHover={{ y: -5 }}
+                            whileHover={{ scale: 1.01 }}
+                            className="h-full"
                         >
                             <Card className={cn(
-                                "h-full transition-all duration-300 relative overflow-hidden flex flex-col group",
+                                "h-full transition-all duration-500 relative overflow-hidden flex flex-col group",
+                                "rounded-[2rem] p-8",
                                 isTerminalMode
-                                    ? "bg-black/95 border-green-800 hover:border-green-700 hover:shadow-[0_0_20px_rgba(34,197,94,0.15)]"
-                                    : `bg-white border-gray-200 hover:shadow-xl ${service.glow}`
+                                    ? "bg-black/60 backdrop-blur-md border-green-800 hover:border-green-700 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]"
+                                    : `bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl ${service.glow}`
                             )}>
-                                <CardHeader>
+                                <CardHeader className="p-0 pb-6">
                                     <div className={cn(
-                                        "w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors",
-                                        isTerminalMode ? "bg-green-900/20" : "bg-gray-50 group-hover:bg-white"
+                                        "w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors",
+                                        isTerminalMode ? "bg-green-900/20" : "bg-white shadow-sm"
                                     )}>
                                         <service.icon className={cn(
-                                            "h-6 w-6 transition-all duration-300",
+                                            "h-7 w-7 transition-all duration-300",
                                             isTerminalMode ? "text-green-500" : service.color,
-                                            !isTerminalMode && "group-hover:scale-110 group-hover:drop-shadow-md"
+                                            !isTerminalMode && "group-hover:scale-110"
                                         )} />
                                     </div>
-                                    <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
+                                    <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
                                     <p className={cn(
                                         "text-sm font-medium",
                                         isTerminalMode ? "text-green-600" : "text-muted-foreground"
@@ -103,18 +107,18 @@ export function Services() {
                                         {service.subtitle}
                                     </p>
                                 </CardHeader>
-                                <CardContent className="flex-1 flex flex-col justify-between space-y-6">
-                                    <div className="space-y-4">
+                                <CardContent className="flex-1 flex flex-col justify-between space-y-8 p-0">
+                                    <div className="space-y-6">
                                         <Badge variant="outline" className={cn(
-                                            "w-full justify-center py-1",
-                                            isTerminalMode ? "border-green-800 text-green-400" : "bg-gray-50 text-gray-600 border-gray-200"
+                                            "w-full justify-center py-1.5 text-sm font-normal",
+                                            isTerminalMode ? "border-green-800 text-green-400" : "bg-white/50 text-gray-600 border-white/60"
                                         )}>
                                             {service.target}
                                         </Badge>
 
-                                        <ul className="space-y-2">
+                                        <ul className="space-y-3">
                                             {service.features.map((feature, i) => (
-                                                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                                <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                                                     <span className={cn(
                                                         "mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0",
                                                         isTerminalMode ? "bg-green-500" : service.color.replace("text-", "bg-")
@@ -125,9 +129,9 @@ export function Services() {
                                         </ul>
                                     </div>
 
-                                    <div className="space-y-4">
+                                    <div className="space-y-6">
                                         <p className={cn(
-                                            "text-sm italic border-l-2 pl-3",
+                                            "text-sm italic border-l-2 pl-4 py-1",
                                             isTerminalMode ? "text-green-500 border-green-800" : "text-gray-600 border-gray-200"
                                         )}>
                                             "{service.why}"
@@ -138,10 +142,10 @@ export function Services() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={cn(
-                                                "flex items-center gap-2 text-sm font-semibold pt-4 border-t transition-colors",
+                                                "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all",
                                                 isTerminalMode
-                                                    ? "text-green-500 border-green-900 hover:text-green-400"
-                                                    : `${service.color} border-gray-100 hover:opacity-80`
+                                                    ? "bg-green-900/20 text-green-500 hover:bg-green-900/30"
+                                                    : "bg-white text-foreground hover:shadow-md border border-white/60"
                                             )}
                                         >
                                             Book Strategy Call <ArrowUpRight className="h-4 w-4" />

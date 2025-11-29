@@ -6,43 +6,80 @@ import { Mail, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { AuditModal } from "@/components/ui/audit-modal";
+import { OrbitSpace } from "@/components/ui/orbit-space";
+import { useTerminal } from "@/components/providers/terminal-context";
+import { cn } from "@/lib/utils";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function Contact() {
+    const { isTerminalMode } = useTerminal();
     const [showAudit, setShowAudit] = useState(false);
 
     return (
-        <section id="contact" className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">Start a new property</h2>
-            <Card className="bg-primary text-primary-foreground">
-                <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <section id="contact" className="w-full py-16 bg-transparent">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8">Start a new property</h2>
+            <Card className={cn(
+                "relative overflow-hidden border transition-all duration-500 rounded-[2.5rem]",
+                isTerminalMode
+                    ? "bg-black/70 backdrop-blur-xl border-green-900/50 shadow-[0_0_30px_rgba(34,197,94,0.15)]"
+                    : "bg-white/70 backdrop-blur-xl border-white/20 shadow-2xl shadow-black/5"
+            )}>
+                {/* Background Effect */}
+                <div className="absolute inset-0 pointer-events-none opacity-30">
+                    <OrbitSpace density="low" />
+                </div>
+                <CardContent className="p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                     <div className="space-y-2 text-center md:text-left">
-                        <h3 className="text-2xl font-bold">Ready to scale your organic revenue?</h3>
-                        <p className="text-primary-foreground/90">
+                        <h3 className={cn("text-2xl font-bold", isTerminalMode ? "text-foreground" : "text-gray-900")}>Ready to scale your organic revenue?</h3>
+                        <p className={cn(isTerminalMode ? "text-primary-foreground/90" : "text-gray-600")}>
                             Let's audit your current setup and identify automation opportunities.
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <Button variant="ghost" size="lg" className="gap-2 bg-transparent border border-white text-white hover:bg-white/10 hover:text-white" asChild>
-                            <Link href="mailto:outaghza.othmane@gmail.com">
-                                <Mail className="h-4 w-4" />
+                        <MagneticButton className={cn(
+                            "shadow-lg transition-colors",
+                            isTerminalMode
+                                ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
+                                : "bg-black text-white hover:bg-black/90 border-transparent"
+                        )}>
+                            <a
+                                href="mailto:outaghza.othmane@gmail.com"
+                                className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium"
+                            >
+                                <Mail className="h-3 w-3" />
                                 Email Me
-                            </Link>
-                        </Button>
-                        <Button variant="ghost" size="lg" className="gap-2 bg-transparent border border-white text-white hover:bg-white/10 hover:text-white" asChild>
-                            <Link href="https://www.linkedin.com/in/othmaneoutaghza/" target="_blank">
-                                <Linkedin className="h-4 w-4" />
+                            </a>
+                        </MagneticButton>
+                        <MagneticButton className={cn(
+                            "shadow-lg transition-colors",
+                            isTerminalMode
+                                ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
+                                : "bg-black text-white hover:bg-black/90 border-transparent"
+                        )}>
+                            <a
+                                href="https://www.linkedin.com/in/othmaneoutaghza/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium"
+                            >
+                                <Linkedin className="h-3 w-3" />
                                 LinkedIn
-                            </Link>
-                        </Button>
-                        <Button
-                            variant="default"
-                            size="lg"
-                            className="gap-2 bg-white text-blue-600 font-bold shadow-lg shadow-blue-900/20 hover:bg-blue-50 animate-pulse-scale"
-                            onClick={() => setShowAudit(true)}
-                        >
-                            Get Free Audit
-                            <ArrowRight className="h-4 w-4" />
-                        </Button>
+                            </a>
+                        </MagneticButton>
+                        <MagneticButton className={cn(
+                            "shadow-lg transition-colors",
+                            isTerminalMode
+                                ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
+                                : "bg-black text-white hover:bg-black/90 border-transparent"
+                        )}>
+                            <div
+                                className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium cursor-pointer"
+                                onClick={() => setShowAudit(true)}
+                            >
+                                Get Free Audit
+                                <ArrowRight className="h-3 w-3" />
+                            </div>
+                        </MagneticButton>
                     </div>
                 </CardContent>
             </Card>

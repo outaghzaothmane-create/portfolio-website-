@@ -80,7 +80,19 @@
     }
 
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground overflow-x-hidden;
+    }
+
+    h1 {
+        @apply text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    }
+
+    h2 {
+        @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    }
+
+    h3 {
+        @apply text-2xl md:text-3xl font-bold;
     }
 }
 
@@ -120,9 +132,13 @@
 /* Force transparency or black on cards in dev mode */
 .terminal-mode .bg-white,
 .terminal-mode .bg-slate-50,
-.terminal-mode .bg-gray-50 {
-    background-color: rgba(0, 0, 0, 0.9) !important;
+.terminal-mode .bg-gray-50,
+.terminal-mode .card,
+.terminal-mode [class*="card"],
+.terminal-mode [class*="bg-white"] {
+    background-color: #000000 !important;
     color: #22c55e !important;
+    border-color: rgba(20, 83, 45, 0.5) !important;
 }
 
 .terminal-mode .text-gray-900,

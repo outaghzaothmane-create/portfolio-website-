@@ -83,8 +83,9 @@ const Connection = ({ isVertical = false }: { isVertical?: boolean }) => {
             isVertical ? "h-8 w-full" : "w-8 h-full" // Reduced from w-12/h-12 to w-8/h-8
         )}>
             <div className={cn(
-                "absolute bg-border",
-                isVertical ? "h-full w-[2px]" : "w-full h-[2px]"
+                "absolute",
+                isVertical ? "h-full w-[2px]" : "w-full h-[2px]",
+                isTerminalMode ? "bg-green-900/30" : "bg-border"
             )} />
             <motion.div
                 className={cn(
@@ -105,9 +106,9 @@ const ForkConnection = () => {
         <div className="relative w-12 h-48 flex items-center"> {/* Reduced width w-16 -> w-12, height h-64 -> h-48 */}
             <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 48 192" preserveAspectRatio="none"> {/* Updated viewBox */}
                 {/* Top Branch - Goes from center (96) to top (48) */}
-                <path d="M 0 96 C 20 96, 20 48, 48 48" fill="none" stroke="currentColor" strokeWidth="2" className="text-border" strokeLinecap="round" />
+                <path d="M 0 96 C 20 96, 20 48, 48 48" fill="none" stroke="currentColor" strokeWidth="2" className={isTerminalMode ? "text-green-900/30" : "text-border"} strokeLinecap="round" />
                 {/* Bottom Branch - Goes from center (96) to bottom (144) */}
-                <path d="M 0 96 C 20 96, 20 144, 48 144" fill="none" stroke="currentColor" strokeWidth="2" className="text-border" strokeLinecap="round" />
+                <path d="M 0 96 C 20 96, 20 144, 48 144" fill="none" stroke="currentColor" strokeWidth="2" className={isTerminalMode ? "text-green-900/30" : "text-border"} strokeLinecap="round" />
 
                 {/* Particles */}
                 <motion.circle r="3" fill={isTerminalMode ? "#22c55e" : "#3b82f6"}>
@@ -143,22 +144,23 @@ const NodeCard = ({ tool, isActive }: { tool: any, isActive: boolean }) => {
             <div className="absolute left-1/2 -bottom-1.5 w-2.5 h-2.5 rounded-full border-2 border-border bg-background -translate-x-1/2 z-30 md:hidden" />
 
             <Card className={cn(
-                "min-w-[120px] w-auto h-auto relative overflow-hidden transition-all duration-300", // Changed w-64 h-24 to min-w-[120px] w-auto h-auto
+                "min-w-[120px] w-auto h-auto relative overflow-hidden transition-all duration-300",
                 "border-2",
-                isActive ? (isTerminalMode ? "border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]" : "border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]") : tool.border,
-                isTerminalMode ? "bg-black" : "bg-card hover:shadow-lg"
+                isActive
+                    ? (isTerminalMode ? "border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]" : "border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]")
+                    : (isTerminalMode ? "border-green-900/40" : tool.border),
+                isTerminalMode ? "bg-black/60 backdrop-blur-md" : "bg-white/40 backdrop-blur-md hover:shadow-lg"
             )}>
-                <div className="flex items-center p-3 gap-3"> {/* Reduced padding p-4 -> p-3, gap-4 -> gap-3 */}
+                <div className="flex items-center p-3 gap-3">
                     <div className={cn(
-                        "p-2 rounded-lg transition-colors duration-300 shrink-0", // Reduced p-3 -> p-2, rounded-xl -> rounded-lg
-                        tool.bg,
-                        tool.color
+                        "p-2 rounded-lg transition-colors duration-300 shrink-0",
+                        isTerminalMode ? "bg-green-900/20 text-green-500" : cn(tool.bg, tool.color)
                     )}>
-                        <tool.icon className="w-5 h-5" /> {/* Reduced w-6 h-6 -> w-5 h-5 */}
+                        <tool.icon className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                        <h3 className="font-semibold text-sm leading-none mb-1">{tool.name}</h3> {/* Reduced text size, added leading-none */}
-                        <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider leading-none">{tool.role}</p> {/* Reduced text size */}
+                        <h3 className={cn("font-semibold text-sm leading-none mb-1", isTerminalMode && "text-green-400")}>{tool.name}</h3>
+                        <p className={cn("text-[10px] font-mono uppercase tracking-wider leading-none", isTerminalMode ? "text-green-600" : "text-muted-foreground")}>{tool.role}</p>
                     </div>
                 </div>
             </Card>
@@ -229,7 +231,9 @@ export function AutomationStack() {
     }, []);
 
     return (
-        <section id="tech-stack" className="w-full bg-white py-24 relative overflow-hidden">
+        <section id="tech-stack" className={cn(
+            "w-full py-16 relative overflow-hidden transition-colors duration-500 bg-transparent"
+        )}>
             {/* Dot Pattern Background */}
             <div
                 className="absolute inset-0 opacity-[0.15] pointer-events-none"
@@ -250,7 +254,7 @@ export function AutomationStack() {
                     <div className="relative lg:col-span-3 p-4 md:p-6 rounded-xl border bg-background/50 backdrop-blur-sm overflow-x-auto snap-x flex flex-col gap-8 min-h-[300px]">
 
                         {/* Flowchart Content */}
-                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-0 h-full w-full min-w-[600px] md:min-w-0">
+                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-0 h-full w-full">
 
                             {/* Linear Part (Source -> Processor -> Orchestrator) */}
                             {linearTools.map((tool, index) => (

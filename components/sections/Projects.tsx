@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, TrendingUp, Users, Zap } from "lucide-react";
@@ -70,53 +70,52 @@ const projects = [
 ];
 
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { useTerminal } from "@/components/providers/terminal-context";
 
 export function Projects() {
     const { isTerminalMode } = useTerminal();
 
     return (
-        <section id="projects" className="w-full bg-slate-50 py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section id="projects" className={cn(
+            "w-full py-16 transition-colors duration-500 bg-transparent"
+        )}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 <div className="flex items-center justify-between">
                     <h2 className="text-3xl font-bold tracking-tight text-foreground">Case Studies</h2>
-                    <Button variant="outline" size="sm" asChild>
-                        <Link href="https://www.linkedin.com/in/othmaneoutaghza/" target="_blank">View All Projects</Link>
-                    </Button>
                 </div>
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid gap-6 md:grid-cols-3"
-                >
-                    {projects.map((project) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    {projects.map((project, i) => (
                         <motion.div
                             key={project.title}
-                            variants={fadeInUp}
-                            whileHover={{ y: -5, boxShadow: "0px 10px 30px rgba(0,0,0,0.1)" }}
-                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            whileHover={{ scale: 1.01 }}
+                            className="h-full"
                         >
                             <Card className={cn(
-                                "flex flex-col group hover:shadow-lg transition-all duration-300 border-muted-foreground/20 h-full",
-                                isTerminalMode ? "bg-black/90 border-green-800" : "bg-white"
+                                "flex flex-col h-full transition-all duration-500",
+                                "rounded-[2rem] p-8",
+                                isTerminalMode
+                                    ? "bg-black/60 backdrop-blur-md border border-green-800 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]"
+                                    : "bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl shadow-sm"
                             )}>
-                                <CardHeader>
+                                <CardHeader className="p-0 pb-6">
                                     <div className="flex justify-between items-start">
                                         <div className="space-y-1">
-                                            <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                                            <CardTitle className="text-xl font-bold leading-tight">
                                                 {project.title}
                                             </CardTitle>
-                                            <CardDescription className="font-medium text-primary/80">{project.client}</CardDescription>
+                                            <CardDescription className={cn(
+                                                "font-medium",
+                                                isTerminalMode ? "text-green-600" : "text-primary/80"
+                                            )}>{project.client}</CardDescription>
                                         </div>
-                                        <div className="p-2 bg-secondary rounded-full group-hover:bg-primary/10 transition-colors">
-                                            <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                                        </div>
+                                        {/* Removed ArrowUpRight icon */}
                                     </div>
                                 </CardHeader>
-                                <CardContent className="space-y-4 flex-1">
+                                <CardContent className="space-y-6 flex-1 p-0">
                                     <p className="text-sm text-muted-foreground leading-relaxed">
                                         {project.description}
                                     </p>
@@ -148,11 +147,17 @@ export function Projects() {
                                         />
                                     )}
 
-                                    <div className="grid grid-cols-2 gap-4 py-2">
+                                    <div className="grid grid-cols-2 gap-4">
                                         {project.metrics.map((metric) => (
-                                            <div key={metric.label} className="flex items-center gap-2">
-                                                <div className="p-1.5 bg-primary/10 rounded-md">
-                                                    <metric.icon className="h-3.5 w-3.5 text-primary" />
+                                            <div key={metric.label} className="flex items-center gap-3">
+                                                <div className={cn(
+                                                    "p-2 rounded-lg",
+                                                    isTerminalMode ? "bg-green-900/20" : "bg-primary/5"
+                                                )}>
+                                                    <metric.icon className={cn(
+                                                        "h-4 w-4",
+                                                        isTerminalMode ? "text-green-500" : "text-primary"
+                                                    )} />
                                                 </div>
                                                 <div>
                                                     <p className="text-xs text-muted-foreground">{metric.label}</p>
@@ -162,25 +167,37 @@ export function Projects() {
                                         ))}
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2 pt-2">
+                                    <div className="flex flex-wrap gap-2">
                                         {project.tags.map((tag) => (
-                                            <Badge key={tag} variant="secondary" className="text-xs font-normal">
+                                            <Badge key={tag} variant="secondary" className={cn(
+                                                "text-xs font-normal",
+                                                isTerminalMode ? "bg-green-900/20 text-green-400 hover:bg-green-900/30" : "bg-white/50 text-muted-foreground hover:bg-white/80"
+                                            )}>
                                                 {tag}
                                             </Badge>
                                         ))}
                                     </div>
+
+
                                 </CardContent>
-                                <CardFooter className="pt-0">
-                                    <Button variant="ghost" className="w-full justify-between text-muted-foreground hover:text-primary group-hover:translate-x-1 transition-transform" asChild>
-                                        <Link href={project.link}>
-                                            Read Case Study <ArrowUpRight className="h-4 w-4 ml-2" />
-                                        </Link>
-                                    </Button>
+                                <CardFooter className="p-0 pt-4">
+                                    <Link
+                                        href={project.link}
+                                        className={cn(
+                                            "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all group",
+                                            isTerminalMode
+                                                ? "bg-green-900/20 text-green-500 hover:bg-green-900/30 border border-green-800/50"
+                                                : "bg-white text-foreground hover:shadow-md border border-white/60 hover:border-blue-200"
+                                        )}
+                                    >
+                                        Read Case Study
+                                        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                    </Link>
                                 </CardFooter>
                             </Card>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
