@@ -8,12 +8,16 @@ import { OrbitSpace } from "@/components/ui/orbit-space";
 import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { AuditModal } from "@/components/features/AuditModal";
+import { useState } from "react";
 
 export function Contact() {
     const { isTerminalMode } = useTerminal();
+    const [isAuditOpen, setIsAuditOpen] = useState(false);
 
     return (
         <section id="contact" className="w-full py-16 bg-transparent">
+            <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} />
             <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8">Start a new property</h2>
             <Card className={cn(
                 "relative overflow-hidden border transition-all duration-500 rounded-[2.5rem]",
@@ -35,11 +39,9 @@ export function Contact() {
                     <div className="flex flex-col sm:flex-row gap-4">
 
                         <MagneticButton
-                            href="https://calendly.com/outaghza-othmane/seo-meeting"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={() => setIsAuditOpen(true)}
                             className={cn(
-                                "shadow-lg transition-colors",
+                                "shadow-lg transition-colors cursor-pointer",
                                 isTerminalMode
                                     ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
                                     : "bg-black text-white hover:bg-black/90 border-transparent"
