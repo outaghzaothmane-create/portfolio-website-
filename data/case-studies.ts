@@ -25,21 +25,21 @@ export const caseStudies: CaseStudy[] = [
         id: "health-supply-770",
         title: "The $1.3M Automation Blueprint",
         client: "Health Supply 770",
-        role: "SEO & Automation Manager",
+        role: "Systems Architect",
         period: "Feb 2024 - Present",
-        shortDescription: "Generated $1.3M+ in revenue by replacing manual SEO tasks with Python scripts and Make.com workflows.",
+        shortDescription: "Architected three autonomous systems that eliminated manual labor loops, reclaimed 20+ weekly hours of human capital, and orchestrated $1.3M+ in system-attributed revenue.",
         heroImage: "/images/case-study-1.png",
         color: "from-blue-600 to-cyan-500",
-        challenge: "The e-commerce brand was stuck at 700 clicks/month with unscalable manual processes. They needed a way to audit thousands of product pages and recover abandoned carts without hiring a massive team.",
+        challenge: "The brand encountered a critical infrastructure bottleneck: manual auditing of 5,000+ SKUs created a perpetual manual labor loop that caused silent revenue leakage and prevented the organization from scaling past a technical ceiling. The existing workflow consumed 20+ hours weekly in repetitive tasks, making growth economically unsustainable without proportional headcount expansion.",
         solution: [
-            "Engineered an automated Technical SEO Audit system using Python and Make.com to monitor crawlability 24/7.",
-            "Built behavior-triggered email flows in Brevo (Abandoned Cart, Re-engagement) that directly recovered lost revenue.",
-            "Implemented programmatic SEO to scale landing page creation for long-tail medical keywords."
+            "System 1: Autonomous Technical Monitoring — Deployed a headless Python agent performing 24/7 site-wide health checks across crawlability, indexation status, and schema integrity. Engineered real-time alerting pipelines that eliminated manual auditing cycles and captured technical debt at the point of origin.",
+            "System 2: Programmatic Growth Engine — Architected dynamic landing page infrastructure targeting medical long-tail keyword clusters at scale. Iterated on template-driven content generation to programmatically deploy 500+ optimized pages, transforming manual content production into an automated growth vector.",
+            "System 3: Behavioral Revenue Pipeline — Orchestrated event-driven automation workflows via Make.com and Brevo to capture abandoned intent signals. Engineered behavioral triggers (cart abandonment, product view latency, re-engagement windows) that automatically deployed personalized email sequences, converting passive visitors into revenue-generating transactions."
         ],
         results: [
-            { label: "Revenue Generated", value: "$1.3M+", icon: LineChart, description: "Directly attributed to Organic Search & Email Automation." },
-            { label: "Traffic Growth", value: "+7,000%", icon: BarChart3, description: "Scaled from 700 to 5,000+ qualified clicks per month." },
-            { label: "Efficiency", value: "100%", icon: Cpu, description: "Automated 20+ hours of manual weekly work." }
+            { label: "System-Attributed Revenue", value: "$1.3M+", icon: LineChart, description: "Directly traceable to orchestrated automation systems and organic search infrastructure." },
+            { label: "Traffic Growth", value: "+7,000%", icon: BarChart3, description: "Scaled from 700 to 5,000+ qualified clicks per month via programmatic expansion." },
+            { label: "Human Capital Reclaimed", value: "20+ hrs/wk", icon: Cpu, description: "Operational re-allocation from manual labor loops to high-leverage strategic initiatives." }
         ],
         techStack: ["Make.com", "Python", "Brevo", "Next.js", "Google Search Console API"]
     },
