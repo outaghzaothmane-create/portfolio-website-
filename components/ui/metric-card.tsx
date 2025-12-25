@@ -30,10 +30,15 @@ export function MetricCard({
     const ref = useRef<HTMLSpanElement>(null);
     const inView = useInView(ref, { once: true });
 
-    // Parse number from value if it's a string like "1.3M" -> 1.3
+    // Extract prefix (like $) and suffix (like M, %, K) from the value string
+    const valueStr = value.toString();
+    const extractedPrefix = prefix || (valueStr.startsWith("$") ? "$" : "");
+    const extractedSuffix = suffix || (valueStr.match(/[MKB%+]$/)?.[0] || "");
+
+    // Parse number from value if it's a string like "$1.3M" -> 1.3
     const numericValue = typeof value === "number"
         ? value
-        : parseFloat(value.toString().replace(/[^0-9.]/g, ""));
+        : parseFloat(valueStr.replace(/[^0-9.-]/g, ""));
 
     const motionValue = useMotionValue(0);
     const springValue = useSpring(motionValue, { damping: 30, stiffness: 100 });
@@ -48,14 +53,14 @@ export function MetricCard({
         return springValue.on("change", (latest) => {
             if (ref.current) {
                 // Format based on original value type/content
-                let formatted = latest.toFixed(typeof value === "string" && value.includes(".") ? 1 : 0);
-                if (typeof value === "string" && value.includes(",")) {
+                let formatted = latest.toFixed(valueStr.includes(".") ? 1 : 0);
+                if (valueStr.includes(",")) {
                     formatted = Number(formatted).toLocaleString();
                 }
-                ref.current.textContent = `${prefix}${formatted}${suffix}`;
+                ref.current.textContent = `${extractedPrefix}${formatted}${extractedSuffix}`;
             }
         });
-    }, [springValue, prefix, suffix, value]);
+    }, [springValue, extractedPrefix, extractedSuffix, valueStr]);
 
     return (
         <Card className="h-full">

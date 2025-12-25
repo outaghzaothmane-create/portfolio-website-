@@ -94,21 +94,36 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                             <SectionWrapper>
                                 <div className="space-y-6">
                                     <h2 className="text-3xl font-bold">The Challenge</h2>
-                                    <p className="text-lg text-muted-foreground leading-relaxed">
-                                        {study.challenge}
-                                    </p>
+                                    <p
+                                        className="text-lg text-muted-foreground leading-relaxed"
+                                        dangerouslySetInnerHTML={{ __html: study.challenge }}
+                                    />
                                 </div>
                             </SectionWrapper>
 
                             <SectionWrapper delay={0.1}>
                                 <div className="space-y-6">
                                     <h2 className="text-3xl font-bold">The Solution</h2>
-                                    <div className="space-y-4">
-                                        {study.solution.map((paragraph, index) => (
-                                            <p key={index} className="text-lg text-muted-foreground leading-relaxed">
-                                                {paragraph}
-                                            </p>
-                                        ))}
+                                    <div className="space-y-8">
+                                        {study.solution.map((paragraph, index) => {
+                                            // Split on em-dash to separate title from content
+                                            const parts = paragraph.split(" — ");
+                                            const title = parts[0];
+                                            const content = parts.slice(1).join(" — ");
+
+                                            return (
+                                                <div key={index} className="space-y-3">
+                                                    <h3
+                                                        className="text-xl font-semibold text-foreground"
+                                                        dangerouslySetInnerHTML={{ __html: title }}
+                                                    />
+                                                    <p
+                                                        className="text-lg text-muted-foreground leading-relaxed"
+                                                        dangerouslySetInnerHTML={{ __html: content }}
+                                                    />
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </SectionWrapper>

@@ -23,25 +23,28 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
     {
         id: "health-supply-770",
-        title: "The $1.3M Automation Blueprint",
+        title: "Scaling HS770.com to $1.3M in Organic Revenue",
         client: "Health Supply 770",
-        role: "Systems Architect",
-        period: "Feb 2024 - Present",
-        shortDescription: "Architected three autonomous systems that eliminated manual labor loops, reclaimed 20+ weekly hours of human capital, and orchestrated $1.3M+ in system-attributed revenue.",
-        heroImage: "/images/case-study-1.png",
+        role: "Senior SEO & Automation Manager",
+        period: "Feb 2024 - Present (2 Years)",
+        shortDescription: "Transformed a low-authority medical supply site from near-zero visibility into a dominant market player, generating $1,318,486 in organic revenue through strategic SEO, technical excellence, and intelligent automation.",
+        heroImage: "/health supply 770/overview.png",
         color: "from-blue-600 to-cyan-500",
-        challenge: "The brand encountered a critical infrastructure bottleneck: manual auditing of 5,000+ SKUs created a perpetual manual labor loop that caused silent revenue leakage and prevented the organization from scaling past a technical ceiling. The existing workflow consumed 20+ hours weekly in repetitive tasks, making growth economically unsustainable without proportional headcount expansion.",
+        challenge: "When I first started working with HS770.com, the situation was challenging. The site was practically invisible in search results, stuck with a Domain Rating of just <strong>2.6</strong> and barely <strong>198</strong> monthly visitors trickling in organically. We had only <strong>1,100</strong> keywords indexed, which meant we were missing out on thousands of potential customers searching for medical supplies. The technical foundation was crumbling beneath us—over <strong>19,000</strong> crawl errors plagued the site, the Ahrefs Health Score was a disappointing <strong>35</strong> out of 100, and we had <strong>5,000+</strong> product pages with descriptions that weren't doing anyone any favors. The whole infrastructure needed a complete overhaul before we could even think about scaling.",
         solution: [
-            "System 1: Autonomous Technical Monitoring — Deployed a headless Python agent performing 24/7 site-wide health checks across crawlability, indexation status, and schema integrity. Engineered real-time alerting pipelines that eliminated manual auditing cycles and captured technical debt at the point of origin.",
-            "System 2: Programmatic Growth Engine — Architected dynamic landing page infrastructure targeting medical long-tail keyword clusters at scale. Iterated on template-driven content generation to programmatically deploy 500+ optimized pages, transforming manual content production into an automated growth vector.",
-            "System 3: Behavioral Revenue Pipeline — Orchestrated event-driven automation workflows via Make.com and Brevo to capture abandoned intent signals. Engineered behavioral triggers (cart abandonment, product view latency, re-engagement windows) that automatically deployed personalized email sequences, converting passive visitors into revenue-generating transactions."
+            "<strong>Pillar 1: Technical SEO & Site Health</strong> — First, we had to fix the foundation. I led a complete technical overhaul, systematically eliminating all <strong>19,000+</strong> crawl errors and warnings that were preventing search engines from properly indexing the site. We took the Ahrefs Health Score from a weak <strong>35</strong> all the way up to an excellent <strong>95</strong>. I also optimized Core Web Vitals across the board, which dramatically improved page load times and mobile responsiveness. The result? A clean, crawl-friendly architecture that search engines could finally trust and users could actually enjoy.",
+            "<strong>Pillar 2: Content & Authority Building</strong> — With a solid technical foundation in place, we shifted focus to visibility and authority. I expanded our keyword footprint from <strong>1,100</strong> to over <strong>1,500</strong> indexed keywords by targeting high-intent medical supply searches. Through strategic outreach and content partnerships, we grew our backlink profile from <strong>1,700</strong> to over <strong>3,800</strong> referring domains. I also implemented a smart internal linking strategy that helped push <strong>54</strong> of our most valuable keywords into Google's Top 3 positions—putting us right where customers would see us first.",
+            "<strong>Pillar 3: SEO Automation & Revenue Optimization</strong> — The final piece was turning all that traffic into revenue. I built custom automation workflows using Make.com to handle rank tracking and technical audits automatically, freeing up time for strategic work. We integrated Brevo for behavior-triggered email campaigns—things like abandoned cart recovery and product view follow-ups. These systems worked beautifully alongside our SEO efforts, capturing opportunities we would have otherwise missed and turning passive browsers into paying customers."
         ],
         results: [
-            { label: "System-Attributed Revenue", value: "$1.3M+", icon: LineChart, description: "Directly traceable to orchestrated automation systems and organic search infrastructure." },
-            { label: "Traffic Growth", value: "+7,000%", icon: BarChart3, description: "Scaled from 700 to 5,000+ qualified clicks per month via programmatic expansion." },
-            { label: "Human Capital Reclaimed", value: "20+ hrs/wk", icon: Cpu, description: "Operational re-allocation from manual labor loops to high-leverage strategic initiatives." }
+            { label: "E-commerce Revenue", value: "$1.3M", icon: LineChart, description: "Scaled annual revenue from $87K/year ($7K/month baseline) to $1.32M/year—a 15x increase driven by SEO and automation." },
+            { label: "Organic Traffic", value: "+614%", icon: BarChart3, description: "Monthly organic clicks surged from 700 to 5,000+ (65.2K total clicks over 16 months)." },
+            { label: "Top 3 Rankings", value: "88 keywords", icon: Search, description: "Grew from just 3 to 88 keywords in Top 3 Google positions (2,833% increase)." },
+            { label: "Domain Authority", value: "DR 30", icon: Globe, description: "Domain Rating increased from 2.6 to 30, enabling competitive rankings." },
+            { label: "Site Health", value: "95%", icon: Cpu, description: "Elevated from 'Fair' rating of 35 to 'Excellent' 95/100 for optimal crawlability." },
+            { label: "AI Search Ready", value: "494 citations", icon: Cpu, description: "383 ChatGPT citations + 111 Perplexity citations, future-proofing brand visibility." }
         ],
-        techStack: ["Make.com", "Python", "Brevo", "Next.js", "Google Search Console API"]
+        techStack: ["Make.com", "Brevo", "Ahrefs", "Google Search Console API", "Core Web Vitals"]
     },
     {
         id: "fantasialife",
