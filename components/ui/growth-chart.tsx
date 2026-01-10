@@ -1,36 +1,54 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, memo } from "react";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { useTerminal } from "@/components/providers/terminal-context";
 import { useInView } from "framer-motion";
 
+interface ChartDataPoint {
+    year: string;
+    [key: string]: string | number | undefined;
+    milestone?: string;
+}
+
 interface GrowthChartProps {
-    data: any[];
+    data: ChartDataPoint[];
     dataKey: string;
     color?: string;
     formatType?: "currency" | "number" | "percentage";
-    formatter?: (value: number) => string; // Keep for backward compatibility if needed, but prefer formatType
+    formatter?: (value: number) => string;
     chartId: string;
 }
 
-const CustomTooltip = ({ active, payload, label, formatter, formatType }: any) => {
+interface CustomTooltipProps {
+    active?: boolean;
+    payload?: Array<{ value: number; payload: ChartDataPoint }>;
+    label?: string;
+    formatter?: (value: number) => string;
+    formatType?: "currency" | "number" | "percentage";
+}
+
+const CustomTooltip = memo(function CustomTooltip({ active, payload, label, formatter, formatType }: CustomTooltipProps) {
     if (active && payload && payload.length) {
-        let value = payload[0].value;
+        const rawValue = payload[0].value;
+        let displayValue: string;
+
         if (formatter) {
-            value = formatter(value);
+            displayValue = formatter(rawValue);
         } else if (formatType === "currency") {
-            value = `$${(value / 1000000).toFixed(1)}M`;
+            displayValue = `$${(rawValue / 1000000).toFixed(1)}M`;
         } else if (formatType === "number") {
-            value = `${(value / 1000).toFixed(1)}k`;
-            if (value.endsWith(".0k")) value = value.replace(".0k", "k");
+            displayValue = `${(rawValue / 1000).toFixed(1)}k`;
+            if (displayValue.endsWith(".0k")) displayValue = displayValue.replace(".0k", "k");
+        } else {
+            displayValue = rawValue.toString();
         }
 
         return (
             <div className="bg-background border border-border p-4 rounded-lg shadow-lg">
                 <p className="font-bold text-foreground">{label}</p>
                 <p className="text-primary">
-                    {value}
+                    {displayValue}
                 </p>
                 {payload[0].payload.milestone && (
                     <p className="text-xs text-muted-foreground mt-1">
@@ -41,7 +59,7 @@ const CustomTooltip = ({ active, payload, label, formatter, formatType }: any) =
         );
     }
     return null;
-};
+});
 
 export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, formatType, chartId }: GrowthChartProps) {
     const { isTerminalMode } = useTerminal();

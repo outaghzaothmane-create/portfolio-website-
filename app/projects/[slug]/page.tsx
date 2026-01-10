@@ -10,12 +10,49 @@ import { notFound } from "next/navigation";
 import { MotionDiv } from "@/components/ui/motion-wrapper";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { Metadata } from "next";
 
 // Generate static params for all case studies
 export async function generateStaticParams() {
     return caseStudies.map((study) => ({
         slug: study.id,
     }));
+}
+
+// Generate dynamic metadata for SEO
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const study = caseStudies.find((s) => s.id === params.slug);
+
+    if (!study) {
+        return {
+            title: "Project Not Found | Othmane.SEO",
+        };
+    }
+
+    return {
+        title: `${study.title} | Othmane.SEO`,
+        description: study.shortDescription,
+        openGraph: {
+            title: study.title,
+            description: study.shortDescription,
+            type: "article",
+            images: [study.heroImage],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: study.title,
+            description: study.shortDescription,
+        },
+    };
+}
+
+// Sanitize HTML - only allow safe tags for formatting
+function sanitizeHtml(html: string): string {
+    // Only allow <strong>, <em>, <br> tags - strip everything else
+    return html
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+        .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "")
+        .replace(/<(?!\/?(?:strong|em|br)\b)[^>]+>/gi, "");
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
@@ -96,7 +133,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                                     <h2 className="text-3xl font-bold">The Challenge</h2>
                                     <p
                                         className="text-lg text-muted-foreground leading-relaxed"
-                                        dangerouslySetInnerHTML={{ __html: study.challenge }}
+                                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(study.challenge) }}
                                     />
                                 </div>
                             </SectionWrapper>
@@ -115,11 +152,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                                                 <div key={index} className="space-y-3">
                                                     <h3
                                                         className="text-xl font-semibold text-foreground"
-                                                        dangerouslySetInnerHTML={{ __html: title }}
+                                                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }}
                                                     />
                                                     <p
                                                         className="text-lg text-muted-foreground leading-relaxed"
-                                                        dangerouslySetInnerHTML={{ __html: content }}
+                                                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
                                                     />
                                                 </div>
                                             );

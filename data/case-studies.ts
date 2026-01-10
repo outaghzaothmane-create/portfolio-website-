@@ -1,5 +1,12 @@
 import { LucideIcon, BarChart3, Globe, LineChart, Cpu, Search, LayoutTemplate } from "lucide-react";
 
+export interface CaseStudyResult {
+    label: string;
+    value: string;
+    icon: LucideIcon;
+    description: string;
+}
+
 export interface CaseStudy {
     id: string;
     title: string;
@@ -7,15 +14,10 @@ export interface CaseStudy {
     role: string;
     period: string;
     shortDescription: string;
-    heroImage: string; // Placeholder for now
+    heroImage: string;
     challenge: string;
     solution: string[];
-    results: {
-        label: string;
-        value: string;
-        icon: any; // Using 'any' for simplicity in data file, properly typed in component
-        description: string;
-    }[];
+    results: CaseStudyResult[];
     techStack: string[];
     color: string;
 }

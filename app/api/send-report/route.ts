@@ -12,7 +12,6 @@ export async function POST(req: Request) {
     // Initialize Resend client at request time, not module scope
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
-      console.error("RESEND_API_KEY is not configured");
       return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
@@ -169,14 +168,11 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error("Resend API Error:", error);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
-    console.log("Email sent successfully:", data);
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
-    console.error("Email error:", error);
+  } catch {
     return NextResponse.json(
       { error: "Failed to send email." },
       { status: 500 }

@@ -144,15 +144,16 @@ export function Footer() {
                     )}>
                         <div className="flex items-center gap-6">
                             {[
-                                { icon: Linkedin, href: "https://www.linkedin.com/in/othmaneoutaghza/" },
-                                { icon: Mail, href: "mailto:outaghza.othmane@gmail.com" },
-                                { icon: Github, href: "https://github.com/outaghzaothmane-create" }
+                                { icon: Linkedin, href: "https://www.linkedin.com/in/othmaneoutaghza/", label: "LinkedIn profile" },
+                                { icon: Mail, href: "mailto:outaghza.othmane@gmail.com", label: "Send email" },
+                                { icon: Github, href: "https://github.com/outaghzaothmane-create", label: "GitHub profile" }
                             ].map((social, i) => (
                                 <a
                                     key={i}
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label={social.label}
                                     className={cn(
                                         "transition-all hover:scale-110",
                                         isTerminalMode

@@ -1,12 +1,96 @@
 import { NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 
+// Simple in-memory rate limiter
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 10; // requests per window
+const RATE_WINDOW = 60 * 1000; // 1 minute
+
+function isRateLimited(ip: string): boolean {
+    const now = Date.now();
+    const record = rateLimitMap.get(ip);
+
+    if (!record || now > record.resetTime) {
+        rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
+        return false;
+    }
+
+    if (record.count >= RATE_LIMIT) {
+        return true;
+    }
+
+    record.count++;
+    return false;
+}
+
+// Validate and sanitize URL to prevent SSRF
+function validateUrl(input: string): { valid: boolean; url?: string; error?: string } {
+    try {
+        // Add protocol if missing
+        const urlString = input.startsWith("http") ? input : `https://${input}`;
+        const parsed = new URL(urlString);
+
+        // Only allow http and https protocols
+        if (!["http:", "https:"].includes(parsed.protocol)) {
+            return { valid: false, error: "Only HTTP and HTTPS protocols are allowed" };
+        }
+
+        // Block internal/private IPs and localhost
+        const hostname = parsed.hostname.toLowerCase();
+        const blockedPatterns = [
+            /^localhost$/i,
+            /^127\./,
+            /^10\./,
+            /^172\.(1[6-9]|2[0-9]|3[0-1])\./,
+            /^192\.168\./,
+            /^0\./,
+            /^169\.254\./,
+            /^\[::1\]$/,
+            /^\[fc00:/i,
+            /^\[fd00:/i,
+            /^\[fe80:/i,
+            /^\.internal$/i,
+            /\.local$/i,
+        ];
+
+        for (const pattern of blockedPatterns) {
+            if (pattern.test(hostname)) {
+                return { valid: false, error: "Internal or private URLs are not allowed" };
+            }
+        }
+
+        return { valid: true, url: parsed.href };
+    } catch {
+        return { valid: false, error: "Invalid URL format" };
+    }
+}
+
 export async function POST(req: Request) {
     try {
-        const { url } = await req.json();
-        if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
+        // Rate limiting
+        const ip = req.headers.get("x-forwarded-for")?.split(",")[0] ||
+                   req.headers.get("x-real-ip") ||
+                   "unknown";
 
-        const targetUrl = url.startsWith("http") ? url : `https://${url}`;
+        if (isRateLimited(ip)) {
+            return NextResponse.json(
+                { error: "Too many requests. Please try again later." },
+                { status: 429 }
+            );
+        }
+
+        const { url } = await req.json();
+        if (!url || typeof url !== "string") {
+            return NextResponse.json({ error: "URL is required" }, { status: 400 });
+        }
+
+        // Validate URL to prevent SSRF
+        const validation = validateUrl(url.trim());
+        if (!validation.valid) {
+            return NextResponse.json({ error: validation.error }, { status: 400 });
+        }
+
+        const targetUrl = validation.url!;
         const startTime = Date.now();
 
         const response = await fetch(targetUrl, {

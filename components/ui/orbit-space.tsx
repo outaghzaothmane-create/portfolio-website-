@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useRef, useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue, useAnimationFrame } from "framer-motion";
-import { Search, Code, TrendingUp, Database, Command, Cpu, Globe, Zap, Server, Activity } from "lucide-react";
+import { useMemo, useRef, useEffect, useState, memo } from "react";
+import { motion, useSpring, useMotionValue, useAnimationFrame, MotionValue } from "framer-motion";
+import { Search, Code, TrendingUp, Database, Command, Cpu, Globe, Zap, Server, Activity, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface OrbitSpaceProps {
@@ -15,12 +15,12 @@ type ElementType = "icon" | "circle" | "plus";
 interface FloatingElement {
     id: number;
     type: ElementType;
-    icon?: any;
+    icon?: LucideIcon;
     size: number;
     color: string;
-    radius: number; // Orbit radius
-    speed: number; // Orbit speed
-    offset: number; // Initial angle offset
+    radius: number;
+    speed: number;
+    offset: number;
 }
 
 export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
@@ -137,29 +137,28 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
     );
 }
 
-function OrbitingItem({
+interface OrbitingItemProps {
+    element: FloatingElement;
+    mouseX: MotionValue<number>;
+    mouseY: MotionValue<number>;
+    containerRef: React.RefObject<HTMLDivElement>;
+}
+
+const OrbitingItem = memo(function OrbitingItem({
     element,
     mouseX,
     mouseY,
     containerRef
-}: {
-    element: FloatingElement;
-    mouseX: any;
-    mouseY: any;
-    containerRef: React.RefObject<HTMLDivElement>;
-}) {
+}: OrbitingItemProps) {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
     useAnimationFrame((time) => {
-        // Calculate orbit position
         const t = time / 1000;
 
         const currentMouseX = mouseX.get();
         const currentMouseY = mouseY.get();
 
-        // Default to center if not set (though we init to 0,0 which is top-left, handled by onMouseLeave/init)
-        // If 0,0, maybe center?
         let centerX = currentMouseX;
         let centerY = currentMouseY;
 
@@ -178,6 +177,8 @@ function OrbitingItem({
         y.set(targetY);
     });
 
+    const IconComponent = element.icon;
+
     return (
         <motion.div
             style={{
@@ -191,16 +192,16 @@ function OrbitingItem({
                 opacity: 0.2,
                 color: element.color,
                 zIndex: 0,
+                willChange: "transform",
+                transform: "translate3d(0, 0, 0)",
             }}
             className="flex items-center justify-center pointer-events-none"
         >
-            {element.type === "icon" && (
-                <element.icon className="w-full h-full" />
+            {element.type === "icon" && IconComponent && (
+                <IconComponent className="w-full h-full" />
             )}
             {element.type === "circle" && (
-                <div
-                    className="w-full h-full rounded-full border-2 border-current"
-                />
+                <div className="w-full h-full rounded-full border-2 border-current" />
             )}
             {element.type === "plus" && (
                 <div className="relative w-full h-full">
@@ -210,4 +211,4 @@ function OrbitingItem({
             )}
         </motion.div>
     );
-}
+});

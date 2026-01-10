@@ -1,13 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Loader2, CheckCircle2, AlertTriangle, ShieldCheck, Zap, Layout, Image as ImageIcon, Share2, AlertCircle } from "lucide-react";
+import { Loader2, CheckCircle2, AlertTriangle, ShieldCheck, Zap, Layout, Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// Validation helpers
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const URL_REGEX = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/i;
+
+function validateEmail(email: string): boolean {
+    return EMAIL_REGEX.test(email.trim());
+}
+
+function validateUrl(url: string): boolean {
+    if (!url.trim()) return false;
+    return URL_REGEX.test(url.trim());
+}
 
 interface AuditModalProps {
     isOpen: boolean;
@@ -27,19 +40,57 @@ const INITIAL_STEPS: ScanStep[] = [
     { id: "score", label: "Calculating health score...", status: "pending" },
 ];
 
+interface AuditResults {
+    score: number;
+    url: string;
+    details: {
+        performance: { ttfb: number; wordCount: number; internalLinks: number };
+        meta: { title: string; description: string; canonical: string | null; robots: string; viewport: string | undefined };
+        headings: { h1: string; h1Count: number; h2Count: number };
+        images: { total: number; missingAlt: number };
+        social: { ogTitle: string | undefined; ogImage: string | undefined };
+        tech: { generator: string };
+        issues: string[];
+    };
+    isHttps?: boolean;
+}
+
 export function AuditModal({ isOpen, onClose }: AuditModalProps) {
     const [url, setUrl] = useState("");
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "scanning" | "complete">("idle");
     const [progress, setProgress] = useState(0);
     const [steps, setSteps] = useState<ScanStep[]>(INITIAL_STEPS);
-    const [results, setResults] = useState<any>(null);
+    const [results, setResults] = useState<AuditResults | null>(null);
     const [error, setError] = useState("");
+    const [urlError, setUrlError] = useState("");
+    const [emailError, setEmailError] = useState("");
     const [sending, setSending] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
 
+    const handleUrlChange = useCallback((value: string) => {
+        setUrl(value);
+        if (value && !validateUrl(value)) {
+            setUrlError("Please enter a valid URL (e.g., example.com)");
+        } else {
+            setUrlError("");
+        }
+    }, []);
+
+    const handleEmailChange = useCallback((value: string) => {
+        setEmail(value);
+        if (value && !validateEmail(value)) {
+            setEmailError("Please enter a valid email address");
+        } else {
+            setEmailError("");
+        }
+    }, []);
+
     const startScan = async () => {
-        if (!url) return;
+        if (!url || !validateUrl(url)) {
+            setUrlError("Please enter a valid URL");
+            return;
+        }
         setStatus("scanning");
         setProgress(0);
         setSteps(INITIAL_STEPS);
@@ -86,6 +137,10 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
 
     const sendReport = async () => {
         if (!email || !results) return;
+        if (!validateEmail(email)) {
+            setEmailError("Please enter a valid email address");
+            return;
+        }
         setSending(true);
         try {
             const response = await fetch("/api/send-report", {
@@ -136,12 +191,17 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                     id="url"
                                     placeholder="example.com"
                                     value={url}
-                                    onChange={(e) => setUrl(e.target.value)}
+                                    onChange={(e) => handleUrlChange(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && startScan()}
+                                    aria-label="Website URL to audit"
+                                    aria-invalid={!!urlError}
+                                    aria-describedby={urlError ? "url-error" : undefined}
+                                    className={urlError ? "border-destructive" : ""}
                                 />
+                                {urlError && <p id="url-error" className="text-sm text-destructive">{urlError}</p>}
                                 {error && <p className="text-sm text-destructive">{error}</p>}
                             </div>
-                            <Button className="w-full" onClick={startScan} disabled={!url}>
+                            <Button className="w-full" onClick={startScan} disabled={!url || !!urlError}>
                                 Run Analysis
                             </Button>
                         </div>
@@ -238,16 +298,23 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                         <h4 className="font-bold">Unlock Full Expert Report</h4>
                                         <p className="text-sm text-muted-foreground">Get the detailed 15-point analysis sent to your inbox.</p>
                                     </div>
-                                    <div className="flex gap-2">
-                                        <Input
-                                            type="email"
-                                            placeholder="Enter your email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                        />
-                                        <Button onClick={sendReport} disabled={!email || sending}>
-                                            {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Send Report"}
-                                        </Button>
+                                    <div className="space-y-2">
+                                        <div className="flex gap-2">
+                                            <Input
+                                                type="email"
+                                                placeholder="Enter your email"
+                                                value={email}
+                                                onChange={(e) => handleEmailChange(e.target.value)}
+                                                aria-label="Email address for report"
+                                                aria-invalid={!!emailError}
+                                                aria-describedby={emailError ? "email-error" : undefined}
+                                                className={emailError ? "border-destructive" : ""}
+                                            />
+                                            <Button onClick={sendReport} disabled={!email || !!emailError || sending}>
+                                                {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Send Report"}
+                                            </Button>
+                                        </div>
+                                        {emailError && <p id="email-error" className="text-sm text-destructive">{emailError}</p>}
                                     </div>
                                 </div>
                             ) : (

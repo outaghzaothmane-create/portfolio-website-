@@ -89,6 +89,7 @@ export function Header() {
                             variant="ghost"
                             size="icon"
                             onClick={toggleTerminalMode}
+                            aria-label={isTerminalMode ? "Switch to normal mode" : "Switch to terminal mode"}
                             className={cn(
                                 "rounded-full w-10 h-10 transition-all",
                                 isTerminalMode
@@ -117,6 +118,7 @@ export function Header() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
+                                    aria-label="Open navigation menu"
                                     className={cn(
                                         "md:hidden rounded-full w-10 h-10",
                                         isTerminalMode
