@@ -112,6 +112,12 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                 body: JSON.stringify({ url }),
             });
 
+            // Handle non-JSON responses gracefully
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Site may block automated requests. Try a different URL.");
+            }
+
             const data = await response.json();
 
             if (!response.ok) {
@@ -129,8 +135,11 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
             }
 
             setStatus("complete");
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            const errorMessage = err instanceof Error
+                ? err.message
+                : "Scan failed. The site may block bots or be unavailable.";
+            setError(errorMessage);
             setStatus("idle");
         }
     };
