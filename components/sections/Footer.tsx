@@ -70,7 +70,7 @@ export function Footer() {
                                     isTerminalMode ? "border-green-800 text-green-500 hover:bg-green-900/20" : "border-border hover:border-primary/50 hover:text-primary"
                                 )}
                             >
-                                <a href="/resume.pdf" download="Othmane_Outaghza_CV.pdf" className="flex items-center gap-2">
+                                <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                     <Download className="h-4 w-4" />
                                     Download Resume
                                 </a>

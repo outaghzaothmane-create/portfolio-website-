@@ -65,8 +65,9 @@ export function Hero() {
                     <BlurFade delay={0.5} inView>
                         <div className="pt-4">
                             <MagneticButton
-                                href="/resume.pdf"
-                                download="Othmane_Outaghza_CV.pdf"
+                                href="./resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={cn(
                                     "shadow-sm transition-colors",
                                     isTerminalMode
