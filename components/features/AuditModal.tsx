@@ -17,7 +17,6 @@ const SEND_REPORT_URL = process.env.NEXT_PUBLIC_AUDIT_WORKER_URL
 
 // Validation helpers
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const URL_REGEX = /^(https?:\/\/)?([\\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/i;
 
 function validateEmail(email: string): boolean {
     return EMAIL_REGEX.test(email.trim());
@@ -25,7 +24,14 @@ function validateEmail(email: string): boolean {
 
 function validateUrl(url: string): boolean {
     if (!url.trim()) return false;
-    return URL_REGEX.test(url.trim());
+    try {
+        // Add protocol if missing
+        const urlString = url.trim().startsWith("http") ? url.trim() : `https://${url.trim()}`;
+        new URL(urlString);
+        return true;
+    } catch {
+        return false;
+    }
 }
 
 interface AuditModalProps {
