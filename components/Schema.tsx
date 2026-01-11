@@ -19,6 +19,35 @@ export function Schema() {
         }
     };
 
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Othmane.SEO",
+        "url": "https://othmane.seo",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://othmane.seo/logo.png",
+            "width": 192,
+            "height": 192
+        },
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://othmane.seo/og-image.jpg",
+            "width": 1200,
+            "height": 630
+        },
+        "description": "Senior SEO & Automation Manager specializing in driving organic revenue through data-driven SEO strategies and automation.",
+        "sameAs": [
+            "https://www.linkedin.com/in/othmaneoutaghza/",
+            "https://github.com/othmane"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "availableLanguage": ["en"]
+        }
+    };
+
     const profilePageSchema = {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
@@ -28,9 +57,15 @@ export function Schema() {
     };
 
     return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+            />
+        </>
     );
 }

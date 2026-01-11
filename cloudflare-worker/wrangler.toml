@@ -1,0 +1,21 @@
+# Cloudflare Worker Configuration for SEO Audit Tool
+#
+# Deployment steps:
+# 1. Install Wrangler: npm install -g wrangler
+# 2. Login to Cloudflare: wrangler login
+# 3. Set your Resend API key: wrangler secret put RESEND_API_KEY
+# 4. Deploy: cd cloudflare-worker && wrangler deploy
+#
+# After deployment, you'll get a URL like: https://seo-audit-worker.YOUR_SUBDOMAIN.workers.dev
+# Set this as NEXT_PUBLIC_AUDIT_WORKER_URL in your GitHub Pages environment
+
+name = "seo-audit-worker"
+main = "seo-audit-worker.ts"
+compatibility_date = "2024-01-01"
+
+# Uncomment and update with your GitHub Pages domain(s)
+# [vars]
+# ALLOWED_ORIGINS = "https://yourusername.github.io,https://yourcustomdomain.com"
+
+# Account ID (optional - wrangler will prompt if not set)
+# account_id = "your-account-id"

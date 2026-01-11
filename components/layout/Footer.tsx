@@ -67,8 +67,7 @@ export function Footer() {
                             </p>
                             <MagneticButton
                                 href="/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                download="Othmane_Outaghza_CV.pdf"
                                 className={cn(
                                     "shadow-sm transition-colors",
                                     isTerminalMode

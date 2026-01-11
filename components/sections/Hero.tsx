@@ -36,7 +36,7 @@ export function Hero() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="space-y-8 max-w-4xl">
-                    <div className="flex flex-col gap-2">
+                    <h1 className="flex flex-col gap-2">
                         <HyperText
                             text="Driving $1.3M+ in Organic"
                             className={cn(
@@ -51,7 +51,7 @@ export function Hero() {
                                 isTerminalMode ? "text-green-500" : "text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60"
                             )}
                         />
-                    </div>
+                    </h1>
 
                     <BlurFade delay={0.25} inView>
                         <p className={cn(
@@ -66,8 +66,7 @@ export function Hero() {
                         <div className="pt-4">
                             <MagneticButton
                                 href="/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                download="Othmane_Outaghza_CV.pdf"
                                 className={cn(
                                     "shadow-sm transition-colors",
                                     isTerminalMode
@@ -77,7 +76,7 @@ export function Hero() {
                             >
                                 <div className="flex items-center gap-2">
                                     <Download className="h-4 w-4" />
-                                    {isTerminalMode ? "export_resume.json" : "Download CV"}
+                                    {isTerminalMode ? "export_resume.json" : "Download Resume"}
                                 </div>
                             </MagneticButton>
                         </div>

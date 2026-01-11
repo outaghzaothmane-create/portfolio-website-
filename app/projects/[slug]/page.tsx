@@ -11,6 +11,87 @@ import { MotionDiv } from "@/components/ui/motion-wrapper";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { Metadata } from "next";
+import Image from "next/image";
+
+// Schema component for breadcrumbs and article data
+function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: string }) {
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://othmane.seo"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://othmane.seo/#projects"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": study.title,
+                "item": `https://othmane.seo/projects/${slug}`
+            }
+        ]
+    };
+
+    const imageSchema = {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "url": `https://othmane.seo${study.heroImage}`,
+        "name": `${study.title} - Case Study Overview`,
+        "description": study.shortDescription,
+        "width": 1200,
+        "height": 600
+    };
+
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": study.title,
+        "description": study.shortDescription,
+        "image": {
+            "@type": "ImageObject",
+            "url": `https://othmane.seo${study.heroImage}`,
+            "width": 1200,
+            "height": 600
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Othmane Outaghza",
+            "url": "https://othmane.seo"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Othmane.SEO",
+            "url": "https://othmane.seo"
+        },
+        "datePublished": "2024-01-01T00:00:00+00:00",
+        "dateModified": new Date().toISOString()
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
+        </>
+    );
+}
 
 // Generate static params for all case studies
 export async function generateStaticParams() {
@@ -67,6 +148,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
     return (
         <div className="min-h-screen bg-background">
+            <ProjectSchema study={study} slug={params.slug} />
             <Header />
 
             <main className="pt-40 pb-24">
@@ -120,6 +202,26 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                             );
                         })}
                     </MotionDiv>
+
+                    {/* Hero Image Section */}
+                    {study.heroImage && (
+                        <MotionDiv
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            className="mt-16 rounded-2xl overflow-hidden border border-gray-200/50 shadow-lg bg-gray-50"
+                        >
+                            <Image
+                                src={study.heroImage}
+                                alt={`${study.title} - Case Study Overview`}
+                                width={1200}
+                                height={600}
+                                priority={false}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1000px"
+                                className="w-full h-auto object-cover"
+                            />
+                        </MotionDiv>
+                    )}
                 </section>
 
                 {/* Content Section: Two Columns */}
@@ -193,6 +295,37 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         </div>
                     </div>
                 </section>
+
+                {/* Related Projects */}
+                {caseStudies.length > 1 && (
+                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32 mb-32">
+                        <SectionWrapper>
+                            <div className="border-t pt-16">
+                                <h2 className="text-3xl font-bold mb-12">Other Case Studies</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {caseStudies
+                                        .filter((project) => project.id !== params.slug)
+                                        .slice(0, 2)
+                                        .map((relatedProject) => (
+                                            <Link
+                                                key={relatedProject.id}
+                                                href={`/projects/${relatedProject.id}`}
+                                                className="group block p-6 rounded-lg border border-gray-200 hover:border-primary/50 transition-colors"
+                                            >
+                                                <h3 className="text-xl font-bold group-hover:text-primary transition-colors mb-2">
+                                                    {relatedProject.title}
+                                                </h3>
+                                                <p className="text-muted-foreground mb-4">{relatedProject.shortDescription}</p>
+                                                <div className="flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    Learn more <ArrowRight className="h-4 w-4" />
+                                                </div>
+                                            </Link>
+                                        ))}
+                                </div>
+                            </div>
+                        </SectionWrapper>
+                    </section>
+                )}
 
                 {/* Next Project */}
                 {nextProject && (

@@ -11,6 +11,7 @@ interface MagneticButtonProps {
     href?: string;
     target?: string;
     rel?: string;
+    download?: boolean | string;
     className?: string;
     onClick?: () => void;
 }
@@ -23,6 +24,7 @@ export const MagneticButton = ({
     href,
     target,
     rel,
+    download,
     onClick,
 }: MagneticButtonProps) => {
     const buttonRef = useRef<HTMLAnchorElement>(null);
@@ -82,6 +84,7 @@ export const MagneticButton = ({
                 href={href}
                 target={target}
                 rel={rel}
+                download={download}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 className={sharedClassName}
