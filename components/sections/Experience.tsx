@@ -9,11 +9,16 @@ import { Briefcase, Calendar, TrendingUp } from "lucide-react";
 
 const experienceData = [
     {
-        role: "SEO & Automation Manager",
+        role: "Technical SEO Architect & AI Automation Lead",
         company: "Health Supply 770",
         period: "Feb 2024 - Present",
         impact: "Generated $1.3M revenue, Automating technical audits with Make.com",
-        tags: ["Make.com", "Brevo", "Technical SEO"],
+        achievements: [
+            "Achieved 494 AI citations (383 ChatGPT, 111 Perplexity) via Generative Engine Optimization (GEO).",
+            "Skyrocketed domain authority by 11x (DR 2.6 → 30) via programmatic link acquisition.",
+            "Built self-healing n8n/Make.com automations via AI-assisted 'vibe coding' workflows."
+        ],
+        tags: ["Make.com", "Brevo", "Technical SEO", "UCP", "GEO"],
         color: "text-green-500",
         bg: "bg-green-500/10",
         border: "group-hover:border-green-500/50"
@@ -23,6 +28,10 @@ const experienceData = [
         company: "Tingis Web",
         period: "Jun 2023 - May 2024",
         impact: "Increased organic traffic by 80% in 3 months, Led PR backlink campaigns",
+        achievements: [
+            "Increased organic traffic by 80% in 3 months through targeted content optimization.",
+            "Led PR backlink campaigns resulting in high-authority mentions."
+        ],
         tags: ["PR Strategy", "Organic Growth", "Team Lead"],
         color: "text-blue-500",
         bg: "bg-blue-500/10",
@@ -33,6 +42,10 @@ const experienceData = [
         company: "Epoptique.ma",
         period: "Jan 2022 - Present",
         impact: "Long-term SEO strategy and optimization",
+        achievements: [
+            "Implemented long-term SEO strategy resulting in sustained organic growth.",
+            "Optimized site architecture for better crawlability and user experience."
+        ],
         tags: ["E-commerce", "Content Strategy"],
         color: "text-purple-500",
         bg: "bg-purple-500/10",
@@ -102,9 +115,21 @@ export function Experience() {
                                             "h-5 w-5 mt-0.5 shrink-0",
                                             item.color
                                         )} />
-                                        <p className="text-sm leading-relaxed">
-                                            {item.impact}
-                                        </p>
+                                        <div className="space-y-3">
+                                            <p className="text-sm font-medium leading-relaxed">
+                                                {item.impact}
+                                            </p>
+                                            {item.achievements && (
+                                                <ul className="space-y-2">
+                                                    {item.achievements.map((achievement, i) => (
+                                                        <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                                                            <span className={cn("mt-2 h-1.5 w-1.5 rounded-full shrink-0 opacity-70", item.color.replace('text-', 'bg-'))} />
+                                                            <span className="leading-relaxed opacity-90">{achievement}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
 

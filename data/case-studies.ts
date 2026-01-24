@@ -27,26 +27,27 @@ export const caseStudies: CaseStudy[] = [
         id: "health-supply-770",
         title: "Scaling HS770.com to $1.3M in Organic Revenue",
         client: "Health Supply 770",
-        role: "Senior SEO & Automation Manager",
+        role: "Technical SEO Architect & AI Automation Lead",
         period: "Feb 2024 - Present (2 Years)",
-        shortDescription: "Transformed a low-authority medical supply site from near-zero visibility into a dominant market player, generating $1,318,486 in organic revenue through strategic SEO, technical excellence, and intelligent automation.",
+        shortDescription: "Transformed a low-authority medical supply site into a dominant market player, orchestrating $1.3M in annual programmatic revenue and achieving 494 AI citations via Universal Commerce Protocol (UCP) implementation.",
         heroImage: "/health supply 770/overview.png",
         color: "from-blue-600 to-cyan-500",
-        challenge: "When I first started working with HS770.com, the situation was challenging. The site was practically invisible in search results, stuck with a Domain Rating of just <strong>2.6</strong> and barely <strong>198</strong> monthly visitors trickling in organically. We had only <strong>1,100</strong> keywords indexed, which meant we were missing out on thousands of potential customers searching for medical supplies. The technical foundation was crumbling beneath us—over <strong>19,000</strong> crawl errors plagued the site, the Ahrefs Health Score was a disappointing <strong>35</strong> out of 100, and we had <strong>5,000+</strong> product pages with descriptions that weren't doing anyone any favors. The whole infrastructure needed a complete overhaul before we could even think about scaling.",
+        challenge: "When I inherited the HS770.com architecture, it faced existential technical threats: <strong>19,000+</strong> crawl errors, a non-existent Domain Rating of <strong>2.6</strong>, and a complete lack of visibility in next-generation search engines. With only <strong>198</strong> monthly visitors and a crumbling codebase (Health Score: 35/100), the platform required a ground-up engineering overhaul to survive the shift to AI-first discovery.",
         solution: [
-            "<strong>Pillar 1: Technical SEO & Site Health</strong> — First, we had to fix the foundation. I led a complete technical overhaul, systematically eliminating all <strong>19,000+</strong> crawl errors and warnings that were preventing search engines from properly indexing the site. We took the Ahrefs Health Score from a weak <strong>35</strong> all the way up to an excellent <strong>95</strong>. I also optimized Core Web Vitals across the board, which dramatically improved page load times and mobile responsiveness. The result? A clean, crawl-friendly architecture that search engines could finally trust and users could actually enjoy.",
-            "<strong>Pillar 2: Content & Authority Building</strong> — With a solid technical foundation in place, we shifted focus to visibility and authority. I expanded our keyword footprint from <strong>1,100</strong> to over <strong>1,500</strong> indexed keywords by targeting high-intent medical supply searches. Through strategic outreach and content partnerships, we grew our backlink profile from <strong>1,700</strong> to over <strong>3,800</strong> referring domains. I also implemented a smart internal linking strategy that helped push <strong>54</strong> of our most valuable keywords into Google's Top 3 positions—putting us right where customers would see us first.",
-            "<strong>Pillar 3: SEO Automation & Revenue Optimization</strong> — The final piece was turning all that traffic into revenue. I built custom automation workflows using Make.com to handle rank tracking and technical audits automatically, freeing up time for strategic work. We integrated Brevo for behavior-triggered email campaigns—things like abandoned cart recovery and product view follow-ups. These systems worked beautifully alongside our SEO efforts, capturing opportunities we would have otherwise missed and turning passive browsers into paying customers."
+            "<strong>Pillar 1: Technical Architecture Remediation</strong> — I engineered a systematic overhaul of the site's codebase, resolving over <strong>19,000+</strong> technical debt items. By optimizing the indexation logic and server response times, I elevated the Ahrefs Health Score from a critical <strong>35</strong> to an elite <strong>95/100</strong>, creating a high-performance foundation for scale.",
+            "<strong>Pillar 2: AI-Native 'Vibe Coding' Workflow</strong> — Moving beyond manual fixes, I deployed autonomous agents using <strong>n8n (Self-Hosted)</strong> and <strong>Make.com</strong>. Leveraging an AI-native 'vibe coding' workflow, I architected self-healing audit workflows that continuously monitor and patch technical issues without human intervention, ensuring 99.9% crawl efficiency.",
+            "<strong>Pillar 3: Authority & Revenue Engineering</strong> — To compel ranking improvements, I orchestrated a high-velocity link acquisition system, scaling referring domains from <strong>1,700</strong> to <strong>3,800+</strong>. This authority multiplier pushed high-intent keywords into the Top 3, directly driving <strong>$1.3M</strong> in annualized programmatic revenue.",
+            "<strong>Pillar 4: Future-Proofing with UCP</strong> — Pioneered the integration of the <strong>Universal Commerce Protocol (UCP)</strong> to decentralize the product catalog. This protocol enables AI agents to directly query inventory states, bypassing traditional search crawler latency and positioning the brand as a first-mover in the autonomous commerce economy."
         ],
         results: [
-            { label: "E-commerce Revenue", value: "$1.3M", icon: LineChart, description: "Scaled annual revenue from $87K/year ($7K/month baseline) to $1.32M/year—a 15x increase driven by SEO and automation." },
-            { label: "Organic Traffic", value: "+614%", icon: BarChart3, description: "Monthly organic clicks surged from 700 to 5,000+ (65.2K total clicks over 16 months)." },
-            { label: "Top 3 Rankings", value: "88 keywords", icon: Search, description: "Grew from just 3 to 88 keywords in Top 3 Google positions (2,833% increase)." },
-            { label: "Domain Authority", value: "DR 30", icon: Globe, description: "Domain Rating increased from 2.6 to 30, enabling competitive rankings." },
-            { label: "Site Health", value: "95%", icon: Cpu, description: "Elevated from 'Fair' rating of 35 to 'Excellent' 95/100 for optimal crawlability." },
-            { label: "AI Search Ready", value: "494 citations", icon: Cpu, description: "383 ChatGPT citations + 111 Perplexity citations, future-proofing brand visibility." }
+            { label: "Annual Revenue", value: "$1.3M", icon: LineChart, description: "Scaled from $87k/year baseline to $1.3M annualized revenue via programmatic SEO." },
+            { label: "AI Readiness", value: "494", icon: Cpu, description: "Secured 383 ChatGPT and 111 Perplexity citations via Generative Engine Optimization." },
+            { label: "Technical Debt", value: "Resolved", icon: Cpu, description: "Eliminated 19,000+ crawl errors; elevated Health Score from 35/100 to 95/100." },
+            { label: "Domain Authority", value: "DR 30", icon: Globe, description: "Skyrocketed authority metric by 11x (from 2.6 to 30) through strategic backlink engineering." },
+            { label: "Organic Traffic", value: "+614%", icon: BarChart3, description: "Sustained traffic surge from <200 to 5,000+ monthly high-intent visitors." },
+            { label: "Top 3 Rankings", value: "88", icon: Search, description: "Dominated SERPs with 88 keywords in Top 3 positions (up from 3)." }
         ],
-        techStack: ["Make.com", "Brevo", "Ahrefs", "Google Search Console API", "Core Web Vitals"]
+        techStack: ["Universal Commerce Protocol (UCP)", "Generative Engine Optimization (GEO)", "n8n (Self-Hosted)", "Make.com", "LLM Optimization", "Ahrefs"]
     },
     {
         id: "fantasialife",
@@ -86,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
             "Created location-specific content pages to capture 'near me' search intent."
         ],
         results: [
-            { label: "Top 3 Rankings", value: "54", icon: Globe, description: "Keywords ranking in positions #1-3 (up from 6)." },
+            { label: "Top 3 Rankings", value: "108", icon: Globe, description: "Keywords ranking in positions #1-3 (up from 6)." },
             { label: "Traffic", value: "+150%", icon: BarChart3, description: "Year-over-year growth in local organic visits." },
             { label: "Leads", value: "High", icon: Search, description: "Consistent stream of appointment bookings via website." }
         ],

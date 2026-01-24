@@ -11,7 +11,7 @@ const skillGroups = [
     {
         title: "SEO & Analytics",
         icon: BarChart,
-        skills: ["GA4", "Google Search Console", "Screaming Frog", "Looker Studio", "Google Tag Manager"],
+        skills: ["GA4", "Google Search Console", "Screaming Frog", "Looker Studio", "Google Tag Manager", "Universal Commerce Protocol (UCP)", "Generative Engine Optimization (GEO)", "LLM Optimization"],
         color: "text-blue-500",
         bg: "bg-blue-500/10",
         border: "group-hover:border-blue-500/50",
@@ -21,7 +21,7 @@ const skillGroups = [
     {
         title: "Automation",
         icon: Settings,
-        skills: ["Make.com", "n8n", "Brevo (Email Automation)"],
+        skills: ["Make.com", "n8n (Self-Hosted)", "Brevo (Email Automation)"],
         color: "text-purple-500",
         bg: "bg-purple-500/10",
         border: "group-hover:border-purple-500/50",
@@ -31,7 +31,7 @@ const skillGroups = [
     {
         title: "Tech Stack",
         icon: Code2,
-        skills: ["WordPress", "Shopify", "Python Basics", "HTML/CSS"],
+        skills: ["WordPress", "Shopify", "Python Basics", "HTML/CSS", "Model Context Protocol (MCP)"],
         color: "text-orange-500",
         bg: "bg-orange-500/10",
         border: "group-hover:border-orange-500/50",

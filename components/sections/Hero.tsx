@@ -58,7 +58,7 @@ export function Hero() {
                             "text-xl sm:text-2xl pt-4 font-bold tracking-tight animate-text-shimmer",
                             isTerminalMode ? "text-green-600" : "text-muted-foreground"
                         )}>
-                            Othmane Outaghza - Senior SEO & Automation Manager.
+                            Othmane Outaghza - Technical SEO Architect & AI Automation Lead.
                         </p>
                     </BlurFade>
 

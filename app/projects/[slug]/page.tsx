@@ -203,25 +203,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         })}
                     </MotionDiv>
 
-                    {/* Hero Image Section */}
-                    {study.heroImage && (
-                        <MotionDiv
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="mt-16 rounded-2xl overflow-hidden border border-gray-200/50 shadow-lg bg-gray-50"
-                        >
-                            <Image
-                                src={study.heroImage}
-                                alt={`${study.title} - Case Study Overview`}
-                                width={1200}
-                                height={600}
-                                priority={false}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1000px"
-                                className="w-full h-auto object-cover"
-                            />
-                        </MotionDiv>
-                    )}
+                    {/* Hero Image Section Removed per user request */}
                 </section>
 
                 {/* Content Section: Two Columns */}

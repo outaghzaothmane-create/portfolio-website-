@@ -72,9 +72,9 @@ export function KeyMetrics() {
                         <motion.div variants={item}>
                             <MetricCard
                                 title="Top 3 Keywords"
-                                value={54}
+                                value={88}
                                 trend="up"
-                                trendValue="Up from 6"
+                                trendValue="Up from 3"
                                 subtext="High Intent Rankings"
                             />
                         </motion.div>

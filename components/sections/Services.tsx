@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 const services = [
     {
-        title: "The \"Growth Retainer\"",
+        title: "The \"Revenue Architecture\" Retainer",
         subtitle: "Fractional Head of SEO",
         icon: TrendingUp,
         color: "text-green-500",
@@ -24,14 +24,14 @@ const services = [
         link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO"
     },
     {
-        title: "The \"Automation Systems\" Build",
+        title: "AI Agent & Workflow Deployment",
         subtitle: "Eliminate Manual Work",
         icon: Workflow,
         color: "text-purple-500",
         glow: "group-hover:shadow-purple-500/20",
         target: "For: Teams drowning in manual data work",
         features: [
-            "Building custom Make.com / n8n workflows",
+            "Deploying autonomous MCP Agents and n8n pipelines",
             "Python scripting for scraping or indexing",
             "Auto-generating programmatic SEO pages"
         ],

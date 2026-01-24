@@ -37,7 +37,7 @@ const projects = [
     {
         title: "The $1.3M Automation Blueprint",
         client: "Health Supply 770",
-        description: "Automated technical audits and email marketing workflows using Make.com and Brevo. Implemented a scalable SEO architecture that drove massive organic revenue growth.",
+        description: "Engineered a $1.3M revenue machine by deploying Universal Commerce Protocol (UCP) and self-healing AI agents that autonomously monitor and fix technical debt.",
         tags: ["Automation", "Revenue Growth", "Technical SEO"],
         metrics: [
             { label: "Revenue", value: "$1.3M+", icon: TrendingUp },
