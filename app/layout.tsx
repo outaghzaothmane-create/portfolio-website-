@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://othmaneoutaghza.online",
     },
-    verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION ? {
-        google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
-    } : undefined,
+    verification: {
+        google: "vyNwAWSelppL3sI5KlalLT6dRlthpNc1oheFJJb55LI",
+    },
 };
 
 import { Header } from "@/components/layout/Header";
@@ -65,7 +65,7 @@ export default function RootLayout({
                     {children}
                 </TerminalProvider>
             </body>
-            {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
+            <GoogleAnalytics gaId="G-KDZXFTJ690" />
         </html>
     );
 }
