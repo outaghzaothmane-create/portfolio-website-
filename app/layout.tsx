@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Schema } from "@/components/Schema";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -39,6 +40,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://othmane.seo",
     },
+    verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION ? {
+        google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+    } : undefined,
 };
 
 import { Header } from "@/components/layout/Header";
@@ -61,6 +65,7 @@ export default function RootLayout({
                     {children}
                 </TerminalProvider>
             </body>
+            {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
         </html>
     );
 }
