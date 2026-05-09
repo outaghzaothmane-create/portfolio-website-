@@ -10,6 +10,10 @@ const About = dynamic(() => import("@/components/sections/About").then(mod => ({
     loading: () => <div className="h-64 animate-pulse bg-muted/20 rounded-xl" />,
 });
 
+const Methodology = dynamic(() => import("@/components/sections/Methodology").then(mod => ({ default: mod.Methodology })), {
+    loading: () => <div className="h-64 animate-pulse bg-muted/20 rounded-xl" />,
+});
+
 const Experience = dynamic(() => import("@/components/sections/Experience").then(mod => ({ default: mod.Experience })), {
     loading: () => <div className="h-64 animate-pulse bg-muted/20 rounded-xl" />,
 });
@@ -54,6 +58,8 @@ export default function Home() {
             </div>
 
             <KeyMetrics />
+
+            <Methodology />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>

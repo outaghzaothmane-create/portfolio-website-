@@ -17,6 +17,7 @@ export interface CaseStudy {
     heroImage: string;
     challenge: string;
     solution: string[];
+    solutionImages?: { url: string; alt: string; caption?: string }[];
     results: CaseStudyResult[];
     techStack: string[];
     color: string;
@@ -38,6 +39,13 @@ export const caseStudies: CaseStudy[] = [
             "<strong>Pillar 2: AI-Native 'Vibe Coding' Workflow</strong> — Moving beyond manual fixes, I deployed autonomous agents using <strong>n8n (Self-Hosted)</strong> and <strong>Make.com</strong>. Leveraging an AI-native 'vibe coding' workflow, I architected self-healing audit workflows that continuously monitor and patch technical issues without human intervention, ensuring 99.9% crawl efficiency.",
             "<strong>Pillar 3: Authority & Revenue Engineering</strong> — To compel ranking improvements, I orchestrated a high-velocity link acquisition system, scaling referring domains from <strong>1,700</strong> to <strong>3,800+</strong>. This authority multiplier pushed high-intent keywords into the Top 3, directly driving <strong>$1.3M</strong> in annualized programmatic revenue.",
             "<strong>Pillar 4: Future-Proofing with UCP</strong> — Pioneered the integration of the <strong>Universal Commerce Protocol (UCP)</strong> to decentralize the product catalog. This protocol enables AI agents to directly query inventory states, bypassing traditional search crawler latency and positioning the brand as a first-mover in the autonomous commerce economy."
+        ],
+        solutionImages: [
+            {
+                url: "/health supply 770/n8n-workflow.png",
+                alt: "n8n PR Link Builder Workflow",
+                caption: "The autonomous n8n HARO PR Link Builder pipeline featuring Gemini AI filtering."
+            }
         ],
         results: [
             { label: "Annual Revenue", value: "$1.3M", icon: LineChart, description: "Scaled from $87k/year baseline to $1.3M annualized revenue via programmatic SEO." },

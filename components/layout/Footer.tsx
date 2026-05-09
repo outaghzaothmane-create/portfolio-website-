@@ -51,14 +51,14 @@ export function Footer() {
                 </div>
 
                 <div className="relative z-10 p-6 md:p-12 text-center md:text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                        {/* Brand (Cols 1-4) */}
-                        <div className="md:col-span-4 space-y-6 flex flex-col items-center md:items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
+                        {/* Brand (Cols 1-3) */}
+                        <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
                             <Link href="/" className="group flex items-center gap-2 font-bold text-2xl">
                                 <span className={cn("transition-colors", isTerminalMode ? "text-green-500" : "text-foreground")}>Othmane</span>
                                 <span className={cn("transition-colors", isTerminalMode ? "text-green-700" : "text-muted-foreground/60")}>.SEO</span>
                             </Link>
-                            <p className={cn("font-medium text-sm max-w-xs", isTerminalMode ? "text-green-600" : "text-muted-foreground")}>
+                            <p className={cn("font-medium text-sm max-w-xs text-center md:text-left", isTerminalMode ? "text-green-600" : "text-muted-foreground")}>
                                 Engineered in Morocco
                                 <span className={cn(
                                     "inline-block ml-2 text-xs px-2 py-0.5 rounded-full font-mono transition-colors",
@@ -66,7 +66,7 @@ export function Footer() {
                                 )}>MA</span>
                             </p>
                             <MagneticButton
-                                href="./resume.pdf"
+                                href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={cn(
@@ -83,15 +83,15 @@ export function Footer() {
                             </MagneticButton>
                         </div>
 
-                        {/* Navigation (Cols 5-8) */}
-                        <div className="md:col-span-4 space-y-6 flex flex-col items-center md:items-start">
+                        {/* Navigation (Cols 4-5) */}
+                        <div className="md:col-span-2 space-y-6 flex flex-col items-center md:items-start">
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>Navigation</h3>
                             <nav className="flex flex-col gap-3 items-center md:items-start">
                                 {[
-                                    { name: "Overview", href: "#overview" },
-                                    { name: "Case Studies", href: "/#projects" },
-                                    { name: "Tech Stack", href: "#tech-stack" },
-                                    { name: "Services", href: "#services" }
+                                    { name: "Overview", href: "/#overview" },
+                                    { name: "Services", href: "/#services" },
+                                    { name: "Projects", href: "/#projects" },
+                                    { name: "Resources", href: "/resources" }
                                 ].map((item) => (
                                     <Link
                                         key={item.name}
@@ -109,11 +109,43 @@ export function Footer() {
                             </nav>
                         </div>
 
-                        {/* System Status Widget (Cols 9-12) */}
+                        {/* Services (Cols 6-9) */}
                         <div className="md:col-span-4 space-y-6 flex flex-col items-center md:items-start">
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>Services</h3>
+                            <nav className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 items-center md:items-start text-center md:text-left">
+                                {[
+                                    { name: "Technical SEO", href: "/technical-seo-consultant" },
+                                    { name: "Shopify SEO", href: "/shopify-seo-consultant" },
+                                    { name: "AI Search Opt", href: "/ai-search-optimization" },
+                                    { name: "GEO Optimization", href: "/generative-engine-optimization" },
+                                    { name: "LLM Optimization", href: "/llm-optimization" },
+                                    { name: "Tech SEO Auto", href: "/technical-seo-automation" },
+                                    { name: "n8n Automation", href: "/n8n-seo-automation" },
+                                    { name: "Make Automation", href: "/make-com-seo-automation" },
+                                    { name: "AI Search Guide", href: "/ai-search-guide" },
+                                    { name: "SEO Morocco", href: "/technical-seo-consultant-morocco" }
+                                ].map((item) => (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        className={cn(
+                                            "text-sm font-medium transition-colors",
+                                            isTerminalMode
+                                                ? "text-green-600 hover:text-green-400"
+                                                : "text-muted-foreground hover:text-blue-600"
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </nav>
+                        </div>
+
+                        {/* System Status Widget (Cols 10-12) */}
+                        <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>System Status</h3>
                             <div className={cn(
-                                "rounded-2xl p-5 space-y-4 border backdrop-blur-sm transition-colors duration-300",
+                                "rounded-2xl p-5 space-y-4 border backdrop-blur-sm transition-colors duration-300 w-full",
                                 isTerminalMode
                                     ? "bg-green-900/10 border-green-900/30"
                                     : "bg-white/50 border-white/40 shadow-sm"
@@ -123,7 +155,7 @@ export function Footer() {
                                         <span className={cn("animate-ping absolute inline-flex h-full w-full rounded-full opacity-75", isTerminalMode ? "bg-green-400" : "bg-green-500")}></span>
                                         <span className={cn("relative inline-flex rounded-full h-2.5 w-2.5", isTerminalMode ? "bg-green-500" : "bg-green-500")}></span>
                                     </span>
-                                    All Systems Operational
+                                    Operational
                                 </div>
                                 <div className={cn("flex items-center justify-center md:justify-start gap-3 text-sm", isTerminalMode ? "text-green-600" : "text-muted-foreground")}>
                                     <MapPin className="h-4 w-4 opacity-70" />

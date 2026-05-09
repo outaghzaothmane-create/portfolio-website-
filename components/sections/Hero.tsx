@@ -55,7 +55,7 @@ export function Hero() {
                     <BlurFade delay={0.5} inView>
                         <div className="pt-4">
                             <MagneticButton
-                                href="./resume.pdf"
+                                href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={cn(

@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const services = [
     {
@@ -21,7 +22,8 @@ const services = [
             "Managing writer/dev teams"
         ],
         why: "I don't just rank keywords; I manage the entire revenue pipeline.",
-        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO"
+        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO",
+        pageLink: "/shopify-seo-consultant"
     },
     {
         title: "AI Agent & Workflow Deployment",
@@ -36,7 +38,8 @@ const services = [
             "Auto-generating programmatic SEO pages"
         ],
         why: "Turn 20 hours of manual work into a 2-minute script.",
-        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Automation+Build"
+        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Automation+Build",
+        pageLink: "/n8n-seo-automation"
     },
     {
         title: "Technical Architecture Sprint",
@@ -51,7 +54,8 @@ const services = [
             "Migration safety & Schema implementation"
         ],
         why: "A deep-dive audit to fix the technical debt hurting your rankings.",
-        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Tech+Audit"
+        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Tech+Audit",
+        pageLink: "/technical-seo-consultant"
     },
 ];
 
@@ -137,19 +141,32 @@ export function Services() {
                                             "{service.why}"
                                         </p>
 
-                                        <a
-                                            href={service.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={cn(
-                                                "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all",
-                                                isTerminalMode
-                                                    ? "bg-green-900/20 text-green-500 hover:bg-green-900/30"
-                                                    : "bg-white text-foreground hover:shadow-md border border-white/60"
-                                            )}
-                                        >
-                                            Book Strategy Call <ArrowUpRight className="h-4 w-4" />
-                                        </a>
+                                        <div className="flex flex-col gap-3">
+                                            <Link
+                                                href={service.pageLink}
+                                                className={cn(
+                                                    "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all",
+                                                    isTerminalMode
+                                                        ? "bg-transparent border border-green-500/30 text-green-400 hover:bg-green-900/20"
+                                                        : "bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200"
+                                                )}
+                                            >
+                                                Learn More <ArrowUpRight className="h-4 w-4" />
+                                            </Link>
+                                            <a
+                                                href={service.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={cn(
+                                                    "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all",
+                                                    isTerminalMode
+                                                        ? "bg-green-900/20 text-green-500 hover:bg-green-900/30"
+                                                        : "bg-white text-foreground hover:shadow-md border border-white/60"
+                                                )}
+                                            >
+                                                Book Strategy Call <ArrowUpRight className="h-4 w-4" />
+                                            </a>
+                                        </div>
                                     </div>
                                 </CardContent>
                             </Card>

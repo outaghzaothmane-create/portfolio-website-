@@ -13,12 +13,12 @@ const inter = Inter({
 export const metadata: Metadata = {
     metadataBase: new URL("https://othmaneoutaghza.online"),
     title: "Othmane Outaghza | Technical SEO Consultant & AI Automation Specialist",
-    description: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist helping e-commerce and service businesses grow organic revenue through technical SEO, GEO, structured data, and automation.",
+    description: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist helping businesses improve search visibility, AI search discoverability, structured data, and SEO automation.",
     keywords: ["Technical SEO Consultant", "AI Automation Specialist", "SEO Automation Consultant", "E-commerce SEO Consultant", "Technical SEO Expert Morocco", "GEO Consultant", "AI Search Optimization Specialist", "Shopify SEO Consultant", "WordPress SEO Consultant", "SEO Consultant for E-commerce Brands", "Structured Data Consultant", "Technical SEO Audit Consultant"],
     openGraph: {
         type: "website",
         title: "Othmane Outaghza | Technical SEO Consultant & AI Automation Specialist",
-        description: "Technical SEO Consultant and AI Automation Specialist helping businesses grow organic revenue through SEO, GEO, structured data, and automation.",
+        description: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist helping businesses improve search visibility, AI search discoverability, structured data, and SEO automation.",
         url: "https://othmaneoutaghza.online/",
         siteName: "Othmane Outaghza",
         images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Othmane Outaghza | Technical SEO Consultant & AI Automation Specialist",
-        description: "Helping businesses grow organic revenue through technical SEO, AI search optimization, GEO, structured data, and automation.",
+        description: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist helping businesses improve search visibility, AI search discoverability, structured data, and SEO automation.",
         images: ["/og-image.jpg"],
     },
     alternates: {

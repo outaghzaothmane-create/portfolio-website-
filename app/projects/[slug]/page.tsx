@@ -246,6 +246,27 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                                             );
                                         })}
                                     </div>
+                                    
+                                    {study.solutionImages && study.solutionImages.length > 0 && (
+                                        <div className="mt-12 space-y-8">
+                                            {study.solutionImages.map((img, idx) => (
+                                                <figure key={idx} className="rounded-xl overflow-hidden border border-border bg-muted/10 p-2">
+                                                    <Image 
+                                                        src={img.url} 
+                                                        alt={img.alt} 
+                                                        width={1200} 
+                                                        height={600} 
+                                                        className="w-full h-auto rounded-lg shadow-sm"
+                                                    />
+                                                    {img.caption && (
+                                                        <figcaption className="text-center text-sm text-muted-foreground mt-4 pb-2">
+                                                            {img.caption}
+                                                        </figcaption>
+                                                    )}
+                                                </figure>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </SectionWrapper>
                         </div>

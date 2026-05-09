@@ -18,10 +18,10 @@ export function Header() {
     const [isAuditOpen, setIsAuditOpen] = useState(false);
 
     const navItems = [
-        { name: "Overview", href: "#overview" },
-        { name: "Case Studies", href: "#projects" },
-        { name: "Tech Stack", href: "#tech-stack" },
-        { name: "Services", href: "#services" },
+        { name: "Overview", href: "/#overview" },
+        { name: "Services", href: "/#services" },
+        { name: "Case Studies", href: "/#projects" },
+        { name: "Resources", href: "/resources" },
     ];
 
     return (
