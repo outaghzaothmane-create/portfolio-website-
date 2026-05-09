@@ -11,14 +11,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://othmane.seo"),
+    metadataBase: new URL("https://othmaneoutaghza.online"),
     title: "Othmane.SEO | Senior Automation Manager",
     description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
     keywords: ["SEO Manager", "Technical SEO", "Python Automation", "Ecommerce SEO", "Make.com Expert"],
     openGraph: {
         title: "Othmane.SEO | Senior Automation Manager",
         description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
-        url: "https://othmane.seo",
+        url: "https://othmaneoutaghza.online",
         siteName: "Othmane.SEO",
         images: [
             {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         images: ["/og-image.jpg"],
     },
     alternates: {
-        canonical: "https://othmane.seo",
+        canonical: "https://othmaneoutaghza.online",
     },
     verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION ? {
         google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
