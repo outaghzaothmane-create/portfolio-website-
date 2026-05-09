@@ -23,19 +23,19 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://othmane.seo"
+                "item": "https://othmaneoutaghza.online"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Projects",
-                "item": "https://othmane.seo/#projects"
+                "item": "https://othmaneoutaghza.online/#projects"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": study.title,
-                "item": `https://othmane.seo/projects/${slug}`
+                "item": `https://othmaneoutaghza.online/projects/${slug}`
             }
         ]
     };
@@ -43,7 +43,7 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
     const imageSchema = {
         "@context": "https://schema.org",
         "@type": "ImageObject",
-        "url": `https://othmane.seo${study.heroImage}`,
+        "url": `https://othmaneoutaghza.online${study.heroImage}`,
         "name": `${study.title} - Case Study Overview`,
         "description": study.shortDescription,
         "width": 1200,
@@ -57,19 +57,19 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
         "description": study.shortDescription,
         "image": {
             "@type": "ImageObject",
-            "url": `https://othmane.seo${study.heroImage}`,
+            "url": `https://othmaneoutaghza.online${study.heroImage}`,
             "width": 1200,
             "height": 600
         },
         "author": {
             "@type": "Person",
             "name": "Othmane Outaghza",
-            "url": "https://othmane.seo"
+            "url": "https://othmaneoutaghza.online"
         },
         "publisher": {
             "@type": "Organization",
             "name": "Othmane.SEO",
-            "url": "https://othmane.seo"
+            "url": "https://othmaneoutaghza.online"
         },
         "datePublished": "2024-01-01T00:00:00+00:00",
         "dateModified": new Date().toISOString()

@@ -17,6 +17,6 @@ User-agent: Google-Extended
 Allow: /
 
 # LLMs file for AI search systems
-# https://othmane.seo/llms.txt
+# https://othmaneoutaghza.online/llms.txt
 
-Sitemap: https://othmane.seo/sitemap.xml
+Sitemap: https://othmaneoutaghza.online/sitemap.xml

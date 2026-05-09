@@ -4,9 +4,9 @@
 
 ## Website
 
-- Homepage: https://othmane.seo/
-- Sitemap: https://othmane.seo/sitemap.xml
-- Robots.txt: https://othmane.seo/robots.txt
+- Homepage: https://othmaneoutaghza.online/
+- Sitemap: https://othmaneoutaghza.online/sitemap.xml
+- Robots.txt: https://othmaneoutaghza.online/robots.txt
 
 ## About
 
@@ -57,4 +57,4 @@ Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist help
 ## Contact
 
 For SEO consulting, AI search optimization, and automation projects, visit:
-https://othmane.seo/
+https://othmaneoutaghza.online/

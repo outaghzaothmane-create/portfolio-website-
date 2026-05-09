@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { caseStudies } from '@/data/case-studies';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://othmane.seo';
+    const baseUrl = 'https://othmaneoutaghza.online';
 
     const projectUrls = caseStudies.map((study) => ({
         url: `${baseUrl}/projects/${study.id}`,
