@@ -12,14 +12,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://othmaneoutaghza.online"),
-    title: "Othmane.SEO | Senior Automation Manager",
-    description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
-    keywords: ["SEO Manager", "Technical SEO", "Python Automation", "Ecommerce SEO", "Make.com Expert"],
+    title: "Othmane Outaghza | Technical SEO Consultant & AI Automation Specialist",
+    description: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist helping e-commerce and service businesses grow organic revenue through technical SEO, GEO, structured data, and automation.",
+    keywords: ["Technical SEO Consultant", "AI Automation Specialist", "SEO Automation Consultant", "E-commerce SEO Consultant", "Technical SEO Expert Morocco", "GEO Consultant", "AI Search Optimization Specialist", "Shopify SEO Consultant", "WordPress SEO Consultant", "SEO Consultant for E-commerce Brands", "Structured Data Consultant", "Technical SEO Audit Consultant"],
     openGraph: {
-        title: "Othmane.SEO | Senior Automation Manager",
-        description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
-        url: "https://othmaneoutaghza.online",
-        siteName: "Othmane.SEO",
+        type: "website",
+        title: "Othmane Outaghza | Technical SEO Consultant & AI Automation Specialist",
+        description: "Technical SEO Consultant and AI Automation Specialist helping businesses grow organic revenue through SEO, GEO, structured data, and automation.",
+        url: "https://othmaneoutaghza.online/",
+        siteName: "Othmane Outaghza",
         images: [
             {
                 url: "/og-image.jpg",
@@ -29,16 +30,15 @@ export const metadata: Metadata = {
             },
         ],
         locale: "en_US",
-        type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Othmane.SEO | Senior Automation Manager",
-        description: "Driving $1.3M+ in Organic Revenue through Data & Automation.",
+        title: "Othmane Outaghza | Technical SEO Consultant & AI Automation Specialist",
+        description: "Helping businesses grow organic revenue through technical SEO, AI search optimization, GEO, structured data, and automation.",
         images: ["/og-image.jpg"],
     },
     alternates: {
-        canonical: "https://othmaneoutaghza.online",
+        canonical: "https://othmaneoutaghza.online/",
     },
     verification: {
         google: "vyNwAWSelppL3sI5KlalLT6dRlthpNc1oheFJJb55LI",

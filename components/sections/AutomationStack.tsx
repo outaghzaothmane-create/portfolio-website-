@@ -245,7 +245,7 @@ export function AutomationStack() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
                 <div className="flex flex-col gap-2">
-                    <h2 className="text-3xl font-bold tracking-tight text-foreground">Automation Pipeline</h2>
+                    <h3 className="text-3xl font-bold tracking-tight text-foreground">Automation Pipeline</h3>
                     <p className="text-muted-foreground">Complex logic handling and real-time processing workflows.</p>
                 </div>
 

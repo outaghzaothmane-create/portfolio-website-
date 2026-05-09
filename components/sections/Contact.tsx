@@ -18,7 +18,7 @@ export function Contact() {
     return (
         <section id="contact" className="w-full py-16 bg-transparent">
             <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} />
-            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8">Start a new property</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-8">Book a Free SEO Audit</h2>
             <Card className={cn(
                 "relative overflow-hidden border transition-all duration-500 rounded-[2.5rem]",
                 isTerminalMode
@@ -48,7 +48,7 @@ export function Contact() {
                             )}
                         >
                             <div className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium">
-                                Get Free Audit
+                                Book a Free SEO & AI Search Audit
                                 <ArrowRight className="h-3 w-3" />
                             </div>
                         </MagneticButton>

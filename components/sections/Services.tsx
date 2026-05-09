@@ -64,7 +64,7 @@ export function Services() {
         )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-12">
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">Engagement Models</h2>
+                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">Technical SEO & AI Automation Services</h2>
                     <p className="text-muted-foreground max-w-2xl">
                         Flexible engagement models tailored to your specific needs and growth stage.
                     </p>

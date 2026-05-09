@@ -36,21 +36,11 @@ export function Hero() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="space-y-8 max-w-4xl">
-                    <h1 className="flex flex-col gap-2">
-                        <HyperText
-                            text="Driving $1.3M+ in Organic"
-                            className={cn(
-                                "text-4xl font-bold tracking-tighter sm:text-6xl",
-                                isTerminalMode ? "text-green-500" : "text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60"
-                            )}
-                        />
-                        <HyperText
-                            text="Revenue through Data & Automation."
-                            className={cn(
-                                "text-4xl font-bold tracking-tighter sm:text-6xl",
-                                isTerminalMode ? "text-green-500" : "text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60"
-                            )}
-                        />
+                    <h1 className={cn(
+                        "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight",
+                        isTerminalMode ? "text-green-500" : "text-foreground"
+                    )}>
+                        Technical SEO Consultant & AI Automation Specialist Driving $1.3M+ in Organic Revenue
                     </h1>
 
                     <BlurFade delay={0.25} inView>
@@ -58,7 +48,7 @@ export function Hero() {
                             "text-xl sm:text-2xl pt-4 font-bold tracking-tight animate-text-shimmer",
                             isTerminalMode ? "text-green-600" : "text-muted-foreground"
                         )}>
-                            Othmane Outaghza - Technical SEO Architect & AI Automation Lead.
+                            Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco.
                         </p>
                     </BlurFade>
 

@@ -3,68 +3,122 @@ export function Schema() {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Othmane Outaghza",
-        "jobTitle": "Senior SEO & Automation Manager",
-        "url": "https://othmane.seo",
-        "sameAs": [
-            "https://www.linkedin.com/in/othmaneoutaghza/",
-            "https://github.com/othmane"
+        "url": "https://othmaneoutaghza.online/",
+        "jobTitle": "Technical SEO Consultant and AI Automation Specialist",
+        "description": "Othmane Outaghza is a Morocco-based Technical SEO Consultant and AI Automation Specialist helping businesses grow organic revenue through technical SEO, GEO, automation, and structured data.",
+        "knowsAbout": [
+            "Technical SEO",
+            "E-commerce SEO",
+            "Generative Engine Optimization",
+            "AI Search Optimization",
+            "SEO Automation",
+            "Structured Data",
+            "WordPress SEO",
+            "Shopify SEO",
+            "Python SEO Automation",
+            "Make.com Automation",
+            "n8n Automation"
         ],
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Health Supply 770"
-        },
-        "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "University of Jiangsu"
+        "sameAs": [
+            "https://othmaneoutaghza.online/"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Casablanca",
+            "addressCountry": "MA"
         }
     };
 
-    const organizationSchema = {
+    const professionalServiceSchema = {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Othmane.SEO",
-        "url": "https://othmane.seo",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://othmane.seo/logo.png",
-            "width": 192,
-            "height": 192
-        },
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://othmane.seo/og-image.jpg",
-            "width": 1200,
-            "height": 630
-        },
-        "description": "Senior SEO & Automation Manager specializing in driving organic revenue through data-driven SEO strategies and automation.",
-        "sameAs": [
-            "https://www.linkedin.com/in/othmaneoutaghza/",
-            "https://github.com/othmane"
+        "@type": "ProfessionalService",
+        "name": "Othmane Outaghza SEO & AI Automation Consulting",
+        "url": "https://othmaneoutaghza.online/",
+        "description": "Technical SEO, AI search optimization, GEO, structured data, and SEO automation consulting for e-commerce and service businesses.",
+        "areaServed": [
+            {
+                "@type": "Country",
+                "name": "Morocco"
+            },
+            {
+                "@type": "Place",
+                "name": "Worldwide"
+            }
         ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "availableLanguage": ["en"]
-        }
+        "founder": {
+            "@type": "Person",
+            "name": "Othmane Outaghza"
+        },
+        "serviceType": [
+            "Technical SEO Consulting",
+            "E-commerce SEO",
+            "AI Search Optimization",
+            "Generative Engine Optimization",
+            "SEO Automation",
+            "Structured Data Implementation"
+        ]
     };
 
-    const profilePageSchema = {
+    const faqPageSchema = {
         "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "dateCreated": "2024-01-01T00:00:00+00:00",
-        "dateModified": new Date().toISOString(),
-        "mainEntity": personSchema
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Who is Othmane Outaghza?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco. He helps businesses improve organic search visibility, technical SEO performance, and AI search presence."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What services does Othmane Outaghza offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "He offers technical SEO audits, e-commerce SEO strategy, AI search optimization, structured data implementation, SEO automation, workflow automation, and technical architecture support."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What industries does Othmane specialize in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Othmane specializes in e-commerce SEO, medical supply SEO, Shopify SEO, WordPress SEO, local SEO, and automation-driven SEO systems."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What results has Othmane achieved?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "His portfolio highlights $1.3M+ in organic revenue impact, major organic traffic growth, improved keyword rankings, AI citations, and automated SEO workflows."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is Othmane Outaghza based?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Othmane Outaghza is based in Morocco and works with businesses internationally."
+                }
+            }
+        ]
     };
 
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
             />
         </>
     );

@@ -59,7 +59,7 @@ export function Experience() {
         <section id="experience" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-3xl font-bold tracking-tight text-foreground">Performance Report</h2>
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground">SEO & Automation Results</h2>
                     <Badge variant="outline" className="text-muted-foreground">Last 3 Years</Badge>
                 </div>
                 <p className="text-muted-foreground">Track record of delivering measurable results.</p>

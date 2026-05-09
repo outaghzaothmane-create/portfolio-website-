@@ -46,7 +46,7 @@ export function Skills() {
     return (
         <section id="tech-stack" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Tech Ecosystem</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-foreground">Tech Stack</h2>
                 <p className="text-muted-foreground">The tools and technologies powering my workflows.</p>
             </div>
 
