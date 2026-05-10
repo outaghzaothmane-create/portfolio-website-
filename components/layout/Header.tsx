@@ -8,7 +8,7 @@ import { useTerminal } from "@/components/providers/terminal-context";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu, Terminal } from "lucide-react";
 import { useState } from "react";
-import { CaseStudiesDropdown } from "@/components/layout/CaseStudiesDropdown";
+import { NavDropdown, navDropdowns } from "@/components/layout/NavDropdown";
 import { AuditModal } from "@/components/features/AuditModal";
 
 export function Header() {
@@ -18,10 +18,9 @@ export function Header() {
     const [isAuditOpen, setIsAuditOpen] = useState(false);
 
     const navItems = [
-        { name: "Overview", href: "/#overview" },
         { name: "Services", href: "/#services" },
         { name: "Case Studies", href: "/#projects" },
-        { name: "Resources", href: "/resources" },
+        { name: "Blog", href: "/blog/" },
     ];
 
     return (
@@ -75,8 +74,11 @@ export function Header() {
 
                                 {/* Dropdown */}
                                 <AnimatePresence>
-                                    {item.name === "Case Studies" && hoveredItem === "Case Studies" && (
-                                        <CaseStudiesDropdown isTerminalMode={isTerminalMode} />
+                                    {hoveredItem === item.name && navDropdowns[item.name] && (
+                                        <NavDropdown
+                                            isTerminalMode={isTerminalMode}
+                                            items={navDropdowns[item.name]}
+                                        />
                                     )}
                                 </AnimatePresence>
                             </div>

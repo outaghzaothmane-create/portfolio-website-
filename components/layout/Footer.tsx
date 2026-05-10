@@ -91,7 +91,7 @@ export function Footer() {
                                     { name: "Overview", href: "/#overview" },
                                     { name: "Services", href: "/#services" },
                                     { name: "Projects", href: "/#projects" },
-                                    { name: "Resources", href: "/resources" }
+                                    { name: "Blog", href: "/blog/" }
                                 ].map((item) => (
                                     <Link
                                         key={item.name}

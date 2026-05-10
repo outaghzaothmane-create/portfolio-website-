@@ -33,7 +33,7 @@ export default function AISearchGuidePage() {
             relatedLinks={[
                 { title: "AI Search Optimization", href: "/ai-search-optimization" },
                 { title: "Generative Engine Optimization", href: "/generative-engine-optimization" },
-                { title: "Resources Hub", href: "/resources" }
+                { title: "Blog", href: "/blog/" }
             ]}
             url="https://othmaneoutaghza.online/ai-search-guide"
         />
