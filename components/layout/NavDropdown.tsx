@@ -5,8 +5,6 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
     Cpu,
-    BrainCircuit,
-    FileText,
     MapPin,
     ShoppingBag,
     TrendingUp,
@@ -66,26 +64,6 @@ export const navDropdowns: Record<string, DropdownItem[]> = {
             description: "Local SEO domination",
             href: "/projects/epoptique",
             icon: MapPin,
-        },
-    ],
-    Blog: [
-        {
-            title: "Technical SEO",
-            description: "Crawlability, indexing, schema",
-            href: "/blog/category/technical-seo",
-            icon: Cpu,
-        },
-        {
-            title: "AI Search Optimization",
-            description: "GEO, LLMO, AI citations",
-            href: "/blog/category/ai-search-optimization",
-            icon: BrainCircuit,
-        },
-        {
-            title: "Recent Articles",
-            description: "Latest SEO field notes",
-            href: "/blog",
-            icon: FileText,
         },
     ],
 };
