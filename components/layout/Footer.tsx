@@ -114,7 +114,6 @@ export function Footer() {
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>Services</h3>
                             <nav className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 items-center md:items-start text-center md:text-left">
                                 {[
-                                    { name: "AI Search Guide", href: "/ai-search-guide" },
                                     { name: "Blog", href: "/blog" }
                                 ].map((item) => (
                                     <Link

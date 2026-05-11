@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 const services = [
     {
@@ -22,8 +21,7 @@ const services = [
             "Managing writer/dev teams"
         ],
         why: "I don't just rank keywords; I manage the entire revenue pipeline.",
-        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO",
-        pageLink: "/ai-search-guide"
+        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO"
     },
     {
         title: "AI Agent & Workflow Deployment",
@@ -38,8 +36,7 @@ const services = [
             "Auto-generating programmatic SEO pages"
         ],
         why: "Turn 20 hours of manual work into a 2-minute script.",
-        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Automation+Build",
-        pageLink: "/ai-search-guide"
+        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Automation+Build"
     },
     {
         title: "Technical Architecture Sprint",
@@ -54,8 +51,7 @@ const services = [
             "Migration safety & Schema implementation"
         ],
         why: "A deep-dive audit to fix the technical debt hurting your rankings.",
-        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Tech+Audit",
-        pageLink: "/ai-search-guide"
+        link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Tech+Audit"
     },
 ];
 
@@ -142,17 +138,6 @@ export function Services() {
                                         </p>
 
                                         <div className="flex flex-col gap-3">
-                                            <Link
-                                                href={service.pageLink}
-                                                className={cn(
-                                                    "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all",
-                                                    isTerminalMode
-                                                        ? "bg-transparent border border-green-500/30 text-green-400 hover:bg-green-900/20"
-                                                        : "bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200"
-                                                )}
-                                            >
-                                                Learn More <ArrowUpRight className="h-4 w-4" />
-                                            </Link>
                                             <a
                                                 href={service.link}
                                                 target="_blank"

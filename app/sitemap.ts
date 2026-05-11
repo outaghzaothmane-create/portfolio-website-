@@ -19,7 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     const servicePages = [
-        'ai-search-guide',
         'blog'
     ];
 

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
-    Cpu,
     MapPin,
     ShoppingBag,
     TrendingUp,
@@ -25,14 +24,6 @@ interface NavDropdownProps {
 }
 
 export const navDropdowns: Record<string, DropdownItem[]> = {
-    Services: [
-        {
-            title: "AI Search Guide",
-            description: "AI & GEO optimization guide",
-            href: "/ai-search-guide",
-            icon: Cpu,
-        },
-    ],
     "Case Studies": [
         {
             title: "Health Supply 770",
