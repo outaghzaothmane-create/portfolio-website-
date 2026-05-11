@@ -109,29 +109,6 @@ export function Footer() {
                             </nav>
                         </div>
 
-                        {/* Services (Cols 6-9) */}
-                        <div className="md:col-span-4 space-y-6 flex flex-col items-center md:items-start">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>Services</h3>
-                            <nav className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 items-center md:items-start text-center md:text-left">
-                                {[
-                                    { name: "Blog", href: "/blog" }
-                                ].map((item) => (
-                                    <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        className={cn(
-                                            "text-sm font-medium transition-colors",
-                                            isTerminalMode
-                                                ? "text-green-600 hover:text-green-400"
-                                                : "text-muted-foreground hover:text-blue-600"
-                                        )}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
-                            </nav>
-                        </div>
-
                         {/* System Status Widget (Cols 10-12) */}
                         <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>System Status</h3>
