@@ -151,71 +151,7 @@ const postSummaryFields = groq`
     "seo": seo${seoFields}
 `;
 
-const fallbackCategories: SanityCategory[] = [
-    { title: "SEO Morocco", slug: "seo-morocco", description: "Local SEO and organic growth strategy for Moroccan businesses." },
-    { title: "Technical SEO", slug: "technical-seo", description: "Crawlability, indexing, structured data, migrations, and site architecture." },
-    { title: "AI Search Optimization", slug: "ai-search-optimization", description: "GEO, LLMO, AI citations, and answer-engine visibility." },
-    { title: "Shopify SEO", slug: "shopify-seo", description: "Technical and content systems for Shopify stores." },
-    { title: "Local SEO", slug: "local-seo", description: "Maps, local landing pages, and service-area visibility." },
-    { title: "Case Studies", slug: "case-studies", description: "SEO growth and automation case studies." },
-];
 
-const fallbackPost: BlogPost = {
-    _id: "sanity-blog-setup",
-    title: "Connect Sanity to the Blog",
-    slug: "sanity-blog-setup",
-    excerpt: "Add your Sanity project ID, create your first post, and this premium SEO blog will publish from Sanity.",
-    publishedAt: "2026-05-10",
-    updatedAt: "2026-05-10",
-    featured: true,
-    readingTime: 2,
-    categories: [fallbackCategories[1]],
-    tags: ["Sanity", "Next.js", "Technical SEO"],
-    author: {
-        name: "Othmane Outaghza",
-        slug: "othmane-outaghza",
-        role: "Technical SEO Consultant & AI Search Specialist",
-        bio: "Othmane helps businesses build technical SEO systems, AI search visibility, and automation workflows.",
-    },
-    body: [
-        {
-            _key: "intro",
-            _type: "block",
-            style: "normal",
-            children: [
-                {
-                    _key: "intro-span",
-                    _type: "span",
-                    text: "This setup article keeps the blog usable before your Sanity project is connected. Once you publish real posts in Sanity, they will appear at /blog and /blog/post-name.",
-                },
-            ],
-        },
-        {
-            _key: "next",
-            _type: "block",
-            style: "h2",
-            children: [{ _key: "next-span", _type: "span", text: "Next steps" }],
-        },
-        {
-            _key: "next-copy",
-            _type: "block",
-            style: "normal",
-            children: [
-                {
-                    _key: "next-copy-span",
-                    _type: "span",
-                    text: "Set NEXT_PUBLIC_SANITY_PROJECT_ID, NEXT_PUBLIC_SANITY_DATASET, and NEXT_PUBLIC_SANITY_API_VERSION in Vercel. Then open /studio, create categories, authors, and posts.",
-                },
-            ],
-        },
-    ],
-    faqs: [
-        {
-            question: "Can this blog publish from Sanity?",
-            answer: "Yes. The blog reads published Sanity post documents and renders static, SEO-friendly article pages on Vercel.",
-        },
-    ],
-};
 
 async function fetchSanity<T>(query: string, params: Record<string, unknown> = {}): Promise<T> {
     if (!projectId) {
@@ -225,9 +161,7 @@ async function fetchSanity<T>(query: string, params: Record<string, unknown> = {
     return client.fetch<T>(query, params, { next: { revalidate: 3600, tags: ["sanity"] } });
 }
 
-function withFallbackPosts(posts: BlogPostSummary[]) {
-    return posts.length ? posts : [fallbackPost];
-}
+
 
 export async function getBlogPosts({
     page = 1,
@@ -243,8 +177,7 @@ export async function getBlogPosts({
     tag?: string;
 } = {}): Promise<BlogListResult> {
     if (!projectId) {
-        const posts = withFallbackPosts([]);
-        return { posts, total: posts.length, page, pageSize, totalPages: 1 };
+        return { posts: [], total: 0, page, pageSize, totalPages: 1 };
     }
 
     const start = (page - 1) * pageSize;
@@ -278,8 +211,8 @@ export async function getBlogPosts({
         params
     );
 
-    const posts = withFallbackPosts(result.posts || []);
-    const total = result.total || posts.length;
+    const posts = result.posts || [];
+    const total = result.total || 0;
 
     return {
         posts,
@@ -297,7 +230,7 @@ export async function getAllBlogPosts() {
 
 export async function getFeaturedPosts() {
     if (!projectId) {
-        return [fallbackPost];
+        return [];
     }
 
     const posts = await fetchSanity<BlogPostSummary[]>(
@@ -306,14 +239,10 @@ export async function getFeaturedPosts() {
         }`
     );
 
-    return withFallbackPosts(posts);
+    return posts || [];
 }
 
 export async function getBlogPost(slug: string): Promise<BlogPost | null> {
-    if (slug === fallbackPost.slug) {
-        return fallbackPost;
-    }
-
     if (!projectId) {
         return null;
     }
@@ -345,7 +274,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
 export async function getCategories() {
     if (!projectId) {
-        return fallbackCategories;
+        return [];
     }
 
     return fetchSanity<SanityCategory[]>(
@@ -355,7 +284,7 @@ export async function getCategories() {
 
 export async function getCategory(slug: string) {
     if (!projectId) {
-        return fallbackCategories.find((category) => category.slug === slug) || null;
+        return null;
     }
 
     return fetchSanity<SanityCategory | null>(

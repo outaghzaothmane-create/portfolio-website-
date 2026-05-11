@@ -20,15 +20,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const servicePages = [
         'ai-search-guide',
-        'ai-search-optimization',
-        'generative-engine-optimization',
-        'llm-optimization',
-        'make-com-seo-automation',
-        'n8n-seo-automation',
-        'shopify-seo-consultant',
-        'technical-seo-automation',
-        'technical-seo-consultant',
-        'technical-seo-consultant-morocco',
         'blog'
     ];
 

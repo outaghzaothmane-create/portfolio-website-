@@ -23,7 +23,7 @@ const services = [
         ],
         why: "I don't just rank keywords; I manage the entire revenue pipeline.",
         link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO",
-        pageLink: "/shopify-seo-consultant"
+        pageLink: "/ai-search-guide"
     },
     {
         title: "AI Agent & Workflow Deployment",
@@ -39,7 +39,7 @@ const services = [
         ],
         why: "Turn 20 hours of manual work into a 2-minute script.",
         link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Automation+Build",
-        pageLink: "/n8n-seo-automation"
+        pageLink: "/ai-search-guide"
     },
     {
         title: "Technical Architecture Sprint",
@@ -55,7 +55,7 @@ const services = [
         ],
         why: "A deep-dive audit to fix the technical debt hurting your rankings.",
         link: "https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Tech+Audit",
-        pageLink: "/technical-seo-consultant"
+        pageLink: "/ai-search-guide"
     },
 ];
 

@@ -114,16 +114,8 @@ export function Footer() {
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", isTerminalMode ? "text-green-500" : "text-foreground/80")}>Services</h3>
                             <nav className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 items-center md:items-start text-center md:text-left">
                                 {[
-                                    { name: "Technical SEO", href: "/technical-seo-consultant" },
-                                    { name: "Shopify SEO", href: "/shopify-seo-consultant" },
-                                    { name: "AI Search Opt", href: "/ai-search-optimization" },
-                                    { name: "GEO Optimization", href: "/generative-engine-optimization" },
-                                    { name: "LLM Optimization", href: "/llm-optimization" },
-                                    { name: "Tech SEO Auto", href: "/technical-seo-automation" },
-                                    { name: "n8n Automation", href: "/n8n-seo-automation" },
-                                    { name: "Make Automation", href: "/make-com-seo-automation" },
                                     { name: "AI Search Guide", href: "/ai-search-guide" },
-                                    { name: "SEO Morocco", href: "/technical-seo-consultant-morocco" }
+                                    { name: "Blog", href: "/blog" }
                                 ].map((item) => (
                                     <Link
                                         key={item.name}

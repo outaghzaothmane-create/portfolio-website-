@@ -8,7 +8,6 @@ import {
     MapPin,
     ShoppingBag,
     TrendingUp,
-    Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -28,21 +27,9 @@ interface NavDropdownProps {
 export const navDropdowns: Record<string, DropdownItem[]> = {
     Services: [
         {
-            title: "Revenue Architecture",
-            description: "Fractional SEO leadership",
-            href: "/shopify-seo-consultant",
-            icon: TrendingUp,
-        },
-        {
-            title: "AI Workflow Deployment",
-            description: "n8n and SEO automation",
-            href: "/n8n-seo-automation",
-            icon: Workflow,
-        },
-        {
-            title: "Technical SEO Sprint",
-            description: "Audits, fixes, migrations",
-            href: "/technical-seo-consultant",
+            title: "AI Search Guide",
+            description: "AI & GEO optimization guide",
+            href: "/ai-search-guide",
             icon: Cpu,
         },
     ],

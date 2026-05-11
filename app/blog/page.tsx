@@ -120,9 +120,20 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                                     ))}
                                 </div>
                             ) : (
-                                <div className="rounded-lg border border-border bg-background/70 p-8">
-                                    <h2 className="text-2xl font-bold text-foreground mb-3">No posts found</h2>
-                                    <p className="text-muted-foreground">Try another topic or clear the search.</p>
+                                <div className="rounded-lg border border-border bg-background/70 p-10 text-center">
+                                    {query ? (
+                                        <>
+                                            <h2 className="text-2xl font-bold text-foreground mb-3">No results for &ldquo;{query}&rdquo;</h2>
+                                            <p className="text-muted-foreground">Try a different keyword or clear the search.</p>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <h2 className="text-2xl font-bold text-foreground mb-3">Articles coming soon</h2>
+                                            <p className="text-muted-foreground max-w-md mx-auto">
+                                                In-depth guides on Technical SEO, AI Search, Shopify SEO, and automation are on their way. Check back shortly.
+                                            </p>
+                                        </>
+                                    )}
                                 </div>
                             )}
 

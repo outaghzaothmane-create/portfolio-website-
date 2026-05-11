@@ -31,8 +31,6 @@ export default function AISearchGuidePage() {
                 { q: "What is Generative Engine Optimization?", a: "Generative Engine Optimization (GEO) is the process of optimizing content, structured data, and entity signals to ensure a brand is accurately cited and recommended by AI-driven search engines like ChatGPT, Perplexity, and Gemini." }
             ]}
             relatedLinks={[
-                { title: "AI Search Optimization", href: "/ai-search-optimization" },
-                { title: "Generative Engine Optimization", href: "/generative-engine-optimization" },
                 { title: "Blog", href: "/blog/" }
             ]}
             url="https://othmaneoutaghza.online/ai-search-guide"
