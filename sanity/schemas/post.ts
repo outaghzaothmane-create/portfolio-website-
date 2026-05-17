@@ -8,6 +8,20 @@ export const post = defineType({
     icon: DocumentTextIcon,
     fields: [
         defineField({
+            name: "language",
+            title: "Language",
+            type: "string",
+            options: {
+                list: [
+                    { title: "English", value: "en" },
+                    { title: "French", value: "fr" }
+                ],
+                layout: "radio"
+            },
+            validation: (Rule) => Rule.required(),
+            initialValue: "en"
+        }),
+        defineField({
             name: "title",
             title: "Title",
             type: "string",
@@ -109,6 +123,52 @@ export const post = defineType({
             title: "Manual related posts",
             type: "array",
             of: [{ type: "reference", to: [{ type: "post" }] }],
+        }),
+        defineField({
+            name: "translatedSlug",
+            title: "Translated Slug",
+            description: "Slug of the translated version of this post (e.g. for linking EN to FR version).",
+            type: "string",
+        }),
+        defineField({
+            name: "translation",
+            title: "Translated post reference",
+            description: "Optional reference to the equivalent post in the other language.",
+            type: "reference",
+            to: [{ type: "post" }],
+            options: {
+                filter: ({ document }) => ({
+                    filter: "language != $language",
+                    params: { language: document?.language },
+                }),
+            },
+        }),
+        defineField({
+            name: "seoTitle",
+            title: "SEO title",
+            description: "Localized search title for this exact language version.",
+            type: "string",
+            validation: (Rule) => Rule.max(60).warning("Keep titles under 60 characters."),
+        }),
+        defineField({
+            name: "seoDescription",
+            title: "SEO description",
+            description: "Localized meta description for this exact language version.",
+            type: "text",
+            rows: 3,
+            validation: (Rule) => Rule.max(160).warning("Keep descriptions under 160 characters."),
+        }),
+        defineField({
+            name: "canonicalUrl",
+            title: "Canonical URL",
+            description: "Optional. Leave empty to self-canonicalize to the localized blog URL.",
+            type: "url",
+        }),
+        defineField({
+            name: "focusKeyword",
+            title: "Focus keyword",
+            description: "Primary localized SEO target, e.g. technical SEO audit or audit SEO technique.",
+            type: "string",
         }),
         defineField({
             name: "cta",

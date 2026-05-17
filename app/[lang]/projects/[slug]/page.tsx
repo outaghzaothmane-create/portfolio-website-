@@ -12,9 +12,12 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { Metadata } from "next";
 import Image from "next/image";
+import { getDictionary, supportedLanguages, type Locale } from "@/lib/i18n";
+import { alternatesForPath } from "@/lib/seo/i18n";
+import { siteUrl } from "@/sanity/env";
 
 // Schema component for breadcrumbs and article data
-function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: string }) {
+function ProjectSchema({ study, slug, lang }: { study: typeof caseStudies[0]; slug: string; lang: Locale }) {
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -22,20 +25,20 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Home",
-                "item": "https://othmaneoutaghza.online"
+                "name": lang === "fr" ? "Accueil" : "Home",
+                "item": `${siteUrl}/${lang}`
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Projects",
-                "item": "https://othmaneoutaghza.online/#projects"
+                "name": lang === "fr" ? "Études de Cas" : "Projects",
+                "item": `${siteUrl}/${lang}#projects`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": study.title,
-                "item": `https://othmaneoutaghza.online/projects/${slug}`
+                "item": `${siteUrl}/${lang}/projects/${slug}`
             }
         ]
     };
@@ -43,7 +46,7 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
     const imageSchema = {
         "@context": "https://schema.org",
         "@type": "ImageObject",
-        "url": `https://othmaneoutaghza.online${study.heroImage}`,
+        "url": `${siteUrl}${study.heroImage}`,
         "name": `${study.title} - Case Study Overview`,
         "description": study.shortDescription,
         "width": 1200,
@@ -57,19 +60,19 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
         "description": study.shortDescription,
         "image": {
             "@type": "ImageObject",
-            "url": `https://othmaneoutaghza.online${study.heroImage}`,
+            "url": `${siteUrl}${study.heroImage}`,
             "width": 1200,
             "height": 600
         },
         "author": {
             "@type": "Person",
             "name": "Othmane Outaghza",
-            "url": "https://othmaneoutaghza.online"
+            "url": siteUrl
         },
         "publisher": {
             "@type": "Organization",
             "name": "Othmane.SEO",
-            "url": "https://othmaneoutaghza.online"
+            "url": siteUrl
         },
         "datePublished": "2024-01-01T00:00:00+00:00",
         "dateModified": new Date().toISOString()
@@ -95,13 +98,14 @@ function ProjectSchema({ study, slug }: { study: typeof caseStudies[0]; slug: st
 
 // Generate static params for all case studies
 export async function generateStaticParams() {
-    return caseStudies.map((study) => ({
+    return supportedLanguages.flatMap((lang) => caseStudies.map((study) => ({
         slug: study.id,
-    }));
+        lang,
+    })));
 }
 
 // Generate dynamic metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string; lang: string } }): Promise<Metadata> {
     const study = caseStudies.find((s) => s.id === params.slug);
 
     if (!study) {
@@ -113,10 +117,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return {
         title: `${study.title} | Othmane.SEO`,
         description: study.shortDescription,
+        alternates: alternatesForPath(params.lang as Locale, { en: `/projects/${study.id}`, fr: `/projects/${study.id}` }),
         openGraph: {
             title: study.title,
             description: study.shortDescription,
             type: "article",
+            url: `${siteUrl}/${params.lang}/projects/${study.id}`,
             images: [study.heroImage],
         },
         twitter: {
@@ -136,9 +142,11 @@ function sanitizeHtml(html: string): string {
         .replace(/<(?!\/?(?:strong|em|br)\b)[^>]+>/gi, "");
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: { slug: string; lang: string } }) {
     const studyIndex = caseStudies.findIndex((s) => s.id === params.slug);
     const study = caseStudies[studyIndex];
+    const lang = params.lang as Locale;
+    const dict = await getDictionary(lang);
 
     if (!study) {
         notFound();
@@ -148,16 +156,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
     return (
         <div className="min-h-screen bg-background">
-            <ProjectSchema study={study} slug={params.slug} />
-            <Header />
+            <ProjectSchema study={study} slug={params.slug} lang={lang} />
+            <Header dict={dict} lang={lang} />
 
-            <main className="pt-40 pb-24">
+            <main className="pt-32 sm:pt-40 pb-20 sm:pb-24">
                 {/* Hero Section */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
                     <div className="mb-8">
                         <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground -ml-4">
-                            <Link href="/#projects">
-                                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
+                            <Link href={`/${lang}#projects`}>
+                                <ArrowLeft className="mr-2 h-4 w-4" /> {lang === "fr" ? "Retour aux études de cas" : "Back to Projects"}
                             </Link>
                         </Button>
                     </div>
@@ -171,10 +179,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                             <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">
                                 {study.client}
                             </Badge>
-                            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">
+                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">
                                 {study.title}
                             </h1>
-                            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                            <p className="text-base sm:text-xl md:text-2xl text-muted-foreground leading-relaxed">
                                 {study.shortDescription}
                             </p>
                         </MotionDiv>
@@ -185,7 +193,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         variants={staggerContainer}
                         initial="hidden"
                         animate="visible"
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16"
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mt-10 sm:mt-16"
                     >
                         {study.results.map((metric) => {
                             const Icon = metric.icon;
@@ -208,15 +216,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
                 {/* Content Section: Two Columns */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
                         {/* Left Column: Narrative */}
-                        <div className="lg:col-span-2 space-y-16">
+                        <div className="lg:col-span-2 space-y-12 sm:space-y-16">
                             <SectionWrapper>
                                 <div className="space-y-6">
-                                    <h2 className="text-3xl font-bold">The Challenge</h2>
+                                    <h2 className="text-2xl sm:text-3xl font-bold">The Challenge</h2>
                                     <p
-                                        className="text-lg text-muted-foreground leading-relaxed"
+                                        className="text-base sm:text-lg text-muted-foreground leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: sanitizeHtml(study.challenge) }}
                                     />
                                 </div>
@@ -224,7 +232,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
                             <SectionWrapper delay={0.1}>
                                 <div className="space-y-6">
-                                    <h2 className="text-3xl font-bold">The Solution</h2>
+                                    <h2 className="text-2xl sm:text-3xl font-bold">The Solution</h2>
                                     <div className="space-y-8">
                                         {study.solution.map((paragraph, index) => {
                                             // Split on em-dash to separate title from content
@@ -239,7 +247,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                                                         dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }}
                                                     />
                                                     <p
-                                                        className="text-lg text-muted-foreground leading-relaxed"
+                                                        className="text-base sm:text-lg text-muted-foreground leading-relaxed"
                                                         dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
                                                     />
                                                 </div>
@@ -301,10 +309,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
                 {/* Related Projects */}
                 {caseStudies.length > 1 && (
-                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32 mb-32">
+                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32 mb-20 sm:mb-32">
                         <SectionWrapper>
                             <div className="border-t pt-16">
-                                <h2 className="text-3xl font-bold mb-12">Other Case Studies</h2>
+                                <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">Other Case Studies</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {caseStudies
                                         .filter((project) => project.id !== params.slug)
@@ -312,8 +320,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                                         .map((relatedProject) => (
                                             <Link
                                                 key={relatedProject.id}
-                                                href={`/projects/${relatedProject.id}`}
-                                                className="group block p-6 rounded-lg border border-gray-200 hover:border-primary/50 transition-colors"
+                                                href={`/${lang}/projects/${relatedProject.id}`}
+                                                className="group block p-5 sm:p-6 rounded-lg border border-gray-200 hover:border-primary/50 transition-colors"
                                             >
                                                 <h3 className="text-xl font-bold group-hover:text-primary transition-colors mb-2">
                                                     {relatedProject.title}
@@ -332,16 +340,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
                 {/* Next Project */}
                 {nextProject && (
-                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
+                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32">
                         <SectionWrapper>
                             <div className="border-t pt-16">
                                 <p className="text-muted-foreground mb-4">Next Case Study</p>
-                                <Link href={`/projects/${nextProject.id}`} className="group block">
-                                    <h2 className="text-3xl md:text-5xl font-bold group-hover:text-primary transition-colors flex items-center gap-4">
+                                <Link href={`/${lang}/projects/${nextProject.id}`} className="group block">
+                                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold group-hover:text-primary transition-colors flex items-center gap-3 sm:gap-4">
                                         {nextProject.title}
                                         <ArrowRight className="h-8 w-8 md:h-12 md:w-12 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                                     </h2>
-                                    <p className="text-xl text-muted-foreground mt-4 group-hover:text-foreground transition-colors">
+                                    <p className="text-base sm:text-xl text-muted-foreground mt-4 group-hover:text-foreground transition-colors">
                                         {nextProject.shortDescription}
                                     </p>
                                 </Link>
@@ -351,7 +359,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 )}
             </main>
 
-            <Footer />
+            <Footer dict={dict.footer} lang={lang} />
         </div>
     );
 }

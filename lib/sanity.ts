@@ -38,11 +38,14 @@ export type BlogCta = {
 };
 
 export type BlogSeo = {
+    seoTitle?: string;
+    seoDescription?: string;
     metaTitle?: string;
     metaDescription?: string;
     canonicalUrl?: string;
     noIndex?: boolean;
     ogImage?: SanityImage;
+    focusKeyword?: string;
 };
 
 export type BlogPostSummary = {
@@ -59,6 +62,12 @@ export type BlogPostSummary = {
     tags?: string[];
     author?: SanityAuthor;
     seo?: BlogSeo;
+    language: string;
+    translatedSlug?: string;
+    canonicalUrl?: string;
+    focusKeyword?: string;
+    seoTitle?: string;
+    seoDescription?: string;
 };
 
 export type BlogPost = BlogPostSummary & {
@@ -128,10 +137,13 @@ const categoryFields = groq`{
 }`;
 
 const seoFields = groq`{
+    "seoTitle": coalesce(seoTitle, metaTitle),
+    "seoDescription": coalesce(seoDescription, metaDescription),
     metaTitle,
     metaDescription,
     canonicalUrl,
     noIndex,
+    focusKeyword,
     "ogImage": ogImage${imageFields}
 }`;
 
@@ -148,7 +160,13 @@ const postSummaryFields = groq`
     "categories": categories[]->${categoryFields},
     tags,
     "author": author->${authorFields},
-    "seo": seo${seoFields}
+    "seo": seo${seoFields},
+    language,
+    translatedSlug,
+    canonicalUrl,
+    focusKeyword,
+    seoTitle,
+    seoDescription
 `;
 
 
@@ -169,12 +187,14 @@ export async function getBlogPosts({
     query,
     category,
     tag,
+    lang = "en",
 }: {
     page?: number;
     pageSize?: number;
     query?: string;
     category?: string;
     tag?: string;
+    lang?: string;
 } = {}): Promise<BlogListResult> {
     if (!projectId) {
         return { posts: [], total: 0, page, pageSize, totalPages: 1 };
@@ -187,6 +207,7 @@ export async function getBlogPosts({
     const filter = groq`
         _type == "post" &&
         defined(slug.current) &&
+        language == $lang &&
         (!defined($query) || title match $search || excerpt match $search || pt::text(body) match $search) &&
         (!defined($category) || $category in categories[]->slug.current) &&
         (!defined($tag) || $tag in tags[])
@@ -197,6 +218,7 @@ export async function getBlogPosts({
         search,
         category: category || null,
         tag: tag || null,
+        lang,
         start,
         end,
     };
@@ -223,32 +245,33 @@ export async function getBlogPosts({
     };
 }
 
-export async function getAllBlogPosts() {
-    const { posts } = await getBlogPosts({ pageSize: 100 });
+export async function getAllBlogPosts(lang = "en") {
+    const { posts } = await getBlogPosts({ pageSize: 100, lang });
     return posts;
 }
 
-export async function getFeaturedPosts() {
+export async function getFeaturedPosts(lang = "en") {
     if (!projectId) {
         return [];
     }
 
     const posts = await fetchSanity<BlogPostSummary[]>(
-        groq`*[_type == "post" && featured == true && defined(slug.current)] | order(publishedAt desc)[0...3] {
+        groq`*[_type == "post" && featured == true && defined(slug.current) && language == $lang] | order(publishedAt desc)[0...3] {
             ${postSummaryFields}
-        }`
+        }`,
+        { lang }
     );
 
     return posts || [];
 }
 
-export async function getBlogPost(slug: string): Promise<BlogPost | null> {
+export async function getBlogPost(slug: string, lang = "en"): Promise<BlogPost | null> {
     if (!projectId) {
         return null;
     }
 
     return fetchSanity<BlogPost | null>(
-        groq`*[_type == "post" && slug.current == $slug][0] {
+        groq`*[_type == "post" && slug.current == $slug && language == $lang][0] {
             ${postSummaryFields},
             body[]{
                 ...,
@@ -262,13 +285,13 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
             },
             faqs,
             cta,
-            "relatedPosts": coalesce(relatedPosts[]->{
+            "relatedPosts": coalesce(relatedPosts[]->[language == $lang]{
                 ${postSummaryFields}
-            }, *[_type == "post" && slug.current != $slug && count(categories[@._ref in ^.^.categories[]._ref]) > 0] | order(publishedAt desc)[0...3] {
+            }, *[_type == "post" && slug.current != $slug && language == $lang && count(categories[@._ref in ^.^.categories[]._ref]) > 0] | order(publishedAt desc)[0...3] {
                 ${postSummaryFields}
             })
         }`,
-        { slug }
+        { slug, lang }
     );
 }
 
@@ -293,17 +316,18 @@ export async function getCategory(slug: string) {
     );
 }
 
-export async function getTags() {
-    const posts = await getAllBlogPosts();
+export async function getTags(lang = "en") {
+    const posts = await getAllBlogPosts(lang);
     return Array.from(new Set(posts.flatMap((post) => post.tags || []))).sort();
 }
 
-export function getPostUrl(post: Pick<BlogPostSummary, "slug">) {
-    return `${siteUrl}/blog/${post.slug}`;
+export function getPostUrl(post: Pick<BlogPostSummary, "slug" | "language">) {
+    const langPrefix = post.language === 'fr' ? '/fr' : '/en';
+    return `${siteUrl}${langPrefix}/blog/${post.slug}`;
 }
 
 export function getCategoryUrl(category: Pick<SanityCategory, "slug">) {
-    return `${siteUrl}/blog/category/${category.slug}`;
+    return `${siteUrl}/en/blog/category/${category.slug}`;
 }
 
 export function readingTimeFromBody(body?: any[]) {

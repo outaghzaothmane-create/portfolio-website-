@@ -165,7 +165,7 @@ export function ServiceTemplate({
                     )}>
                         <h2 className="text-3xl font-bold mb-4">Ready to accelerate your growth?</h2>
                         <p className={cn("text-lg mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
-                            Let's discuss how we can implement advanced SEO and automation strategies for your business.
+                            Let&apos;s discuss how we can implement advanced SEO and automation strategies for your business.
                         </p>
                         <Link 
                             href="https://calendly.com/outaghza-othmane/seo-meeting?notes=Interested+in+Fractional+Head+of+SEO"

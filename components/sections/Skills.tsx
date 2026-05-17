@@ -6,48 +6,53 @@ import { Settings, BarChart, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const skillGroups = [
-    {
-        title: "SEO & Analytics",
-        icon: BarChart,
-        skills: ["GA4", "Google Search Console", "Screaming Frog", "Looker Studio", "Google Tag Manager", "Universal Commerce Protocol (UCP)", "Generative Engine Optimization (GEO)", "LLM Optimization"],
-        color: "text-blue-500",
-        bg: "bg-blue-500/10",
-        border: "group-hover:border-blue-500/50",
-        badgeBg: "bg-blue-500/5",
-        badgeText: "text-blue-700"
-    },
-    {
-        title: "Automation",
-        icon: Settings,
-        skills: ["Make.com", "n8n (Self-Hosted)", "Brevo (Email Automation)"],
-        color: "text-purple-500",
-        bg: "bg-purple-500/10",
-        border: "group-hover:border-purple-500/50",
-        badgeBg: "bg-purple-500/5",
-        badgeText: "text-purple-700"
-    },
-    {
+export function Skills({ dict }: { dict?: any }) {
+    const safeDict = dict || {
         title: "Tech Stack",
-        icon: Code2,
-        skills: ["WordPress", "Shopify", "Python Basics", "HTML/CSS", "Model Context Protocol (MCP)"],
-        color: "text-orange-500",
-        bg: "bg-orange-500/10",
-        border: "group-hover:border-orange-500/50",
-        badgeBg: "bg-orange-500/5",
-        badgeText: "text-orange-700"
-    },
-];
+        subtitle: "The tools and technologies powering my workflows.",
+        items: [
+            {
+                title: "SEO & Analytics",
+                skills: ["GA4", "Google Search Console", "Screaming Frog", "Looker Studio", "Google Tag Manager", "Universal Commerce Protocol (UCP)", "Generative Engine Optimization (GEO)", "LLM Optimization"],
+                color: "text-blue-500",
+                bg: "bg-blue-500/10",
+                border: "group-hover:border-blue-500/50",
+                badgeBg: "bg-blue-500/5",
+                badgeText: "text-blue-700"
+            },
+            {
+                title: "Automation",
+                skills: ["Make.com", "n8n (Self-Hosted)", "Brevo (Email Automation)"],
+                color: "text-purple-500",
+                bg: "bg-purple-500/10",
+                border: "group-hover:border-purple-500/50",
+                badgeBg: "bg-purple-500/5",
+                badgeText: "text-purple-700"
+            },
+            {
+                title: "Tech Stack",
+                skills: ["WordPress", "Shopify", "Python Basics", "HTML/CSS", "Model Context Protocol (MCP)"],
+                color: "text-orange-500",
+                bg: "bg-orange-500/10",
+                border: "group-hover:border-orange-500/50",
+                badgeBg: "bg-orange-500/5",
+                badgeText: "text-orange-700"
+            }
+        ]
+    };
 
-export function Skills() {
+    const icons = [BarChart, Settings, Code2];
+
     return (
         <section id="tech-stack" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Tech Stack</h2>
-                <p className="text-muted-foreground">The tools and technologies powering my workflows.</p>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
+                <p className="text-sm sm:text-base text-muted-foreground">{safeDict.subtitle}</p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
-                {skillGroups.map((group, index) => (
+                {safeDict.items.map((group: any, index: number) => {
+                    const Icon = icons[index];
+                    return (
                     <motion.div
                         key={group.title}
                         initial={{ opacity: 0, y: 20 }}
@@ -58,16 +63,13 @@ export function Skills() {
                         className="h-full"
                     >
                         <Card className={cn(
-                            "h-full relative overflow-hidden transition-all duration-300 group rounded-3xl border",
+                            "h-full relative min-w-0 overflow-hidden transition-all duration-300 group rounded-2xl sm:rounded-3xl border",
                             "bg-white/50 backdrop-blur-sm border-black/5 hover:shadow-xl",
-                            false && "hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]",
-                            false && "hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]",
-                            false && "hover:border-orange-500/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]",
                             group.border
                         )}>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardHeader className="flex flex-row items-start justify-between gap-3 space-y-0 pb-2">
                                 <CardTitle className={cn(
-                                    "text-lg font-bold transition-colors",
+                                    "text-base sm:text-lg font-bold leading-tight transition-colors",
                                     "text-foreground/80"
                                 )}>
                                     {group.title}
@@ -76,7 +78,7 @@ export function Skills() {
                                     "h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3",
                                     group.bg
                                 )}>
-                                    <group.icon className={cn(
+                                    <Icon className={cn(
                                         "h-6 w-6 transition-colors",
                                         group.color
                                     )} />
@@ -84,7 +86,7 @@ export function Skills() {
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2 mt-4">
-                                    {group.skills.map((skill, i) => (
+                                    {group.skills.map((skill: string, i: number) => (
                                         <motion.div
                                             key={skill}
                                             initial={{ opacity: 0, scale: 0.8 }}
@@ -95,7 +97,7 @@ export function Skills() {
                                             <Badge
                                                 variant="secondary"
                                                 className={cn(
-                                                    "text-xs font-medium px-3 py-1 rounded-full transition-colors",
+                                                    "max-w-full whitespace-normal break-words text-xs font-medium px-3 py-1 rounded-full transition-colors",
                                                     `${group.badgeBg} ${group.badgeText} border-transparent hover:bg-opacity-100`
                                                 )}
                                             >
@@ -107,7 +109,7 @@ export function Skills() {
                             </CardContent>
                         </Card>
                     </motion.div>
-                ))}
+                )})}
             </div>
         </section>
     );

@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
 
-export function BlogSearch({ query = "" }: { query?: string }) {
+export function BlogSearch({ query = "", lang = "en" }: { query?: string; lang?: string }) {
     return (
-        <form action="/blog" className="relative w-full max-w-md">
+        <form action={`/${lang}/blog`} className="relative w-full max-w-md">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <input
                 type="search"

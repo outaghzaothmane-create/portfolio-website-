@@ -37,6 +37,7 @@ function validateUrl(url: string): boolean {
 interface AuditModalProps {
     isOpen: boolean;
     onClose: () => void;
+    dict?: any;
 }
 
 type ScanStep = {
@@ -44,13 +45,6 @@ type ScanStep = {
     label: string;
     status: "pending" | "scanning" | "complete";
 };
-
-const INITIAL_STEPS: ScanStep[] = [
-    { id: "connect", label: "Connecting to server...", status: "pending" },
-    { id: "crawl", label: "Crawling page content...", status: "pending" },
-    { id: "analyze", label: "Analyzing meta tags & structure...", status: "pending" },
-    { id: "score", label: "Calculating health score...", status: "pending" },
-];
 
 type IssueCategory = "critical" | "warning" | "good-to-have";
 
@@ -113,33 +107,85 @@ interface AuditResults {
 }
 
 // Google Search Preview Component
-function GoogleSearchPreview({ title, description, url }: { title: string; description: string; url: string }) {
+function GoogleSearchPreview({ title, description, url, safeDict }: { title: string; description: string; url: string; safeDict: any }) {
     const displayUrl = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
     return (
-        <div className="p-6 rounded-xl border bg-gradient-to-br from-muted/30 to-muted/10 space-y-2">
+        <div className="p-4 sm:p-6 rounded-xl border bg-gradient-to-br from-muted/30 to-muted/10 space-y-2">
             <div className="text-xs text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
                     <div className="w-2 h-2 rounded-full bg-blue-500" />
                 </div>
-                Google Search Preview
+                {safeDict.googleSearchPreview}
             </div>
             <div className="space-y-1">
-                <div className="text-blue-600 text-lg font-medium hover:underline cursor-pointer line-clamp-1">
-                    {title || "Untitled Page"}
+                <div className="text-blue-600 text-base sm:text-lg font-medium hover:underline cursor-pointer line-clamp-1">
+                    {title || safeDict.untitledPage}
                 </div>
                 <div className="text-green-700 text-sm">
                     {displayUrl}
                 </div>
                 <div className="text-muted-foreground text-sm line-clamp-2">
-                    {description || "No meta description available."}
+                    {description || safeDict.noMetaDescription}
                 </div>
             </div>
         </div>
     );
 }
 
-export function AuditModal({ isOpen, onClose }: AuditModalProps) {
+export function AuditModal({ isOpen, onClose, dict }: AuditModalProps) {
+    const safeDict = dict || {
+        title: "Professional SEO Audit",
+        descriptionIdle: "Enter your URL for a comprehensive technical analysis.",
+        descriptionScanning: "Running expert-level diagnostics...",
+        descriptionComplete: "Audit Complete. Review your health score below.",
+        websiteUrlLabel: "Website URL",
+        websiteUrlPlaceholder: "example.com",
+        runAnalysisBtn: "Run Analysis",
+        steps: [
+            { id: "connect", label: "Connecting to server..." },
+            { id: "crawl", label: "Crawling page content..." },
+            { id: "analyze", label: "Analyzing meta tags & structure..." },
+            { id: "score", label: "Calculating health score..." }
+        ],
+        scoreLabel: "Score",
+        pdfReport: "PDF Report",
+        textReport: "Text",
+        googleSearchPreview: "Google Search Preview",
+        untitledPage: "Untitled Page",
+        noMetaDescription: "No meta description available.",
+        loadTime: "Load Time",
+        mobileReady: "Mobile Ready",
+        socialReady: "Social Ready",
+        schema: "Schema",
+        words: "Words",
+        internalLinks: "Internal Links",
+        missingAlt: "Missing Alt",
+        sitemap: "Sitemap.xml",
+        robotsTxt: "Robots.txt",
+        found: "Found",
+        missing: "Missing",
+        yes: "Yes",
+        no: "No",
+        optimizationOpportunities: "Optimization Opportunities",
+        noCriticalIssues: "No critical issues found!",
+        unlockFullReport: "Unlock Full Expert Report",
+        unlockFullReportDesc: "Get the detailed analysis with actionable advice sent to your inbox.",
+        emailPlaceholder: "Enter your email",
+        sendReport: "Send Report",
+        reportSent: "Report sent to",
+        closeAnalysis: "Close Analysis",
+        errors: {
+            validUrl: "Please enter a valid URL (e.g., example.com)",
+            validEmail: "Please enter a valid email address",
+            botBlocked: "Site may block automated requests. Try a different URL.",
+            auditFailed: "Audit failed",
+            scanFailed: "Scan failed. The site may block bots or be unavailable."
+        }
+    };
+
+    const INITIAL_STEPS: ScanStep[] = safeDict.steps.map((s: any) => ({ ...s, status: "pending" as const }));
+
     const [url, setUrl] = useState("");
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "scanning" | "complete">("idle");
@@ -155,20 +201,20 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
     const handleUrlChange = useCallback((value: string) => {
         setUrl(value);
         if (value && !validateUrl(value)) {
-            setUrlError("Please enter a valid URL (e.g., example.com)");
+            setUrlError(safeDict.errors.validUrl);
         } else {
             setUrlError("");
         }
-    }, []);
+    }, [safeDict.errors.validUrl]);
 
     const handleEmailChange = useCallback((value: string) => {
         setEmail(value);
         if (value && !validateEmail(value)) {
-            setEmailError("Please enter a valid email address");
+            setEmailError(safeDict.errors.validEmail);
         } else {
             setEmailError("");
         }
-    }, []);
+    }, [safeDict.errors.validEmail]);
 
     const startScan = async () => {
         if (!url || !validateUrl(url)) {
@@ -199,13 +245,13 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
             // Handle non-JSON responses gracefully
             const contentType = response.headers.get("content-type");
             if (!contentType || !contentType.includes("application/json")) {
-                throw new Error("Site may block automated requests. Try a different URL.");
+                throw new Error(safeDict.errors.botBlocked);
             }
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.error || "Audit failed");
+                throw new Error(data.error || safeDict.errors.auditFailed);
             }
 
             setResults(data);
@@ -222,7 +268,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
         } catch (err: unknown) {
             const errorMessage = err instanceof Error
                 ? err.message
-                : "Scan failed. The site may block bots or be unavailable.";
+                : safeDict.errors.scanFailed;
             setError(errorMessage);
             setStatus("idle");
         }
@@ -475,13 +521,13 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
+            <DialogContent className="w-[calc(100vw-1rem)] max-w-[calc(100vw-1rem)] sm:max-w-[800px] max-h-[90dvh] overflow-y-auto p-4 sm:p-6">
                 <DialogHeader>
-                    <DialogTitle>Professional SEO Audit</DialogTitle>
+                    <DialogTitle>{safeDict.title}</DialogTitle>
                     <DialogDescription>
-                        {status === "idle" && "Enter your URL for a comprehensive technical analysis."}
-                        {status === "scanning" && "Running expert-level diagnostics..."}
-                        {status === "complete" && "Audit Complete. Review your health score below."}
+                        {status === "idle" && safeDict.descriptionIdle}
+                        {status === "scanning" && safeDict.descriptionScanning}
+                        {status === "complete" && safeDict.descriptionComplete}
                     </DialogDescription>
                 </DialogHeader>
 
@@ -490,10 +536,10 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     {status === "idle" && (
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <Label htmlFor="url">Website URL</Label>
+                                <Label htmlFor="url">{safeDict.websiteUrlLabel}</Label>
                                 <Input
                                     id="url"
-                                    placeholder="example.com"
+                                    placeholder={safeDict.websiteUrlPlaceholder}
                                     value={url}
                                     onChange={(e) => handleUrlChange(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && startScan()}
@@ -506,7 +552,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                 {error && <p className="text-sm text-destructive">{error}</p>}
                             </div>
                             <Button className="w-full" onClick={startScan} disabled={!url || !!urlError}>
-                                Run Analysis
+                                {safeDict.runAnalysisBtn}
                             </Button>
                         </div>
                     )}
@@ -536,17 +582,17 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     {status === "complete" && results && (
                         <div className="space-y-6 animate-in fade-in duration-500">
                             {/* SCORE GAUGE */}
-                            <div className="flex flex-col items-center justify-center py-6">
+                            <div className="flex flex-col items-center justify-center py-4 sm:py-6">
                                 <div className={cn(
-                                    "relative w-40 h-40 rounded-full border-8 flex items-center justify-center bg-background shadow-xl",
+                                    "relative w-32 h-32 sm:w-40 sm:h-40 rounded-full border-8 flex items-center justify-center bg-background shadow-xl",
                                     getScoreColor(results.score)
                                 )}>
                                     <div className="flex flex-col items-center">
-                                        <span className="text-5xl font-bold">{results.score}</span>
+                                        <span className="text-4xl sm:text-5xl font-bold">{results.score}</span>
                                         <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Score</span>
                                     </div>
                                 </div>
-                                <div className="flex gap-2 mt-4">
+                                <div className="flex flex-wrap justify-center gap-2 mt-4">
                                     <Button
                                         variant="outline"
                                         size="sm"
@@ -554,7 +600,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                         onClick={() => downloadReport('pdf')}
                                     >
                                         <FileText className="w-4 h-4" />
-                                        PDF Report
+                                        {safeDict.pdfReport}
                                     </Button>
                                     <Button
                                         variant="ghost"
@@ -563,7 +609,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                         onClick={() => downloadReport('txt')}
                                     >
                                         <Download className="w-4 h-4" />
-                                        Text
+                                        {safeDict.textReport}
                                     </Button>
                                 </div>
                             </div>
@@ -573,63 +619,64 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                 title={results.details.meta.title}
                                 description={results.details.meta.description}
                                 url={results.url}
+                                safeDict={safeDict}
                             />
 
                             {/* KEY METRICS GRID */}
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                                 <div className="p-4 rounded-xl border bg-muted/40 space-y-2">
                                     <Zap className="w-5 h-5 text-blue-500" />
-                                    <div className="text-2xl font-bold">{results.details.performance.ttfb}ms</div>
-                                    <div className="text-xs text-muted-foreground font-medium uppercase">Load Time</div>
+                                    <div className="text-xl sm:text-2xl font-bold break-words">{results.details.performance.ttfb}ms</div>
+                                    <div className="text-xs text-muted-foreground font-medium uppercase">{safeDict.loadTime}</div>
                                 </div>
                                 <div className="p-4 rounded-xl border bg-muted/40 space-y-2">
                                     <ShieldCheck className={cn("w-5 h-5", results.details.meta.viewport ? "text-green-500" : "text-red-500")} />
-                                    <div className="text-2xl font-bold">{results.details.meta.viewport ? "Yes" : "No"}</div>
-                                    <div className="text-xs text-muted-foreground font-medium uppercase">Mobile Ready</div>
+                                    <div className="text-xl sm:text-2xl font-bold break-words">{results.details.meta.viewport ? safeDict.yes : safeDict.no}</div>
+                                    <div className="text-xs text-muted-foreground font-medium uppercase">{safeDict.mobileReady}</div>
                                 </div>
                                 <div className="p-4 rounded-xl border bg-muted/40 space-y-2">
                                     <Share2 className={cn("w-5 h-5", results.details.social.hasSocialTags ? "text-green-500" : "text-red-500")} />
-                                    <div className="text-2xl font-bold">{results.details.social.hasSocialTags ? "✓" : "✗"}</div>
-                                    <div className="text-xs text-muted-foreground font-medium uppercase">Social Ready</div>
+                                    <div className="text-xl sm:text-2xl font-bold break-words">{results.details.social.hasSocialTags ? "✓" : "✗"}</div>
+                                    <div className="text-xs text-muted-foreground font-medium uppercase">{safeDict.socialReady}</div>
                                 </div>
                                 <div className="p-4 rounded-xl border bg-muted/40 space-y-2">
                                     <Database className={cn("w-5 h-5", results.details.schema.hasSchema ? "text-green-500" : "text-orange-500")} />
-                                    <div className="text-2xl font-bold">{results.details.schema.hasSchema ? "Yes" : "No"}</div>
-                                    <div className="text-xs text-muted-foreground font-medium uppercase">Schema</div>
+                                    <div className="text-xl sm:text-2xl font-bold break-words">{results.details.schema.hasSchema ? safeDict.yes : safeDict.no}</div>
+                                    <div className="text-xs text-muted-foreground font-medium uppercase">{safeDict.schema}</div>
                                 </div>
                             </div>
 
                             {/* ADDITIONAL METRICS */}
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                                 <div className="p-3 rounded-lg border bg-muted/20 space-y-1">
                                     <Layout className="w-4 h-4 text-purple-500" />
                                     <div className="text-lg font-bold">{results.details.performance.wordCount}</div>
-                                    <div className="text-xs text-muted-foreground">Words</div>
+                                    <div className="text-xs text-muted-foreground">{safeDict.words}</div>
                                 </div>
                                 <div className="p-3 rounded-lg border bg-muted/20 space-y-1">
                                     <LinkIcon className="w-4 h-4 text-cyan-500" />
                                     <div className="text-lg font-bold">{results.details.performance.internalLinks}</div>
-                                    <div className="text-xs text-muted-foreground">Internal Links</div>
+                                    <div className="text-xs text-muted-foreground">{safeDict.internalLinks}</div>
                                 </div>
                                 <div className="p-3 rounded-lg border bg-muted/20 space-y-1">
                                     <ImageIcon className="w-4 h-4 text-orange-500" />
                                     <div className="text-lg font-bold">{results.details.images.missingAlt}</div>
-                                    <div className="text-xs text-muted-foreground">Missing Alt</div>
+                                    <div className="text-xs text-muted-foreground">{safeDict.missingAlt}</div>
                                 </div>
                             </div>
 
                             {/* TECHNICAL SEO INDICATORS */}
                             {results.details.technical && (
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                     <div className="p-3 rounded-lg border bg-muted/20 space-y-1">
                                         <FileSearch className={cn("w-4 h-4", results.details.technical.hasSitemap ? "text-green-500" : "text-orange-500")} />
-                                        <div className="text-lg font-bold">{results.details.technical.hasSitemap ? "Found" : "Missing"}</div>
-                                        <div className="text-xs text-muted-foreground">Sitemap.xml</div>
+                                        <div className="text-lg font-bold">{results.details.technical.hasSitemap ? safeDict.found : safeDict.missing}</div>
+                                        <div className="text-xs text-muted-foreground">{safeDict.sitemap}</div>
                                     </div>
                                     <div className="p-3 rounded-lg border bg-muted/20 space-y-1">
                                         <FileText className={cn("w-4 h-4", results.details.technical.hasRobotsTxt ? "text-green-500" : "text-orange-500")} />
-                                        <div className="text-lg font-bold">{results.details.technical.hasRobotsTxt ? "Found" : "Missing"}</div>
-                                        <div className="text-xs text-muted-foreground">Robots.txt</div>
+                                        <div className="text-lg font-bold">{results.details.technical.hasRobotsTxt ? safeDict.found : safeDict.missing}</div>
+                                        <div className="text-xs text-muted-foreground">{safeDict.robotsTxt}</div>
                                     </div>
                                 </div>
                             )}
@@ -638,7 +685,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                             <div className="space-y-3">
                                 <h3 className="font-semibold flex items-center gap-2">
                                     <AlertTriangle className="w-4 h-4 text-yellow-500" />
-                                    Optimization Opportunities
+                                    {safeDict.optimizationOpportunities}
                                 </h3>
                                 {results.details.issues.length > 0 ? (
                                     <div className="space-y-3">
@@ -663,23 +710,23 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                 ) : (
                                     <div className="p-4 rounded-lg bg-green-500/10 text-green-600 flex items-center gap-2 text-sm">
                                         <CheckCircle2 className="w-4 h-4" />
-                                        No critical issues found!
+                                        {safeDict.noCriticalIssues}
                                     </div>
                                 )}
                             </div>
 
                             {/* LEAD GEN */}
                             {!emailSent ? (
-                                <div className="p-6 rounded-xl border-dashed border-2 bg-muted/30 space-y-4">
+                                <div className="p-4 sm:p-6 rounded-xl border-dashed border-2 bg-muted/30 space-y-4">
                                     <div className="text-center space-y-1">
-                                        <h4 className="font-bold">Unlock Full Expert Report</h4>
-                                        <p className="text-sm text-muted-foreground">Get the detailed analysis with actionable advice sent to your inbox.</p>
+                                        <h4 className="font-bold">{safeDict.unlockFullReport}</h4>
+                                        <p className="text-sm text-muted-foreground">{safeDict.unlockFullReportDesc}</p>
                                     </div>
                                     <div className="space-y-2">
-                                        <div className="flex gap-2">
+                                        <div className="flex flex-col sm:flex-row gap-2">
                                             <Input
                                                 type="email"
-                                                placeholder="Enter your email"
+                                                placeholder={safeDict.emailPlaceholder}
                                                 value={email}
                                                 onChange={(e) => handleEmailChange(e.target.value)}
                                                 aria-label="Email address for report"
@@ -687,8 +734,8 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                                 aria-describedby={emailError ? "email-error" : undefined}
                                                 className={emailError ? "border-destructive" : ""}
                                             />
-                                            <Button onClick={sendReport} disabled={!email || !!emailError || sending}>
-                                                {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Send Report"}
+                                            <Button className="min-h-11" onClick={sendReport} disabled={!email || !!emailError || sending}>
+                                                {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : safeDict.sendReport}
                                             </Button>
                                         </div>
                                         {emailError && <p id="email-error" className="text-sm text-destructive">{emailError}</p>}
@@ -696,12 +743,12 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                                 </div>
                             ) : (
                                 <div className="p-4 rounded-lg bg-green-500/10 text-green-600 text-center font-medium animate-in zoom-in">
-                                    Report sent to {email}!
+                                    {safeDict.reportSent} {email}!
                                 </div>
                             )}
 
                             <Button variant="ghost" className="w-full text-muted-foreground hover:text-foreground" onClick={onClose}>
-                                Close Analysis
+                                {safeDict.closeAnalysis}
                             </Button>
                         </div>
                     )}

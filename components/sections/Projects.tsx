@@ -7,6 +7,7 @@ import { ArrowUpRight, TrendingUp, Users, Zap } from "lucide-react";
 import Link from "next/link";
 import { GrowthChart } from "@/components/ui/growth-chart";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const healthSupplyData = [
     { year: "2022", value: 100000, milestone: "Started SEO" },
@@ -33,55 +34,91 @@ const epoptiqueData = [
     { year: "Q1", value: 5000, milestone: "Traffic +150%" },
 ];
 
-const projects = [
-    {
-        title: "The $1.3M Automation Blueprint",
-        client: "Health Supply 770",
-        description: "Engineered a $1.3M revenue machine by deploying Universal Commerce Protocol (UCP) and self-healing AI agents that autonomously monitor and fix technical debt.",
-        tags: ["Automation", "Revenue Growth", "Technical SEO"],
-        metrics: [
-            { label: "Revenue", value: "$1.3M+", icon: TrendingUp },
-            { label: "Efficiency", value: "100%", icon: Zap },
-        ],
-        link: "/projects/health-supply-770",
-    },
-    {
-        title: "Shopify SEO & UX Architecture",
-        client: "Fantasialife.com",
-        description: "Complete site architecture overhaul focusing on user experience and organic search visibility. Redesigned navigation and product structure for maximum crawlability.",
-        tags: ["Shopify", "UX Design", "E-commerce SEO"],
-        metrics: [
-            { label: "Traffic", value: "+80%", icon: Users },
-            { label: "Conv. Rate", value: "+2.5%", icon: TrendingUp },
-        ],
-        link: "/projects/fantasialife",
-    },
-    {
-        title: "E-commerce SEO & Content Strategy",
-        client: "Epoptique.ma",
-        description: "Long-term SEO strategy and optimization. Implemented comprehensive content strategy and technical improvements for sustainable organic growth.",
-        tags: ["E-commerce", "Content Strategy", "Technical SEO"],
-        metrics: [
-            { label: "Traffic", value: "+150%", icon: Users },
-            { label: "Keywords", value: "500+", icon: TrendingUp },
-        ],
-        link: "/projects/epoptique",
-    },
-];
+export function Projects({ dict, lang }: { dict?: any; lang?: string }) {
+    const localePrefix = lang ? `/${lang}` : '';
+    const safeDict = dict || {
+        title: "Case Studies",
+        viewProject: "Read Case Study",
+        items: [
+            {
+                title: "The $1.3M Automation Blueprint",
+                client: "Health Supply 770",
+                description: "Engineered a $1.3M revenue machine by deploying Universal Commerce Protocol (UCP) and self-healing AI agents that autonomously monitor and fix technical debt.",
+                tags: ["Automation", "Revenue Growth", "Technical SEO"],
+                metrics: [
+                    { label: "Revenue", value: "$1.3M+" },
+                    { label: "Efficiency", value: "100%" }
+                ]
+            },
+            {
+                title: "Shopify SEO & UX Architecture",
+                client: "Fantasialife.com",
+                description: "Complete site architecture overhaul focusing on user experience and organic search visibility. Redesigned navigation and product structure for maximum crawlability.",
+                tags: ["Shopify", "UX Design", "E-commerce SEO"],
+                metrics: [
+                    { label: "Traffic", value: "+80%" },
+                    { label: "Conv. Rate", value: "+2.5%" }
+                ]
+            },
+            {
+                title: "E-commerce SEO & Content Strategy",
+                client: "Epoptique.ma",
+                description: "Long-term SEO strategy and optimization. Implemented comprehensive content strategy and technical improvements for sustainable organic growth.",
+                tags: ["E-commerce", "Content Strategy", "Technical SEO"],
+                metrics: [
+                    { label: "Traffic", value: "+150%" },
+                    { label: "Keywords", value: "500+" }
+                ]
+            }
+        ]
+    };
 
-import { motion } from "framer-motion";
+    const projectsConfig = [
+        {
+            title: safeDict.items?.[0]?.title || "The $1.3M Automation Blueprint",
+            client: safeDict.items?.[0]?.client || "Health Supply 770",
+            description: safeDict.items?.[0]?.description || "Engineered a $1.3M revenue machine by deploying Universal Commerce Protocol (UCP) and self-healing AI agents that autonomously monitor and fix technical debt.",
+            tags: safeDict.items?.[0]?.tags || ["Automation", "Revenue Growth", "Technical SEO"],
+            metrics: [
+                { label: safeDict.items?.[0]?.metrics?.[0]?.label || "Revenue", value: safeDict.items?.[0]?.metrics?.[0]?.value || "$1.3M+", icon: TrendingUp },
+                { label: safeDict.items?.[0]?.metrics?.[1]?.label || "Efficiency", value: safeDict.items?.[0]?.metrics?.[1]?.value || "100%", icon: Zap },
+            ],
+            link: `${localePrefix}/projects/health-supply-770`,
+        },
+        {
+            title: safeDict.items?.[1]?.title || "Shopify SEO & UX Architecture",
+            client: safeDict.items?.[1]?.client || "Fantasialife.com",
+            description: safeDict.items?.[1]?.description || "Complete site architecture overhaul focusing on user experience and organic search visibility. Redesigned navigation and product structure for maximum crawlability.",
+            tags: safeDict.items?.[1]?.tags || ["Shopify", "UX Design", "E-commerce SEO"],
+            metrics: [
+                { label: safeDict.items?.[1]?.metrics?.[0]?.label || "Traffic", value: safeDict.items?.[1]?.metrics?.[0]?.value || "+80%", icon: Users },
+                { label: safeDict.items?.[1]?.metrics?.[1]?.label || "Conv. Rate", value: safeDict.items?.[1]?.metrics?.[1]?.value || "+2.5%", icon: TrendingUp },
+            ],
+            link: `${localePrefix}/projects/fantasialife`,
+        },
+        {
+            title: safeDict.items?.[2]?.title || "E-commerce SEO & Content Strategy",
+            client: safeDict.items?.[2]?.client || "Epoptique.ma",
+            description: safeDict.items?.[2]?.description || "Long-term SEO strategy and optimization. Implemented comprehensive content strategy and technical improvements for sustainable organic growth.",
+            tags: safeDict.items?.[2]?.tags || ["E-commerce", "Content Strategy", "Technical SEO"],
+            metrics: [
+                { label: safeDict.items?.[2]?.metrics?.[0]?.label || "Traffic", value: safeDict.items?.[2]?.metrics?.[0]?.value || "+150%", icon: Users },
+                { label: safeDict.items?.[2]?.metrics?.[1]?.label || "Keywords", value: safeDict.items?.[2]?.metrics?.[1]?.value || "500+", icon: TrendingUp },
+            ],
+            link: `${localePrefix}/projects/epoptique`,
+        },
+    ];
 
-export function Projects() {
     return (
         <section id="projects" className={cn(
-            "w-full py-16 transition-colors duration-500 bg-transparent"
+            "w-full py-12 md:py-16 transition-colors duration-500 bg-transparent"
         )}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-3xl font-bold tracking-tight text-foreground">Case Studies</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {projects.map((project, i) => (
+                    {projectsConfig.map((project, i) => (
                         <motion.div
                             key={project.title}
                             initial={{ opacity: 0, y: 20 }}
@@ -93,13 +130,13 @@ export function Projects() {
                         >
                             <Card className={cn(
                                 "flex flex-col h-full transition-all duration-500",
-                                "rounded-[2rem] p-8",
+                                "rounded-2xl sm:rounded-[2rem] p-5 sm:p-6 lg:p-8",
                                 "bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl shadow-sm"
                             )}>
                                 <CardHeader className="p-0 pb-6">
-                                    <div className="flex justify-between items-start">
-                                        <div className="space-y-1">
-                                            <CardTitle className="text-xl font-bold leading-tight">
+                                    <div className="flex justify-between items-start min-w-0">
+                                        <div className="space-y-1 min-w-0">
+                                            <CardTitle className="text-lg sm:text-xl font-bold leading-tight break-words">
                                                 {project.title}
                                             </CardTitle>
                                             <CardDescription className={cn(
@@ -107,7 +144,6 @@ export function Projects() {
                                                 "text-primary/80"
                                             )}>{project.client}</CardDescription>
                                         </div>
-                                        {/* Removed ArrowUpRight icon */}
                                     </div>
                                 </CardHeader>
                                 <CardContent className="space-y-6 flex-1 p-0">
@@ -142,8 +178,8 @@ export function Projects() {
                                         />
                                     )}
 
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {project.metrics.map((metric) => (
+                                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        {project.metrics.map((metric: any) => (
                                             <div key={metric.label} className="flex items-center gap-3">
                                                 <div className={cn(
                                                     "p-2 rounded-lg",
@@ -163,7 +199,7 @@ export function Projects() {
                                     </div>
 
                                     <div className="flex flex-wrap gap-2">
-                                        {project.tags.map((tag) => (
+                                        {project.tags.map((tag: string) => (
                                             <Badge key={tag} variant="secondary" className={cn(
                                                 "text-xs font-normal",
                                                 "bg-white/50 text-muted-foreground hover:bg-white/80"
@@ -179,11 +215,11 @@ export function Projects() {
                                     <Link
                                         href={project.link}
                                         className={cn(
-                                            "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all group",
+                                            "flex min-h-11 items-center justify-between w-full px-4 sm:px-6 py-3 rounded-full text-sm font-semibold transition-all group",
                                             "bg-white text-foreground hover:shadow-md border border-white/60 hover:border-blue-200"
                                         )}
                                     >
-                                        Read Case Study
+                                        {safeDict.viewProject || "Read Case Study"}
                                         <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                                     </Link>
                                 </CardFooter>

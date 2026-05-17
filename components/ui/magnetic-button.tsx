@@ -50,6 +50,7 @@ export const MagneticButton = ({
     }, { scope: containerRef });
 
     const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+        if (window.matchMedia("(pointer: coarse)").matches) return;
         const element = containerRef.current;
         if (!element || !xTo.current || !yTo.current || !xToText.current || !yToText.current) return;
 
@@ -75,7 +76,7 @@ export const MagneticButton = ({
         yToText.current(0);
     };
 
-    const sharedClassName = `relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-colors bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${className}`;
+    const sharedClassName = `relative inline-flex min-h-11 max-w-full items-center justify-center px-5 py-3 sm:px-8 sm:py-4 text-sm sm:text-lg font-medium text-white text-center transition-colors bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${className}`;
 
     if (href) {
         return (
@@ -87,8 +88,9 @@ export const MagneticButton = ({
                 download={download}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className={sharedClassName}
-            >
+            className={sharedClassName}
+            aria-label={typeof children === 'string' ? children : undefined}
+        >
                 <span ref={textRef} className="relative z-10 block">
                     {children}
                 </span>
@@ -106,6 +108,7 @@ export const MagneticButton = ({
             role={onClick ? "button" : undefined}
             tabIndex={onClick ? 0 : undefined}
             onKeyDown={onClick ? (e) => e.key === 'Enter' && onClick() : undefined}
+            aria-label={onClick && typeof children === 'string' ? children : undefined}
         >
             <span ref={textRef} className="relative z-10 block">
                 {children}

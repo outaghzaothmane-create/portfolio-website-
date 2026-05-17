@@ -1,27 +1,40 @@
 import { siteUrl } from "@/sanity/env";
 import type { BlogPost } from "@/lib/sanity";
+import type { Locale } from "@/lib/i18n";
+import { absoluteUrl } from "@/lib/seo/i18n";
 
-export function personSchema(post?: BlogPost) {
+export function personSchema(lang: Locale = "en", post?: BlogPost) {
     return {
         "@context": "https://schema.org",
         "@type": "Person",
         "@id": `${siteUrl}/#person`,
         name: post?.author?.name || "Othmane Outaghza",
-        jobTitle: post?.author?.role || "Technical SEO Consultant & AI Search Specialist",
+        jobTitle: post?.author?.role || (lang === "fr" ? "Consultant SEO Technique" : "Technical SEO Consultant"),
         url: siteUrl,
         sameAs: post?.author?.sameAs || [],
     };
 }
 
-export function articleSchema(post: BlogPost) {
-    const url = `${siteUrl}/blog/${post.slug}`;
+export function websiteSchema(lang: Locale = "en") {
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website-${lang}`,
+        name: "Othmane Outaghza",
+        url: siteUrl,
+        inLanguage: lang,
+    };
+}
+
+export function articleSchema(post: BlogPost, lang: Locale = "en") {
+    const url = absoluteUrl(`/${lang}/blog/${post.slug}`);
 
     return {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
         "@id": `${url}#article`,
         headline: post.title,
-        description: post.excerpt,
+        description: post.seo?.seoDescription || post.seo?.metaDescription || post.excerpt,
         image: post.mainImage?.url,
         datePublished: post.publishedAt,
         dateModified: post.updatedAt || post.publishedAt,
@@ -35,8 +48,9 @@ export function articleSchema(post: BlogPost) {
             url: siteUrl,
         },
         mainEntityOfPage: url,
+        inLanguage: lang,
         articleSection: post.categories?.map((category) => category.title).filter(Boolean),
-        keywords: post.tags,
+        keywords: [post.focusKeyword, post.seo?.focusKeyword, ...(post.tags || [])].filter(Boolean),
     };
 }
 
@@ -76,10 +90,12 @@ export function collectionPageSchema({
     name,
     description,
     url,
+    lang = "en",
 }: {
     name: string;
     description: string;
     url: string;
+    lang?: Locale;
 }) {
     return {
         "@context": "https://schema.org",
@@ -87,6 +103,7 @@ export function collectionPageSchema({
         name,
         description,
         url,
+        inLanguage: lang,
         isPartOf: {
             "@type": "WebSite",
             name: "Othmane Outaghza",

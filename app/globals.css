@@ -45,24 +45,35 @@
 }
 
 @layer base {
+    html {
+        @apply overflow-x-hidden;
+    }
+
     * {
         @apply border-border;
     }
 
     body {
         @apply bg-background text-foreground overflow-x-hidden;
+        text-rendering: optimizeLegibility;
+    }
+
+    a,
+    button,
+    [role="button"] {
+        @apply touch-manipulation;
     }
 
     h1 {
-        @apply text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+        @apply text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight break-words;
     }
 
     h2 {
-        @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight break-words;
     }
 
     h3 {
-        @apply text-2xl md:text-3xl font-bold;
+        @apply text-xl sm:text-2xl md:text-3xl font-bold break-words;
     }
 }
 
@@ -105,4 +116,15 @@
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: text-shimmer 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }

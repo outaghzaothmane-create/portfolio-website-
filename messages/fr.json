@@ -1,0 +1,526 @@
+{
+  "nav": {
+    "services": "Services",
+    "caseStudies": "Études de Cas",
+    "blog": "Blog",
+    "getFreeAudit": "Audit Gratuit"
+  },
+  "hero": {
+    "title": "Consultant SEO Technique & Spécialiste Automatisation IA Générant +1,3M$ de Revenus Organiques",
+    "subtitle": "Othmane Outaghza est un Consultant SEO Technique et Spécialiste en Automatisation IA basé au Maroc.",
+    "cta": "Télécharger le CV"
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Faire le pont entre le SEO Technique et le Développement",
+    "description1": "Je suis un Spécialiste SEO Technique basé à Casablanca, au Maroc, avec plus de 4 ans d'expérience dans l'aide aux entreprises pour développer leur croissance organique.",
+    "description2": "Mon approche combine une expertise technique approfondie avec des solutions programmatiques pour résoudre des défis SEO complexes à grande échelle. Je me spécialise dans les plateformes E-commerce, les applications SaaS et les sites web d'entreprise à grande échelle.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "expertiseTitle": "Expertise Principale",
+    "expertise": [
+      "SEO Technique & E-commerce (Shopify, WordPress)",
+      "Optimisation de Moteur Génératif (GEO) & Recherche IA",
+      "Données Structurées Avancées & SEO d'Entité",
+      "Automatisation SEO avec Python, Make.com & n8n",
+      "Architecture SEO Programmatique"
+    ],
+    "methodologyTitle": "Méthodologie",
+    "methodology": "J'utilise le cadre d'Optimisation de Recherche IA à 4 Niveaux : assurer l'explorabilité technique, injecter des données sémantiques structurées riches, construire des signaux d'entité faisant autorité, et structurer un contenu prêt à être cité pour les Grands Modèles de Langage (LLM).",
+    "resultsTitle": "Résultats Prouvés",
+    "results": "J'ai généré avec succès plus de 1,3 M$ d'impact sur les revenus organiques pour des clients à l'échelle mondiale. Vaste expérience dans la résolution de problèmes complexes de rendu JavaScript, l'optimisation du budget de crawl, et l'exécution de flux de travail automatisés qui font évoluer les opérations SEO de manière transparente.",
+    "viewCaseStudies": "Voir les Études de Cas",
+    "stats": {
+      "experience": "4+ Ans",
+      "experienceLabel": "D'expérience",
+      "clients": "40+",
+      "clientsLabel": "Clients Satisfaits",
+      "growth": "300%",
+      "growthLabel": "Croissance Moyenne"
+    }
+  },
+  "keyMetrics": {
+    "revenue": {
+      "title": "Revenu Total Généré",
+      "trendValue": "Tendance",
+      "subtext": "Impact de Croissance Organique"
+    },
+    "growth": {
+      "title": "Croissance Organique",
+      "trendValue": "D'une année à l'autre",
+      "subtext": "Mise à l'échelle Constante"
+    },
+    "keywords": {
+      "title": "Top 3 Mots-clés",
+      "trendValue": "En hausse depuis 3",
+      "subtext": "Classements à Haute Intention"
+    },
+    "clicks": {
+      "title": "Clics/Mois",
+      "trendValue": "En hausse depuis 700",
+      "subtext": "Trafic Qualifié"
+    }
+  },
+  "methodology": {
+    "title": "Méthodologie SEO + Recherche IA",
+    "subtitle": "Combler l'écart entre les algorithmes de recherche traditionnels et la nouvelle ère de l'Optimisation de Moteur Génératif (GEO).",
+    "items": [
+      {
+        "title": "Mon Approche du SEO Technique",
+        "content": "Le SEO technique est la base de la visibilité numérique. Je l'aborde comme un problème d'ingénierie : optimisation de l'exploration, résolution des problèmes de rendu JavaScript, amélioration des Core Web Vitals, et garantie que les moteurs de recherche peuvent indexer efficacement vos pages de plus grande valeur sans gaspiller de budget de crawl."
+      },
+      {
+        "title": "Mon Processus d'Optimisation de Recherche IA",
+        "content": "Pour se classer dans les systèmes d'IA comme ChatGPT, Perplexity et Gemini, le SEO traditionnel ne suffit pas. Mon processus se concentre sur le SEO des entités, la profondeur sémantique et l'ingénierie des citations IA. Je structure votre contenu pour que les Grands Modèles de Langage (LLM) puissent facilement l'extraire et citer votre marque comme la réponse de référence."
+      },
+      {
+        "title": "Architecture des Données et Entités",
+        "content": "J'implémente des données structurées avancées (JSON-LD) pour définir explicitement les entités, les relations et l'expertise de votre organisation. Cela lève l'ambiguïté tant pour Google que pour les systèmes de récupération de l'IA, influençant directement votre présence dans le Knowledge Graph."
+      },
+      {
+        "title": "Flux de Travail d'Automatisation SEO",
+        "content": "À l'aide d'outils tels que Python, Make.com et n8n, je construis des systèmes SEO automatisés. De la génération SEO programmatique aux API d'indexation en temps réel et aux audits techniques automatisés, je conçois des flux de travail qui adaptent votre portée organique sans effort manuel proportionnel."
+      }
+    ]
+  },
+  "experience": {
+    "title": "Résultats SEO & Automatisation",
+    "badge": "Les 3 Dernières Années",
+    "subtitle": "Un historique de résultats mesurables.",
+    "items": [
+      {
+        "role": "Architecte SEO Technique & Lead Automatisation IA",
+        "company": "Health Supply 770",
+        "period": "Fév 2024 - Présent",
+        "impact": "A généré 1,3 M$ de revenus, Automatisation des audits techniques avec Make.com",
+        "achievements": [
+          "Obtention de 494 citations d'IA (383 ChatGPT, 111 Perplexity) via l'Optimisation de Moteur Génératif (GEO).",
+          "Augmentation de l'autorité du domaine de 11x (DR 2.6 → 30) via l'acquisition de liens programmatique.",
+          "Construction d'automatisations n8n/Make.com auto-réparatrices via des flux de travail assistés par l'IA."
+        ],
+        "tags": [
+          "Make.com",
+          "Brevo",
+          "SEO Technique",
+          "UCP",
+          "GEO"
+        ],
+        "color": "text-green-500"
+      },
+      {
+        "role": "Manager SEO",
+        "company": "Tingis Web",
+        "period": "Juin 2023 - Mai 2024",
+        "impact": "Augmentation du trafic organique de 80% en 3 mois, Direction de campagnes de backlinks RP",
+        "achievements": [
+          "Augmentation du trafic organique de 80% en 3 mois grâce à l'optimisation ciblée du contenu.",
+          "Direction de campagnes de backlinks RP résultant en des mentions de haute autorité."
+        ],
+        "tags": [
+          "Stratégie RP",
+          "Croissance Organique",
+          "Chef d'équipe"
+        ],
+        "color": "text-blue-500"
+      },
+      {
+        "role": "Spécialiste SEO",
+        "company": "Epoptique.ma",
+        "period": "Jan 2022 - Présent",
+        "impact": "Stratégie SEO à long terme et optimisation",
+        "achievements": [
+          "Mise en œuvre d'une stratégie SEO à long terme entraînant une croissance organique soutenue.",
+          "Optimisation de l'architecture du site pour une meilleure exploration et expérience utilisateur."
+        ],
+        "tags": [
+          "E-commerce",
+          "Stratégie de Contenu"
+        ],
+        "color": "text-purple-500"
+      }
+    ]
+  },
+  "services": {
+    "title": "Services SEO Technique & Automatisation IA",
+    "subtitle": "Des modèles d'engagement flexibles adaptés à vos besoins spécifiques et à votre stade de croissance.",
+    "items": [
+      {
+        "title": "Le Contrat \"Architecture de Revenus\"",
+        "subtitle": "Directeur SEO Partiel",
+        "target": "Pour : Les marques E-commerce générant plus de 1M$ de revenus",
+        "features": [
+          "Stratégie SEO Full-stack (On-page, Off-page, Contenu)",
+          "Prévision des revenus et Analyse des Données",
+          "Gestion des équipes de rédaction/développement"
+        ],
+        "why": "Je ne me contente pas de classer des mots-clés ; je gère l'ensemble du pipeline de revenus.",
+        "bookButton": "Réserver un Appel Stratégique"
+      },
+      {
+        "title": "Déploiement d'Agents IA & Workflows",
+        "subtitle": "Éliminer le Travail Manuel",
+        "target": "Pour : Les équipes noyées sous le travail manuel sur les données",
+        "features": [
+          "Déploiement d'Agents MCP autonomes et de pipelines n8n",
+          "Scripting Python pour le scraping ou l'indexation",
+          "Génération automatique de pages SEO programmatiques"
+        ],
+        "why": "Transformez 20 heures de travail manuel en un script de 2 minutes.",
+        "bookButton": "Réserver un Appel Stratégique"
+      },
+      {
+        "title": "Sprint d'Architecture Technique",
+        "subtitle": "Corriger les Chutes de Trafic",
+        "target": "Pour : Sites avec des chutes de trafic ou des problèmes Core Web Vitals",
+        "features": [
+          "Analyse Approfondie des Fichiers Journaux",
+          "Corrections du rendu JavaScript (Next.js/React)",
+          "Sécurité de migration et implémentation Schema"
+        ],
+        "why": "Un audit approfondi pour corriger la dette technique qui nuit à votre classement.",
+        "bookButton": "Réserver un Appel Stratégique"
+      }
+    ]
+  },
+  "caseStudies": {
+    "title": "Études de Cas",
+    "subtitle": "Des Résultats Réels pour des Entreprises Réelles",
+    "viewProject": "Voir le Projet",
+    "items": [
+      {
+        "title": "Le Schéma d'Automatisation à 1,3M$",
+        "client": "Health Supply 770",
+        "description": "Conception d'une machine à revenus de 1,3M$ en déployant le Protocole de Commerce Universel (UCP) et des agents IA auto-réparateurs qui surveillent et corrigent de manière autonome la dette technique.",
+        "tags": [
+          "Automatisation",
+          "Croissance des Revenus",
+          "SEO Technique"
+        ],
+        "metrics": [
+          {
+            "label": "Revenus",
+            "value": "1,3M$+"
+          },
+          {
+            "label": "Efficacité",
+            "value": "100%"
+          }
+        ]
+      },
+      {
+        "title": "SEO Shopify & Architecture UX",
+        "client": "Fantasialife.com",
+        "description": "Refonte complète de l'architecture du site axée sur l'expérience utilisateur et la visibilité dans les recherches organiques. Refonte de la navigation et de la structure des produits pour une explorabilité maximale.",
+        "tags": [
+          "Shopify",
+          "Design UX",
+          "SEO E-commerce"
+        ],
+        "metrics": [
+          {
+            "label": "Trafic",
+            "value": "+80%"
+          },
+          {
+            "label": "Taux de Conv.",
+            "value": "+2,5%"
+          }
+        ]
+      },
+      {
+        "title": "SEO E-commerce & Stratégie de Contenu",
+        "client": "Epoptique.ma",
+        "description": "Stratégie et optimisation SEO à long terme. Mise en œuvre d'une stratégie de contenu complète et d'améliorations techniques pour une croissance organique durable.",
+        "tags": [
+          "E-commerce",
+          "Stratégie de Contenu",
+          "SEO Technique"
+        ],
+        "metrics": [
+          {
+            "label": "Trafic",
+            "value": "+150%"
+          },
+          {
+            "label": "Mots-clés",
+            "value": "500+"
+          }
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Stack Technologique",
+    "subtitle": "Les outils et technologies qui alimentent mes flux de travail.",
+    "items": [
+      {
+        "title": "SEO & Analytique",
+        "skills": [
+          "GA4",
+          "Google Search Console",
+          "Screaming Frog",
+          "Looker Studio",
+          "Google Tag Manager",
+          "Universal Commerce Protocol (UCP)",
+          "Generative Engine Optimization (GEO)",
+          "Optimisation LLM"
+        ],
+        "color": "text-blue-500",
+        "bg": "bg-blue-500/10",
+        "border": "group-hover:border-blue-500/50",
+        "badgeBg": "bg-blue-500/5",
+        "badgeText": "text-blue-700"
+      },
+      {
+        "title": "Automatisation",
+        "skills": [
+          "Make.com",
+          "n8n (Auto-Hébergé)",
+          "Brevo (Email Automation)"
+        ],
+        "color": "text-purple-500",
+        "bg": "bg-purple-500/10",
+        "border": "group-hover:border-purple-500/50",
+        "badgeBg": "bg-purple-500/5",
+        "badgeText": "text-purple-700"
+      },
+      {
+        "title": "Stack Tech",
+        "skills": [
+          "WordPress",
+          "Shopify",
+          "Bases Python",
+          "HTML/CSS",
+          "Model Context Protocol (MCP)"
+        ],
+        "color": "text-orange-500",
+        "bg": "bg-orange-500/10",
+        "border": "group-hover:border-orange-500/50",
+        "badgeBg": "bg-orange-500/5",
+        "badgeText": "text-orange-700"
+      }
+    ]
+  },
+  "automationStack": {
+    "title": "Automatisation de Création de Liens RP",
+    "subtitle": "Flux de travail de sensibilisation HARO autonome avec filtrage IA et approbations humaines intégrées.",
+    "linearTools": [
+      {
+        "name": "API Gmail",
+        "role": "Déclencheur HARO"
+      },
+      {
+        "name": "Gemini AI",
+        "role": "Filtre & Brouillon"
+      },
+      {
+        "name": "n8n",
+        "role": "Moteur d'Automatisation"
+      }
+    ],
+    "outputTools": [
+      {
+        "name": "Google Sheets",
+        "role": "Journal des pitchs"
+      },
+      {
+        "name": "Slack",
+        "role": "Approbation Humaine"
+      }
+    ],
+    "logs": [
+      "> [DÉCLENCHEUR] Nouvel email HARO reçu...",
+      "> Déduplication par rapport à l'historique des pitchs...",
+      "> L'IA Gemini analyse la pertinence pour les soins de santé...",
+      "> [BROUILLON] Pitch généré par Gemini.",
+      "> [ACTION] Approbation Slack demandée...",
+      "> [APPROUVÉ] Envoi du pitch via Gmail...",
+      "> [SUCCÈS] Flux de travail enregistré dans Sheets."
+    ]
+  },
+  "testimonials": {
+    "title": "Retours Clients",
+    "verifiedClient": "Client Vérifié",
+    "items": [
+      {
+        "quote": "Othmane n'a pas seulement réparé notre SEO; il a construit un moteur d'automatisation qui nous a fait gagner plus de 20 heures par semaine. La croissance de revenus de 1,3 M$ parle d'elle-même.",
+        "author": "L'Expert en Efficacité",
+        "role": "PDG, Health Supply 770"
+      },
+      {
+        "quote": "Il est rare de trouver un SEO capable de coder en Python et de corriger des logs serveur. Othmane a transformé notre infrastructure technique en quelques mois.",
+        "author": "Génie Technique",
+        "role": "Manager, Tingis Web"
+      },
+      {
+        "quote": "Nous sommes passés d'invisibles au classement #1 pour plus de 50 mots-clés. Sa stratégie SEO locale est agressive et efficace.",
+        "author": "Domination du Marché Local",
+        "role": "Propriétaire, Epoptique"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "items": [
+      {
+        "question": "Qu'est-ce que l'Optimisation de Moteur Génératif ?",
+        "answer": "L'Optimisation de Moteur Génératif (GEO) est le processus d'optimisation du contenu, des données structurées et des signaux d'entité pour s'assurer qu'une marque est correctement citée et recommandée par les moteurs de recherche basés sur l'IA comme ChatGPT, Perplexity et Gemini."
+      },
+      {
+        "question": "Comment fonctionne l'Optimisation de Recherche IA ?",
+        "answer": "L'Optimisation de Recherche IA fonctionne en améliorant l'explorabilité technique pour les bots IA, en enrichissant la profondeur sémantique, en établissant des relations d'entité fortes via des données structurées et en créant du contenu prêt à être cité que les Grands Modèles de Langage (LLM) peuvent facilement extraire."
+      },
+      {
+        "question": "Qu'est-ce que l'Optimisation LLM ?",
+        "answer": "L'Optimisation LLM implique la structuration des données et du contenu du site Web afin que les Grands Modèles de Langage puissent efficacement indexer, comprendre et récupérer les informations lors de la génération de réponses pour les utilisateurs dans les interfaces de recherche conversationnelle."
+      },
+      {
+        "question": "Comment le SEO technique peut-il améliorer la visibilité dans les recherches IA ?",
+        "answer": "Le SEO technique garantit que les robots d'exploration de l'IA peuvent accéder et analyser un site Web sans rencontrer de problèmes de rendu, de blocs JavaScript ou de temps de chargement lents. Une canonisation appropriée, des sitemaps XML et des directives robots.txt sont fondamentales pour l'inclusion dans les recherches IA."
+      },
+      {
+        "question": "Quels problèmes SEO techniques bloquent les robots d'exploration IA ?",
+        "answer": "Les problèmes courants incluent des règles de pare-feu agressives bloquant les user-agents IA (comme GPTBot), un rendu côté client uniquement sans SSR, des données structurées manquantes ou invalides, des espaces d'exploration infinis et des balises sémantiques HTML mal structurées."
+      },
+      {
+        "question": "Comment Make.com peut-il automatiser les flux de travail SEO ?",
+        "answer": "Make.com peut connecter diverses API (comme Google Search Console, OpenAI et les plateformes CMS) pour automatiser des tâches telles que la surveillance du SEO technique, la génération de contenu programmatique, les demandes d'indexation et les tableaux de bord de rapports automatisés."
+      },
+      {
+        "question": "Comment n8n peut-il être utilisé pour l'automatisation SEO ?",
+        "answer": "n8n offre une automatisation des flux de travail auto-hébergée et compatible avec le code. C'est idéal pour les tâches SEO complexes comme l'extraction de données concurrentes, l'exécution d'explorations de site automatisées, le traitement du langage naturel pour l'extraction d'entités et la mise à jour automatique du schéma de site Web."
+      },
+      {
+        "question": "Qu'est-ce que l'Ingénierie de Citation IA ?",
+        "answer": "L'Ingénierie de Citation IA est la stratégie consistant à formater des informations de grande valeur — telles que des recherches originales, des statistiques et des cadres uniques — dans des structures facilement extractibles (comme des tableaux et des listes) afin que les modèles d'IA les utilisent comme citations directes."
+      },
+      {
+        "question": "Qu'est-ce que le SEO programmatique ?",
+        "answer": "Le SEO programmatique est la création automatisée de pages de destination de haute qualité à grande échelle ciblant des mots-clés de longue traîne. Il utilise des ensembles de données structurés et des modèles dynamiques pour générer du contenu utile à grande échelle sans rédaction manuelle."
+      },
+      {
+        "question": "Comment les données structurées aident-elles les moteurs de recherche IA ?",
+        "answer": "Les données structurées (schéma JSON-LD) fournissent un contexte explicite sur les entités, les relations et les types de contenu. Cela supprime l'ambiguïté, aidant les moteurs de recherche IA à comprendre de manière définitive qui est une organisation, quels services elle offre et comment elle se connecte à d'autres entités."
+      },
+      {
+        "question": "Comment le SEO Shopify peut-il améliorer les revenus organiques ?",
+        "answer": "Le SEO Shopify se concentre sur l'optimisation de l'architecture des produits, des pages de collection, de la navigation à facettes et des performances techniques pour diriger un trafic organique à intention plus élevée directement vers les points de conversion, augmentant ainsi les revenus globaux de la boutique."
+      },
+      {
+        "question": "Pourquoi les entreprises devraient-elles optimiser pour ChatGPT, Perplexity, Gemini et Claude ?",
+        "answer": "Alors que le comportement de recherche des utilisateurs passe des liens traditionnels aux réponses conversationnelles, être cité par les modèles d'IA construit de l'autorité, capture les requêtes de haut de l'entonnoir et garantit que votre marque reste visible dans la prochaine génération de découverte de recherche."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Dernières Perspectives & Guides Techniques",
+    "description": "Notes de terrain, cadres et manuels d'implémentation pour Google, les résumés IA, ChatGPT, Perplexity, le SEO Shopify, le SEO Local et l'automatisation.",
+    "searchTitle": "Rechercher dans la base de connaissances",
+    "featuredTitle": "Articles à la Une",
+    "technicalHub": "Hub SEO technique",
+    "recentPosts": "Articles Récents",
+    "searchResults": "Résultats de recherche pour",
+    "articles": "articles",
+    "noResultsTitle": "Aucun résultat pour",
+    "noResultsDesc": "Essayez un autre mot-clé ou effacez la recherche.",
+    "comingSoonTitle": "Articles à venir prochainement",
+    "comingSoonDesc": "Des guides approfondis sur le SEO Technique, la Recherche IA, le SEO Shopify et l'automatisation sont en route. Revenez bientôt.",
+    "topicalHubs": "Hubs Thématiques",
+    "tagsTitle": "Mots-clés",
+    "readMore": "Lire la Suite",
+    "allPosts": "Tous les Articles",
+    "noPosts": "Aucun article trouvé pour cette langue.",
+    "backToBlog": "Retour au blog",
+    "by": "Par",
+    "updated": "Mise à jour",
+    "minRead": "min de lecture",
+    "faqTitle": "Questions Fréquemment Posées",
+    "topics": "Sujets",
+    "relatedPosts": "Articles Similaires",
+    "ctaTitle": "Besoin d'un système SEO technique et Recherche IA ?",
+    "ctaDesc": "J'aide les entreprises à construire des systèmes SEO structurés, lisibles par l'IA et explorables qui se développent sur Google et les moteurs de réponse.",
+    "ctaButton": "Réserver un appel stratégique"
+  },
+  "contact": {
+    "title": "Réserver un Audit SEO Gratuit",
+    "headline": "Prêt à augmenter vos revenus organiques ?",
+    "description": "Faisons un audit de votre configuration actuelle et identifions les opportunités d'automatisation.",
+    "buttonText": "Réserver un Audit Gratuit"
+  },
+  "footer": {
+    "engineered": "Conçu au Maroc",
+    "downloadResume": "Télécharger le CV",
+    "navigation": "Navigation",
+    "overview": "Aperçu",
+    "services": "Services",
+    "projects": "Projets",
+    "blog": "Blog",
+    "systemStatus": "État du Système",
+    "operational": "Opérationnel",
+    "loading": "Chargement...",
+    "casablanca": "Casablanca, MA",
+    "rightsReserved": "Othmane Outaghza. Tous droits réservés."
+  },
+  "auditModal": {
+    "title": "Audit SEO Professionnel",
+    "descriptionIdle": "Entrez votre URL pour une analyse technique complète.",
+    "descriptionScanning": "Exécution des diagnostics d'expert...",
+    "descriptionComplete": "Audit Terminé. Consultez votre score de santé ci-dessous.",
+    "websiteUrlLabel": "URL du site web",
+    "websiteUrlPlaceholder": "exemple.com",
+    "runAnalysisBtn": "Lancer l'Analyse",
+    "steps": [
+      {
+        "id": "connect",
+        "label": "Connexion au serveur..."
+      },
+      {
+        "id": "crawl",
+        "label": "Exploration du contenu de la page..."
+      },
+      {
+        "id": "analyze",
+        "label": "Analyse des balises meta & de la structure..."
+      },
+      {
+        "id": "score",
+        "label": "Calcul du score de santé..."
+      }
+    ],
+    "scoreLabel": "Score",
+    "pdfReport": "Rapport PDF",
+    "textReport": "Texte",
+    "googleSearchPreview": "Aperçu de la Recherche Google",
+    "untitledPage": "Page sans Titre",
+    "noMetaDescription": "Aucune meta description disponible.",
+    "loadTime": "Temps de Chargement",
+    "mobileReady": "Compatible Mobile",
+    "socialReady": "Prêt pour Réseaux Sociaux",
+    "schema": "Schema",
+    "words": "Mots",
+    "internalLinks": "Liens Internes",
+    "missingAlt": "Alt Manquant",
+    "sitemap": "Sitemap.xml",
+    "robotsTxt": "Robots.txt",
+    "found": "Trouvé",
+    "missing": "Manquant",
+    "yes": "Oui",
+    "no": "Non",
+    "optimizationOpportunities": "Opportunités d'Optimisation",
+    "noCriticalIssues": "Aucun problème critique trouvé !",
+    "unlockFullReport": "Débloquer le Rapport Complet",
+    "unlockFullReportDesc": "Recevez l'analyse détaillée avec des conseils pratiques dans votre boîte de réception.",
+    "emailPlaceholder": "Entrez votre email",
+    "sendReport": "Envoyer le Rapport",
+    "reportSent": "Rapport envoyé à",
+    "closeAnalysis": "Fermer l'Analyse",
+    "errors": {
+      "validUrl": "Veuillez entrer une URL valide (ex: exemple.com)",
+      "validEmail": "Veuillez entrer une adresse email valide",
+      "botBlocked": "Le site peut bloquer les requêtes automatisées. Essayez une autre URL.",
+      "auditFailed": "L'audit a échoué",
+      "scanFailed": "L'analyse a échoué. Le site peut bloquer les bots ou être indisponible."
+    }
+  }
+}

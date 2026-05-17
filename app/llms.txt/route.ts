@@ -4,7 +4,7 @@ import { siteUrl } from "@/sanity/env";
 export const revalidate = 3600;
 
 export async function GET() {
-    const [posts, categories] = await Promise.all([getAllBlogPosts(), getCategories()]);
+    const [enPosts, frPosts, categories] = await Promise.all([getAllBlogPosts("en"), getAllBlogPosts("fr"), getCategories()]);
 
     const lines = [
         "# Othmane Outaghza",
@@ -12,19 +12,20 @@ export async function GET() {
         "Technical SEO Consultant, AI Automation Specialist, and AI Search Optimization / GEO specialist.",
         "",
         "## Primary Pages",
-        `${siteUrl}/`,
-        `${siteUrl}/technical-seo-consultant/`,
-        `${siteUrl}/ai-search-optimization/`,
-        `${siteUrl}/generative-engine-optimization/`,
-        `${siteUrl}/shopify-seo-consultant/`,
-        `${siteUrl}/technical-seo-automation/`,
-        `${siteUrl}/blog/`,
+        `${siteUrl}/en/`,
+        `${siteUrl}/fr/`,
+        `${siteUrl}/en/blog/`,
+        `${siteUrl}/fr/blog/`,
         "",
         "## Topical Hubs",
-        ...categories.filter((category) => category.slug).map((category) => `${siteUrl}/blog/category/${category.slug}/ - ${category.title}`),
+        ...categories.filter((category) => category.slug).flatMap((category) => [
+            `${siteUrl}/en/blog/category/${category.slug}/ - ${category.title}`,
+            `${siteUrl}/fr/blog/category/${category.slug}/ - ${category.title}`,
+        ]),
         "",
         "## Recent Articles",
-        ...posts.slice(0, 20).map((post) => `${siteUrl}/blog/${post.slug}/ - ${post.title}`),
+        ...enPosts.slice(0, 10).map((post) => `${siteUrl}/en/blog/${post.slug}/ - ${post.title}`),
+        ...frPosts.slice(0, 10).map((post) => `${siteUrl}/fr/blog/${post.slug}/ - ${post.title}`),
         "",
         "## Entity Topics",
         "Technical SEO",

@@ -9,8 +9,23 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 
-export function Footer() {
+export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
     const [time, setTime] = useState<string>("");
+
+    const safeDict = dict || {
+        engineered: "Engineered in Morocco",
+        downloadResume: "Download Resume",
+        navigation: "Navigation",
+        overview: "Overview",
+        services: "Services",
+        projects: "Projects",
+        blog: "Blog",
+        systemStatus: "System Status",
+        operational: "Operational",
+        loading: "Loading...",
+        casablanca: "Casablanca, MA",
+        rightsReserved: "Othmane Outaghza. All rights reserved."
+    };
 
     useEffect(() => {
         const updateTime = () => {
@@ -37,7 +52,7 @@ export function Footer() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className={cn(
                     "relative w-full max-w-7xl overflow-hidden",
-                    "rounded-[2.5rem] border transition-all duration-500",
+                    "rounded-2xl sm:rounded-[2.5rem] border transition-all duration-500",
                     "bg-white/70 backdrop-blur-xl border-white/20 shadow-2xl shadow-black/5"
                 )}
             >
@@ -50,48 +65,48 @@ export function Footer() {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
                         {/* Brand (Cols 1-3) */}
                         <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
-                            <Link href="/" className="group flex items-center gap-2 font-bold text-2xl">
+                            <Link href={`/${lang}`} className="group flex items-center gap-2 font-bold text-2xl">
                                 <span className={cn("transition-colors", "text-foreground")}>Othmane</span>
                                 <span className={cn("transition-colors", "text-muted-foreground/60")}>.SEO</span>
                             </Link>
                             <p className={cn("font-medium text-sm max-w-xs text-center md:text-left", "text-muted-foreground")}>
-                                Engineered in Morocco
+                                {safeDict.engineered}
                                 <span className={cn(
                                     "inline-block ml-2 text-xs px-2 py-0.5 rounded-full font-mono transition-colors",
                                     "bg-gray-100 text-gray-600 border border-gray-200"
                                 )}>MA</span>
                             </p>
                             <MagneticButton
-                                href="/resume.pdf"
+                                href="/icons/CV othmane outaghza seo geo aio (1).pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={cn(
-                                    "shadow-sm transition-colors",
+                                    "w-full sm:w-auto shadow-sm transition-colors",
                                     "bg-black text-white hover:bg-black/90 border-transparent"
                                 )}
                             >
                                 <div className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium">
                                     <Download className="h-3 w-3" />
-                                    Download Resume
+                                    {safeDict.downloadResume}
                                 </div>
                             </MagneticButton>
                         </div>
 
                         {/* Navigation (Cols 4-5) */}
                         <div className="md:col-span-2 space-y-6 flex flex-col items-center md:items-start">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>Navigation</h3>
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>{safeDict.navigation}</h3>
                             <nav className="flex flex-col gap-3 items-center md:items-start">
                                 {[
-                                    { name: "Overview", href: "/#overview" },
-                                    { name: "Services", href: "/#services" },
-                                    { name: "Projects", href: "/#projects" },
-                                    { name: "Blog", href: "/blog/" }
+                                    { name: safeDict.overview, href: `/${lang}/#overview` },
+                                    { name: safeDict.services, href: `/${lang}/#services` },
+                                    { name: safeDict.projects, href: `/${lang}/#projects` },
+                                    { name: safeDict.blog, href: `/${lang}/blog/` }
                                 ].map((item) => (
                                     <Link
                                         key={item.name}
                                         href={item.href}
                                         className={cn(
-                                            "text-sm font-medium transition-colors w-fit",
+                                            "inline-flex min-h-11 items-center text-sm font-medium transition-colors w-fit",
                                             "text-muted-foreground hover:text-blue-600"
                                         )}
                                     >
@@ -103,7 +118,7 @@ export function Footer() {
 
                         {/* System Status Widget (Cols 10-12) */}
                         <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>System Status</h3>
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>{safeDict.systemStatus}</h3>
                             <div className={cn(
                                 "rounded-2xl p-5 space-y-4 border backdrop-blur-sm transition-colors duration-300 w-full",
                                 "bg-white/50 border-white/40 shadow-sm"
@@ -113,15 +128,15 @@ export function Footer() {
                                         <span className={cn("animate-ping absolute inline-flex h-full w-full rounded-full opacity-75", "bg-green-500")}></span>
                                         <span className={cn("relative inline-flex rounded-full h-2.5 w-2.5", "bg-green-500")}></span>
                                     </span>
-                                    Operational
+                                    {safeDict.operational}
                                 </div>
                                 <div className={cn("flex items-center justify-center md:justify-start gap-3 text-sm", "text-muted-foreground")}>
                                     <MapPin className="h-4 w-4 opacity-70" />
-                                    Casablanca, MA
+                                    <span className="break-words">{safeDict.casablanca}</span>
                                 </div>
                                 <div className={cn("flex items-center justify-center md:justify-start gap-3 text-sm font-mono", "text-muted-foreground")}>
                                     <Clock className="h-4 w-4 opacity-70" />
-                                    {time || "Loading..."}
+                                    {time || safeDict.loading}
                                 </div>
                             </div>
                         </div>
@@ -132,7 +147,7 @@ export function Footer() {
                         "mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-6",
                         "border-black/5"
                     )}>
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-3">
                             {[
                                 { icon: Linkedin, href: "https://www.linkedin.com/in/othmaneoutaghza/", label: "LinkedIn profile" },
                                 { icon: Mail, href: "mailto:outaghza.othmane@gmail.com", label: "Send email" },
@@ -145,7 +160,7 @@ export function Footer() {
                                     rel="noopener noreferrer"
                                     aria-label={social.label}
                                     className={cn(
-                                        "transition-all hover:scale-110",
+                                        "flex h-11 w-11 items-center justify-center rounded-full transition-all hover:scale-110",
                                         "text-muted-foreground hover:text-blue-600"
                                     )}
                                 >
@@ -154,7 +169,7 @@ export function Footer() {
                             ))}
                         </div>
                         <p className={cn("text-xs font-medium", "text-muted-foreground/60")}>
-                            © {new Date().getFullYear()} Othmane Outaghza. All rights reserved.
+                            © {new Date().getFullYear()} {safeDict.rightsReserved}
                         </p>
                     </div>
                 </div>

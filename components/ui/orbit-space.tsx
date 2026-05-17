@@ -26,6 +26,7 @@ interface FloatingElement {
 export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     // Local mouse position relative to container center
@@ -42,6 +43,7 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
         setMounted(true);
         const checkMobile = () => {
             setIsMobile(window.matchMedia("(max-width: 768px)").matches || window.matchMedia("(pointer: coarse)").matches);
+            setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
         };
         checkMobile();
         window.addEventListener("resize", checkMobile);
@@ -80,7 +82,7 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
 
         // Reduce count on mobile for performance
         const baseCount = density === "high" ? 20 : 10;
-        const count = isMobile ? Math.floor(baseCount / 2) : baseCount;
+        const count = prefersReducedMotion ? 0 : isMobile ? Math.max(3, Math.floor(baseCount / 3)) : baseCount;
 
         const sizeMultiplier = density === "high" ? 1 : 0.7;
 
@@ -93,13 +95,13 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
                 icon: icons[Math.floor(Math.random() * icons.length)],
                 size: size,
                 color: colors[Math.floor(Math.random() * colors.length)],
-                radius: Math.random() * 300 + 100, // 100px to 400px orbit radius
+                radius: isMobile ? Math.random() * 140 + 70 : Math.random() * 300 + 100,
                 speed: (Math.random() * 0.5 + 0.2) * (Math.random() > 0.5 ? 1 : -1), // Random direction and speed
                 offset: Math.random() * Math.PI * 2, // Random starting angle
             });
         }
         return items;
-    }, [density, isMobile]);
+    }, [density, isMobile, prefersReducedMotion]);
 
     // Don't render until mounted to avoid hydration mismatch
     if (!mounted) {
@@ -110,19 +112,21 @@ export function OrbitSpace({ className, density = "high" }: OrbitSpaceProps) {
         <div
             ref={containerRef}
             className={cn("absolute inset-0 overflow-hidden", className)}
-            onMouseMove={handleMouseMove}
+            onMouseMove={isMobile ? undefined : handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
             {/* Custom Cursor "Sun" */}
-            <motion.div
-                style={{
-                    x: smoothX,
-                    y: smoothY,
-                    translateX: "-50%",
-                    translateY: "-50%",
-                }}
-                className="absolute top-0 left-0 w-12 h-12 rounded-full border border-white/20 z-50 pointer-events-none"
-            />
+            {!isMobile && (
+                <motion.div
+                    style={{
+                        x: smoothX,
+                        y: smoothY,
+                        translateX: "-50%",
+                        translateY: "-50%",
+                    }}
+                    className="absolute top-0 left-0 w-12 h-12 rounded-full border border-white/20 z-50 pointer-events-none"
+                />
+            )}
 
             {elements.map((el) => (
                 <OrbitingItem

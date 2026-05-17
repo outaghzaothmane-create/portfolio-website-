@@ -20,10 +20,11 @@ interface DropdownItem {
 interface NavDropdownProps {
     items: DropdownItem[];
     widthClassName?: string;
+    lang?: string;
 }
 
 export const navDropdowns: Record<string, DropdownItem[]> = {
-    "Case Studies": [
+    caseStudies: [
         {
             title: "Health Supply 770",
             description: "$1.3M+ revenue via automation",
@@ -47,7 +48,8 @@ export const navDropdowns: Record<string, DropdownItem[]> = {
 
 export function NavDropdown({
     items,
-    widthClassName = "w-80"
+    widthClassName = "w-80",
+    lang = "en",
 }: NavDropdownProps) {
     return (
         <motion.div
@@ -69,7 +71,7 @@ export function NavDropdown({
                 {items.map((item) => (
                     <Link
                         key={item.title}
-                        href={item.href}
+                        href={`/${lang}${item.href}`}
                         className={cn(
                             "group flex items-center gap-3 p-3 rounded-xl transition-all duration-300",
                             "hover:bg-black/5"

@@ -1,0 +1,526 @@
+{
+  "nav": {
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "getFreeAudit": "Get Free Audit"
+  },
+  "hero": {
+    "title": "Technical SEO Consultant & AI Automation Specialist Driving $1.3M+ in Organic Revenue",
+    "subtitle": "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco.",
+    "cta": "Download Resume"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Bridging the gap between Technical SEO and Development",
+    "description1": "I'm a Technical SEO Specialist based in Casablanca, Morocco, with over 4 years of experience helping businesses scale their organic growth.",
+    "description2": "My approach combines deep technical expertise with programmatic solutions to solve complex SEO challenges at scale. I specialize in E-commerce platforms, SaaS applications, and large-scale enterprise websites.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "expertiseTitle": "Core Expertise",
+    "expertise": [
+      "Technical & eCommerce SEO (Shopify, WordPress)",
+      "Generative Engine Optimization (GEO) & AI Search",
+      "Advanced Structured Data & Entity SEO",
+      "Python, Make.com & n8n SEO Automation",
+      "Programmatic SEO Architecture"
+    ],
+    "methodologyTitle": "Methodology",
+    "methodology": "I employ the 4-Layer AI Search Optimization Framework: ensuring technical crawlability, injecting rich structured semantic data, building authoritative entity signals, and structuring citation-ready content for Large Language Models (LLMs).",
+    "resultsTitle": "Proven Results",
+    "results": "Successfully driven over $1.3M+ in organic revenue impact for clients globally. Extensive experience navigating complex JavaScript rendering issues, crawl budget optimization, and executing automated workflows that scale SEO operations seamlessly.",
+    "viewCaseStudies": "View Case Studies",
+    "stats": {
+      "experience": "4+ Years",
+      "experienceLabel": "Experience",
+      "clients": "40+",
+      "clientsLabel": "Happy Clients",
+      "growth": "300%",
+      "growthLabel": "Avg. Growth"
+    }
+  },
+  "keyMetrics": {
+    "revenue": {
+      "title": "Total Revenue Generated",
+      "trendValue": "Trending",
+      "subtext": "Organic Growth Impact"
+    },
+    "growth": {
+      "title": "Organic Growth",
+      "trendValue": "Year over Year",
+      "subtext": "Consistent Scaling"
+    },
+    "keywords": {
+      "title": "Top 3 Keywords",
+      "trendValue": "Up from 3",
+      "subtext": "High Intent Rankings"
+    },
+    "clicks": {
+      "title": "Clicks/Month",
+      "trendValue": "Up from 700",
+      "subtext": "Qualified Traffic"
+    }
+  },
+  "methodology": {
+    "title": "SEO + AI Search Methodology",
+    "subtitle": "Bridging the gap between traditional search algorithms and the new era of Generative Engine Optimization (GEO).",
+    "items": [
+      {
+        "title": "My Approach to Technical SEO",
+        "content": "Technical SEO is the foundation of digital visibility. I treat it as an engineering problem: optimizing crawlability, resolving JavaScript rendering issues, improving Core Web Vitals, and ensuring search engines can efficiently index your highest-value pages without wasting crawl budget."
+      },
+      {
+        "title": "My AI Search Optimization Process",
+        "content": "To rank in AI systems like ChatGPT, Perplexity, and Gemini, traditional SEO isn't enough. My process focuses on Entity SEO, semantic depth, and AI citation engineering. I structure your content so Large Language Models (LLMs) can easily extract it and cite your brand as the definitive answer."
+      },
+      {
+        "title": "Data Architecture & Entities",
+        "content": "I implement advanced structured data (JSON-LD) to explicitly define your organization's entities, relationships, and expertise. This removes ambiguity for both Google and AI retrieval systems, directly influencing your presence in the Knowledge Graph."
+      },
+      {
+        "title": "SEO Automation Workflows",
+        "content": "Using tools like Python, Make.com, and n8n, I build automated SEO systems. From programmatic SEO generation to real-time indexing APIs and automated technical audits, I design workflows that scale your organic reach without proportional manual effort."
+      }
+    ]
+  },
+  "experience": {
+    "title": "SEO & Automation Results",
+    "badge": "Last 3 Years",
+    "subtitle": "A track record of measurable outcomes.",
+    "items": [
+      {
+        "role": "Technical SEO Architect & AI Automation Lead",
+        "company": "Health Supply 770",
+        "period": "Feb 2024 - Present",
+        "impact": "Drove $1.3M in revenue, Automated technical audits with Make.com",
+        "achievements": [
+          "Secured 494 AI citations (383 ChatGPT, 111 Perplexity) via Generative Engine Optimization (GEO).",
+          "Scaled Domain Authority by 11x (DR 2.6 → 30) via programmatic link acquisition.",
+          "Built self-healing n8n/Make.com automations via AI-assisted workflows."
+        ],
+        "tags": [
+          "Make.com",
+          "Brevo",
+          "Technical SEO",
+          "UCP",
+          "GEO"
+        ],
+        "color": "text-green-500"
+      },
+      {
+        "role": "SEO Manager",
+        "company": "Tingis Web",
+        "period": "Jun 2023 - May 2024",
+        "impact": "Increased organic traffic by 80% in 3 months, Led PR backlink campaigns",
+        "achievements": [
+          "Increased organic traffic by 80% in 3 months through targeted content optimization.",
+          "Led PR backlink campaigns resulting in high-authority mentions."
+        ],
+        "tags": [
+          "PR Strategy",
+          "Organic Growth",
+          "Team Lead"
+        ],
+        "color": "text-blue-500"
+      },
+      {
+        "role": "SEO Specialist",
+        "company": "Epoptique.ma",
+        "period": "Jan 2022 - Present",
+        "impact": "Long-term SEO strategy and optimization",
+        "achievements": [
+          "Implemented long-term SEO strategy resulting in sustained organic growth.",
+          "Optimized site architecture for better crawlability and user experience."
+        ],
+        "tags": [
+          "E-commerce",
+          "Content Strategy"
+        ],
+        "color": "text-purple-500"
+      }
+    ]
+  },
+  "services": {
+    "title": "Technical SEO & AI Automation Services",
+    "subtitle": "Flexible engagement models tailored to your specific needs and growth stage.",
+    "items": [
+      {
+        "title": "The \"Revenue Architecture\" Retainer",
+        "subtitle": "Fractional Head of SEO",
+        "target": "For: E-commerce brands doing $1M+ revenue",
+        "features": [
+          "Full-stack SEO Strategy (On-page, Off-page, Content)",
+          "Revenue forecasting & Data Analysis",
+          "Managing writer/dev teams"
+        ],
+        "why": "I don't just rank keywords; I manage the entire revenue pipeline.",
+        "bookButton": "Book Strategy Call"
+      },
+      {
+        "title": "AI Agent & Workflow Deployment",
+        "subtitle": "Eliminate Manual Work",
+        "target": "For: Teams drowning in manual data work",
+        "features": [
+          "Deploying autonomous MCP Agents and n8n pipelines",
+          "Python scripting for scraping or indexing",
+          "Auto-generating programmatic SEO pages"
+        ],
+        "why": "Turn 20 hours of manual work into a 2-minute script.",
+        "bookButton": "Book Strategy Call"
+      },
+      {
+        "title": "Technical Architecture Sprint",
+        "subtitle": "Fix Traffic Drops",
+        "target": "For: Sites with traffic drops or Core Web Vitals issues",
+        "features": [
+          "Deep Log File Analysis",
+          "JavaScript rendering fixes (Next.js/React)",
+          "Migration safety & Schema implementation"
+        ],
+        "why": "A deep-dive audit to fix the technical debt hurting your rankings.",
+        "bookButton": "Book Strategy Call"
+      }
+    ]
+  },
+  "caseStudies": {
+    "title": "Case Studies",
+    "subtitle": "Real Results for Real Businesses",
+    "viewProject": "View Project",
+    "items": [
+      {
+        "title": "The $1.3M Automation Blueprint",
+        "client": "Health Supply 770",
+        "description": "Engineered a $1.3M revenue machine by deploying Universal Commerce Protocol (UCP) and self-healing AI agents that autonomously monitor and fix technical debt.",
+        "tags": [
+          "Automation",
+          "Revenue Growth",
+          "Technical SEO"
+        ],
+        "metrics": [
+          {
+            "label": "Revenue",
+            "value": "$1.3M+"
+          },
+          {
+            "label": "Efficiency",
+            "value": "100%"
+          }
+        ]
+      },
+      {
+        "title": "Shopify SEO & UX Architecture",
+        "client": "Fantasialife.com",
+        "description": "Complete site architecture overhaul focusing on user experience and organic search visibility. Redesigned navigation and product structure for maximum crawlability.",
+        "tags": [
+          "Shopify",
+          "UX Design",
+          "E-commerce SEO"
+        ],
+        "metrics": [
+          {
+            "label": "Traffic",
+            "value": "+80%"
+          },
+          {
+            "label": "Conv. Rate",
+            "value": "+2.5%"
+          }
+        ]
+      },
+      {
+        "title": "E-commerce SEO & Content Strategy",
+        "client": "Epoptique.ma",
+        "description": "Long-term SEO strategy and optimization. Implemented comprehensive content strategy and technical improvements for sustainable organic growth.",
+        "tags": [
+          "E-commerce",
+          "Content Strategy",
+          "Technical SEO"
+        ],
+        "metrics": [
+          {
+            "label": "Traffic",
+            "value": "+150%"
+          },
+          {
+            "label": "Keywords",
+            "value": "500+"
+          }
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technology Stack",
+    "subtitle": "The tools and technologies that power my workflows.",
+    "items": [
+      {
+        "title": "SEO & Analytics",
+        "skills": [
+          "GA4",
+          "Google Search Console",
+          "Screaming Frog",
+          "Looker Studio",
+          "Google Tag Manager",
+          "Universal Commerce Protocol (UCP)",
+          "Generative Engine Optimization (GEO)",
+          "LLM Optimization"
+        ],
+        "color": "text-blue-500",
+        "bg": "bg-blue-500/10",
+        "border": "group-hover:border-blue-500/50",
+        "badgeBg": "bg-blue-500/5",
+        "badgeText": "text-blue-700"
+      },
+      {
+        "title": "Automation",
+        "skills": [
+          "Make.com",
+          "n8n (Self-Hosted)",
+          "Brevo (Email Automation)"
+        ],
+        "color": "text-purple-500",
+        "bg": "bg-purple-500/10",
+        "border": "group-hover:border-purple-500/50",
+        "badgeBg": "bg-purple-500/5",
+        "badgeText": "text-purple-700"
+      },
+      {
+        "title": "Tech Stack",
+        "skills": [
+          "WordPress",
+          "Shopify",
+          "Python Basics",
+          "HTML/CSS",
+          "Model Context Protocol (MCP)"
+        ],
+        "color": "text-orange-500",
+        "bg": "bg-orange-500/10",
+        "border": "group-hover:border-orange-500/50",
+        "badgeBg": "bg-orange-500/5",
+        "badgeText": "text-orange-700"
+      }
+    ]
+  },
+  "automationStack": {
+    "title": "PR Link Building Automation",
+    "subtitle": "Autonomous HARO outreach workflow with AI filtering and human-in-the-loop approvals.",
+    "linearTools": [
+      {
+        "name": "Gmail API",
+        "role": "HARO Trigger"
+      },
+      {
+        "name": "Gemini AI",
+        "role": "Filter & Draft"
+      },
+      {
+        "name": "n8n",
+        "role": "Automation Engine"
+      }
+    ],
+    "outputTools": [
+      {
+        "name": "Google Sheets",
+        "role": "Pitch Logging"
+      },
+      {
+        "name": "Slack",
+        "role": "Human Approval"
+      }
+    ],
+    "logs": [
+      "> [TRIGGER] New HARO email received...",
+      "> Deduplicating against pitch history...",
+      "> Gemini AI analyzing healthcare relevance...",
+      "> [DRAFT] Pitch generated by Gemini.",
+      "> [ACTION] Slack approval requested...",
+      "> [APPROVED] Sending pitch via Gmail...",
+      "> [SUCCESS] Workflow logged to Sheets."
+    ]
+  },
+  "testimonials": {
+    "title": "Client Feedback",
+    "verifiedClient": "Verified Client",
+    "items": [
+      {
+        "quote": "Othmane didn't just fix our SEO; he built an automation engine that saved us 20+ hours a week. The $1.3M revenue growth speaks for itself.",
+        "author": "The Efficiency Expert",
+        "role": "CEO, Health Supply 770"
+      },
+      {
+        "quote": "Rarely do you find an SEO who can code Python and fix server logs. Othmane transformed our technical infrastructure in months.",
+        "author": "Technical Wizard",
+        "role": "Manager, Tingis Web"
+      },
+      {
+        "quote": "We went from invisible to ranking #1 for 50+ keywords. His local SEO strategy is aggressive and effective.",
+        "author": "Local Market Domination",
+        "role": "Owner, Epoptique"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What is Generative Engine Optimization?",
+        "answer": "Generative Engine Optimization (GEO) is the process of optimizing content, structured data, and entity signals to ensure a brand is properly cited and recommended by AI-driven search engines like ChatGPT, Perplexity, and Gemini."
+      },
+      {
+        "question": "How does AI Search Optimization work?",
+        "answer": "AI Search Optimization works by improving technical crawlability for AI bots, enriching semantic depth, establishing strong entity relationships via structured data, and creating quote-ready content that Large Language Models (LLMs) can easily extract."
+      },
+      {
+        "question": "What is LLM Optimization?",
+        "answer": "LLM Optimization involves structuring website data and content so that Large Language Models can efficiently index, understand, and retrieve the information when generating answers for users in conversational search interfaces."
+      },
+      {
+        "question": "How can Technical SEO improve AI search visibility?",
+        "answer": "Technical SEO ensures that AI crawlers can access and parse a website without hitting rendering issues, JavaScript blocks, or slow load times. Proper canonicalization, XML sitemaps, and robots.txt directives are foundational for AI search inclusion."
+      },
+      {
+        "question": "What Technical SEO issues block AI crawlers?",
+        "answer": "Common issues include aggressive firewall rules blocking AI user agents (like GPTBot), client-side-only rendering without SSR, missing or invalid structured data, infinite crawl spaces, and poorly structured HTML semantic tags."
+      },
+      {
+        "question": "How can Make.com automate SEO workflows?",
+        "answer": "Make.com can connect various APIs (like Google Search Console, OpenAI, and CMS platforms) to automate tasks such as technical SEO monitoring, programmatic content generation, indexing requests, and automated reporting dashboards."
+      },
+      {
+        "question": "How can n8n be used for SEO automation?",
+        "answer": "n8n offers self-hosted, code-friendly workflow automation. It's ideal for complex SEO tasks like scraping competitor data, running automated site crawls, processing natural language for entity extraction, and automatically updating website schema."
+      },
+      {
+        "question": "What is AI Citation Engineering?",
+        "answer": "AI Citation Engineering is the strategy of formatting high-value information—such as original research, statistics, and unique frameworks—into easily extractable structures (like tables and lists) so that AI models use them as direct citations."
+      },
+      {
+        "question": "What is Programmatic SEO?",
+        "answer": "Programmatic SEO is the automated creation of high-quality landing pages at scale targeting long-tail keywords. It uses structured datasets and dynamic templates to generate useful content at scale without manual writing."
+      },
+      {
+        "question": "How does structured data help AI search engines?",
+        "answer": "Structured data (JSON-LD schema) provides explicit context about entities, relationships, and content types. It removes ambiguity, helping AI search engines definitively understand who an organization is, what services they offer, and how they connect to other entities."
+      },
+      {
+        "question": "How can Shopify SEO improve organic revenue?",
+        "answer": "Shopify SEO focuses on optimizing product architecture, collection pages, faceted navigation, and technical performance to drive higher-intent organic traffic directly to conversion points, thereby increasing overall store revenue."
+      },
+      {
+        "question": "Why should businesses optimize for ChatGPT, Perplexity, Gemini, and Claude?",
+        "answer": "As user search behavior shifts from traditional links to conversational answers, being cited by AI models builds authority, captures top-of-funnel queries, and ensures your brand remains visible in the next generation of search discovery."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest Insights & Technical Guides",
+    "description": "Field notes, frameworks, and implementation playbooks for Google, AI Overviews, ChatGPT, Perplexity, Shopify SEO, Local SEO, and automation.",
+    "searchTitle": "Search the knowledge base",
+    "featuredTitle": "Featured Articles",
+    "technicalHub": "Technical SEO hub",
+    "recentPosts": "Recent Posts",
+    "searchResults": "Search results for",
+    "articles": "articles",
+    "noResultsTitle": "No results for",
+    "noResultsDesc": "Try a different keyword or clear the search.",
+    "comingSoonTitle": "Articles coming soon",
+    "comingSoonDesc": "In-depth guides on Technical SEO, AI Search, Shopify SEO, and automation are on their way. Check back shortly.",
+    "topicalHubs": "Topical Hubs",
+    "tagsTitle": "Tags",
+    "readMore": "Read More",
+    "allPosts": "All Posts",
+    "noPosts": "No posts found for this language.",
+    "backToBlog": "Back to blog",
+    "by": "By",
+    "updated": "Updated",
+    "minRead": "min read",
+    "faqTitle": "Frequently Asked Questions",
+    "topics": "Topics",
+    "relatedPosts": "Related Posts",
+    "ctaTitle": "Need a technical SEO and AI Search system?",
+    "ctaDesc": "I help businesses build crawlable, structured, AI-readable SEO systems that compound across Google and answer engines.",
+    "ctaButton": "Book a strategy call"
+  },
+  "contact": {
+    "title": "Book a Free SEO Audit",
+    "headline": "Ready to scale your organic revenue?",
+    "description": "Let's audit your current setup and identify automation opportunities.",
+    "buttonText": "Book a Free SEO & AI Search Audit"
+  },
+  "footer": {
+    "engineered": "Engineered in Morocco",
+    "downloadResume": "Download Resume",
+    "navigation": "Navigation",
+    "overview": "Overview",
+    "services": "Services",
+    "projects": "Projects",
+    "blog": "Blog",
+    "systemStatus": "System Status",
+    "operational": "Operational",
+    "loading": "Loading...",
+    "casablanca": "Casablanca, MA",
+    "rightsReserved": "Othmane Outaghza. All rights reserved."
+  },
+  "auditModal": {
+    "title": "Professional SEO Audit",
+    "descriptionIdle": "Enter your URL for a comprehensive technical analysis.",
+    "descriptionScanning": "Running expert-level diagnostics...",
+    "descriptionComplete": "Audit Complete. Review your health score below.",
+    "websiteUrlLabel": "Website URL",
+    "websiteUrlPlaceholder": "example.com",
+    "runAnalysisBtn": "Run Analysis",
+    "steps": [
+      {
+        "id": "connect",
+        "label": "Connecting to server..."
+      },
+      {
+        "id": "crawl",
+        "label": "Crawling page content..."
+      },
+      {
+        "id": "analyze",
+        "label": "Analyzing meta tags & structure..."
+      },
+      {
+        "id": "score",
+        "label": "Calculating health score..."
+      }
+    ],
+    "scoreLabel": "Score",
+    "pdfReport": "PDF Report",
+    "textReport": "Text",
+    "googleSearchPreview": "Google Search Preview",
+    "untitledPage": "Untitled Page",
+    "noMetaDescription": "No meta description available.",
+    "loadTime": "Load Time",
+    "mobileReady": "Mobile Ready",
+    "socialReady": "Social Ready",
+    "schema": "Schema",
+    "words": "Words",
+    "internalLinks": "Internal Links",
+    "missingAlt": "Missing Alt",
+    "sitemap": "Sitemap.xml",
+    "robotsTxt": "Robots.txt",
+    "found": "Found",
+    "missing": "Missing",
+    "yes": "Yes",
+    "no": "No",
+    "optimizationOpportunities": "Optimization Opportunities",
+    "noCriticalIssues": "No critical issues found!",
+    "unlockFullReport": "Unlock Full Expert Report",
+    "unlockFullReportDesc": "Get the detailed analysis with actionable advice sent to your inbox.",
+    "emailPlaceholder": "Enter your email",
+    "sendReport": "Send Report",
+    "reportSent": "Report sent to",
+    "closeAnalysis": "Close Analysis",
+    "errors": {
+      "validUrl": "Please enter a valid URL (e.g., example.com)",
+      "validEmail": "Please enter a valid email address",
+      "botBlocked": "Site may block automated requests. Try a different URL.",
+      "auditFailed": "Audit failed",
+      "scanFailed": "Scan failed. The site may block bots or be unavailable."
+    }
+  }
+}

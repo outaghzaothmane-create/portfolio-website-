@@ -9,41 +9,45 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { NavDropdown, navDropdowns } from "@/components/layout/NavDropdown";
 import { AuditModal } from "@/components/features/AuditModal";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 
-export function Header() {
+export function Header({ dict, lang }: { dict?: any, lang?: string }) {
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [isAuditOpen, setIsAuditOpen] = useState(false);
 
+    const localePrefix = lang ? `/${lang}` : '';
+    const safeDict = dict || { nav: { services: "Services", caseStudies: "Case Studies", blog: "Blog", getFreeAudit: "Get Free Audit" } };
+
     const navItems = [
-        { name: "Services", href: "/#services" },
-        { name: "Case Studies", href: "/#projects" },
-        { name: "Blog", href: "/blog/" },
+        { name: safeDict.nav.services, href: `${localePrefix}/#services` },
+        { name: safeDict.nav.caseStudies, href: `${localePrefix}/#projects`, dropdownKey: "caseStudies" },
+        { name: safeDict.nav.blog, href: `${localePrefix}/blog/` },
     ];
 
     return (
         <>
-            <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} />
-            <header className="fixed top-6 left-0 w-full flex justify-center z-[999] pointer-events-none">
+            <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} dict={dict?.auditModal} />
+            <header className="fixed top-3 sm:top-6 left-0 w-full flex justify-center z-[999] pointer-events-none px-2">
                 <motion.div
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className={cn(
-                        "w-fit max-w-[90vw] h-14 rounded-full pointer-events-auto transition-all duration-500",
-                        "flex items-center justify-center gap-1 px-2 md:px-4",
+                        "w-fit max-w-full min-h-14 rounded-full pointer-events-auto transition-all duration-500",
+                        "flex items-center justify-center gap-1 px-1.5 sm:px-2 md:px-4",
                         "bg-white/20 backdrop-blur-md border border-white/20 shadow-lg hover:bg-white/50"
                     )}
                 >
                     {/* Logo */}
                     <Link
-                        href="/"
+                        href={localePrefix || "/"}
                         className={cn(
-                            "flex items-center gap-2 px-3 py-2 rounded-full transition-all",
+                            "flex min-h-11 items-center gap-2 px-2 sm:px-3 py-2 rounded-full transition-all",
                             "hover:bg-white/50"
                         )}
                     >
-                        <span className={cn("font-bold text-lg", "text-foreground")}>
+                        <span className={cn("font-bold text-base sm:text-lg whitespace-nowrap", "text-foreground")}>
                             Othmane<span className={"text-muted-foreground"}>.SEO</span>
                         </span>
                     </Link>
@@ -59,8 +63,8 @@ export function Header() {
                                 <Link
                                     href={item.href}
                                     className={cn(
-                                        "relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 block",
-                                        "text-muted-foreground hover:text-foreground hover:bg-black/5"
+                                    "relative min-h-11 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 flex items-center",
+                                    "text-muted-foreground hover:text-foreground hover:bg-black/5"
                                     )}
                                 >
                                     {item.name}
@@ -68,9 +72,10 @@ export function Header() {
 
                                 {/* Dropdown */}
                                 <AnimatePresence>
-                                    {hoveredItem === item.name && navDropdowns[item.name] && (
+                                    {hoveredItem === item.name && item.dropdownKey && navDropdowns[item.dropdownKey] && (
                                         <NavDropdown
-                                            items={navDropdowns[item.name]}
+                                            items={navDropdowns[item.dropdownKey]}
+                                            lang={lang}
                                         />
                                     )}
                                 </AnimatePresence>
@@ -79,17 +84,18 @@ export function Header() {
                     </nav>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-2 pl-2">
+                    <div className="flex items-center gap-1 sm:gap-2 pl-1 sm:pl-2">
 
+                        <LanguageSwitcher />
 
                         <Button
                             onClick={() => setIsAuditOpen(true)}
                             className={cn(
-                                "hidden md:flex rounded-full px-6 h-10 font-medium transition-all shadow-lg hover:shadow-xl",
+                                "hidden md:flex rounded-full px-6 h-11 font-medium transition-all shadow-lg hover:shadow-xl",
                                 "bg-black text-white hover:bg-black/80"
                             )}
                         >
-                            Get Free Audit
+                            {safeDict.nav.getFreeAudit}
                         </Button>
 
                         {/* Mobile Menu Trigger */}
@@ -100,7 +106,7 @@ export function Header() {
                                     size="icon"
                                     aria-label="Open navigation menu"
                                     className={cn(
-                                        "md:hidden rounded-full w-10 h-10",
+                                        "md:hidden rounded-full w-11 h-11 shrink-0",
                                         "text-foreground hover:bg-black/5"
                                     )}
                                 >
@@ -110,19 +116,19 @@ export function Header() {
                             <SheetContent
                                 side="top"
                                 className={cn(
-                                    "w-full border-b backdrop-blur-xl pt-20 pb-10",
+                                    "w-full max-h-[92vh] overflow-y-auto border-b backdrop-blur-xl pt-20 pb-8",
                                     "bg-white/90 border-white/20 text-foreground"
                                 )}
                             >
                                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                                <nav className="flex flex-col items-center gap-6">
+                                <nav className="flex flex-col items-center gap-4">
                                     {navItems.map((item) => (
                                         <Link
                                             key={item.name}
                                             href={item.href}
                                             onClick={() => setIsOpen(false)}
                                             className={cn(
-                                                "text-2xl font-medium transition-colors",
+                                                "flex min-h-12 w-full max-w-xs items-center justify-center rounded-xl text-xl font-medium transition-colors",
                                                 "text-muted-foreground hover:text-foreground"
                                             )}
                                         >
@@ -135,12 +141,12 @@ export function Header() {
                                             setIsAuditOpen(true);
                                         }}
                                         className={cn(
-                                            "mt-4 rounded-full px-8 h-12 text-lg font-medium transition-all shadow-lg",
+                                            "mt-2 min-h-12 rounded-full px-6 text-base font-medium transition-all shadow-lg",
                                             "bg-black text-white hover:bg-black/80"
                                         )}
                                     >
                                         <span className={cn(false)}>
-                                            Get Free Audit
+                                            {safeDict.nav.getFreeAudit}
                                         </span>
                                     </Button>
                                 </nav>

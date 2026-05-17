@@ -6,64 +6,63 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, TrendingUp } from "lucide-react";
 
-const experienceData = [
-    {
-        role: "Technical SEO Architect & AI Automation Lead",
-        company: "Health Supply 770",
-        period: "Feb 2024 - Present",
-        impact: "Generated $1.3M revenue, Automating technical audits with Make.com",
-        achievements: [
-            "Achieved 494 AI citations (383 ChatGPT, 111 Perplexity) via Generative Engine Optimization (GEO).",
-            "Skyrocketed domain authority by 11x (DR 2.6 → 30) via programmatic link acquisition.",
-            "Built self-healing n8n/Make.com automations via AI-assisted 'vibe coding' workflows."
-        ],
-        tags: ["Make.com", "Brevo", "Technical SEO", "UCP", "GEO"],
-        color: "text-green-500",
-        bg: "bg-green-500/10",
-        border: "group-hover:border-green-500/50"
-    },
-    {
-        role: "SEO Manager",
-        company: "Tingis Web",
-        period: "Jun 2023 - May 2024",
-        impact: "Increased organic traffic by 80% in 3 months, Led PR backlink campaigns",
-        achievements: [
-            "Increased organic traffic by 80% in 3 months through targeted content optimization.",
-            "Led PR backlink campaigns resulting in high-authority mentions."
-        ],
-        tags: ["PR Strategy", "Organic Growth", "Team Lead"],
-        color: "text-blue-500",
-        bg: "bg-blue-500/10",
-        border: "group-hover:border-blue-500/50"
-    },
-    {
-        role: "SEO Specialist",
-        company: "Epoptique.ma",
-        period: "Jan 2022 - Present",
-        impact: "Long-term SEO strategy and optimization",
-        achievements: [
-            "Implemented long-term SEO strategy resulting in sustained organic growth.",
-            "Optimized site architecture for better crawlability and user experience."
-        ],
-        tags: ["E-commerce", "Content Strategy"],
-        color: "text-purple-500",
-        bg: "bg-purple-500/10",
-        border: "group-hover:border-purple-500/50"
-    },
-];
+export function Experience({ dict }: { dict?: any }) {
+    const safeDict = dict || {
+        title: "SEO & Automation Results",
+        badge: "Last 3 Years",
+        subtitle: "Track record of delivering measurable results.",
+        items: [
+            {
+                role: "Technical SEO Architect & AI Automation Lead",
+                company: "Health Supply 770",
+                period: "Feb 2024 - Present",
+                impact: "Generated $1.3M revenue, Automating technical audits with Make.com",
+                achievements: [
+                    "Achieved 494 AI citations (383 ChatGPT, 111 Perplexity) via Generative Engine Optimization (GEO).",
+                    "Skyrocketed domain authority by 11x (DR 2.6 → 30) via programmatic link acquisition.",
+                    "Built self-healing n8n/Make.com automations via AI-assisted 'vibe coding' workflows."
+                ],
+                tags: ["Make.com", "Brevo", "Technical SEO", "UCP", "GEO"],
+                color: "text-green-500"
+            },
+            {
+                role: "SEO Manager",
+                company: "Tingis Web",
+                period: "Jun 2023 - May 2024",
+                impact: "Increased organic traffic by 80% in 3 months, Led PR backlink campaigns",
+                achievements: [
+                    "Increased organic traffic by 80% in 3 months through targeted content optimization.",
+                    "Led PR backlink campaigns resulting in high-authority mentions."
+                ],
+                tags: ["PR Strategy", "Organic Growth", "Team Lead"],
+                color: "text-blue-500"
+            },
+            {
+                role: "SEO Specialist",
+                company: "Epoptique.ma",
+                period: "Jan 2022 - Present",
+                impact: "Long-term SEO strategy and optimization",
+                achievements: [
+                    "Implemented long-term SEO strategy resulting in sustained organic growth.",
+                    "Optimized site architecture for better crawlability and user experience."
+                ],
+                tags: ["E-commerce", "Content Strategy"],
+                color: "text-purple-500"
+            }
+        ]
+    };
 
-export function Experience() {
     return (
         <section id="experience" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-3xl font-bold tracking-tight text-foreground">SEO & Automation Results</h2>
-                    <Badge variant="outline" className="text-muted-foreground">Last 3 Years</Badge>
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
+                    <Badge variant="outline" className="text-muted-foreground">{safeDict.badge}</Badge>
                 </div>
-                <p className="text-muted-foreground">Track record of delivering measurable results.</p>
+                <p className="text-muted-foreground">{safeDict.subtitle}</p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
-                {experienceData.map((item, index) => (
+                {safeDict.items.map((item: any, index: number) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
@@ -116,7 +115,7 @@ export function Experience() {
                                             </p>
                                             {item.achievements && (
                                                 <ul className="space-y-2">
-                                                    {item.achievements.map((achievement, i) => (
+                                                    {item.achievements.map((achievement: string, i: number) => (
                                                         <li key={i} className="text-sm text-muted-foreground flex gap-2">
                                                             <span className={cn("mt-2 h-1.5 w-1.5 rounded-full shrink-0 opacity-70", item.color.replace('text-', 'bg-'))} />
                                                             <span className="leading-relaxed opacity-90">{achievement}</span>
@@ -129,7 +128,7 @@ export function Experience() {
                                 </div>
 
                                 <div className="flex flex-wrap gap-2 pt-2">
-                                    {item.tags.map((tag) => (
+                                    {item.tags.map((tag: string) => (
                                         <Badge
                                             key={tag}
                                             variant="outline"

@@ -11,7 +11,7 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, useEffect } from "react";
-export function Hero() {
+export function Hero({ dict, lang }: { dict?: any, lang?: string }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -21,23 +21,31 @@ export function Hero() {
         };
         checkMobile();
         window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        return () => {
+            window.removeEventListener("resize", checkMobile);
+        };
     }, []);
+
+    const safeDict = dict || {
+        title: "Technical SEO Consultant & AI Automation Specialist Driving $1.3M+ in Organic Revenue",
+        subtitle: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco.",
+        cta: "Download Resume"
+    };
 
     return (
         <section
             ref={containerRef}
             id="overview"
-            className="w-full bg-transparent pt-24 relative overflow-hidden min-h-[80vh] md:min-h-screen flex flex-col justify-center"
+            className="w-full max-w-full bg-transparent pt-28 sm:pt-24 relative overflow-hidden min-h-[72vh] md:min-h-screen flex flex-col justify-center"
         >
             <OrbitSpace density={isMobile ? "low" : "high"} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="space-y-8 max-w-4xl">
                     <h1 className={cn(
-                        "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight",
+                        "text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight md:tracking-tighter leading-[1.08] break-words",
                         "text-foreground"
                     )}>
-                        Technical SEO Consultant & AI Automation Specialist Driving $1.3M+ in Organic Revenue
+                        {safeDict.title}
                     </h1>
 
                     <BlurFade delay={0.25} inView>
@@ -45,24 +53,24 @@ export function Hero() {
                             "text-xl sm:text-2xl pt-4 font-bold tracking-tight animate-text-shimmer",
                             "text-muted-foreground"
                         )}>
-                            Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco.
+                            {safeDict.subtitle}
                         </p>
                     </BlurFade>
 
                     <BlurFade delay={0.5} inView>
                         <div className="pt-4">
                             <MagneticButton
-                                href="/resume.pdf"
+                                href="/icons/CV othmane outaghza seo geo aio (1).pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={cn(
-                                    "shadow-sm transition-colors",
+                                    "w-full sm:w-auto shadow-sm transition-colors",
                                     "bg-black text-white hover:bg-black/90 border-transparent"
                                 )}
                             >
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center justify-center gap-2">
                                     <Download className="h-4 w-4" />
-                                    {"Download Resume"}
+                                    {safeDict.cta}
                                 </div>
                             </MagneticButton>
                         </div>

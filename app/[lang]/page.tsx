@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { KeyMetrics } from "@/components/sections/KeyMetrics";
 import { Footer } from "@/components/layout/Footer";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
+import { getDictionary, Locale } from "@/lib/i18n";
 
 // Lazy load below-the-fold sections for better initial load performance
 const About = dynamic(() => import("@/components/sections/About").then(mod => ({ default: mod.About })), {
@@ -46,54 +47,55 @@ const AutomationStack = dynamic(() => import("@/components/sections/AutomationSt
     loading: () => <div className="h-96 animate-pulse bg-muted/20 rounded-xl" />,
 });
 
-export default function Home() {
+export default async function Home({ params }: { params: { lang: string } }) {
+    const dict = await getDictionary(params.lang as Locale);
     return (
         <DashboardWrapper>
-            <Hero />
+            <Hero dict={dict.hero} lang={params.lang} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
-                    <About />
+                    <About dict={dict.about} />
                 </SectionWrapper>
             </div>
 
-            <KeyMetrics />
+            <KeyMetrics dict={dict.keyMetrics} />
 
-            <Methodology />
+            <Methodology dict={dict.methodology} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
-                    <Experience />
+                    <Experience dict={dict.experience} />
                 </SectionWrapper>
             </div>
 
-            <Projects />
+            <Projects dict={dict.caseStudies} lang={params.lang} />
 
-            <Services />
+            <Services dict={dict.services} lang={params.lang} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
-                    <Skills />
+                    <Skills dict={dict.skills} />
                 </SectionWrapper>
             </div>
 
-            <AutomationStack />
+            <AutomationStack dict={dict.automationStack} />
 
-            <Testimonials />
+            <Testimonials dict={dict.testimonials} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
-                    <FAQ />
+                    <FAQ dict={dict.faq} />
                 </SectionWrapper>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper delay={0.1}>
-                    <Contact />
+                    <Contact dict={dict.contact} auditModalDict={dict.auditModal} />
                 </SectionWrapper>
             </div>
 
-            <Footer />
+            <Footer dict={dict.footer} lang={params.lang} />
         </DashboardWrapper>
     );
 }

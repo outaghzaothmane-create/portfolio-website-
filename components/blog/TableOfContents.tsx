@@ -52,7 +52,7 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
 
 function cnToc(level: TocItem["level"]) {
     return [
-        "block text-sm leading-relaxed text-muted-foreground hover:text-primary transition-colors",
+        "block min-h-11 py-2 text-sm leading-relaxed text-muted-foreground hover:text-primary transition-colors",
         level === 3 ? "pl-4" : "",
     ].join(" ");
 }

@@ -5,7 +5,30 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { cn } from "@/lib/utils";
 
-export function KeyMetrics() {
+export function KeyMetrics({ dict }: { dict?: any }) {
+    const safeDict = dict || {
+        revenue: {
+            title: "Total Revenue Generated",
+            trendValue: "Trending",
+            subtext: "Organic Growth Impact"
+        },
+        growth: {
+            title: "Organic Growth",
+            trendValue: "Year over Year",
+            subtext: "Consistent Scaling"
+        },
+        keywords: {
+            title: "Top 3 Keywords",
+            trendValue: "Up from 3",
+            subtext: "High Intent Rankings"
+        },
+        clicks: {
+            title: "Clicks/Month",
+            trendValue: "Up from 700",
+            subtext: "Qualified Traffic"
+        }
+    };
+
     const item = {
         hidden: { opacity: 0, y: 20 },
         show: {
@@ -31,7 +54,7 @@ export function KeyMetrics() {
 
     return (
         <section className={cn(
-            "w-full py-16 border-y transition-colors duration-500 bg-transparent",
+            "w-full py-10 sm:py-12 md:py-16 border-y transition-colors duration-500 bg-transparent",
             "border-slate-200"
         )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,46 +64,46 @@ export function KeyMetrics() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="grid gap-4 grid-cols-2 md:grid-cols-4"
+                        className="grid gap-3 sm:gap-4 grid-cols-2 md:grid-cols-4"
                     >
                         <motion.div variants={item}>
                             <MetricCard
-                                title="Total Revenue Generated"
+                                title={safeDict.revenue.title}
                                 value={1.3}
                                 prefix="$"
                                 suffix="M+"
                                 trend="up"
-                                trendValue="Trending"
-                                subtext="Organic Growth Impact"
+                                trendValue={safeDict.revenue.trendValue}
+                                subtext={safeDict.revenue.subtext}
                             />
                         </motion.div>
                         <motion.div variants={item}>
                             <MetricCard
-                                title="Organic Growth"
+                                title={safeDict.growth.title}
                                 value={7000}
                                 suffix="%"
                                 trend="up"
-                                trendValue="Year over Year"
-                                subtext="Consistent Scaling"
+                                trendValue={safeDict.growth.trendValue}
+                                subtext={safeDict.growth.subtext}
                             />
                         </motion.div>
                         <motion.div variants={item}>
                             <MetricCard
-                                title="Top 3 Keywords"
+                                title={safeDict.keywords.title}
                                 value={88}
                                 trend="up"
-                                trendValue="Up from 3"
-                                subtext="High Intent Rankings"
+                                trendValue={safeDict.keywords.trendValue}
+                                subtext={safeDict.keywords.subtext}
                             />
                         </motion.div>
                         <motion.div variants={item}>
                             <MetricCard
-                                title="Clicks/Month"
+                                title={safeDict.clicks.title}
                                 value={5000}
                                 suffix="+"
                                 trend="up"
-                                trendValue="Up from 700"
-                                subtext="Qualified Traffic"
+                                trendValue={safeDict.clicks.trendValue}
+                                subtext={safeDict.clicks.subtext}
                             />
                         </motion.div>
                     </motion.div>

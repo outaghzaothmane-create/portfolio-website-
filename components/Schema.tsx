@@ -1,21 +1,21 @@
-export function Schema() {
+import type { Locale } from "@/lib/i18n";
+
+export function Schema({ lang = "en" }: { lang?: Locale }) {
+    const isFr = lang === "fr";
     const personSchema = {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Othmane Outaghza",
         "url": "https://othmaneoutaghza.online/",
-        "jobTitle": [
-            "Technical SEO Consultant",
-            "AI Automation Specialist",
-            "GEO / AI Search Optimization Specialist",
-            "SEO Consultant Morocco"
-        ],
-        "description": "Othmane Outaghza is a Morocco-based Technical SEO Consultant and AI Automation Specialist helping businesses improve search visibility, AI search discoverability, structured data, and SEO automation.",
+        "jobTitle": isFr ? "Consultant SEO Technique" : "Technical SEO Consultant",
+        "description": isFr
+            ? "Othmane Outaghza est consultant SEO technique au Maroc, spécialisé en audit SEO technique, référencement IA, SEO e-commerce, Shopify SEO et automatisation SEO."
+            : "Othmane Outaghza is a Morocco-based technical SEO consultant specializing in technical SEO audits, AI search optimization, ecommerce SEO, Shopify SEO, and SEO automation.",
         "knowsAbout": [
-            "Technical SEO",
-            "AI Search Optimization",
-            "Generative Engine Optimization",
-            "LLM Optimization",
+            isFr ? "SEO technique" : "Technical SEO",
+            isFr ? "Optimisation SEO IA" : "AI Search Optimization",
+            isFr ? "Référencement IA" : "Generative Engine Optimization",
+            isFr ? "Optimisation pour les moteurs IA" : "LLM Optimization",
             "SEO Automation",
             "Make.com",
             "n8n",
@@ -54,9 +54,12 @@ export function Schema() {
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Othmane Outaghza - Technical SEO Consultant",
+        "name": "Othmane Outaghza",
         "url": "https://othmaneoutaghza.online/",
-        "description": "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist helping businesses improve organic search visibility, technical SEO performance, AI search discoverability, and SEO automation systems."
+        "inLanguage": lang,
+        "description": isFr
+            ? "Portfolio et services d'Othmane Outaghza, consultant SEO technique et consultant référencement naturel au Maroc."
+            : "Portfolio and services from Othmane Outaghza, a technical SEO consultant and SEO expert in Morocco."
     };
 
     const professionalServiceSchema = {
@@ -93,7 +96,40 @@ export function Schema() {
     const faqPageSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [
+        "mainEntity": isFr ? [
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que l'optimisation pour la recherche IA ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'optimisation pour la recherche IA améliore la structure technique, les données sémantiques et les signaux d'entité d'un site afin que les moteurs IA comme ChatGPT, Perplexity et Gemini puissent comprendre, extraire et citer correctement vos contenus."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Que fait un consultant SEO technique ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un consultant SEO technique audite l'exploration, l'indexation, les Core Web Vitals, le rendu JavaScript, les données structurées, les canonicals et l'architecture du site pour améliorer la visibilité organique."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Pourquoi réaliser un audit SEO technique ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un audit SEO technique identifie les problèmes qui bloquent l'indexation, diluent les signaux de classement ou empêchent Google et les moteurs IA de comprendre les pages importantes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment le SEO Shopify améliore-t-il les ventes ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le SEO Shopify optimise l'architecture des collections, les fiches produits, la navigation à facettes, les performances et le maillage interne pour attirer un trafic organique plus qualifié vers les pages qui convertissent."
+                }
+            }
+        ] : [
             {
                 "@type": "Question",
                 "name": "What is Generative Engine Optimization?",

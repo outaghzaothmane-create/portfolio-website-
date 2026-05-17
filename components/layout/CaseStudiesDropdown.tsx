@@ -32,6 +32,7 @@ const caseStudies = [
 ];
 
 export function CaseStudiesDropdown({}: CaseStudiesDropdownProps) {
+    const lang = "en";
     return (
         <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -52,7 +53,7 @@ export function CaseStudiesDropdown({}: CaseStudiesDropdownProps) {
                 {caseStudies.map((study) => (
                     <Link
                         key={study.title}
-                        href={study.href}
+                        href={`/${lang}${study.href}`}
                         className={cn(
                             "group flex items-center gap-3 p-3 rounded-xl transition-all duration-300",
                             "hover:bg-black/5"

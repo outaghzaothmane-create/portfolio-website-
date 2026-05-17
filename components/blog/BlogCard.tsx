@@ -17,9 +17,11 @@ function formatDate(date?: string) {
 }
 
 export function BlogCard({ post, priority = false }: { post: BlogPostSummary; priority?: boolean }) {
+    const lang = post.language === "fr" ? "fr" : "en";
+
     return (
         <article className="group rounded-lg border border-border bg-background/70 overflow-hidden transition-all hover:border-primary/40 hover:-translate-y-1">
-            <Link href={`/blog/${post.slug}`} className="block">
+            <Link href={`/${lang}/blog/${post.slug}`} className="block min-h-11">
                 {post.mainImage?.url ? (
                     <Image
                         src={post.mainImage.url}
@@ -33,7 +35,7 @@ export function BlogCard({ post, priority = false }: { post: BlogPostSummary; pr
                 ) : (
                     <div className="h-48 w-full bg-gradient-to-br from-primary/15 via-background to-foreground/10" />
                 )}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                     <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-4">
                         <span className="inline-flex items-center gap-2">
                             <CalendarDays className="h-4 w-4" />
@@ -44,7 +46,7 @@ export function BlogCard({ post, priority = false }: { post: BlogPostSummary; pr
                             {post.readingTime || 1} min read
                         </span>
                     </div>
-                    <h2 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h2 className="text-lg sm:text-xl font-bold leading-tight text-foreground mb-3 group-hover:text-primary transition-colors">
                         {post.title}
                     </h2>
                     {post.excerpt && (
