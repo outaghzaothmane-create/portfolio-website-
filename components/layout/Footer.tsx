@@ -61,15 +61,15 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
                     <OrbitSpace density="low" />
                 </div>
 
-                <div className="relative z-10 p-6 md:p-12 text-center md:text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
-                        {/* Brand (Cols 1-3) */}
-                        <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
+                <div className="relative z-10 p-6 md:p-12 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 justify-items-center">
+                        {/* Brand (Cols 1-4) */}
+                        <div className="md:col-span-4 space-y-6 flex flex-col items-center">
                             <Link href={`/${lang}`} className="group flex items-center gap-2 font-bold text-2xl">
                                 <span className={cn("transition-colors", "text-foreground")}>Othmane</span>
                                 <span className={cn("transition-colors", "text-muted-foreground/60")}>.SEO</span>
                             </Link>
-                            <p className={cn("font-medium text-sm max-w-xs text-center md:text-left", "text-muted-foreground")}>
+                            <p className={cn("font-medium text-sm max-w-xs text-center", "text-muted-foreground")}>
                                 {safeDict.engineered}
                                 <span className={cn(
                                     "inline-block ml-2 text-xs px-2 py-0.5 rounded-full font-mono transition-colors",
@@ -92,10 +92,10 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
                             </MagneticButton>
                         </div>
 
-                        {/* Navigation (Cols 4-5) */}
-                        <div className="md:col-span-2 space-y-6 flex flex-col items-center md:items-start">
+                        {/* Navigation (Cols 5-8) */}
+                        <div className="md:col-span-4 space-y-6 flex flex-col items-center">
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>{safeDict.navigation}</h3>
-                            <nav className="flex flex-col gap-3 items-center md:items-start">
+                            <nav className="flex flex-col gap-3 items-center">
                                 {[
                                     { name: safeDict.overview, href: `/${lang}/#overview` },
                                     { name: safeDict.services, href: `/${lang}/#services` },
@@ -116,25 +116,25 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
                             </nav>
                         </div>
 
-                        {/* System Status Widget (Cols 10-12) */}
-                        <div className="md:col-span-3 space-y-6 flex flex-col items-center md:items-start">
+                        {/* System Status Widget (Cols 9-12) */}
+                        <div className="md:col-span-4 space-y-6 flex flex-col items-center">
                             <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>{safeDict.systemStatus}</h3>
                             <div className={cn(
-                                "rounded-2xl p-5 space-y-4 border backdrop-blur-sm transition-colors duration-300 w-full",
+                                "rounded-2xl p-5 space-y-4 border backdrop-blur-sm transition-colors duration-300 w-full max-w-sm",
                                 "bg-white/50 border-white/40 shadow-sm"
                             )}>
-                                <div className={cn("flex items-center justify-center md:justify-start gap-3 text-sm font-medium", "text-foreground")}>
+                                <div className={cn("flex items-center justify-center gap-3 text-sm font-medium", "text-foreground")}>
                                     <span className="relative flex h-2.5 w-2.5">
                                         <span className={cn("animate-ping absolute inline-flex h-full w-full rounded-full opacity-75", "bg-green-500")}></span>
                                         <span className={cn("relative inline-flex rounded-full h-2.5 w-2.5", "bg-green-500")}></span>
                                     </span>
                                     {safeDict.operational}
                                 </div>
-                                <div className={cn("flex items-center justify-center md:justify-start gap-3 text-sm", "text-muted-foreground")}>
+                                <div className={cn("flex items-center justify-center gap-3 text-sm", "text-muted-foreground")}>
                                     <MapPin className="h-4 w-4 opacity-70" />
                                     <span className="break-words">{safeDict.casablanca}</span>
                                 </div>
-                                <div className={cn("flex items-center justify-center md:justify-start gap-3 text-sm font-mono", "text-muted-foreground")}>
+                                <div className={cn("flex items-center justify-center gap-3 text-sm font-mono", "text-muted-foreground")}>
                                     <Clock className="h-4 w-4 opacity-70" />
                                     {time || safeDict.loading}
                                 </div>
@@ -144,10 +144,10 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
 
                     {/* Footer Bottom */}
                     <div className={cn(
-                        "mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-6",
+                        "mt-12 pt-8 border-t flex flex-col items-center gap-6",
                         "border-black/5"
                     )}>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-center gap-3">
                             {[
                                 { icon: Linkedin, href: "https://www.linkedin.com/in/othmaneoutaghza/", label: "LinkedIn profile" },
                                 { icon: Mail, href: "mailto:outaghza.othmane@gmail.com", label: "Send email" },
