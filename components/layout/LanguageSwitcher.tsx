@@ -4,15 +4,20 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { getLocalizedPath } from "@/lib/i18n";
+import { useLanguageSwitcher } from "@/context/LanguageSwitcherContext";
 
 export function LanguageSwitcher() {
     const pathname = usePathname();
     const isFr = pathname.startsWith('/fr');
+    const { customPaths } = useLanguageSwitcher();
+    
+    const enHref = customPaths?.en || getLocalizedPath(pathname, 'en');
+    const frHref = customPaths?.fr || getLocalizedPath(pathname, 'fr');
     
     return (
         <div className="flex min-h-11 items-center gap-1 bg-black/5 rounded-full p-1 border border-black/5">
             <Link 
-                href={getLocalizedPath(pathname, 'en')}
+                href={enHref}
                 aria-label="Switch to English"
                 className={cn(
                     "flex min-h-9 min-w-9 items-center justify-center px-2 text-xs font-semibold rounded-full transition-all",
@@ -22,7 +27,7 @@ export function LanguageSwitcher() {
                 EN
             </Link>
             <Link 
-                href={getLocalizedPath(pathname, 'fr')}
+                href={frHref}
                 aria-label="Passer en français"
                 className={cn(
                     "flex min-h-9 min-w-9 items-center justify-center px-2 text-xs font-semibold rounded-full transition-all",

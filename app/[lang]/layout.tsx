@@ -86,6 +86,7 @@ import { Header } from "@/components/layout/Header";
 import { GlobalBackground } from "@/components/layout/GlobalBackground";
 
 import { getDictionary, Locale } from "@/lib/i18n";
+import { LanguageSwitcherProvider } from "@/context/LanguageSwitcherContext";
 
 export default async function RootLayout({
     children,
@@ -99,10 +100,12 @@ export default async function RootLayout({
     return (
         <html lang={params.lang} className="scroll-smooth">
             <body className={cn(inter.className, "overflow-x-hidden")}>
-                <Schema lang={params.lang as Locale} />
+                <LanguageSwitcherProvider>
+                    <Schema lang={params.lang as Locale} />
                     <GlobalBackground />
                     <Header dict={dict} lang={params.lang} />
                     {children}
+                </LanguageSwitcherProvider>
             </body>
             <GoogleAnalytics gaId="G-KDZXFTJ690" />
             <Script id="clarity-script" strategy="afterInteractive">

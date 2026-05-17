@@ -144,6 +144,13 @@ export const post = defineType({
             },
         }),
         defineField({
+            name: "translationOf",
+            title: "Translation Of",
+            type: "reference",
+            to: [{ type: "post" }],
+            description: "Optional: connect this post to its translated version.",
+        }),
+        defineField({
             name: "seoTitle",
             title: "SEO title",
             description: "Localized search title for this exact language version.",
@@ -190,8 +197,24 @@ export const post = defineType({
     preview: {
         select: {
             title: "title",
-            subtitle: "excerpt",
+            language: "language",
+            publishedAt: "publishedAt",
             media: "mainImage",
+        },
+        prepare({ title, language, publishedAt, media }) {
+            const langLabel = language === "fr" ? "FR" : "EN";
+            const dateStr = publishedAt
+                ? new Date(publishedAt).toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                })
+                : "Draft";
+            return {
+                title,
+                subtitle: `${langLabel} — ${dateStr}`,
+                media,
+            };
         },
     },
 });

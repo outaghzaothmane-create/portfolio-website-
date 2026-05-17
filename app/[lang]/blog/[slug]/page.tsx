@@ -19,6 +19,7 @@ import { siteUrl } from "@/sanity/env";
 
 import { getDictionary, Locale } from "@/lib/i18n";
 import { supportedLanguages } from "@/lib/i18n";
+import { SetLanguagePaths } from "@/context/LanguageSwitcherContext";
 
 type PageProps = {
     params: {
@@ -67,10 +68,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const canonical = absoluteUrl(`/${lang}/blog/${post.slug}`);
     const image = post.seo?.ogImage?.url || post.mainImage?.url;
 
+    const hasTranslation = Boolean(post.translatedSlug);
+    const alternates = hasTranslation
+        ? alternatesForPath(lang, getTranslatedBlogPaths(post.slug, lang, post.translatedSlug))
+        : { canonical };
+
     return {
         title,
         description,
-        alternates: alternatesForPath(lang, getTranslatedBlogPaths(post.slug, lang, post.translatedSlug)),
+        alternates,
         robots: post.seo?.noIndex ? { index: false, follow: true } : undefined,
         openGraph: {
             type: "article",
@@ -81,6 +87,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             publishedTime: post.publishedAt,
             modifiedTime: post.updatedAt || post.publishedAt,
             authors: post.author?.name ? [post.author.name] : undefined,
+            locale: lang === "fr" ? "fr_FR" : "en_US",
         },
         twitter: {
             card: "summary_large_image",
@@ -116,8 +123,19 @@ export default async function BlogPostPage({ params }: PageProps) {
         ctaButton: "Book a strategy call",
     };
 
+    const hasTranslation = Boolean(post.translatedSlug);
+    const customPaths = {
+        en: hasTranslation 
+            ? `/en/blog/${lang === "en" ? post.slug : post.translatedSlug}`
+            : "/en/blog",
+        fr: hasTranslation 
+            ? `/fr/blog/${lang === "fr" ? post.slug : post.translatedSlug}`
+            : "/fr/blog",
+    };
+
     return (
         <DashboardWrapper>
+            <SetLanguagePaths paths={customPaths} />
             <JsonLd data={personSchema(lang as Locale, post)} />
             <JsonLd data={articleSchema(post, lang as Locale)} />
             <JsonLd

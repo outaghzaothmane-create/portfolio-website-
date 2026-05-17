@@ -49,18 +49,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }));
         sitemapUrls.push(...serviceUrls);
 
-        const blogUrls = posts.map((post) => ({
-            url: absoluteUrl(`/${lang}/blog/${post.slug}`),
-            lastModified: post.updatedAt || post.publishedAt ? new Date(post.updatedAt || post.publishedAt || Date.now()) : new Date(),
-            changeFrequency: 'monthly' as const,
-            priority: 0.7,
-            alternates: {
-                languages: alternateLanguages({
-                    en: `/blog/${lang === 'en' ? post.slug : post.translatedSlug || post.slug}`,
-                    fr: `/blog/${lang === 'fr' ? post.slug : post.translatedSlug || post.slug}`,
-                }),
-            },
-        }));
+        const blogUrls = posts.map((post) => {
+            const hasTranslation = Boolean(post.translatedSlug);
+            return {
+                url: absoluteUrl(`/${lang}/blog/${post.slug}`),
+                lastModified: post.updatedAt || post.publishedAt ? new Date(post.updatedAt || post.publishedAt || Date.now()) : new Date(),
+                changeFrequency: 'monthly' as const,
+                priority: 0.7,
+                ...(hasTranslation ? {
+                    alternates: {
+                        languages: alternateLanguages({
+                            en: `/blog/${lang === 'en' ? post.slug : post.translatedSlug}`,
+                            fr: `/blog/${lang === 'fr' ? post.slug : post.translatedSlug}`,
+                        }),
+                    },
+                } : {}),
+            };
+        });
         sitemapUrls.push(...blogUrls);
 
         const categoryUrls = categories

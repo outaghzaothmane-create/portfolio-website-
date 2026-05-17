@@ -162,7 +162,12 @@ const postSummaryFields = groq`
     "author": author->${authorFields},
     "seo": seo${seoFields},
     language,
-    translatedSlug,
+    "translatedSlug": coalesce(
+        translatedSlug,
+        translationOf->slug.current, 
+        translation->slug.current,
+        *[_type == "post" && (translationOf._ref == ^._id || translation._ref == ^._id) && defined(slug.current)][0].slug.current
+    ),
     canonicalUrl,
     focusKeyword,
     seoTitle,
@@ -207,7 +212,7 @@ export async function getBlogPosts({
     const filter = groq`
         _type == "post" &&
         defined(slug.current) &&
-        language == $lang &&
+        (language == $lang || ($lang == "en" && !defined(language))) &&
         (!defined($query) || title match $search || excerpt match $search || pt::text(body) match $search) &&
         (!defined($category) || $category in categories[]->slug.current) &&
         (!defined($tag) || $tag in tags[])
@@ -256,7 +261,7 @@ export async function getFeaturedPosts(lang = "en") {
     }
 
     const posts = await fetchSanity<BlogPostSummary[]>(
-        groq`*[_type == "post" && featured == true && defined(slug.current) && language == $lang] | order(publishedAt desc)[0...3] {
+        groq`*[_type == "post" && featured == true && defined(slug.current) && (language == $lang || ($lang == "en" && !defined(language)))] | order(publishedAt desc)[0...3] {
             ${postSummaryFields}
         }`,
         { lang }
@@ -271,7 +276,7 @@ export async function getBlogPost(slug: string, lang = "en"): Promise<BlogPost |
     }
 
     return fetchSanity<BlogPost | null>(
-        groq`*[_type == "post" && slug.current == $slug && language == $lang][0] {
+        groq`*[_type == "post" && slug.current == $slug && (language == $lang || ($lang == "en" && !defined(language)))][0] {
             ${postSummaryFields},
             body[]{
                 ...,
@@ -285,9 +290,9 @@ export async function getBlogPost(slug: string, lang = "en"): Promise<BlogPost |
             },
             faqs,
             cta,
-            "relatedPosts": coalesce(relatedPosts[]->[language == $lang]{
+            "relatedPosts": coalesce(relatedPosts[]->[language == $lang || ($lang == "en" && !defined(language))]{
                 ${postSummaryFields}
-            }, *[_type == "post" && slug.current != $slug && language == $lang && count(categories[@._ref in ^.^.categories[]._ref]) > 0] | order(publishedAt desc)[0...3] {
+            }, *[_type == "post" && slug.current != $slug && (language == $lang || ($lang == "en" && !defined(language))) && count(categories[@._ref in ^.^.categories[]._ref]) > 0] | order(publishedAt desc)[0...3] {
                 ${postSummaryFields}
             })
         }`,
