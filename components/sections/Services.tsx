@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { TrendingUp, Workflow, Cpu, ArrowUpRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -56,8 +55,6 @@ const services = [
 ];
 
 export function Services() {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <section id="services" className={cn(
             "w-full py-16 transition-colors duration-500 bg-transparent"
@@ -84,25 +81,23 @@ export function Services() {
                             <Card className={cn(
                                 "h-full transition-all duration-500 relative overflow-hidden flex flex-col group",
                                 "rounded-[2rem] p-8",
-                                isTerminalMode
-                                    ? "bg-black/60 backdrop-blur-md border-green-800 hover:border-green-700 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]"
-                                    : `bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl ${service.glow}`
+                                `bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl ${service.glow}`
                             )}>
                                 <CardHeader className="p-0 pb-6">
                                     <div className={cn(
                                         "w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors",
-                                        isTerminalMode ? "bg-green-900/20" : "bg-white shadow-sm"
+                                        "bg-white shadow-sm"
                                     )}>
                                         <service.icon className={cn(
                                             "h-7 w-7 transition-all duration-300",
-                                            isTerminalMode ? "text-green-500" : service.color,
-                                            !isTerminalMode && "group-hover:scale-110"
+                                            service.color,
+                                            "group-hover:scale-110"
                                         )} />
                                     </div>
                                     <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
                                     <p className={cn(
                                         "text-sm font-medium",
-                                        isTerminalMode ? "text-green-600" : "text-muted-foreground"
+                                        "text-muted-foreground"
                                     )}>
                                         {service.subtitle}
                                     </p>
@@ -111,7 +106,7 @@ export function Services() {
                                     <div className="space-y-6">
                                         <Badge variant="outline" className={cn(
                                             "w-full justify-center py-1.5 text-sm font-normal",
-                                            isTerminalMode ? "border-green-800 text-green-400" : "bg-white/50 text-gray-600 border-white/60"
+                                            "bg-white/50 text-gray-600 border-white/60"
                                         )}>
                                             {service.target}
                                         </Badge>
@@ -121,9 +116,9 @@ export function Services() {
                                                 <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                                                     <span className={cn(
                                                         "mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0",
-                                                        isTerminalMode ? "bg-green-500" : service.color.replace("text-", "bg-")
+                                                        service.color.replace("text-", "bg-")
                                                     )} />
-                                                    <span className={isTerminalMode ? "text-green-400/80" : ""}>{feature}</span>
+                                                    <span className={""}>{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -132,7 +127,7 @@ export function Services() {
                                     <div className="space-y-6">
                                         <p className={cn(
                                             "text-sm italic border-l-2 pl-4 py-1",
-                                            isTerminalMode ? "text-green-500 border-green-800" : "text-gray-600 border-gray-200"
+                                            "text-gray-600 border-gray-200"
                                         )}>
                                             "{service.why}"
                                         </p>
@@ -144,9 +139,7 @@ export function Services() {
                                                 rel="noopener noreferrer"
                                                 className={cn(
                                                     "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all",
-                                                    isTerminalMode
-                                                        ? "bg-green-900/20 text-green-500 hover:bg-green-900/30"
-                                                        : "bg-white text-foreground hover:shadow-md border border-white/60"
+                                                    "bg-white text-foreground hover:shadow-md border border-white/60"
                                                 )}
                                             >
                                                 Book Strategy Call <ArrowUpRight className="h-4 w-4" />

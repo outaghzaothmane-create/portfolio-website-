@@ -1,13 +1,10 @@
 "use client";
 
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import { Search, Bot, Database, Workflow } from "lucide-react";
 
 export function Methodology() {
-    const { isTerminalMode } = useTerminal();
-
     const sections = [
         {
             title: "How I Approach Technical SEO",
@@ -45,7 +42,7 @@ export function Methodology() {
                             </h2>
                             <p className={cn(
                                 "text-lg",
-                                isTerminalMode ? "text-green-500" : "text-muted-foreground"
+                                "text-muted-foreground"
                             )}>
                                 Bridging the gap between traditional search algorithms and the new era of Generative Engine Optimization (GEO).
                             </p>
@@ -57,7 +54,7 @@ export function Methodology() {
                                     <div className="flex items-center gap-4">
                                         <div className={cn(
                                             "p-3 rounded-lg inline-flex items-center justify-center",
-                                            isTerminalMode ? "bg-green-900/20 text-green-500" : "bg-primary/10 text-primary"
+                                            "bg-primary/10 text-primary"
                                         )}>
                                             <section.icon className="w-6 h-6" />
                                         </div>
@@ -67,7 +64,7 @@ export function Methodology() {
                                     </div>
                                     <p className={cn(
                                         "text-base leading-relaxed pl-16",
-                                        isTerminalMode ? "text-green-400" : "text-muted-foreground"
+                                        "text-muted-foreground"
                                     )}>
                                         {section.content}
                                     </p>

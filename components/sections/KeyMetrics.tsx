@@ -3,12 +3,9 @@
 import { MetricCard } from "@/components/ui/metric-card";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 
 export function KeyMetrics() {
-    const { isTerminalMode } = useTerminal();
-
     const item = {
         hidden: { opacity: 0, y: 20 },
         show: {
@@ -35,9 +32,7 @@ export function KeyMetrics() {
     return (
         <section className={cn(
             "w-full py-16 border-y transition-colors duration-500 bg-transparent",
-            isTerminalMode
-                ? "border-green-900/30"
-                : "border-slate-200"
+            "border-slate-200"
         )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionWrapper>

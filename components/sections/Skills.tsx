@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Settings, BarChart, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 
 const skillGroups = [
@@ -16,7 +15,7 @@ const skillGroups = [
         bg: "bg-blue-500/10",
         border: "group-hover:border-blue-500/50",
         badgeBg: "bg-blue-500/5",
-        badgeText: "text-blue-700 dark:text-blue-300"
+        badgeText: "text-blue-700"
     },
     {
         title: "Automation",
@@ -26,7 +25,7 @@ const skillGroups = [
         bg: "bg-purple-500/10",
         border: "group-hover:border-purple-500/50",
         badgeBg: "bg-purple-500/5",
-        badgeText: "text-purple-700 dark:text-purple-300"
+        badgeText: "text-purple-700"
     },
     {
         title: "Tech Stack",
@@ -36,20 +35,17 @@ const skillGroups = [
         bg: "bg-orange-500/10",
         border: "group-hover:border-orange-500/50",
         badgeBg: "bg-orange-500/5",
-        badgeText: "text-orange-700 dark:text-orange-300"
+        badgeText: "text-orange-700"
     },
 ];
 
 export function Skills() {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <section id="tech-stack" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">Tech Stack</h2>
                 <p className="text-muted-foreground">The tools and technologies powering my workflows.</p>
             </div>
-
             <div className="grid gap-6 md:grid-cols-3">
                 {skillGroups.map((group, index) => (
                     <motion.div
@@ -63,28 +59,26 @@ export function Skills() {
                     >
                         <Card className={cn(
                             "h-full relative overflow-hidden transition-all duration-300 group rounded-3xl border",
-                            isTerminalMode
-                                ? "bg-black/60 backdrop-blur-md border-white/10 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]"
-                                : "bg-white/50 backdrop-blur-sm border-black/5 hover:shadow-xl",
-                            isTerminalMode && group.title === "SEO & Analytics" && "hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]",
-                            isTerminalMode && group.title === "Automation" && "hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]",
-                            isTerminalMode && group.title === "Tech Stack" && "hover:border-orange-500/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]",
-                            !isTerminalMode && group.border
+                            "bg-white/50 backdrop-blur-sm border-black/5 hover:shadow-xl",
+                            false && "hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]",
+                            false && "hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]",
+                            false && "hover:border-orange-500/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]",
+                            group.border
                         )}>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                 <CardTitle className={cn(
                                     "text-lg font-bold transition-colors",
-                                    isTerminalMode ? "text-foreground" : "text-foreground/80"
+                                    "text-foreground/80"
                                 )}>
                                     {group.title}
                                 </CardTitle>
                                 <div className={cn(
                                     "h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3",
-                                    isTerminalMode ? "bg-white/5" : group.bg
+                                    group.bg
                                 )}>
                                     <group.icon className={cn(
                                         "h-6 w-6 transition-colors",
-                                        isTerminalMode ? "text-white/80" : group.color
+                                        group.color
                                     )} />
                                 </div>
                             </CardHeader>
@@ -102,9 +96,7 @@ export function Skills() {
                                                 variant="secondary"
                                                 className={cn(
                                                     "text-xs font-medium px-3 py-1 rounded-full transition-colors",
-                                                    isTerminalMode
-                                                        ? "bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:text-white"
-                                                        : `${group.badgeBg} ${group.badgeText} border-transparent hover:bg-opacity-100`
+                                                    `${group.badgeBg} ${group.badgeText} border-transparent hover:bg-opacity-100`
                                                 )}
                                             >
                                                 {skill}

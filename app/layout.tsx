@@ -47,7 +47,6 @@ export const metadata: Metadata = {
 };
 
 import { Header } from "@/components/layout/Header";
-import { TerminalProvider } from "@/components/providers/terminal-context";
 
 import { GlobalBackground } from "@/components/layout/GlobalBackground";
 
@@ -60,11 +59,9 @@ export default function RootLayout({
         <html lang="en" className="scroll-smooth">
             <body className={cn(inter.className, "overflow-x-hidden")}>
                 <Schema />
-                <TerminalProvider>
                     <GlobalBackground />
                     <Header />
                     {children}
-                </TerminalProvider>
             </body>
             <GoogleAnalytics gaId="G-KDZXFTJ690" />
             <Script id="clarity-script" strategy="afterInteractive">

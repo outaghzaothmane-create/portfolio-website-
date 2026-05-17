@@ -15,7 +15,7 @@ export default function Icon() {
     return new ImageResponse(
         (
             // ImageResponse JSX element
-            <div
+            (<div
                 style={{
                     fontSize: 24,
                     background: "black",
@@ -29,9 +29,8 @@ export default function Icon() {
                     fontWeight: 700,
                     fontFamily: "monospace",
                 }}
-            >
-                O.
-            </div>
+            >O.
+                            </div>)
         ),
         // ImageResponse options
         {

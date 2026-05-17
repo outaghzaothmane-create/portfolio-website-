@@ -1,14 +1,11 @@
 "use client";
 
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Github, Linkedin, ExternalLink } from "lucide-react";
 
 export function About() {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <section
             id="about"
@@ -23,7 +20,7 @@ export function About() {
                             </h2>
                             <p className={cn(
                                 "text-lg sm:text-xl leading-relaxed mb-6",
-                                isTerminalMode ? "text-green-500" : "text-muted-foreground"
+                                "text-muted-foreground"
                             )}>
                                 Othmane Outaghza is a Morocco-based Technical SEO Consultant and AI Automation Specialist. 
                                 He helps businesses improve organic search visibility, technical SEO performance, 
@@ -46,7 +43,7 @@ export function About() {
                                 <h3 className="text-2xl font-semibold text-foreground">Core Expertise</h3>
                                 <ul className={cn(
                                     "space-y-2 list-disc list-inside",
-                                    isTerminalMode ? "text-green-500" : "text-muted-foreground"
+                                    "text-muted-foreground"
                                 )}>
                                     <li>Technical & eCommerce SEO (Shopify, WordPress)</li>
                                     <li>Generative Engine Optimization (GEO) & AI Search</li>
@@ -59,7 +56,7 @@ export function About() {
                                 <h3 className="text-2xl font-semibold text-foreground">Methodology</h3>
                                 <p className={cn(
                                     "leading-relaxed",
-                                    isTerminalMode ? "text-green-500" : "text-muted-foreground"
+                                    "text-muted-foreground"
                                 )}>
                                     I employ the <strong>4-Layer AI Search Optimization Framework</strong>: 
                                     ensuring technical crawlability, injecting rich structured semantic data, 
@@ -72,7 +69,7 @@ export function About() {
                             <h3 className="text-xl font-semibold text-foreground mb-3">Proven Results</h3>
                             <p className={cn(
                                 "leading-relaxed mb-4",
-                                isTerminalMode ? "text-green-500" : "text-muted-foreground"
+                                "text-muted-foreground"
                             )}>
                                 Successfully driven over $1.3M+ in organic revenue impact for clients globally. 
                                 Extensive experience navigating complex JavaScript rendering issues, crawl budget optimization, and executing automated workflows that scale SEO operations seamlessly.

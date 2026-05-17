@@ -1,13 +1,9 @@
-"use client";
-
+"use client";;
 import { motion } from "framer-motion";
 import { staggerContainer } from "@/lib/animations";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 
 export function DashboardWrapper({ children }: { children: React.ReactNode }) {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <motion.main
             initial={{ opacity: 0 }}

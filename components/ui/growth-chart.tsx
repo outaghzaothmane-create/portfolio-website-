@@ -1,8 +1,6 @@
-"use client";
-
+"use client";;
 import { useRef, useState, useEffect, memo } from "react";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { useInView } from "framer-motion";
 
 interface ChartDataPoint {
@@ -62,7 +60,6 @@ const CustomTooltip = memo(function CustomTooltip({ active, payload, label, form
 });
 
 export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, formatType, chartId }: GrowthChartProps) {
-    const { isTerminalMode } = useTerminal();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
     const [shouldRender, setShouldRender] = useState(false);
@@ -73,7 +70,7 @@ export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, forma
         }
     }, [isInView]);
 
-    const chartColor = isTerminalMode ? "#00ff00" : color;
+    const chartColor = color;
     const gradientId = `color${chartId}`;
 
     const formatValue = (val: number) => {
@@ -100,13 +97,13 @@ export function GrowthChart({ data, dataKey, color = "#3b82f6", formatter, forma
                         </defs>
                         <XAxis
                             dataKey="year"
-                            stroke={isTerminalMode ? "#00ff00" : "#888888"}
+                            stroke={"#888888"}
                             fontSize={10}
                             tickLine={false}
                             axisLine={false}
                         />
                         <YAxis
-                            stroke={isTerminalMode ? "#00ff00" : "#888888"}
+                            stroke={"#888888"}
                             fontSize={10}
                             tickLine={false}
                             axisLine={false}

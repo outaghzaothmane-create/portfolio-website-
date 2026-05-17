@@ -125,10 +125,10 @@ function GoogleSearchPreview({ title, description, url }: { title: string; descr
                 Google Search Preview
             </div>
             <div className="space-y-1">
-                <div className="text-blue-600 dark:text-blue-400 text-lg font-medium hover:underline cursor-pointer line-clamp-1">
+                <div className="text-blue-600 text-lg font-medium hover:underline cursor-pointer line-clamp-1">
                     {title || "Untitled Page"}
                 </div>
-                <div className="text-green-700 dark:text-green-500 text-sm">
+                <div className="text-green-700 text-sm">
                     {displayUrl}
                 </div>
                 <div className="text-muted-foreground text-sm line-clamp-2">
@@ -467,9 +467,9 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
 
     const getCategoryColor = (category: IssueCategory) => {
         switch (category) {
-            case "critical": return "bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20";
-            case "warning": return "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20";
-            case "good-to-have": return "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20";
+            case "critical": return "bg-red-500/10 text-red-700 border-red-500/20";
+            case "warning": return "bg-yellow-500/10 text-yellow-700 border-yellow-500/20";
+            case "good-to-have": return "bg-blue-500/10 text-blue-700 border-blue-500/20";
         }
     };
 

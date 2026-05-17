@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Quote } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 
 const testimonials = [
@@ -25,13 +24,11 @@ const testimonials = [
 ];
 
 export function Testimonials() {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <section className="w-full py-16 overflow-hidden bg-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-2 mb-12">
-                    <Quote className={cn("h-8 w-8", isTerminalMode ? "text-green-500" : "text-primary")} />
+                    <Quote className={cn("h-8 w-8", "text-primary")} />
                     <h2 className="text-3xl font-bold tracking-tight text-foreground">Client Feedback</h2>
                 </div>
 
@@ -48,14 +45,12 @@ export function Testimonials() {
                             <Card className={cn(
                                 "h-full transition-all duration-500 relative overflow-hidden",
                                 "rounded-[2rem] p-8",
-                                isTerminalMode
-                                    ? "bg-black/60 backdrop-blur-md border-green-800 hover:border-green-700 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]"
-                                    : "bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl shadow-sm"
+                                "bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl shadow-sm"
                             )}>
                                 <CardHeader className="p-0 pb-6">
                                     <div className="flex justify-between items-start">
                                         <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-                                            <CheckCircle2 className={cn("h-4 w-4", isTerminalMode ? "text-green-500" : "text-green-600")} />
+                                            <CheckCircle2 className={cn("h-4 w-4", "text-green-600")} />
                                             Verified Client
                                         </div>
                                     </div>
@@ -63,7 +58,7 @@ export function Testimonials() {
                                 <CardContent className="space-y-6 p-0">
                                     <p className={cn(
                                         "text-lg leading-relaxed italic",
-                                        isTerminalMode ? "text-green-400" : "text-gray-700"
+                                        "text-gray-700"
                                     )}>
                                         "{item.quote}"
                                     </p>

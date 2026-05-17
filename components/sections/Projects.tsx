@@ -70,11 +70,8 @@ const projects = [
 ];
 
 import { motion } from "framer-motion";
-import { useTerminal } from "@/components/providers/terminal-context";
 
 export function Projects() {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <section id="projects" className={cn(
             "w-full py-16 transition-colors duration-500 bg-transparent"
@@ -97,9 +94,7 @@ export function Projects() {
                             <Card className={cn(
                                 "flex flex-col h-full transition-all duration-500",
                                 "rounded-[2rem] p-8",
-                                isTerminalMode
-                                    ? "bg-black/60 backdrop-blur-md border border-green-800 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]"
-                                    : "bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl shadow-sm"
+                                "bg-white/40 backdrop-blur-md border border-white/40 hover:shadow-xl shadow-sm"
                             )}>
                                 <CardHeader className="p-0 pb-6">
                                     <div className="flex justify-between items-start">
@@ -109,7 +104,7 @@ export function Projects() {
                                             </CardTitle>
                                             <CardDescription className={cn(
                                                 "font-medium",
-                                                isTerminalMode ? "text-green-600" : "text-primary/80"
+                                                "text-primary/80"
                                             )}>{project.client}</CardDescription>
                                         </div>
                                         {/* Removed ArrowUpRight icon */}
@@ -152,11 +147,11 @@ export function Projects() {
                                             <div key={metric.label} className="flex items-center gap-3">
                                                 <div className={cn(
                                                     "p-2 rounded-lg",
-                                                    isTerminalMode ? "bg-green-900/20" : "bg-primary/5"
+                                                    "bg-primary/5"
                                                 )}>
                                                     <metric.icon className={cn(
                                                         "h-4 w-4",
-                                                        isTerminalMode ? "text-green-500" : "text-primary"
+                                                        "text-primary"
                                                     )} />
                                                 </div>
                                                 <div>
@@ -171,7 +166,7 @@ export function Projects() {
                                         {project.tags.map((tag) => (
                                             <Badge key={tag} variant="secondary" className={cn(
                                                 "text-xs font-normal",
-                                                isTerminalMode ? "bg-green-900/20 text-green-400 hover:bg-green-900/30" : "bg-white/50 text-muted-foreground hover:bg-white/80"
+                                                "bg-white/50 text-muted-foreground hover:bg-white/80"
                                             )}>
                                                 {tag}
                                             </Badge>
@@ -185,9 +180,7 @@ export function Projects() {
                                         href={project.link}
                                         className={cn(
                                             "flex items-center justify-between w-full px-6 py-3 rounded-full text-sm font-semibold transition-all group",
-                                            isTerminalMode
-                                                ? "bg-green-900/20 text-green-500 hover:bg-green-900/30 border border-green-800/50"
-                                                : "bg-white text-foreground hover:shadow-md border border-white/60 hover:border-blue-200"
+                                            "bg-white text-foreground hover:shadow-md border border-white/60 hover:border-blue-200"
                                         )}
                                     >
                                         Read Case Study

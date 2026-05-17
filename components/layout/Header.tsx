@@ -4,15 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, Terminal } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import { NavDropdown, navDropdowns } from "@/components/layout/NavDropdown";
 import { AuditModal } from "@/components/features/AuditModal";
 
 export function Header() {
-    const { isTerminalMode, toggleTerminalMode } = useTerminal();
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [isAuditOpen, setIsAuditOpen] = useState(false);
@@ -34,9 +32,7 @@ export function Header() {
                     className={cn(
                         "w-fit max-w-[90vw] h-14 rounded-full pointer-events-auto transition-all duration-500",
                         "flex items-center justify-center gap-1 px-2 md:px-4",
-                        isTerminalMode
-                            ? "bg-black/30 backdrop-blur-md border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.1)] hover:bg-black/60"
-                            : "bg-white/20 backdrop-blur-md border border-white/20 shadow-lg hover:bg-white/50"
+                        "bg-white/20 backdrop-blur-md border border-white/20 shadow-lg hover:bg-white/50"
                     )}
                 >
                     {/* Logo */}
@@ -44,11 +40,11 @@ export function Header() {
                         href="/"
                         className={cn(
                             "flex items-center gap-2 px-3 py-2 rounded-full transition-all",
-                            isTerminalMode ? "hover:bg-green-900/20" : "hover:bg-white/50"
+                            "hover:bg-white/50"
                         )}
                     >
-                        <span className={cn("font-bold text-lg", isTerminalMode ? "text-green-500" : "text-foreground")}>
-                            Othmane<span className={isTerminalMode ? "text-green-600" : "text-muted-foreground"}>.SEO</span>
+                        <span className={cn("font-bold text-lg", "text-foreground")}>
+                            Othmane<span className={"text-muted-foreground"}>.SEO</span>
                         </span>
                     </Link>
 
@@ -64,9 +60,7 @@ export function Header() {
                                     href={item.href}
                                     className={cn(
                                         "relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 block",
-                                        isTerminalMode
-                                            ? "text-green-400 hover:text-green-300 hover:bg-green-900/20"
-                                            : "text-muted-foreground hover:text-foreground hover:bg-black/5"
+                                        "text-muted-foreground hover:text-foreground hover:bg-black/5"
                                     )}
                                 >
                                     {item.name}
@@ -76,7 +70,6 @@ export function Header() {
                                 <AnimatePresence>
                                     {hoveredItem === item.name && navDropdowns[item.name] && (
                                         <NavDropdown
-                                            isTerminalMode={isTerminalMode}
                                             items={navDropdowns[item.name]}
                                         />
                                     )}
@@ -87,28 +80,13 @@ export function Header() {
 
                     {/* Actions */}
                     <div className="flex items-center gap-2 pl-2">
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={toggleTerminalMode}
-                            aria-label={isTerminalMode ? "Switch to normal mode" : "Switch to terminal mode"}
-                            className={cn(
-                                "rounded-full w-10 h-10 transition-all",
-                                isTerminalMode
-                                    ? "text-green-500 hover:text-green-400 hover:bg-green-900/20"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-black/5"
-                            )}
-                        >
-                            <Terminal className="w-5 h-5" />
-                        </Button>
+
 
                         <Button
                             onClick={() => setIsAuditOpen(true)}
                             className={cn(
                                 "hidden md:flex rounded-full px-6 h-10 font-medium transition-all shadow-lg hover:shadow-xl",
-                                isTerminalMode
-                                    ? "bg-green-600 text-black hover:bg-green-500 border border-green-400"
-                                    : "bg-black text-white hover:bg-black/80"
+                                "bg-black text-white hover:bg-black/80"
                             )}
                         >
                             Get Free Audit
@@ -123,9 +101,7 @@ export function Header() {
                                     aria-label="Open navigation menu"
                                     className={cn(
                                         "md:hidden rounded-full w-10 h-10",
-                                        isTerminalMode
-                                            ? "text-green-500 hover:bg-green-900/20"
-                                            : "text-foreground hover:bg-black/5"
+                                        "text-foreground hover:bg-black/5"
                                     )}
                                 >
                                     <Menu className="w-5 h-5" />
@@ -135,9 +111,7 @@ export function Header() {
                                 side="top"
                                 className={cn(
                                     "w-full border-b backdrop-blur-xl pt-20 pb-10",
-                                    isTerminalMode
-                                        ? "bg-black/90 border-green-900/50 text-green-500"
-                                        : "bg-white/90 border-white/20 text-foreground"
+                                    "bg-white/90 border-white/20 text-foreground"
                                 )}
                             >
                                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
@@ -149,9 +123,7 @@ export function Header() {
                                             onClick={() => setIsOpen(false)}
                                             className={cn(
                                                 "text-2xl font-medium transition-colors",
-                                                isTerminalMode
-                                                    ? "text-green-400 hover:text-green-300"
-                                                    : "text-muted-foreground hover:text-foreground"
+                                                "text-muted-foreground hover:text-foreground"
                                             )}
                                         >
                                             {item.name}
@@ -164,12 +136,10 @@ export function Header() {
                                         }}
                                         className={cn(
                                             "mt-4 rounded-full px-8 h-12 text-lg font-medium transition-all shadow-lg",
-                                            isTerminalMode
-                                                ? "bg-green-600 text-black hover:bg-green-500"
-                                                : "bg-black text-white hover:bg-black/80"
+                                            "bg-black text-white hover:bg-black/80"
                                         )}
                                     >
-                                        <span className={cn(isTerminalMode && "animate-text-shimmer")}>
+                                        <span className={cn(false)}>
                                             Get Free Audit
                                         </span>
                                     </Button>

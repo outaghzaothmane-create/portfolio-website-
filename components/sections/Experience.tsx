@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, TrendingUp } from "lucide-react";
@@ -54,7 +53,6 @@ const experienceData = [
 ];
 
 export function Experience() {
-    const { isTerminalMode } = useTerminal();
     return (
         <section id="experience" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
@@ -64,7 +62,6 @@ export function Experience() {
                 </div>
                 <p className="text-muted-foreground">Track record of delivering measurable results.</p>
             </div>
-
             <div className="grid gap-6 md:grid-cols-3">
                 {experienceData.map((item, index) => (
                     <motion.div
@@ -78,17 +75,15 @@ export function Experience() {
                     >
                         <Card className={cn(
                             "h-full relative overflow-hidden transition-all duration-300 group rounded-3xl border",
-                            isTerminalMode
-                                ? "bg-black/60 backdrop-blur-md border-white/10 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)]"
-                                : "bg-white/50 backdrop-blur-sm border-black/5 hover:shadow-xl",
-                            isTerminalMode && item.border
+                            "bg-white/50 backdrop-blur-sm border-black/5 hover:shadow-xl",
+                            false
                         )}>
                             <CardHeader className="space-y-4">
                                 <div className="flex justify-between items-start">
                                     <div className="space-y-1">
                                         <CardTitle className={cn(
                                             "text-xl font-bold transition-colors",
-                                            isTerminalMode ? "text-foreground" : "text-foreground/80"
+                                            "text-foreground/80"
                                         )}>
                                             {item.role}
                                         </CardTitle>
@@ -99,7 +94,7 @@ export function Experience() {
                                     </div>
                                     <Badge variant="secondary" className={cn(
                                         "text-xs font-normal",
-                                        isTerminalMode ? "bg-white/10 text-white" : "bg-black/5 text-black/70"
+                                        "bg-black/5 text-black/70"
                                     )}>
                                         {item.period}
                                     </Badge>
@@ -108,7 +103,7 @@ export function Experience() {
                             <CardContent className="space-y-4">
                                 <div className={cn(
                                     "p-4 rounded-2xl transition-colors",
-                                    isTerminalMode ? "bg-white/5" : "bg-black/5"
+                                    "bg-black/5"
                                 )}>
                                     <div className="flex items-start gap-3">
                                         <TrendingUp className={cn(
@@ -140,7 +135,7 @@ export function Experience() {
                                             variant="outline"
                                             className={cn(
                                                 "text-xs border-0",
-                                                isTerminalMode ? "bg-white/5 text-muted-foreground" : "bg-black/5 text-muted-foreground"
+                                                "bg-black/5 text-muted-foreground"
                                             )}
                                         >
                                             {tag}

@@ -4,7 +4,6 @@ import { MetricCard } from "@/components/ui/metric-card";
 import { motion } from "framer-motion";
 import { OrbitSpace } from "@/components/ui/orbit-space";
 import { Download } from "lucide-react";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import { HyperText } from "@/components/ui/hyper-text";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -13,7 +12,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, useEffect } from "react";
 export function Hero() {
-    const { isTerminalMode } = useTerminal();
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -33,12 +31,11 @@ export function Hero() {
             className="w-full bg-transparent pt-24 relative overflow-hidden min-h-[80vh] md:min-h-screen flex flex-col justify-center"
         >
             <OrbitSpace density={isMobile ? "low" : "high"} />
-
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="space-y-8 max-w-4xl">
                     <h1 className={cn(
                         "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight",
-                        isTerminalMode ? "text-green-500" : "text-foreground"
+                        "text-foreground"
                     )}>
                         Technical SEO Consultant & AI Automation Specialist Driving $1.3M+ in Organic Revenue
                     </h1>
@@ -46,7 +43,7 @@ export function Hero() {
                     <BlurFade delay={0.25} inView>
                         <p className={cn(
                             "text-xl sm:text-2xl pt-4 font-bold tracking-tight animate-text-shimmer",
-                            isTerminalMode ? "text-green-600" : "text-muted-foreground"
+                            "text-muted-foreground"
                         )}>
                             Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco.
                         </p>
@@ -60,14 +57,12 @@ export function Hero() {
                                 rel="noopener noreferrer"
                                 className={cn(
                                     "shadow-sm transition-colors",
-                                    isTerminalMode
-                                        ? "bg-green-900/20 text-green-500 border-green-500 hover:bg-green-500 hover:text-black transition-all"
-                                        : "bg-black text-white hover:bg-black/90 border-transparent"
+                                    "bg-black text-white hover:bg-black/90 border-transparent"
                                 )}
                             >
                                 <div className="flex items-center gap-2">
                                     <Download className="h-4 w-4" />
-                                    {isTerminalMode ? "export_resume.json" : "Download Resume"}
+                                    {"Download Resume"}
                                 </div>
                             </MagneticButton>
                         </div>

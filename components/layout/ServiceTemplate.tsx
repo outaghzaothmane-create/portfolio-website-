@@ -1,9 +1,7 @@
-"use client";
-
+"use client";;
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { DashboardWrapper } from "@/components/layout/DashboardWrapper";
 import { Footer } from "@/components/layout/Footer";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -29,8 +27,6 @@ export function ServiceTemplate({
     relatedLinks,
     url,
 }: ServiceTemplateProps) {
-    const { isTerminalMode } = useTerminal();
-
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -80,7 +76,6 @@ export function ServiceTemplate({
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
             <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                 <SectionWrapper>
                     {/* Hero Section */}
@@ -90,7 +85,7 @@ export function ServiceTemplate({
                         </h1>
                         <p className={cn(
                             "text-xl leading-relaxed",
-                            isTerminalMode ? "text-green-400" : "text-muted-foreground"
+                            "text-muted-foreground"
                         )}>
                             {intro}
                         </p>
@@ -104,12 +99,12 @@ export function ServiceTemplate({
                                 <div key={idx} className="p-6 rounded-xl border border-border bg-card/50">
                                     <div className={cn(
                                         "w-10 h-10 rounded-full flex items-center justify-center font-bold mb-4",
-                                        isTerminalMode ? "bg-green-900/30 text-green-500" : "bg-primary/10 text-primary"
+                                        "bg-primary/10 text-primary"
                                     )}>
                                         {idx + 1}
                                     </div>
                                     <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                                    <p className={isTerminalMode ? "text-green-600" : "text-muted-foreground"}>
+                                    <p className={"text-muted-foreground"}>
                                         {step.desc}
                                     </p>
                                 </div>
@@ -123,8 +118,8 @@ export function ServiceTemplate({
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {benefits.map((benefit, idx) => (
                                 <div key={idx} className="flex items-start gap-3 p-4 rounded-lg bg-muted/30">
-                                    <CheckCircle2 className={cn("w-6 h-6 shrink-0", isTerminalMode ? "text-green-500" : "text-primary")} />
-                                    <span className={isTerminalMode ? "text-green-400" : "text-foreground"}>
+                                    <CheckCircle2 className={cn("w-6 h-6 shrink-0", "text-primary")} />
+                                    <span className={"text-foreground"}>
                                         {benefit}
                                     </span>
                                 </div>
@@ -139,7 +134,7 @@ export function ServiceTemplate({
                             {faqs.map((faq, idx) => (
                                 <div key={idx} className="border-b border-border pb-6">
                                     <h3 className="text-xl font-semibold mb-2">{faq.q}</h3>
-                                    <p className={isTerminalMode ? "text-green-600" : "text-muted-foreground"}>
+                                    <p className={"text-muted-foreground"}>
                                         {faq.a}
                                     </p>
                                 </div>
@@ -166,10 +161,10 @@ export function ServiceTemplate({
                     {/* CTA */}
                     <div className={cn(
                         "p-8 md:p-12 rounded-2xl text-center",
-                        isTerminalMode ? "bg-green-900/10 border border-green-500/30" : "bg-primary/5 border border-primary/10"
+                        "bg-primary/5 border border-primary/10"
                     )}>
                         <h2 className="text-3xl font-bold mb-4">Ready to accelerate your growth?</h2>
-                        <p className={cn("text-lg mb-8 max-w-2xl mx-auto", isTerminalMode ? "text-green-500" : "text-muted-foreground")}>
+                        <p className={cn("text-lg mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
                             Let's discuss how we can implement advanced SEO and automation strategies for your business.
                         </p>
                         <Link 
@@ -178,7 +173,7 @@ export function ServiceTemplate({
                             rel="noopener noreferrer"
                             className={cn(
                                 "inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium transition-transform hover:scale-105",
-                                isTerminalMode ? "bg-green-500 text-black hover:bg-green-400" : "bg-primary text-primary-foreground hover:bg-primary/90"
+                                "bg-primary text-primary-foreground hover:bg-primary/90"
                             )}
                         >
                             Get in Touch <ArrowRight className="w-5 h-5" />

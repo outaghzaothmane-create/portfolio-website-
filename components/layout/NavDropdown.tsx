@@ -18,7 +18,6 @@ interface DropdownItem {
 }
 
 interface NavDropdownProps {
-    isTerminalMode: boolean;
     items: DropdownItem[];
     widthClassName?: string;
 }
@@ -46,7 +45,10 @@ export const navDropdowns: Record<string, DropdownItem[]> = {
     ],
 };
 
-export function NavDropdown({ isTerminalMode, items, widthClassName = "w-80" }: NavDropdownProps) {
+export function NavDropdown({
+    items,
+    widthClassName = "w-80"
+}: NavDropdownProps) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -56,18 +58,13 @@ export function NavDropdown({ isTerminalMode, items, widthClassName = "w-80" }: 
             className={cn(
                 "absolute top-full left-1/2 -translate-x-1/2 mt-4 p-2 rounded-2xl border backdrop-blur-xl shadow-2xl z-50",
                 widthClassName,
-                isTerminalMode
-                    ? "bg-black/90 border-green-900/50 shadow-[0_0_30px_rgba(34,197,94,0.2)]"
-                    : "bg-white/80 border-white/20 shadow-black/10"
+                "bg-white/80 border-white/20 shadow-black/10"
             )}
         >
             <div className={cn(
                 "absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 border-l border-t",
-                isTerminalMode
-                    ? "bg-black border-green-900/50"
-                    : "bg-white border-white/20"
+                "bg-white border-white/20"
             )} />
-
             <div className="relative z-10 flex flex-col gap-1">
                 {items.map((item) => (
                     <Link
@@ -75,29 +72,25 @@ export function NavDropdown({ isTerminalMode, items, widthClassName = "w-80" }: 
                         href={item.href}
                         className={cn(
                             "group flex items-center gap-3 p-3 rounded-xl transition-all duration-300",
-                            isTerminalMode
-                                ? "hover:bg-green-900/20"
-                                : "hover:bg-black/5"
+                            "hover:bg-black/5"
                         )}
                     >
                         <div className={cn(
                             "p-2 rounded-lg transition-colors",
-                            isTerminalMode
-                                ? "bg-green-900/10 text-green-500 group-hover:bg-green-900/30"
-                                : "bg-gray-100 text-gray-600 group-hover:bg-white group-hover:shadow-sm"
+                            "bg-gray-100 text-gray-600 group-hover:bg-white group-hover:shadow-sm"
                         )}>
                             <item.icon className="w-4 h-4" />
                         </div>
                         <div>
                             <div className={cn(
                                 "text-sm font-semibold transition-colors",
-                                isTerminalMode ? "text-green-400" : "text-foreground"
+                                "text-foreground"
                             )}>
                                 {item.title}
                             </div>
                             <div className={cn(
                                 "text-xs transition-colors",
-                                isTerminalMode ? "text-green-600/80" : "text-muted-foreground"
+                                "text-muted-foreground"
                             )}>
                                 {item.description}
                             </div>

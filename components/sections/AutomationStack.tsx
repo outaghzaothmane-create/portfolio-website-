@@ -1,9 +1,7 @@
-"use client";
-
+"use client";;
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Database, FileSpreadsheet, Code2, Workflow, Bell, Terminal, Mail, Bot, MessageSquare } from "lucide-react";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
@@ -77,8 +75,6 @@ const logs = [
 // --- Components ---
 
 const Connection = ({ isVertical = false }: { isVertical?: boolean }) => {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <div className={cn(
             "relative flex items-center justify-center",
@@ -87,12 +83,12 @@ const Connection = ({ isVertical = false }: { isVertical?: boolean }) => {
             <div className={cn(
                 "absolute",
                 isVertical ? "h-full w-[2px]" : "w-full h-[2px]",
-                isTerminalMode ? "bg-green-900/30" : "bg-border"
+                "bg-border"
             )} />
             <motion.div
                 className={cn(
                     "absolute rounded-full z-10",
-                    isTerminalMode ? "bg-green-500 shadow-[0_0_8px_rgba(0,255,0,0.8)]" : "bg-primary shadow-[0_0_8px_rgba(59,130,246,0.8)]"
+                    "bg-primary shadow-[0_0_8px_rgba(59,130,246,0.8)]"
                 )}
                 style={{ width: 6, height: 6 }}
                 animate={isVertical ? { top: ["0%", "100%"] } : { left: ["0%", "100%"] }}
@@ -103,20 +99,19 @@ const Connection = ({ isVertical = false }: { isVertical?: boolean }) => {
 };
 
 const ForkConnection = () => {
-    const { isTerminalMode } = useTerminal();
     return (
         <div className="relative w-12 h-48 flex items-center"> {/* Reduced width w-16 -> w-12, height h-64 -> h-48 */}
             <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 48 192" preserveAspectRatio="none"> {/* Updated viewBox */}
                 {/* Top Branch - Goes from center (96) to top (48) */}
-                <path d="M 0 96 C 20 96, 20 48, 48 48" fill="none" stroke="currentColor" strokeWidth="2" className={isTerminalMode ? "text-green-900/30" : "text-border"} strokeLinecap="round" />
+                <path d="M 0 96 C 20 96, 20 48, 48 48" fill="none" stroke="currentColor" strokeWidth="2" className={"text-border"} strokeLinecap="round" />
                 {/* Bottom Branch - Goes from center (96) to bottom (144) */}
-                <path d="M 0 96 C 20 96, 20 144, 48 144" fill="none" stroke="currentColor" strokeWidth="2" className={isTerminalMode ? "text-green-900/30" : "text-border"} strokeLinecap="round" />
+                <path d="M 0 96 C 20 96, 20 144, 48 144" fill="none" stroke="currentColor" strokeWidth="2" className={"text-border"} strokeLinecap="round" />
 
                 {/* Particles */}
-                <motion.circle r="3" fill={isTerminalMode ? "#22c55e" : "#3b82f6"}>
+                <motion.circle r="3" fill={"#3b82f6"}>
                     <animateMotion dur="1.5s" repeatCount="indefinite" path="M 0 96 C 20 96, 20 48, 48 48" />
                 </motion.circle>
-                <motion.circle r="3" fill={isTerminalMode ? "#22c55e" : "#3b82f6"}>
+                <motion.circle r="3" fill={"#3b82f6"}>
                     <animateMotion dur="1.5s" repeatCount="indefinite" path="M 0 96 C 20 96, 20 144, 48 144" />
                 </motion.circle>
             </svg>
@@ -125,8 +120,6 @@ const ForkConnection = () => {
 };
 
 const NodeCard = ({ tool, isActive }: { tool: any, isActive: boolean }) => {
-    const { isTerminalMode } = useTerminal();
-
     return (
         <motion.div
             className="relative group z-20 cursor-grab active:cursor-grabbing"
@@ -140,29 +133,27 @@ const NodeCard = ({ tool, isActive }: { tool: any, isActive: boolean }) => {
             {/* Ports */}
             <div className="absolute top-1/2 -left-1.5 w-2.5 h-2.5 rounded-full border-2 border-border bg-background -translate-y-1/2 z-30 hidden md:block" />
             <div className="absolute top-1/2 -right-1.5 w-2.5 h-2.5 rounded-full border-2 border-border bg-background -translate-y-1/2 z-30 hidden md:block" />
-
             {/* Mobile Ports */}
             <div className="absolute left-1/2 -top-1.5 w-2.5 h-2.5 rounded-full border-2 border-border bg-background -translate-x-1/2 z-30 md:hidden" />
             <div className="absolute left-1/2 -bottom-1.5 w-2.5 h-2.5 rounded-full border-2 border-border bg-background -translate-x-1/2 z-30 md:hidden" />
-
             <Card className={cn(
                 "min-w-[120px] w-auto h-auto relative overflow-hidden transition-all duration-300",
                 "border-2",
                 isActive
-                    ? (isTerminalMode ? "border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]" : "border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]")
-                    : (isTerminalMode ? "border-green-900/40" : tool.border),
-                isTerminalMode ? "bg-black/60 backdrop-blur-md" : "bg-white/40 backdrop-blur-md hover:shadow-lg"
+                    ? ("border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]")
+                    : (tool.border),
+                "bg-white/40 backdrop-blur-md hover:shadow-lg"
             )}>
                 <div className="flex items-center p-3 gap-3">
                     <div className={cn(
                         "p-2 rounded-lg transition-colors duration-300 shrink-0",
-                        isTerminalMode ? "bg-green-900/20 text-green-500" : cn(tool.bg, tool.color)
+                        cn(tool.bg, tool.color)
                     )}>
                         <tool.icon className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                        <h3 className={cn("font-semibold text-sm leading-none mb-1", isTerminalMode && "text-green-400")}>{tool.name}</h3>
-                        <p className={cn("text-[10px] font-mono uppercase tracking-wider leading-none", isTerminalMode ? "text-green-600" : "text-muted-foreground")}>{tool.role}</p>
+                        <h3 className={cn("font-semibold text-sm leading-none mb-1", false)}>{tool.name}</h3>
+                        <p className={cn("text-[10px] font-mono uppercase tracking-wider leading-none", "text-muted-foreground")}>{tool.role}</p>
                     </div>
                 </div>
             </Card>
@@ -221,7 +212,6 @@ const Console = () => {
 };
 
 export function AutomationStack() {
-    const { isTerminalMode } = useTerminal();
     const [activeStep, setActiveStep] = useState(0);
 
     // Cycle through active steps for animation sync
@@ -240,11 +230,10 @@ export function AutomationStack() {
             <div
                 className="absolute inset-0 opacity-[0.15] pointer-events-none"
                 style={{
-                    backgroundImage: `radial-gradient(circle, ${isTerminalMode ? '#00ff00' : '#94a3b8'} 1px, transparent 1px)`,
+                    backgroundImage: `radial-gradient(circle, ${'#94a3b8'} 1px, transparent 1px)`,
                     backgroundSize: '24px 24px'
                 }}
             />
-
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
                 <div className="flex flex-col gap-2">
                     <h3 className="text-3xl font-bold tracking-tight text-foreground">PR Link Building Automation</h3>

@@ -1,12 +1,9 @@
 "use client";
 
 import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { useTerminal } from "@/components/providers/terminal-context";
 import { cn } from "@/lib/utils";
 
 export function FAQ() {
-    const { isTerminalMode } = useTerminal();
-
     const faqs = [
         {
             question: "What is Generative Engine Optimization?",
@@ -77,7 +74,7 @@ export function FAQ() {
                                     </h3>
                                     <p className={cn(
                                         "text-base leading-relaxed",
-                                        isTerminalMode ? "text-green-500" : "text-muted-foreground"
+                                        "text-muted-foreground"
                                     )}>
                                         {faq.answer}
                                     </p>
