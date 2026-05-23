@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
@@ -12,12 +13,31 @@ function getBlockText(value: { children?: Array<{ text?: string } | Record<strin
 const components: PortableTextComponents = {
     types: {
         image: ({ value }) => {
-            const url = value?.asset?.url;
-            const width = value?.asset?.metadata?.dimensions?.width || 1200;
-            const height = value?.asset?.metadata?.dimensions?.height || 675;
+            const url = value?.src || value?.asset?.url;
+            const width = value?.width || value?.asset?.metadata?.dimensions?.width || 1200;
+            const height = value?.height || value?.asset?.metadata?.dimensions?.height || 675;
+            const caption = value?.caption || value?.alt;
 
             if (!url) {
                 return null;
+            }
+
+            if (value?.src) {
+                return (
+                    <figure className="my-10">
+                        <img
+                            src={url}
+                            alt={value.alt || ""}
+                            title={value.title || undefined}
+                            width={width}
+                            height={height}
+                            loading={value.loading || "lazy"}
+                            fetchPriority={value.fetchPriority}
+                            className="block h-auto w-full rounded-2xl border border-border object-cover"
+                        />
+                        {caption && <figcaption className="mt-3 text-center text-sm text-muted-foreground">{caption}</figcaption>}
+                    </figure>
+                );
             }
 
             return (
@@ -27,11 +47,51 @@ const components: PortableTextComponents = {
                         alt={value.alt || ""}
                         width={width}
                         height={height}
-                        className="w-full rounded-lg border border-border object-cover"
+                        className="w-full rounded-2xl border border-border object-cover"
                         sizes="(min-width: 1024px) 768px, 100vw"
                     />
-                    {value.alt && <figcaption className="mt-3 text-sm text-muted-foreground">{value.alt}</figcaption>}
+                    {caption && <figcaption className="mt-3 text-center text-sm text-muted-foreground">{caption}</figcaption>}
                 </figure>
+            );
+        },
+        table: ({ value }) => {
+            if (!value?.rows?.length) {
+                return null;
+            }
+
+            return (
+                <div className="my-8 overflow-x-auto rounded-lg border border-border">
+                    <table className="w-full border-collapse text-left text-sm">
+                        <tbody>
+                            {value.rows.map((row: { cells?: string[]; isHeader?: boolean }, rowIndex: number) => (
+                                <tr key={rowIndex} className="border-b border-border last:border-b-0">
+                                    {(row.cells || []).map((cell, cellIndex) =>
+                                        row.isHeader ? (
+                                            <th key={cellIndex} className="bg-primary/10 px-4 py-3 font-semibold text-foreground">
+                                                {cell}
+                                            </th>
+                                        ) : (
+                                            <td key={cellIndex} className="px-4 py-3 text-muted-foreground">
+                                                {cell}
+                                            </td>
+                                        )
+                                    )}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        },
+        codeBlock: ({ value }) => {
+            if (!value?.code) {
+                return null;
+            }
+
+            return (
+                <pre className="my-8 overflow-x-auto rounded-lg border border-border bg-background/80 p-4 text-sm leading-relaxed text-foreground">
+                    <code>{value.code}</code>
+                </pre>
             );
         },
     },

@@ -2,28 +2,25 @@ import { render, screen } from '@testing-library/react';
 import { Hero } from '../Hero';
 import { Footer } from '../Footer';
 import '@testing-library/jest-dom';
-
-// Mock framer-motion
-jest.mock('framer-motion', () => ({
-    motion: {
-        div: ({ children, className }: any) => <div className={className}>{children}</div>,
-    },
-}));
+import React from 'react';
 
 // Mock lucide-react icons
 jest.mock('lucide-react', () => ({
-    Github: () => <div data-testid="github-icon" />,
-    Linkedin: () => <div data-testid="linkedin-icon" />,
-    Mail: () => <div data-testid="mail-icon" />,
+    Github: () => <div data-testid="github-icon" aria-label="GitHub" />,
+    Linkedin: () => <div data-testid="linkedin-icon" aria-label="LinkedIn" />,
+    Mail: () => <div data-testid="mail-icon" aria-label="Email" />,
+    Download: () => <div data-testid="download-icon" />,
+    MapPin: () => <div data-testid="mappin-icon" />,
+    Clock: () => <div data-testid="clock-icon" />,
 }));
 
 describe('Hero Section', () => {
     it('renders with responsive background classes', () => {
         const { container } = render(<Hero />);
         const section = container.querySelector('section');
-        expect(section).toHaveClass('min-h-[60vh]');
-        expect(section).toHaveClass('md:min-h-[80vh]');
-        expect(section).toHaveClass('bg-gradient-to-b');
+        expect(section).toHaveClass('min-h-[72vh]');
+        expect(section).toHaveClass('md:min-h-screen');
+        expect(section).toHaveClass('bg-transparent');
     });
 });
 
@@ -36,7 +33,7 @@ describe('Footer Section', () => {
     it('renders navigation links', () => {
         render(<Footer />);
         expect(screen.getByText('Overview')).toBeInTheDocument();
-        expect(screen.getByText('Contact')).toBeInTheDocument();
+        expect(screen.getByText('Services')).toBeInTheDocument();
     });
 
     it('renders social icons', () => {

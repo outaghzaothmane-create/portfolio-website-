@@ -42,6 +42,18 @@ function formatDate(date?: string, locale: string = 'en') {
     }).format(new Date(date));
 }
 
+function toAbsoluteMetadataUrl(url?: string) {
+    if (!url) {
+        return undefined;
+    }
+
+    if (url.startsWith("http")) {
+        return url;
+    }
+
+    return `${siteUrl}${url.startsWith("/") ? url : `/${url}`}`;
+}
+
 export async function generateStaticParams(): Promise<Array<PageProps["params"]>> {
     const params: Array<PageProps["params"]> = [];
     for (const lang of supportedLanguages) {
@@ -65,12 +77,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const lang = params.lang as Locale;
     const title = post.seoTitle || post.seo?.seoTitle || post.seo?.metaTitle || `${post.title} | Othmane Outaghza`;
     const description = post.seoDescription || post.seo?.seoDescription || post.seo?.metaDescription || post.excerpt || `Read ${post.title} by Othmane Outaghza.`;
-    const canonical = absoluteUrl(`/${lang}/blog/${post.slug}`);
-    const image = post.seo?.ogImage?.url || post.mainImage?.url;
+    const canonical = post.canonicalUrl || post.seo?.canonicalUrl || absoluteUrl(`/${lang}/blog/${post.slug}`);
+    const image = toAbsoluteMetadataUrl(post.seo?.ogImage?.url || post.mainImage?.url);
+    const imageAlt = post.seo?.ogImage?.alt || post.mainImage?.alt || post.title;
+    const imageWidth = post.seo?.ogImage?.width || post.mainImage?.width || 1200;
+    const imageHeight = post.seo?.ogImage?.height || post.mainImage?.height || 630;
 
     const hasTranslation = Boolean(post.translatedSlug);
     const alternates = hasTranslation
-        ? alternatesForPath(lang, getTranslatedBlogPaths(post.slug, lang, post.translatedSlug))
+        ? { ...alternatesForPath(lang, getTranslatedBlogPaths(post.slug, lang, post.translatedSlug)), canonical }
         : { canonical };
 
     return {
@@ -82,8 +97,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             type: "article",
             title,
             description,
-            url: absoluteUrl(`/${lang}/blog/${post.slug}`),
-            images: image ? [{ url: image }] : undefined,
+            url: canonical,
+            images: image ? [{ url: image, width: imageWidth, height: imageHeight, alt: imageAlt }] : undefined,
             publishedTime: post.publishedAt,
             modifiedTime: post.updatedAt || post.publishedAt,
             authors: post.author?.name ? [post.author.name] : undefined,
@@ -93,7 +108,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             card: "summary_large_image",
             title,
             description,
-            images: image ? [image] : undefined,
+            images: image ? [{ url: image, alt: imageAlt }] : undefined,
         },
     };
 }
@@ -194,7 +209,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                                 </div>
                             </header>
 
-                            {post.mainImage?.url && (
+                            {post.mainImage?.url && post.showMainImage !== false && (
                                 <Image
                                     src={post.mainImage.url}
                                     alt={post.mainImage.alt || post.title}

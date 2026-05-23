@@ -3,6 +3,18 @@ import type { BlogPost } from "@/lib/sanity";
 import type { Locale } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo/i18n";
 
+function absoluteSchemaUrl(url?: string) {
+    if (!url) {
+        return undefined;
+    }
+
+    if (url.startsWith("http")) {
+        return url;
+    }
+
+    return `${siteUrl}${url.startsWith("/") ? url : `/${url}`}`;
+}
+
 export function personSchema(lang: Locale = "en", post?: BlogPost) {
     return {
         "@context": "https://schema.org",
@@ -27,27 +39,33 @@ export function websiteSchema(lang: Locale = "en") {
 }
 
 export function articleSchema(post: BlogPost, lang: Locale = "en") {
-    const url = absoluteUrl(`/${lang}/blog/${post.slug}`);
+    const url = post.canonicalUrl || post.seo?.canonicalUrl || absoluteUrl(`/${lang}/blog/${post.slug}`);
+    const authorName = post.author?.name || "Othmane Outaghza";
+    const authorUrl = siteUrl;
 
     return {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "@id": `${url}#article`,
         headline: post.title,
-        description: post.seo?.seoDescription || post.seo?.metaDescription || post.excerpt,
-        image: post.mainImage?.url,
+        description: post.seoDescription || post.seo?.seoDescription || post.seo?.metaDescription || post.excerpt,
+        image: absoluteSchemaUrl(post.seo?.ogImage?.url || post.mainImage?.url),
         datePublished: post.publishedAt,
         dateModified: post.updatedAt || post.publishedAt,
         author: {
-            "@id": `${siteUrl}/#person`,
+            "@type": "Person",
+            name: authorName,
+            url: authorUrl,
         },
         publisher: {
-            "@type": "Organization",
-            "@id": `${siteUrl}/#organization`,
-            name: "Othmane Outaghza SEO Consulting",
-            url: siteUrl,
+            "@type": "Person",
+            name: authorName,
+            url: authorUrl,
         },
-        mainEntityOfPage: url,
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": url,
+        },
         inLanguage: lang,
         articleSection: post.categories?.map((category) => category.title).filter(Boolean),
         keywords: [post.focusKeyword, post.seo?.focusKeyword, ...(post.tags || [])].filter(Boolean),

@@ -1,4 +1,5 @@
 import { createClient, groq } from "next-sanity";
+import { getLocalBlogPost, getLocalBlogPosts, localBlogCategories } from "@/data/local-blog-posts";
 import { apiVersion, dataset, projectId, siteUrl } from "@/sanity/env";
 
 const token = process.env.SANITY_API_READ_TOKEN;
@@ -68,6 +69,7 @@ export type BlogPostSummary = {
     focusKeyword?: string;
     seoTitle?: string;
     seoDescription?: string;
+    showMainImage?: boolean;
 };
 
 export type BlogPost = BlogPostSummary & {
@@ -112,6 +114,98 @@ export function slugifyTag(tag: string) {
 function estimateReadingTime(text = "") {
     const words = text.trim().split(/\s+/).filter(Boolean).length;
     return Math.max(1, Math.ceil(words / 220));
+}
+
+function localPostText(post: BlogPost) {
+    return (post.body || [])
+        .flatMap((block) => {
+            if (block._type === "block") {
+                return block.children?.map((child: { text?: string }) => child.text || "") || [];
+            }
+            if (block._type === "table") {
+                return block.rows?.flatMap((row: { cells?: string[] }) => row.cells || []) || [];
+            }
+            if (block._type === "codeBlock") {
+                return [block.code || ""];
+            }
+            return [];
+        })
+        .join(" ");
+}
+
+function localPostMatches(
+    post: BlogPost,
+    {
+        query,
+        category,
+        tag,
+        lang,
+    }: {
+        query?: string;
+        category?: string;
+        tag?: string;
+        lang: string;
+    }
+) {
+    if (post.language !== lang) {
+        return false;
+    }
+
+    if (category && !post.categories?.some((item) => item.slug === category)) {
+        return false;
+    }
+
+    if (tag && !post.tags?.includes(tag)) {
+        return false;
+    }
+
+    if (!query) {
+        return true;
+    }
+
+    const search = query.toLowerCase();
+    const haystack = [
+        post.title,
+        post.excerpt,
+        post.focusKeyword,
+        post.seoTitle,
+        post.seoDescription,
+        ...(post.tags || []),
+        localPostText(post),
+    ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+    return haystack.includes(search);
+}
+
+function sortBlogPosts<T extends BlogPostSummary>(posts: T[]) {
+    return [...posts].sort((a, b) => {
+        if (Boolean(a.featured) !== Boolean(b.featured)) {
+            return a.featured ? -1 : 1;
+        }
+
+        const dateA = new Date(a.publishedAt || 0).getTime();
+        const dateB = new Date(b.publishedAt || 0).getTime();
+        return dateB - dateA;
+    });
+}
+
+function mergeLocalPosts(remotePosts: BlogPostSummary[], localPosts: BlogPost[]) {
+    const localKeys = new Set(localPosts.map((post) => `${post.language}:${post.slug}`));
+    return sortBlogPosts([
+        ...localPosts,
+        ...remotePosts.filter((post) => !localKeys.has(`${post.language}:${post.slug}`)),
+    ]);
+}
+
+function mergeCategories(remoteCategories: SanityCategory[]) {
+    const remoteSlugs = new Set(remoteCategories.map((category) => category.slug).filter(Boolean));
+    return [
+        ...remoteCategories,
+        ...localBlogCategories.filter((category) => category.slug && !remoteSlugs.has(category.slug)),
+    ].sort((a, b) => (a.title || "").localeCompare(b.title || ""));
 }
 
 const imageFields = groq`{
@@ -201,8 +295,18 @@ export async function getBlogPosts({
     tag?: string;
     lang?: string;
 } = {}): Promise<BlogListResult> {
+    const localPosts = getLocalBlogPosts(lang).filter((post) => localPostMatches(post, { query, category, tag, lang }));
     if (!projectId) {
-        return { posts: [], total: 0, page, pageSize, totalPages: 1 };
+        const sortedLocalPosts = sortBlogPosts(localPosts);
+        const start = (page - 1) * pageSize;
+        const posts = sortedLocalPosts.slice(start, start + pageSize);
+        return {
+            posts,
+            total: sortedLocalPosts.length,
+            page,
+            pageSize,
+            totalPages: Math.max(1, Math.ceil(sortedLocalPosts.length / pageSize)),
+        };
     }
 
     const start = (page - 1) * pageSize;
@@ -230,7 +334,7 @@ export async function getBlogPosts({
 
     const result = await fetchSanity<{ posts: BlogPostSummary[]; total: number }>(
         groq`{
-            "posts": *[${filter}] | order(featured desc, publishedAt desc, _createdAt desc) [$start...$end] {
+            "posts": *[${filter}] | order(featured desc, publishedAt desc, _createdAt desc) {
                 ${postSummaryFields}
             },
             "total": count(*[${filter}])
@@ -238,8 +342,9 @@ export async function getBlogPosts({
         params
     );
 
-    const posts = result.posts || [];
-    const total = result.total || 0;
+    const allPosts = mergeLocalPosts(result.posts || [], localPosts);
+    const posts = allPosts.slice(start, end);
+    const total = allPosts.length;
 
     return {
         posts,
@@ -256,8 +361,9 @@ export async function getAllBlogPosts(lang = "en") {
 }
 
 export async function getFeaturedPosts(lang = "en") {
+    const localPosts = getLocalBlogPosts(lang).filter((post) => post.featured);
     if (!projectId) {
-        return [];
+        return sortBlogPosts(localPosts).slice(0, 3);
     }
 
     const posts = await fetchSanity<BlogPostSummary[]>(
@@ -267,10 +373,15 @@ export async function getFeaturedPosts(lang = "en") {
         { lang }
     );
 
-    return posts || [];
+    return mergeLocalPosts(posts || [], localPosts).slice(0, 3);
 }
 
 export async function getBlogPost(slug: string, lang = "en"): Promise<BlogPost | null> {
+    const localPost = getLocalBlogPost(slug, lang);
+    if (localPost) {
+        return localPost;
+    }
+
     if (!projectId) {
         return null;
     }
@@ -302,15 +413,22 @@ export async function getBlogPost(slug: string, lang = "en"): Promise<BlogPost |
 
 export async function getCategories() {
     if (!projectId) {
-        return [];
+        return localBlogCategories;
     }
 
-    return fetchSanity<SanityCategory[]>(
+    const categories = await fetchSanity<SanityCategory[]>(
         groq`*[_type == "category"] | order(title asc) ${categoryFields}`
     );
+
+    return mergeCategories(categories || []);
 }
 
 export async function getCategory(slug: string) {
+    const localCategory = localBlogCategories.find((category) => category.slug === slug);
+    if (localCategory) {
+        return localCategory;
+    }
+
     if (!projectId) {
         return null;
     }
@@ -326,7 +444,11 @@ export async function getTags(lang = "en") {
     return Array.from(new Set(posts.flatMap((post) => post.tags || []))).sort();
 }
 
-export function getPostUrl(post: Pick<BlogPostSummary, "slug" | "language">) {
+export function getPostUrl(post: Pick<BlogPostSummary, "slug" | "language" | "canonicalUrl">) {
+    if (post.canonicalUrl) {
+        return post.canonicalUrl;
+    }
+
     const langPrefix = post.language === 'fr' ? '/fr' : '/en';
     return `${siteUrl}${langPrefix}/blog/${post.slug}`;
 }
