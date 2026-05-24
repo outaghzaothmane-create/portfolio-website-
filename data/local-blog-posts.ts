@@ -2,9 +2,9 @@ import * as cheerio from "cheerio";
 import type { BlogPost, SanityCategory } from "@/lib/sanity";
 
 const articleSlug = "seo-ecommerce-morocco-ai-search-product-pages";
-const canonicalUrl = "https://othmaneoutaghza.online/blog/seo-ecommerce-morocco-ai-search-product-pages";
+const canonicalUrl = "https://othmaneoutaghza.online/en/blog/seo-ecommerce-morocco-ai-search-product-pages/";
 const metaDescription =
-    "Uncover how Moroccan e-commerce stores can break their dependency on rising paid social acquisition costs. This authoritative guide by a senior SEO consultant details how to build a compounding organic traffic engine optimized for Google, ChatGPT, Gemini, and Perplexity using advanced multilingual keyword maps, MAD schema, and local COD trust signals.";
+    "Learn how Moroccan e-commerce stores can optimize product pages for Google, ChatGPT, AI search, structured data, mobile speed, and local trust.";
 const featuredImage = "/images/seo-ecommerce-morocco-ai-search-product-pages.webp";
 const featuredImageAlt = "SEO e-commerce Morocco strategy for optimizing product pages for Google and AI search";
 
@@ -207,11 +207,11 @@ const articleHtml = String.raw`
 
     <figure>
       <img
-        src="/images/multilingual-seo-morocco.png"
+        src="/images/multilingual-seo-morocco-960.jpg"
         alt="Multilingual SEO keyword mapping flow for Moroccan e-commerce"
         title="Multilingual SEO Flow Morocco"
-        width="1200"
-        height="1200"
+        width="960"
+        height="960"
         loading="lazy"
       />
       <figcaption>How various language streams (French, English, and Darija) flow into a single optimized product page structure.</figcaption>
@@ -647,11 +647,11 @@ const articleHtml = String.raw`
 
     <figure>
       <img
-        src="/images/cod-trust-signals-morocco.png"
+        src="/images/cod-trust-signals-morocco-960.jpg"
         alt="COD trust signals and WhatsApp conversion optimization workflow in Morocco"
         title="Morocco E-commerce COD and WhatsApp Trust Signals"
-        width="1200"
-        height="1200"
+        width="960"
+        height="960"
         loading="lazy"
       />
       <figcaption>How local trust indicators (Cash on Delivery disclosures and WhatsApp chatflows) build consumer confidence, lower bounce rates, and boost conversions.</figcaption>
@@ -772,16 +772,16 @@ const articleHtml = String.raw`
 
     <ul>
       <li>
-        <a href="/services/technical-seo-audit">Technical SEO Audit</a>
+        <a href="/en/#services">Technical SEO Audit</a>
       </li>
       <li>
-        <a href="/services/ai-search-optimization">AI Search Optimization</a>
+        <a href="/en/#services">AI Search Optimization</a>
       </li>
       <li>
-        <a href="/services/ecommerce-seo">E-commerce SEO</a>
+        <a href="/en/#services">E-commerce SEO</a>
       </li>
       <li>
-        <a href="/services/structured-data-seo">Structured Data SEO</a>
+        <a href="/en/#services">Structured Data SEO</a>
       </li>
     </ul>
   </section>
@@ -1028,84 +1028,6 @@ const articleHtml = String.raw`
     <a class="cta-button" href="/contact">Request an SEO and AI Search Visibility Audit</a>
   </section>
 
-  <section id="faq" class="faq-section">
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <h3>What is e-commerce SEO in Morocco?</h3>
-      <p>
-        E-commerce SEO in Morocco is the process of optimizing online store pages so they can
-        rank better on Google, attract qualified buyers, and convert visitors into customers.
-        It includes product page SEO, category optimization, image SEO, structured data,
-        internal linking, and local trust signals such as Cash on Delivery and WhatsApp
-        support.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Why are product pages important for SEO?</h3>
-      <p>
-        Product pages are important because they target high-intent searches. When someone
-        searches for a specific product, size, material, use case, or delivery option, a
-        well-optimized product page can attract buyers who are close to making a purchase.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>How can Moroccan e-commerce websites optimize for AI Search?</h3>
-      <p>
-        Moroccan e-commerce websites can optimize for AI Search by writing clear product
-        descriptions, adding structured Q&amp;A sections, using product schema, mentioning
-        important product entities, and creating detailed pages that answer buyer questions
-        directly.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Should Moroccan product pages include French, English, Arabic, and Darija?</h3>
-      <p>
-        Yes, but in a controlled way. The main content should use one primary language, while
-        secondary language variations can be added naturally in FAQs, image alt text, product
-        attributes, and support sections.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Is Cash on Delivery important for Moroccan e-commerce SEO?</h3>
-      <p>
-        Cash on Delivery is mainly a conversion and trust factor, but it can indirectly
-        support SEO by improving user experience, reducing hesitation, and helping more
-        visitors complete purchases.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>What structured data should e-commerce product pages use?</h3>
-      <p>
-        Most product pages should use Product schema with key fields such as product name,
-        image, description, SKU, brand, price, currency, availability, condition, and seller
-        information.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>What currency should Moroccan e-commerce schema use?</h3>
-      <p>
-        Moroccan e-commerce websites should use <strong>MAD</strong> as the price currency
-        when selling in Moroccan Dirham.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>How do product images affect SEO?</h3>
-      <p>
-        Product images affect SEO through page speed, accessibility, Google Images visibility,
-        and user experience. Images should be compressed, named descriptively, converted to
-        WebP or AVIF, and supported with clear alt text.
-      </p>
-    </div>
-  </section>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1289,11 +1211,11 @@ const frArticleHtml = String.raw`
 
     <figure>
       <img
-        src="/images/multilingual-seo-morocco.png"
+        src="/images/multilingual-seo-morocco-960.jpg"
         alt="Flux de ciblage des mots-clés SEO multilingue pour l'e-commerce marocain"
         title="Flux SEO Multilingue Maroc"
-        width="1200"
-        height="1200"
+        width="960"
+        height="960"
         loading="lazy"
       />
       <figcaption>Comment les différents flux linguistiques (français, anglais et darija) s'intègrent dans une structure de fiche produit unique et optimisée.</figcaption>
@@ -1642,11 +1564,11 @@ const frArticleHtml = String.raw`
 
     <figure>
       <img
-        src="/images/cod-trust-signals-morocco.png"
+        src="/images/cod-trust-signals-morocco-960.jpg"
         alt="Optimisation des signaux de confiance COD et WhatsApp pour l'e-commerce au Maroc"
         title="Signaux de confiance COD et WhatsApp E-commerce Maroc"
-        width="1200"
-        height="1200"
+        width="960"
+        height="960"
         loading="lazy"
       />
       <figcaption>Comment les indicateurs de confiance locaux (transparence du paiement à la livraison et support WhatsApp direct) rassurent l'acheteur, réduisent les rebonds et augmentent les conversions.</figcaption>
@@ -1762,16 +1684,16 @@ const frArticleHtml = String.raw`
 
     <ul>
       <li>
-        <a href="/fr/services/audit-seo-technique">Audit SEO technique</a>
+        <a href="/fr/#services">Audit SEO technique</a>
       </li>
       <li>
-        <a href="/fr/services/referencement-ia">Référencement IA</a>
+        <a href="/fr/#services">Référencement IA</a>
       </li>
       <li>
-        <a href="/fr/services/seo-ecommerce">SEO e-commerce</a>
+        <a href="/fr/#services">SEO e-commerce</a>
       </li>
       <li>
-        <a href="/fr/services/donnees-structurees-seo">Données structurées SEO</a>
+        <a href="/fr/#services">Données structurées SEO</a>
       </li>
     </ul>
   </section>
@@ -2008,77 +1930,6 @@ const frArticleHtml = String.raw`
     </p>
 
     <a class="cta-button" href="/fr/contact">Demander un audit SEO et visibilité IA</a>
-  </section>
-
-  <section id="faq" class="faq-section">
-    <h2>Questions fréquentes</h2>
-
-    <div class="faq-item">
-      <h3>Qu’est-ce que le SEO e-commerce au Maroc ?</h3>
-      <p>
-        Le SEO e-commerce au Maroc est la démarche consistant à optimiser les pages d'une boutique en ligne afin de la faire remonter en tête des résultats Google, 
-        de capter des flux de clients hautement qualifiés et de maximiser le taux de conversion. Cela comprend l'optimisation sémantique des descriptions, 
-        le SEO des images, le balisage des données structurées, le maillage interne et des indicateurs de confiance adaptés aux usages locaux comme le Cash on Delivery (COD) 
-        et l'assistance conversationnelle WhatsApp.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Pourquoi les fiches produits sont-elles si cruciales pour le SEO ?</h3>
-      <p>
-        Les fiches produits capturent les requêtes à très forte intention d'achat. Lorsqu'un internaute formule une recherche associant un produit, des matériaux, 
-        un format et une localisation géographique, une fiche produit optimisée attire des clients matures, immédiatement prêts à finaliser leur commande.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Comment puis-je optimiser ma boutique e-commerce marocaine pour la recherche IA ?</h3>
-      <p>
-        Pour briller dans les réponses de ChatGPT, Gemini et Perplexity, concevez des fiches riches et précises, intégrez une FAQ sémantique claire, 
-        mettez en œuvre un balisage Product Schema complet en MAD, associez naturellement des entités sémantiques connectées et structurez vos pages 
-        pour apporter des réponses directes aux interrogations de vos clients.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Mes fiches marocaines doivent-elles mixer le français, l’anglais, l’arabe et la darija ?</h3>
-      <p>
-        Oui, mais de façon méticuleuse et délimitée. Conservez une structure textuelle globale propre et rédigée dans votre langue principale (ex. le français), 
-        et intégrez intelligemment les variantes linguistiques locales et synonymes dialectaux au sein des zones sémantiques secondaires : FAQ, textes alt des images, 
-        tableaux techniques et notes de livraison.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>La mention du Paiement à la Livraison a-t-elle un impact SEO indirect ?</h3>
-      <p>
-        Absolument. Bien que le COD soit une variable de conversion pure, il élimine la méfiance des consommateurs. En abaissant le taux de rebond des visiteurs 
-        et en favorisant la complétion d'achat, il envoie d'excellents signaux d'expérience utilisateur à Google, renforçant indirectement vos positions organiques.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Quel balisage de données structurées dois-je privilégier sur mes produits ?</h3>
-      <p>
-        Il est indispensable de déployer le Product Schema sémantique en spécifiant rigoureusement le nom, la description complète, les images haute définition, 
-        le SKU de suivi des stocks, la marque, les offres tarifaires, la disponibilité immédiate et la devise standard de vente.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Quelle devise de facturation mon Schema e-commerce doit-il configurer ?</h3>
-      <p>
-        Les boutiques s'adressant aux résidents marocains doivent formater la devise tarifaire sous l'identifiant international réglementaire **MAD** (Dirham Marocain).
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Quel est l'impact des images sur l'indexation de mes fiches produits ?</h3>
-      <p>
-        Les images jouent un rôle prépondérant sur la vitesse d'affichage de vos pages, leur accessibilité et leur référencement sémantique sur Google Images. Vos visuels produits 
-        doivent être compressés (idéalement en WebP ou AVIF), nommés sémantiquement à l'aide de traits d'union et dotés de balises Alt descriptives riches.
-      </p>
-    </div>
   </section>
 
   <script type="application/ld+json">
@@ -2421,15 +2272,15 @@ export const localBlogPosts: BlogPost[] = [
             bio: "Othmane Outaghza helps e-commerce and service businesses improve technical SEO, structured data, product page SEO, and AI search visibility.",
             sameAs: [],
         },
-        seoTitle: "SEO E-commerce Morocco: Product Page Optimization for Google & AI Search",
+        seoTitle: "E-commerce SEO Morocco: Product Pages for AI Search",
         seoDescription: metaDescription,
         canonicalUrl,
         focusKeyword: "SEO e-commerce Morocco",
         showMainImage: false,
         seo: {
-            seoTitle: "SEO E-commerce Morocco: Product Page Optimization for Google & AI Search",
+            seoTitle: "E-commerce SEO Morocco: Product Pages for AI Search",
             seoDescription: metaDescription,
-            metaTitle: "SEO E-commerce Morocco: Product Page Optimization for Google & AI Search",
+            metaTitle: "E-commerce SEO Morocco: Product Pages for AI Search",
             metaDescription,
             canonicalUrl,
             noIndex: false,
@@ -2443,7 +2294,7 @@ export const localBlogPosts: BlogPost[] = [
         },
         language: "en",
         body: articleBody,
-        faqs,
+        faqs: [],
         cta: {
             title: "Need help with e-commerce SEO in Morocco?",
             description:
@@ -2488,17 +2339,17 @@ export const localBlogPosts: BlogPost[] = [
             bio: "Othmane Outaghza aide les sites e-commerce et les entreprises de services à améliorer leur SEO technique, leurs fiches produits et leur visibilité IA.",
             sameAs: [],
         },
-        seoTitle: "SEO e-commerce Maroc : Optimisation Fiches Produits pour Google & l'IA",
+        seoTitle: "SEO e-commerce Maroc : fiches produits Google & IA",
         seoDescription: "Un guide pratique pour les sites e-commerce marocains pour optimiser leurs fiches produits, données structurées, vitesse mobile et référencement IA.",
-        canonicalUrl: "https://othmaneoutaghza.online/fr/blog/seo-ecommerce-maroc",
+        canonicalUrl: "https://othmaneoutaghza.online/fr/blog/seo-ecommerce-maroc/",
         focusKeyword: "SEO e-commerce Maroc",
         showMainImage: false,
         seo: {
-            seoTitle: "SEO e-commerce Maroc : Optimisation Fiches Produits pour Google & l'IA",
+            seoTitle: "SEO e-commerce Maroc : fiches produits Google & IA",
             seoDescription: "Un guide pratique pour les sites e-commerce marocains pour optimiser leurs fiches produits, données structurées, vitesse mobile et référencement IA.",
-            metaTitle: "SEO e-commerce Maroc : Optimisation Fiches Produits pour Google & l'IA",
+            metaTitle: "SEO e-commerce Maroc : fiches produits Google & IA",
             metaDescription: "Un guide pratique pour les sites e-commerce marocains pour optimiser leurs fiches produits, données structurées, vitesse mobile et référencement IA.",
-            canonicalUrl: "https://othmaneoutaghza.online/fr/blog/seo-ecommerce-maroc",
+            canonicalUrl: "https://othmaneoutaghza.online/fr/blog/seo-ecommerce-maroc/",
             noIndex: false,
             focusKeyword: "SEO e-commerce Maroc",
             ogImage: {
@@ -2510,7 +2361,7 @@ export const localBlogPosts: BlogPost[] = [
         },
         language: "fr",
         body: frArticleBody,
-        faqs: frFaqs,
+        faqs: [],
         cta: {
             title: "Besoin d'aide pour votre SEO e-commerce au Maroc ?",
             description:

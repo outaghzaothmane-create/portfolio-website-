@@ -3,6 +3,17 @@ export type Locale = (typeof supportedLanguages)[number];
 
 export const defaultLanguage: Locale = 'en';
 
+const translatedBlogSlugs: Record<string, Record<Locale, string>> = {
+    "seo-ecommerce-morocco-ai-search-product-pages": {
+        en: "seo-ecommerce-morocco-ai-search-product-pages",
+        fr: "seo-ecommerce-maroc",
+    },
+    "seo-ecommerce-maroc": {
+        en: "seo-ecommerce-morocco-ai-search-product-pages",
+        fr: "seo-ecommerce-maroc",
+    },
+};
+
 export function isValidLanguage(lang: string): lang is Locale {
     return supportedLanguages.includes(lang as Locale);
 }
@@ -19,17 +30,19 @@ export const getDictionary = async (locale: Locale) => {
 export function getLocalizedPath(pathname: string, targetLang: Locale) {
     if (!pathname) return `/${targetLang}`;
 
-    const segments = pathname.split('/');
-    
-    // Remove empty first segment if starts with /
-    if (segments[0] === '') segments.shift();
+    const hasTrailingSlash = pathname.endsWith("/") && pathname !== "/";
+    const segments = pathname.split("/").filter(Boolean);
 
-    // If the first segment is an existing language, replace it
     if (isValidLanguage(segments[0])) {
         segments[0] = targetLang;
-        return `/${segments.join('/')}`;
+    } else {
+        segments.unshift(targetLang);
     }
 
-    // Otherwise, prepend the language
-    return `/${targetLang}/${segments.join('/')}`;
+    if (segments[1] === "blog" && segments[2] && translatedBlogSlugs[segments[2]]) {
+        segments[2] = translatedBlogSlugs[segments[2]][targetLang];
+    }
+
+    const localizedPath = `/${segments.join("/")}`;
+    return hasTrailingSlash ? `${localizedPath}/` : localizedPath;
 }

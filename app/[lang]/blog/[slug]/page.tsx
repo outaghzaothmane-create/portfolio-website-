@@ -12,7 +12,7 @@ import { PortableTextRenderer } from "@/components/blog/PortableTextRenderer";
 import { SocialShare } from "@/components/blog/SocialShare";
 import { TableOfContents, getTableOfContents } from "@/components/blog/TableOfContents";
 import { JsonLd } from "@/components/JsonLd";
-import { articleSchema, breadcrumbSchema, faqSchema, personSchema } from "@/lib/seo/jsonld";
+import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/jsonld";
 import { getAllBlogPosts, getBlogPost, slugifyTag } from "@/lib/sanity";
 import { absoluteUrl, alternatesForPath, getTranslatedBlogPaths } from "@/lib/seo/i18n";
 import { siteUrl } from "@/sanity/env";
@@ -151,7 +151,6 @@ export default async function BlogPostPage({ params }: PageProps) {
     return (
         <DashboardWrapper>
             <SetLanguagePaths paths={customPaths} />
-            <JsonLd data={personSchema(lang as Locale, post)} />
             <JsonLd data={articleSchema(post, lang as Locale)} />
             <JsonLd
                 data={breadcrumbSchema([
