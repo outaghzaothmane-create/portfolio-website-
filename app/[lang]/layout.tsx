@@ -107,7 +107,7 @@ export default async function RootLayout({
                     {children}
                 </LanguageSwitcherProvider>
             </body>
-            <GoogleAnalytics gaId="G-KDZXFTJ690" />
+            <GoogleAnalytics gaId="G-WX3YNVD7KF" />
             <Script id="clarity-script" strategy="afterInteractive">
                 {`
                     (function(c,l,a,r,i,t,y){
