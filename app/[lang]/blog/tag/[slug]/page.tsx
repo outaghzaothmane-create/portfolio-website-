@@ -51,6 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title,
         description,
+        robots: { index: false, follow: true },
         alternates: alternatesForPath(lang, { en: `/blog/tag/${params.slug}`, fr: `/blog/tag/${params.slug}` }),
         openGraph: {
             title,

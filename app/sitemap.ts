@@ -1,17 +1,14 @@
 import { MetadataRoute } from 'next';
 import { caseStudies } from '@/data/case-studies';
-import { getAllBlogPosts, getCategories, getTags, slugifyTag } from '@/lib/sanity';
+import { getAllBlogPosts } from '@/lib/sanity';
 import { supportedLanguages } from '@/lib/i18n';
 import { absoluteUrl, alternateLanguages } from '@/lib/seo/i18n';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const categories = await getCategories();
-
     let sitemapUrls: MetadataRoute.Sitemap = [];
 
     for (const lang of supportedLanguages) {
         const posts = await getAllBlogPosts(lang);
-        const tags = await getTags(lang);
 
         sitemapUrls.push({
             url: absoluteUrl(`/${lang}`),
@@ -25,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         const projectUrls = caseStudies.map((study) => ({
             url: absoluteUrl(`/${lang}/projects/${study.id}`),
-            lastModified: new Date(),
+            lastModified: new Date("2026-05-22T00:00:00.000Z"),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
             alternates: {
@@ -35,7 +32,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         sitemapUrls.push(...projectUrls);
 
         const servicePages = [
-            'blog'
+            'blog',
+            'projects'
         ];
 
         const serviceUrls = servicePages.map((page) => ({
@@ -51,9 +49,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         const blogUrls = posts.map((post) => {
             const hasTranslation = Boolean(post.translatedSlug);
+            const postDate = post.updatedAt || post.publishedAt;
             return {
                 url: absoluteUrl(`/${lang}/blog/${post.slug}`),
-                lastModified: post.updatedAt || post.publishedAt ? new Date(post.updatedAt || post.publishedAt || Date.now()) : new Date(),
+                lastModified: postDate ? new Date(postDate) : new Date(),
                 changeFrequency: 'monthly' as const,
                 priority: 0.7,
                 ...(hasTranslation ? {
@@ -67,30 +66,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             };
         });
         sitemapUrls.push(...blogUrls);
-
-        const categoryUrls = categories
-            .filter((category) => category.slug)
-            .map((category) => ({
-                url: absoluteUrl(`/${lang}/blog/category/${category.slug}`),
-                lastModified: new Date(),
-                changeFrequency: 'weekly' as const,
-                priority: 0.75,
-                alternates: {
-                    languages: alternateLanguages({ en: `/blog/category/${category.slug}`, fr: `/blog/category/${category.slug}` }),
-                },
-            }));
-        sitemapUrls.push(...categoryUrls);
-
-        const tagUrls = tags.map((tag) => ({
-            url: absoluteUrl(`/${lang}/blog/tag/${slugifyTag(tag)}`),
-            lastModified: new Date(),
-            changeFrequency: 'weekly' as const,
-            priority: 0.55,
-            alternates: {
-                languages: alternateLanguages({ en: `/blog/tag/${slugifyTag(tag)}`, fr: `/blog/tag/${slugifyTag(tag)}` }),
-            },
-        }));
-        sitemapUrls.push(...tagUrls);
     }
 
     return sitemapUrls;
