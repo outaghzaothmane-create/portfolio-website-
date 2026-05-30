@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">HS770 Ahrefs baseline domain rating and organic traffic</title>
+  <desc id="desc">Ahrefs baseline evidence for HS770 showing DR 2.6, 3.4K backlinks, 1.7K referring domains, 1.1K keywords and 198 organic traffic before the SEO growth program.</desc>
+  <rect width="1600" height="900" fill="#e9ebef"/>
+  <rect x="0" y="0" width="1600" height="88" fill="#2d3f5d"/>
+  <text x="16" y="30" fill="#ff8a00" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">ahrefs</text>
+  <g fill="#cfd7e6" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    <text x="112" y="28">Dashboard</text>
+    <text x="208" y="28" fill="#ffffff" font-weight="700">Site Explorer</text>
+    <text x="330" y="28">Keywords Explorer</text>
+    <text x="462" y="28">Site Audit</text>
+    <text x="546" y="28">Rank Tracker</text>
+    <text x="660" y="28">Content Explorer</text>
+    <text x="794" y="28">Web Explorer</text>
+  </g>
+  <rect x="16" y="52" width="122" height="32" rx="4" fill="#415372"/>
+  <text x="28" y="74" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="16">http + https</text>
+  <rect x="138" y="52" width="506" height="32" rx="4" fill="#334660"/>
+  <text x="152" y="74" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="17">hs770.com/</text>
+  <rect x="644" y="52" width="126" height="32" rx="4" fill="#415372"/>
+  <text x="668" y="74" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="16">Subdomains</text>
+
+  <rect x="0" y="88" width="196" height="812" fill="#f4f5f7"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#30343b">
+    <rect x="8" y="116" width="184" height="28" rx="3" fill="#e2e5ea"/>
+    <text x="16" y="136">Overview</text>
+    <text x="16" y="176">Page inspect</text>
+    <text x="16" y="206">Site structure</text>
+    <text x="16" y="236">Calendar</text>
+    <text x="16" y="266">Opportunities</text>
+    <text x="16" y="310" font-weight="700">Backlink profile</text>
+    <text x="16" y="340">Backlinks</text>
+    <text x="16" y="370">Broken backlinks</text>
+    <text x="16" y="400">Referring domains</text>
+    <text x="16" y="536" font-weight="700">Organic search</text>
+    <text x="16" y="566">Organic keywords</text>
+    <text x="16" y="596">Top pages</text>
+  </g>
+
+  <text x="236" y="140" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Overview: <tspan fill="#0057c2">hs770.com/</tspan></text>
+  <text x="448" y="140" fill="#8a8d93" font-family="Arial, Helvetica, sans-serif" font-size="16">Trusted Medical Equipment Online - Health Supply 770 Inc.</text>
+  <rect x="206" y="168" width="1374" height="52" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17">
+    <rect x="224" y="182" width="138" height="28" rx="4" fill="none" stroke="#c7ccd3"/>
+    <text x="238" y="202" fill="#30343b">Monthly volume</text>
+    <rect x="372" y="182" width="140" height="28" rx="4" fill="none" stroke="#c7ccd3"/>
+    <text x="408" y="202" fill="#30343b">All locations</text>
+    <rect x="520" y="182" width="162" height="28" rx="4" fill="none" stroke="#c7ccd3"/>
+    <text x="554" y="202" fill="#30343b">Best links</text>
+  </g>
+
+  <rect x="206" y="238" width="1374" height="146" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="224" y="264" fill="#202124" font-size="18" font-weight="700">Backlink profile</text>
+    <circle cx="250" cy="316" r="25" fill="none" stroke="#e5e7eb" stroke-width="15"/>
+    <path d="M250 291 A25 25 0 0 1 254 292" fill="none" stroke="#8a63d2" stroke-width="15"/>
+    <text x="286" y="300" fill="#30343b" font-size="18">DR</text>
+    <text x="286" y="336" fill="#003a8c" font-size="36">2.6</text>
+    <circle cx="374" cy="316" r="25" fill="none" stroke="#e5e7eb" stroke-width="15"/>
+    <path d="M374 291 A25 25 0 0 1 400 312" fill="none" stroke="#8bbf3f" stroke-width="15"/>
+    <text x="412" y="300" fill="#30343b" font-size="18">UR</text>
+    <text x="412" y="336" fill="#003a8c" font-size="36">20</text>
+    <text x="474" y="300" fill="#30343b" font-size="18">Backlinks</text>
+    <text x="474" y="336" fill="#003a8c" font-size="36">3.4K</text>
+    <text x="474" y="366" fill="#30343b" font-size="15">All time 19.7K</text>
+    <text x="590" y="300" fill="#30343b" font-size="18">Ref. domains</text>
+    <text x="590" y="336" fill="#003a8c" font-size="36">1.7K</text>
+    <text x="590" y="366" fill="#30343b" font-size="15">All time 3.2K</text>
+    <line x1="700" y1="252" x2="700" y2="364" stroke="#d7dbe1"/>
+    <text x="718" y="264" fill="#202124" font-size="18" font-weight="700">Organic search</text>
+    <text x="718" y="300" fill="#30343b" font-size="18">Keywords</text>
+    <text x="718" y="336" fill="#003a8c" font-size="36">1.1K</text>
+    <text x="718" y="366" fill="#30343b" font-size="15">Top 3 3</text>
+    <text x="820" y="300" fill="#30343b" font-size="18">Traffic</text>
+    <text x="820" y="336" fill="#003a8c" font-size="36">198</text>
+    <text x="820" y="366" fill="#30343b" font-size="15">Value $55</text>
+    <line x1="900" y1="252" x2="900" y2="364" stroke="#d7dbe1"/>
+    <text x="920" y="264" fill="#202124" font-size="18" font-weight="700">Paid search</text>
+    <text x="920" y="300" fill="#30343b" font-size="18">Keywords</text>
+    <text x="920" y="336" fill="#003a8c" font-size="36">0</text>
+    <text x="1020" y="300" fill="#30343b" font-size="18">Traffic</text>
+    <text x="1020" y="336" fill="#003a8c" font-size="36">0</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="18">
+    <rect x="206" y="414" width="78" height="34" rx="4" fill="#dee2e8"/>
+    <text x="220" y="437" fill="#30343b">General</text>
+    <text x="296" y="437" fill="#30343b">Backlink profile</text>
+    <text x="420" y="437" fill="#30343b">Organic search</text>
+  </g>
+  <rect x="206" y="466" width="908" height="410" fill="#ffffff"/>
+  <rect x="1128" y="466" width="452" height="322" fill="#ffffff"/>
+  <text x="224" y="522" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Performance</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16">
+    <text x="246" y="570" fill="#555c66">Referring domains</text>
+    <text x="374" y="570" fill="#555c66">Domain Rating</text>
+    <text x="506" y="570" fill="#555c66">URL Rating</text>
+    <text x="638" y="570" fill="#555c66">Organic traffic</text>
+    <text x="774" y="570" fill="#555c66">Organic traffic value</text>
+  </g>
+  <line x1="224" y1="676" x2="1096" y2="676" stroke="#e2e5ea"/>
+  <line x1="224" y1="732" x2="1096" y2="732" stroke="#e2e5ea"/>
+  <line x1="224" y1="788" x2="1096" y2="788" stroke="#e2e5ea"/>
+  <path d="M292 848 C410 846 494 846 586 838 L658 832 L690 842 L724 838 L760 840 L794 780 L824 790 L844 822 L862 710 L892 694 L918 700 L944 710 L970 730 L1004 756 L1032 724 L1054 760" fill="none" stroke="#ff8a00" stroke-width="4"/>
+  <path d="M292 848 C410 846 494 846 586 838 L658 832 L690 842 L724 838 L760 840 L794 780 L824 790 L844 822 L862 710 L892 694 L918 700 L944 710 L970 730 L1004 756 L1032 724 L1054 760 L1054 848 L292 848 Z" fill="#f8c37e" opacity=".45"/>
+  <path d="M292 848 L490 848 L604 770 L606 848 L778 846 L826 664 L850 650 L970 666 L1032 676" fill="none" stroke="#3c8bdc" stroke-width="4"/>
+  <path d="M292 850 L474 850 L474 640" stroke="#25a566" stroke-width="4"/>
+  <text x="250" y="862" fill="#b6bbc2" font-family="Arial, Helvetica, sans-serif" font-size="14">17 Jan 2022</text>
+  <text x="480" y="862" fill="#b6bbc2" font-family="Arial, Helvetica, sans-serif" font-size="14">13 Aug 2022</text>
+  <text x="704" y="862" fill="#b6bbc2" font-family="Arial, Helvetica, sans-serif" font-size="14">9 Mar 2023</text>
+  <text x="878" y="862" fill="#b6bbc2" font-family="Arial, Helvetica, sans-serif" font-size="14">21 Jun 2023</text>
+  <text x="1020" y="862" fill="#b6bbc2" font-family="Arial, Helvetica, sans-serif" font-size="14">15 Jan 2024</text>
+
+  <text x="1146" y="520" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Traffic by location</text>
+  <line x1="1146" y1="548" x2="1560" y2="548" stroke="#e2e5ea"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17">
+    <text x="1146" y="576" fill="#30343b" font-weight="700">Location</text>
+    <text x="1372" y="576" fill="#30343b" font-weight="700">Traffic</text>
+    <text x="1430" y="576" fill="#30343b" font-weight="700">Share</text>
+    <text x="1502" y="576" fill="#30343b" font-weight="700">Keywords</text>
+    <rect x="1146" y="590" width="336" height="38" fill="#fff4e4"/>
+    <text x="1156" y="614" fill="#30343b">United States</text><text x="1382" y="614" fill="#30343b">159</text><text x="1432" y="614" fill="#30343b">80.3%</text><text x="1520" y="614" fill="#214eaa">976</text>
+    <text x="1156" y="654" fill="#30343b">Korea</text><text x="1382" y="654" fill="#30343b">21</text><text x="1432" y="654" fill="#30343b">10.6%</text><text x="1520" y="654" fill="#214eaa">5</text>
+    <text x="1156" y="694" fill="#30343b">India</text><text x="1382" y="694" fill="#30343b">9</text><text x="1432" y="694" fill="#30343b">4.5%</text><text x="1520" y="694" fill="#214eaa">20</text>
+    <text x="1156" y="734" fill="#30343b">United Kingdom</text><text x="1382" y="734" fill="#30343b">8</text><text x="1432" y="734" fill="#30343b">4.0%</text><text x="1520" y="734" fill="#214eaa">46</text>
+    <text x="1156" y="774" fill="#30343b">Philippines</text><text x="1382" y="774" fill="#30343b">1</text><text x="1432" y="774" fill="#30343b">0.5%</text><text x="1520" y="774" fill="#214eaa">9</text>
+  </g>
+</svg>

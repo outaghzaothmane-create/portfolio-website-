@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">HS770 Google Search Console clicks and impressions growth</title>
+  <desc id="desc">Google Search Console performance evidence for HS770 showing 21.3K total clicks, 1.74M total impressions, 1.2% average CTR and 22.6 average position over the last 16 months.</desc>
+  <rect width="1600" height="760" fill="#edf2f8"/>
+  <text x="16" y="32" fill="#30343b" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Performance</text>
+  <text x="1488" y="30" fill="#30343b" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">EXPORT</text>
+  <line x1="0" y1="62" x2="1600" y2="62" stroke="#d8dde5"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17">
+    <rect x="12" y="86" width="250" height="42" rx="8" fill="#d9edf9" stroke="#6e8799"/>
+    <text x="32" y="113" fill="#1f3442">Date: Last 16 months</text>
+    <rect x="274" y="86" width="222" height="42" rx="8" fill="#f8fafc" stroke="#8a9097"/>
+    <text x="296" y="113" fill="#202124">Search type: Web</text>
+    <rect x="508" y="86" width="150" height="42" rx="8" fill="#f8fafc" stroke="#8a9097"/>
+    <text x="548" y="113" fill="#202124">Add filter</text>
+    <text x="686" y="113" fill="#0b57d0">Reset filters</text>
+    <text x="1342" y="113" fill="#5f6368">Last updated: 9 hours ago</text>
+  </g>
+
+  <rect x="10" y="194" width="1580" height="548" rx="28" fill="#ffffff"/>
+  <rect x="10" y="194" width="246" height="148" rx="28" fill="#4285f4"/>
+  <rect x="256" y="194" width="246" height="148" fill="#673ab7"/>
+  <rect x="502" y="194" width="246" height="148" fill="#ffffff" stroke="#d8dde5"/>
+  <rect x="748" y="194" width="246" height="148" fill="#ffffff" stroke="#d8dde5"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="44" y="240" fill="#ffffff" font-size="18" font-weight="700">Total clicks</text>
+    <text x="44" y="296" fill="#ffffff" font-size="42">21.3K</text>
+    <text x="290" y="240" fill="#ffffff" font-size="18" font-weight="700">Total impressions</text>
+    <text x="290" y="296" fill="#ffffff" font-size="42">1.74M</text>
+    <text x="536" y="240" fill="#6b7280" font-size="18">Average CTR</text>
+    <text x="536" y="296" fill="#70757a" font-size="42">1.2%</text>
+    <text x="782" y="240" fill="#6b7280" font-size="18">Average position</text>
+    <text x="782" y="296" fill="#70757a" font-size="42">22.6</text>
+  </g>
+
+  <text x="32" y="388" fill="#3c4043" font-family="Arial, Helvetica, sans-serif" font-size="16">Clicks</text>
+  <text x="1474" y="388" fill="#3c4043" font-family="Arial, Helvetica, sans-serif" font-size="16">Impressions</text>
+  <g stroke="#e6e8eb">
+    <line x1="78" y1="408" x2="1520" y2="408"/>
+    <line x1="78" y1="496" x2="1520" y2="496"/>
+    <line x1="78" y1="584" x2="1520" y2="584"/>
+    <line x1="78" y1="672" x2="1520" y2="672"/>
+  </g>
+  <g fill="#6b7280" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    <text x="42" y="414">225</text>
+    <text x="42" y="502">150</text>
+    <text x="50" y="590">75</text>
+    <text x="60" y="678">0</text>
+    <text x="1530" y="414">18K</text>
+    <text x="1530" y="502">12K</text>
+    <text x="1530" y="590">6K</text>
+    <text x="1530" y="678">0</text>
+  </g>
+
+  <path d="M92 660 L122 654 L152 656 L182 646 L212 652 L242 650 L272 646 L302 650 L332 646 L362 648 L392 644 L422 646 L452 646 L482 640 L512 636 L542 640 L572 620 L602 628 L632 602 L662 610 L692 592 L722 600 L752 584 L782 592 L812 566 L842 574 L872 552 L902 560 L932 536 L962 544 L992 520 L1022 528 L1052 512 L1082 520 L1112 498 L1142 506 L1172 482 L1202 492 L1232 460 L1262 474 L1292 450 L1322 468 L1352 442 L1382 458 L1412 432 L1442 450 L1472 420 L1502 438" fill="none" stroke="#4285f4" stroke-width="3"/>
+  <path d="M92 666 L122 666 L152 662 L182 660 L212 666 L242 662 L272 666 L302 662 L332 666 L362 662 L392 666 L422 660 L452 664 L482 654 L512 652 L542 648 L572 638 L602 642 L632 622 L662 628 L692 606 L722 614 L752 592 L782 602 L812 580 L842 590 L872 566 L902 576 L932 550 L962 560 L992 536 L1022 548 L1052 522 L1082 532 L1112 504 L1142 516 L1172 492 L1202 506 L1232 470 L1262 486 L1292 452 L1322 470 L1352 436 L1382 456 L1412 424 L1442 444 L1472 412 L1502 420" fill="none" stroke="#673ab7" stroke-width="3"/>
+  <path d="M92 670 L1502 670" stroke="#9aa0a6"/>
+
+  <g fill="#6b7280" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    <text x="64" y="706">6/23/23</text>
+    <text x="204" y="706">8/9/23</text>
+    <text x="340" y="706">9/26/23</text>
+    <text x="474" y="706">11/13/23</text>
+    <text x="612" y="706">12/30/23</text>
+    <text x="754" y="706">2/15/24</text>
+    <text x="896" y="706">4/3/24</text>
+    <text x="1038" y="706">5/21/24</text>
+    <text x="1176" y="706">7/7/24</text>
+    <text x="1312" y="706">8/23/24</text>
+    <text x="1440" y="706">10/10/24</text>
+  </g>
+</svg>

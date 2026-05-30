@@ -1,3 +1,5 @@
+import { getLocalizedBlogTagSlug } from "@/lib/blog-tags";
+
 export const supportedLanguages = ['en', 'fr'] as const;
 export type Locale = (typeof supportedLanguages)[number];
 
@@ -41,6 +43,10 @@ export function getLocalizedPath(pathname: string, targetLang: Locale) {
 
     if (segments[1] === "blog" && segments[2] && translatedBlogSlugs[segments[2]]) {
         segments[2] = translatedBlogSlugs[segments[2]][targetLang];
+    }
+
+    if (segments[1] === "blog" && segments[2] === "tag" && segments[3]) {
+        segments[3] = getLocalizedBlogTagSlug(segments[3], targetLang);
     }
 
     const localizedPath = `/${segments.join("/")}`;

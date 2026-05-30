@@ -10,6 +10,8 @@ export function middleware(request: NextRequest) {
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
         pathname.startsWith('/studio') ||
+        pathname === '/icon' ||
+        pathname === '/icon/' ||
         pathname.includes('.') // matches files like /favicon.ico, /robots.txt, etc.
     ) {
         return;

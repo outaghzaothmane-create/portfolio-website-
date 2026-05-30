@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { DashboardWrapper } from "@/components/layout/DashboardWrapper";
 import { Footer } from "@/components/layout/Footer";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
@@ -9,9 +9,10 @@ import { Pagination } from "@/components/blog/Pagination";
 import { JsonLd } from "@/components/JsonLd";
 import { collectionPageSchema } from "@/lib/seo/jsonld";
 import { getBlogPosts, getTags, slugifyTag } from "@/lib/sanity";
-import { getDictionary, type Locale } from "@/lib/i18n";
-import { alternatesForPath } from "@/lib/seo/i18n";
-import { siteUrl } from "@/sanity/env";
+import { getDictionary, supportedLanguages, type Locale } from "@/lib/i18n";
+import { SetLanguagePaths } from "@/context/LanguageSwitcherContext";
+import { getBlogTagPathSet, getBlogTagSlugSet, getLocalizedBlogTagSlug } from "@/lib/blog-tags";
+import { absoluteUrl, localizePath } from "@/lib/seo/i18n";
 
 type PageProps = {
     params: { slug: string; lang: string };
@@ -20,9 +21,69 @@ type PageProps = {
 
 export const revalidate = 3600;
 
-async function getTagFromSlug(slug: string, lang: string) {
+type TagPaths = Partial<Record<Locale, string>>;
+
+type TagPageInfo = {
+    tag: string;
+    canonicalSlug: string;
+    paths: TagPaths;
+    canonicalUrl: string;
+};
+
+async function getTagPageInfo(slug: string, lang: Locale): Promise<TagPageInfo | null> {
     const tags = await getTags(lang);
-    return tags.find((tag) => slugifyTag(tag) === slug) || null;
+    const preferredSlug = getLocalizedBlogTagSlug(slug, lang);
+    const tag = tags.find((item) => slugifyTag(item) === preferredSlug) || tags.find((item) => slugifyTag(item) === slug);
+
+    if (!tag) {
+        return null;
+    }
+
+    const canonicalSlug = slugifyTag(tag);
+    const slugSet = getBlogTagSlugSet(canonicalSlug);
+    const pathSet = getBlogTagPathSet(canonicalSlug);
+    const tagEntries = await Promise.all(
+        supportedLanguages.map(async (locale) => {
+            const localeTags = locale === lang ? tags : await getTags(locale);
+            return [locale, localeTags] as const;
+        })
+    );
+    const paths = tagEntries.reduce<TagPaths>((acc, [locale, localeTags]) => {
+        const localizedSlug = slugSet[locale];
+        if (localeTags.some((item) => slugifyTag(item) === localizedSlug)) {
+            acc[locale] = pathSet[locale];
+        }
+        return acc;
+    }, {});
+
+    const canonicalPath = paths[lang] || `/blog/tag/${canonicalSlug}`;
+    paths[lang] = canonicalPath;
+
+    return {
+        tag,
+        canonicalSlug,
+        paths,
+        canonicalUrl: absoluteUrl(localizePath(lang, canonicalPath)),
+    };
+}
+
+function getTagAlternates(tagInfo: TagPageInfo) {
+    const languages = supportedLanguages.reduce<Record<string, string>>((acc, locale) => {
+        const path = tagInfo.paths[locale];
+        if (path) {
+            acc[locale] = absoluteUrl(localizePath(locale, path));
+        }
+        return acc;
+    }, {});
+
+    languages["x-default"] = tagInfo.paths.en
+        ? absoluteUrl(localizePath("en", tagInfo.paths.en))
+        : tagInfo.canonicalUrl;
+
+    return {
+        canonical: tagInfo.canonicalUrl,
+        languages,
+    };
 }
 
 export async function generateStaticParams() {
@@ -35,13 +96,14 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const tag = await getTagFromSlug(params.slug, params.lang);
+    const lang = params.lang as Locale;
+    const tagInfo = await getTagPageInfo(params.slug, lang);
 
-    if (!tag) {
+    if (!tagInfo) {
         return { title: "Tag Not Found | Othmane Outaghza" };
     }
 
-    const lang = params.lang as Locale;
+    const { tag } = tagInfo;
     const isFr = lang === "fr";
     const title = isFr ? `Articles ${tag} | Othmane Outaghza` : `${tag} Articles | Othmane Outaghza`;
     const description = isFr
@@ -52,11 +114,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title,
         description,
         robots: { index: false, follow: true },
-        alternates: alternatesForPath(lang, { en: `/blog/tag/${params.slug}`, fr: `/blog/tag/${params.slug}` }),
+        alternates: getTagAlternates(tagInfo),
         openGraph: {
             title,
             description,
-            url: `${siteUrl}/${lang}/blog/tag/${params.slug}`,
+            url: tagInfo.canonicalUrl,
             type: "website",
         },
     };
@@ -64,12 +126,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogTagPage({ params, searchParams }: PageProps) {
     const lang = params.lang as Locale;
-    const tag = await getTagFromSlug(params.slug, lang);
+    const tagInfo = await getTagPageInfo(params.slug, lang);
 
-    if (!tag) {
+    if (!tagInfo) {
         notFound();
     }
 
+    if (params.slug !== tagInfo.canonicalSlug) {
+        const pageParam = searchParams?.page ? `?page=${encodeURIComponent(searchParams.page)}` : "";
+        permanentRedirect(`/${lang}/blog/tag/${tagInfo.canonicalSlug}/${pageParam}`);
+    }
+
+    const { tag } = tagInfo;
     const [dict, blogResult] = await Promise.all([
         getDictionary(lang),
         getBlogPosts({ page: Math.max(1, Number(searchParams?.page || 1)), tag, lang }),
@@ -78,11 +146,17 @@ export default async function BlogTagPage({ params, searchParams }: PageProps) {
 
     return (
         <DashboardWrapper>
+            <SetLanguagePaths
+                paths={{
+                    en: tagInfo.paths.en ? `/en${tagInfo.paths.en}/` : "/en/blog/",
+                    fr: tagInfo.paths.fr ? `/fr${tagInfo.paths.fr}/` : "/fr/blog/",
+                }}
+            />
             <JsonLd
                 data={collectionPageSchema({
                     name: `${tag} Articles`,
                     description: `Articles about ${tag}.`,
-                    url: `${siteUrl}/${lang}/blog/tag/${params.slug}`,
+                    url: tagInfo.canonicalUrl,
                     lang,
                 })}
             />
@@ -108,7 +182,7 @@ export default async function BlogTagPage({ params, searchParams }: PageProps) {
                             <BlogCard key={post._id} post={post} />
                         ))}
                     </div>
-                    <Pagination page={page} totalPages={totalPages} basePath={`/${lang}/blog/tag/${params.slug}`} />
+                    <Pagination page={page} totalPages={totalPages} basePath={`/${lang}/blog/tag/${tagInfo.canonicalSlug}`} />
                 </SectionWrapper>
             </main>
             <Footer dict={dict.footer} lang={lang} />

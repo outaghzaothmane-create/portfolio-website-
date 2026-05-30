@@ -1,4 +1,4 @@
-import { caseStudies } from "@/data/case-studies";
+import { caseStudies, type CaseStudyImage } from "@/data/case-studies";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MetricCard } from "@/components/ui/metric-card";
@@ -16,8 +16,62 @@ import { getDictionary, supportedLanguages, type Locale } from "@/lib/i18n";
 import { alternatesForPath } from "@/lib/seo/i18n";
 import { siteUrl } from "@/sanity/env";
 
+type CaseStudy = (typeof caseStudies)[number];
+
+function getLocalizedImageText(image: CaseStudyImage, lang: Locale) {
+    return {
+        title: lang === "fr" && image.frTitle ? image.frTitle : image.title || image.alt,
+        alt: lang === "fr" && image.frAlt ? image.frAlt : image.alt,
+        caption: lang === "fr" && image.frCaption ? image.frCaption : image.caption,
+    };
+}
+
+function getPrimaryCaseStudyImage(study: CaseStudy): CaseStudyImage {
+    const matchingSolutionImage = study.solutionImages?.find((image) => image.url === study.heroImage);
+
+    return matchingSolutionImage || {
+        url: study.heroImage,
+        alt: `${study.title} case study overview`,
+        title: `${study.title} case study`,
+        width: 1200,
+        height: 630,
+    };
+}
+
+function getCaseStudyImages(study: CaseStudy) {
+    const images = [getPrimaryCaseStudyImage(study), ...(study.solutionImages || [])];
+    const seenUrls = new Set<string>();
+
+    return images.filter((image) => {
+        if (seenUrls.has(image.url)) {
+            return false;
+        }
+
+        seenUrls.add(image.url);
+        return true;
+    });
+}
+
+function imageObjectForSchema(image: CaseStudyImage, lang: Locale) {
+    const text = getLocalizedImageText(image, lang);
+
+    return {
+        "@type": "ImageObject",
+        "url": `${siteUrl}${image.url}`,
+        "contentUrl": `${siteUrl}${image.url}`,
+        "name": text.title,
+        "description": text.caption || text.alt,
+        "caption": text.caption || text.alt,
+        "width": image.width || 1200,
+        "height": image.height || 630,
+    };
+}
+
 // Schema component for breadcrumbs and article data
-function ProjectSchema({ study, slug, lang }: { study: typeof caseStudies[0]; slug: string; lang: Locale }) {
+function ProjectSchema({ study, slug, lang }: { study: CaseStudy; slug: string; lang: Locale }) {
+    const imageSchemas = getCaseStudyImages(study).map((image) => imageObjectForSchema(image, lang));
+    const primaryImageSchema = imageSchemas[0];
+
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -45,12 +99,7 @@ function ProjectSchema({ study, slug, lang }: { study: typeof caseStudies[0]; sl
 
     const imageSchema = {
         "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "url": `${siteUrl}${study.heroImage}`,
-        "name": `${study.title} - Case Study Overview`,
-        "description": study.shortDescription,
-        "width": 1200,
-        "height": 600
+        ...primaryImageSchema
     };
 
     const articleSchema = {
@@ -58,12 +107,7 @@ function ProjectSchema({ study, slug, lang }: { study: typeof caseStudies[0]; sl
         "@type": "Article",
         "headline": study.title,
         "description": study.shortDescription,
-        "image": {
-            "@type": "ImageObject",
-            "url": `${siteUrl}${study.heroImage}`,
-            "width": 1200,
-            "height": 600
-        },
+        "image": imageSchemas,
         "author": {
             "@type": "Person",
             "name": "Othmane Outaghza",
@@ -107,6 +151,7 @@ export async function generateStaticParams() {
 // Generate dynamic metadata for SEO
 export async function generateMetadata({ params }: { params: { slug: string; lang: string } }): Promise<Metadata> {
     const study = caseStudies.find((s) => s.id === params.slug);
+    const lang = params.lang as Locale;
 
     if (!study) {
         return {
@@ -114,21 +159,33 @@ export async function generateMetadata({ params }: { params: { slug: string; lan
         };
     }
 
+    const primaryImage = getPrimaryCaseStudyImage(study);
+    const primaryImageText = getLocalizedImageText(primaryImage, lang);
+
     return {
         title: `${study.title} | Othmane.SEO`,
         description: study.shortDescription,
-        alternates: alternatesForPath(params.lang as Locale, { en: `/projects/${study.id}`, fr: `/projects/${study.id}` }),
+        alternates: alternatesForPath(lang, { en: `/projects/${study.id}`, fr: `/projects/${study.id}` }),
         openGraph: {
             title: study.title,
             description: study.shortDescription,
             type: "article",
             url: `${siteUrl}/${params.lang}/projects/${study.id}`,
-            images: [study.heroImage],
+            images: [{
+                url: `${siteUrl}${primaryImage.url}`,
+                width: primaryImage.width || 1200,
+                height: primaryImage.height || 630,
+                alt: primaryImageText.alt,
+            }],
         },
         twitter: {
             card: "summary_large_image",
             title: study.title,
             description: study.shortDescription,
+            images: [{
+                url: `${siteUrl}${primaryImage.url}`,
+                alt: primaryImageText.alt,
+            }],
         },
     };
 }
@@ -257,22 +314,30 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
                                     
                                     {study.solutionImages && study.solutionImages.length > 0 && (
                                         <div className="mt-12 space-y-8">
-                                            {study.solutionImages.map((img, idx) => (
-                                                <figure key={idx} className="rounded-xl overflow-hidden border border-border bg-muted/10 p-2">
-                                                    <Image 
-                                                        src={img.url} 
-                                                        alt={img.alt} 
-                                                        width={1200} 
-                                                        height={600} 
-                                                        className="w-full h-auto rounded-lg shadow-sm"
-                                                    />
-                                                    {img.caption && (
-                                                        <figcaption className="text-center text-sm text-muted-foreground mt-4 pb-2">
-                                                            {img.caption}
-                                                        </figcaption>
-                                                    )}
-                                                </figure>
-                                            ))}
+                                            {study.solutionImages.map((img) => {
+                                                const imageText = getLocalizedImageText(img, lang);
+
+                                                return (
+                                                    <figure key={img.url} className="rounded-xl overflow-hidden border border-border bg-muted/10 p-2">
+                                                        <Image
+                                                            src={img.url}
+                                                            alt={imageText.alt}
+                                                            title={imageText.title}
+                                                            width={img.width || 1200}
+                                                            height={img.height || 600}
+                                                            loading="lazy"
+                                                            sizes="(min-width: 1024px) 820px, 100vw"
+                                                            itemProp="image"
+                                                            className="w-full h-auto rounded-lg shadow-sm"
+                                                        />
+                                                        {imageText.caption && (
+                                                            <figcaption className="text-center text-sm text-muted-foreground mt-4 pb-2">
+                                                                {imageText.caption}
+                                                            </figcaption>
+                                                        )}
+                                                    </figure>
+                                                );
+                                            })}
                                         </div>
                                     )}
                                 </div>

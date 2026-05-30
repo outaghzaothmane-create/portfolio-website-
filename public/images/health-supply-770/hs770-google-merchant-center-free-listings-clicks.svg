@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">HS770 Google Merchant Center free listings clicks summary</title>
+  <desc id="desc">Google Merchant Center summary evidence for HS770 showing 2.85K clicks from Google to the website, including 768 product free listing clicks and 2.08K online store free listing clicks.</desc>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="0" y="0" width="1600" height="72" fill="#ffffff" stroke="#d8dde5"/>
+  <text x="34" y="47" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="30">Summary</text>
+  <rect x="0" y="72" width="1600" height="68" fill="#ffffff" stroke="#d8dde5"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16">
+    <text x="40" y="112" fill="#1a73e8" font-size="28">Y</text>
+    <rect x="100" y="84" width="236" height="42" rx="21" fill="#ffffff" stroke="#d8dde5"/>
+    <text x="118" y="111" fill="#30343b" font-weight="700">Time period: Last 28 days</text>
+    <rect x="348" y="84" width="194" height="42" rx="21" fill="#ffffff" stroke="#d8dde5"/>
+    <text x="366" y="111" fill="#30343b" font-weight="700">Traffic: Free listings</text>
+  </g>
+
+  <rect x="164" y="172" width="1272" height="700" rx="8" fill="#ffffff" stroke="#d8dde5"/>
+  <text x="198" y="224" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="26">2.85K clicks on Google led to your website</text>
+  <text x="198" y="254" fill="#188038" font-family="Arial, Helvetica, sans-serif" font-size="18">+26.6%</text>
+
+  <g stroke="#e6e8eb">
+    <line x1="236" y1="318" x2="1076" y2="318"/>
+    <line x1="236" y1="456" x2="1076" y2="456"/>
+    <line x1="236" y1="594" x2="1076" y2="594"/>
+    <line x1="236" y1="732" x2="1076" y2="732"/>
+  </g>
+  <g fill="#7a7f87" font-family="Arial, Helvetica, sans-serif" font-size="16">
+    <text x="196" y="324">120</text>
+    <text x="208" y="462">90</text>
+    <text x="208" y="600">60</text>
+    <text x="208" y="738">30</text>
+    <text x="218" y="838">0</text>
+  </g>
+
+  <path d="M236 632 L266 646 L296 520 L326 452 L356 482 L386 404 L416 468 L446 594 L476 646 L506 472 L536 486 L566 326 L596 412 L626 420 L656 720 L686 460 L716 496 L746 482 L776 420 L806 432 L836 578 L866 618 L896 452 L926 388 L956 482 L986 436 L1016 472 L1046 430 L1076 450" fill="none" stroke="#009688" stroke-width="3"/>
+  <path d="M236 788 L266 788 L296 652 L326 652 L356 574 L386 704 L416 796 L446 752 L476 638 L506 674 L536 552 L566 626 L596 748 L626 760 L656 616 L686 620 L716 652 L746 630 L776 670 L806 792 L836 780 L866 648 L896 632 L926 604 L956 640 L986 678 L1016 720 L1046 742 L1076 680" fill="none" stroke="#1a73e8" stroke-width="3"/>
+  <line x1="236" y1="832" x2="1076" y2="832" stroke="#ef6c00" stroke-width="3"/>
+  <circle cx="1076" cy="680" r="8" fill="#1a73e8"/>
+  <rect x="1070" y="443" width="16" height="16" fill="#009688"/>
+  <polygon points="1076,824 1086,834 1076,844 1066,834" fill="#ef6c00"/>
+
+  <g fill="#7a7f87" font-family="Arial, Helvetica, sans-serif" font-size="16">
+    <text x="236" y="872">Jul 13, 2024</text>
+    <text x="436" y="872">Jul 21, 2024</text>
+    <text x="682" y="872">Jul 29, 2024</text>
+    <text x="898" y="872">Aug 6, 2024</text>
+  </g>
+
+  <rect x="950" y="194" width="68" height="68" rx="6" fill="#ffffff" stroke="#d8dde5"/>
+  <rect x="1018" y="194" width="68" height="68" rx="6" fill="#d7e9ff" stroke="#c7d8ec"/>
+  <text x="1150" y="232" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Traffic</text>
+  <text x="1500" y="232" fill="#202124" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Clicks</text>
+  <line x1="1126" y1="254" x2="1540" y2="254" stroke="#d8dde5"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="18">
+    <circle cx="1174" cy="284" r="8" fill="#1a73e8"/>
+    <text x="1194" y="292" fill="#0b57d0">Products</text>
+    <text x="1194" y="346" fill="#202124">Free listings</text>
+    <text x="1440" y="346" fill="#202124">768</text>
+    <text x="1492" y="346" fill="#188038">+89.6%</text>
+    <text x="1194" y="402" fill="#202124">Ads</text>
+    <text x="1462" y="402" fill="#202124">0</text>
+    <text x="1514" y="402" fill="#202124">0.0%</text>
+    <line x1="1126" y1="424" x2="1540" y2="424" stroke="#d8dde5"/>
+
+    <polygon points="1174,446 1182,454 1174,462 1166,454" fill="#ef6c00"/>
+    <text x="1194" y="462" fill="#0b57d0">Physical stores</text>
+    <text x="1194" y="518" fill="#202124">Free listings</text>
+    <text x="1462" y="518" fill="#202124">0</text>
+    <text x="1514" y="518" fill="#202124">0.0%</text>
+    <line x1="1126" y1="536" x2="1540" y2="536" stroke="#d8dde5"/>
+
+    <rect x="1166" y="560" width="16" height="16" fill="#009688"/>
+    <text x="1194" y="576" fill="#0b57d0">Online store</text>
+    <text x="1194" y="632" fill="#202124">Free listings</text>
+    <text x="1428" y="632" fill="#202124">2.08K</text>
+    <text x="1492" y="632" fill="#188038">+12.8%</text>
+    <text x="1194" y="688" fill="#202124">Ads</text>
+    <text x="1342" y="688" fill="#0b57d0">View all ad campaigns</text>
+  </g>
+</svg>

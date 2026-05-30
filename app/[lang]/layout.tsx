@@ -74,6 +74,10 @@ export async function generateMetadata(
         verification: {
             google: "vyNwAWSelppL3sI5KlalLT6dRlthpNc1oheFJJb55LI",
         },
+        icons: {
+            icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+            shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
+        },
     };
 }
 
