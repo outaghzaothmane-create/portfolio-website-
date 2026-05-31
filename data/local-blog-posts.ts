@@ -7,18 +7,41 @@ const metaDescription =
     "Learn how Moroccan e-commerce stores can optimize product pages for Google, ChatGPT, AI search, structured data, mobile speed, and local trust.";
 const featuredImage = "/images/seo-ecommerce-morocco-ai-search-product-pages.webp";
 const featuredImageAlt = "SEO e-commerce Morocco strategy for optimizing product pages for Google and AI search";
+const geoVsSeoMarocSlug = "geo-vs-seo-maroc";
+const geoVsSeoMarocCanonicalUrl = "https://othmaneoutaghza.online/fr/blog/geo-vs-seo-maroc/";
+const geoVsSeoMarocMetaTitle = "GEO vs SEO : différences et stratégie pour votre site au Maroc en 2026";
+const geoVsSeoMarocMetaDescription =
+    "GEO (Generative Engine Optimization) et SEO ne sont pas la même chose. Découvrez les différences clés et comment optimiser votre site marocain pour Google ET ChatGPT en 2026.";
+
+const ecommerceSeoCategory: SanityCategory = {
+    title: "E-commerce SEO",
+    slug: "ecommerce-seo",
+    description: "E-commerce SEO guides for product pages, category pages, Shopify, WooCommerce, and organic growth.",
+};
+
+const aiSearchOptimizationCategory: SanityCategory = {
+    title: "AI Search Optimization",
+    slug: "ai-search-optimization",
+    description: "Guides for improving visibility in ChatGPT, Perplexity, Gemini, Google AI features, and answer engines.",
+};
+
+const geoCategory: SanityCategory = {
+    title: "GEO",
+    slug: "geo",
+    description: "Generative Engine Optimization guides for AI Overviews, ChatGPT, Perplexity, Gemini, and LLM visibility.",
+};
+
+const seoMarocCategory: SanityCategory = {
+    title: "SEO Maroc",
+    slug: "seo-maroc",
+    description: "Conseils SEO et référencement IA pour les entreprises marocaines.",
+};
 
 export const localBlogCategories: SanityCategory[] = [
-    {
-        title: "E-commerce SEO",
-        slug: "ecommerce-seo",
-        description: "E-commerce SEO guides for product pages, category pages, Shopify, WooCommerce, and organic growth.",
-    },
-    {
-        title: "AI Search Optimization",
-        slug: "ai-search-optimization",
-        description: "Guides for improving visibility in ChatGPT, Perplexity, Gemini, Google AI features, and answer engines.",
-    },
+    ecommerceSeoCategory,
+    aiSearchOptimizationCategory,
+    geoCategory,
+    seoMarocCategory,
 ];
 
 const faqs = [
@@ -2004,6 +2027,322 @@ const frFaqs = [
     },
 ];
 
+const geoVsSeoMarocMarkdown = `
+## Introduction
+
+Imaginez la scène : un chef d'entreprise à Marrakech tape sur ChatGPT *"meilleure agence SEO Marrakech"*. Une réponse détaillée apparaît — avec le nom d'un concurrent, ses services, son site. Le vôtre ? Absent. Pourtant, votre site est bien positionné sur Google. Alors, que s'est-il passé ?
+
+Ce que cet entrepreneur n'a pas compris — et que la plupart des entreprises marocaines ignorent encore — c'est qu'il existe désormais deux systèmes de visibilité distincts sur internet : **le SEO traditionnel** (pour Google, Bing) et le **GEO**, ou *Generative Engine Optimization* (pour ChatGPT, Perplexity, Gemini, et les AI Overviews de Google).
+
+Être bien classé sur Google ne signifie plus automatiquement être visible là où vos clients cherchent en 2026. Et au Maroc, le fossé entre ces deux réalités est encore largement inexploité.
+
+Dans cet article, vous allez comprendre exactement ce qui distingue le SEO du GEO, pourquoi les deux sont devenus indispensables, et quelles actions concrètes vous pouvez mettre en place dès aujourd'hui pour que votre site marocain soit visible partout — Google compris.
+
+---
+
+## 1. C'est quoi le SEO traditionnel — et pourquoi il ne suffit plus
+
+### Comment fonctionne Google Search en 2026
+
+Le SEO (Search Engine Optimization) désigne l'ensemble des pratiques visant à améliorer le positionnement d'un site dans les résultats des moteurs de recherche — principalement Google, qui détient **97 % des parts de marché de la recherche au Maroc**.
+
+Le moteur de recherche explore votre site, analyse ses contenus, ses liens entrants, sa vitesse, sa structure technique, puis décide où le placer dans les résultats pour une requête donnée. C'est un processus algorithmique basé sur des centaines de signaux.
+
+En 2026, Google reste dominant au Maroc. Mais ses résultats évoluent : les **AI Overviews** (anciennement SGE) commencent à apparaître sur des requêtes en français et en arabe au Maroc — des réponses générées par intelligence artificielle qui s'affichent *avant* les liens classiques.
+
+### Les limites du SEO classique face aux nouvelles habitudes de recherche
+
+Le SEO répond à une question simple : *comment se classer parmi les 10 premiers liens ?*
+
+Mais que se passe-t-il quand l'utilisateur n'arrive plus jusqu'aux 10 liens ? Quand il obtient une réponse directe générée par l'IA — sans cliquer sur un seul résultat ?
+
+C'est le problème du **zero-click** : selon les études récentes, plus de 60 % des recherches Google se terminent sans clic. L'IA aggrave ce phénomène. Pour les sites marocains qui dépendent du trafic organique, ignorer cette réalité est un risque croissant.
+
+### Ce que les Marocains cherchent maintenant sur ChatGPT et Perplexity
+
+L'adoption de ChatGPT et Perplexity est en forte croissance au Maroc, notamment chez les jeunes entrepreneurs, les étudiants, et les professionnels du marketing. Ces outils sont utilisés pour des requêtes qui relevaient autrefois de Google : comparatifs de plateformes, recommandations de prestataires, questions techniques, guides pratiques.
+
+Si votre contenu n'est pas structuré pour être *citable* par ces systèmes, vous n'existez pas dans leurs réponses — quelle que soit votre position sur Google.
+
+---
+
+## 2. C'est quoi le GEO (Generative Engine Optimization) ?
+
+### Définition simple du GEO
+
+Le **GEO, ou Generative Engine Optimization**, est l'ensemble des pratiques permettant d'optimiser un contenu pour qu'il soit extrait, cité ou référencé par les systèmes d'intelligence artificielle générative lors de leurs réponses.
+
+En une phrase : **le SEO vous fait apparaître sur Google, le GEO vous fait apparaître dans les réponses de ChatGPT, Perplexity, Gemini et les AI Overviews.**
+
+### Les moteurs qui utilisent le GEO : ChatGPT, Perplexity, Gemini, AI Overviews
+
+Les principaux systèmes que cible le GEO en 2026 :
+
+| Système | Part d'usage au Maroc | Type de réponse |
+|---|---|---|
+| **Google AI Overviews** | Croissant (FR + AR) | Résumé IA en haut des résultats Google |
+| **ChatGPT (OpenAI)** | Fort chez les professionnels | Réponse conversationnelle avec sources |
+| **Perplexity AI** | En croissance rapide | Moteur de recherche IA avec citations |
+| **Google Gemini** | Intégré à Google Workspace | Réponses IA + liens sources |
+| **Microsoft Copilot** | Présent sur Windows/Edge | Réponses IA basées sur Bing |
+
+### Comment ces outils choisissent quels sites citer
+
+Les moteurs IA ne classent pas des pages — ils **extraient des fragments** de contenu jugés fiables, clairs et pertinents. Les signaux qui favorisent la citation :
+
+- **Clarté de la réponse** : une question posée = une réponse directe en début de section
+- **Structure extractible** : titres H2/H3 bien définis, tableaux, listes numérotées
+- **Mentions d'entités** : noms de lieux, plateformes, certifications, marques reconnues
+- **Signaux d'autorité** : auteur identifié, sources citées, données vérifiables
+- **Format FAQ** : les sections question/réponse sont massivement extraites par les LLMs
+
+---
+
+## 3. SEO vs GEO : tableau comparatif complet
+
+### Ce qu'ils ont en commun
+
+SEO et GEO partagent une base commune : ils nécessitent tous les deux un **contenu de qualité**, une **structure technique solide**, et des **signaux d'autorité** crédibles. Un bon SEO est le prérequis d'un bon GEO — les systèmes IA citent rarement des sites mal structurés ou peu fiables.
+
+### Ce qui les différencie fondamentalement
+
+| Critère | SEO traditionnel | GEO (Generative Engine Optimization) |
+|---|---|---|
+| **Objectif** | Classement dans les 10 premiers liens Google | Être cité dans les réponses IA |
+| **Plateforme cible** | Google, Bing, Yahoo | ChatGPT, Perplexity, Gemini, AI Overviews |
+| **Signal principal** | Backlinks, autorité de domaine, mots-clés | Clarté de réponse, structure, entités, E-E-A-T |
+| **Format de contenu** | Article long, optimisé mot-clé | Blocs extractibles, FAQ, réponses directes |
+| **Mesure de succès** | Position, trafic organique, CTR | Citations IA, trafic issu des LLMs, mentions |
+| **Délai de résultat** | 3 à 6 mois | 1 à 3 mois pour les premières citations |
+| **Pertinence au Maroc** | Indispensable (97 % Google) | Opportunité first-mover en 2026 |
+
+### Peut-on faire l'un sans l'autre ?
+
+Techniquement oui — mais ce serait une erreur stratégique. Le SEO sans GEO vous rend invisible sur les moteurs IA. Le GEO sans SEO fragilise votre crédibilité, car les systèmes IA ont tendance à citer des sources déjà bien établies sur le web.
+
+La combinaison des deux est la stratégie gagnante, surtout au Maroc où la concurrence sur les deux tableaux est encore très faible.
+
+---
+
+## 4. Pourquoi le GEO est une opportunité unique pour les entreprises marocaines en 2026
+
+### Le marché marocain est encore peu optimisé pour l'IA
+
+Selon les données disponibles, **seulement 23 % des entreprises marocaines ont une stratégie SEO structurée**. Ce chiffre tombe à quelques pourcents pour le GEO — la quasi-totalité des sites marocains ne sont pas optimisés pour les moteurs IA.
+
+Cela signifie que la fenêtre d'opportunité est encore largement ouverte. Les entreprises qui agissent maintenant — consultants, e-commerçants, cliniques, agences — peuvent s'imposer comme références dans les réponses IA pour des requêtes marocaines avant que la concurrence ne réalise ce qui se passe.
+
+### Les requêtes en français et en darija génèrent déjà des AI Overviews
+
+Les AI Overviews de Google apparaissent désormais sur des requêtes en français formulées depuis le Maroc. Exemples de types de requêtes déjà concernées :
+
+- *"comment créer une boutique en ligne au Maroc"*
+- *"meilleur consultant SEO Casablanca"*
+- *"tarif livraison Maroc e-commerce"*
+- *"WooCommerce ou Shopify pour le Maroc"*
+
+Pour ces requêtes, Google génère une réponse en haut de page avant les liens classiques. Les sites qui fournissent des réponses bien structurées sont ceux qui apparaissent — pas forcément les mieux positionnés en SEO.
+
+### Qui risque de perdre des clics si rien n'est fait
+
+Les secteurs les plus exposés au Maroc :
+
+- **E-commerce** : les requêtes comparatives et de recommandation basculent vers l'IA
+- **Services professionnels** (consultants, avocats, médecins) : les questions d'orientation aussi
+- **Tourisme et hospitalité** : les recommandations locales sont massivement traitées par les LLMs
+- **Éducation et formation** : les questions "comment apprendre X" vont directement à ChatGPT
+
+Si votre secteur figure dans cette liste et que votre site n'est pas structuré pour le GEO, vous êtes en train de céder votre visibilité à des concurrents qui agissent.
+
+---
+
+## 5. Comment optimiser son contenu pour le GEO au Maroc : 6 actions concrètes
+
+### 1. Adopter une structure "answer-first" (réponse directe en début de section)
+
+Chaque H2 de votre article doit s'ouvrir avec une réponse directe à la question implicite posée par ce titre. Les LLMs extraient les premiers 1 à 3 paragraphes de chaque section — c'est là que la réponse doit se trouver, pas à la fin.
+
+**Exemple :** Si votre H2 est *"Comment optimiser une fiche produit WooCommerce ?"*, la première phrase doit déjà répondre à la question, pas introduire le sujet.
+
+### 2. Ajouter une section FAQ avec schema markup
+
+Les sections FAQ sont le format le plus extrait par les moteurs IA. Chaque question doit correspondre à une vraie requête tapée par vos clients marocains — vérifiez dans Google Autocomplete et People Also Ask.
+
+Ajoutez systématiquement le **schéma FAQPage** en JSON-LD pour signaler la structure aux crawlers de Google et aux robots des LLMs.
+
+### 3. Mentionner clairement les entités locales marocaines
+
+Les systèmes IA fonctionnent par entités : ils comprennent mieux un contenu qui cite des noms précis (villes, plateformes, certifications, devises) plutôt que des généralités.
+
+Mentionnez explicitement : **Maroc, Casablanca, Rabat, Marrakech, MAD (dirham marocain), WooCommerce, YouCan, ONSSA** (selon votre secteur). Ces entités locales renforcent la pertinence de votre contenu pour les requêtes marocaines.
+
+### 4. Structurer le contenu en blocs extractibles
+
+Chaque H2 = une question = une réponse complète. Utilisez des tableaux pour les comparaisons, des listes numérotées pour les processus, et des listes à puces pour les critères. Évitez les longs paragraphes denses — les LLMs ont du mal à en extraire des fragments propres.
+
+### 5. Construire les signaux E-E-A-T : auteur, sources, données réelles
+
+Les moteurs IA privilégient les sources qui démontrent une **expertise réelle** (E-E-A-T : Expérience, Expertise, Autorité, Fiabilité). Concrètement :
+
+- Ajoutez un **schema Author** sur chaque article avec votre nom, titre, et lien LinkedIn
+- Citez des données vérifiables avec leur source
+- Incluez des exemples tirés de votre expérience réelle — les cas concrets du Maroc sont rares et donc très valorisés
+
+### 6. Ajouter un fichier llms.txt pour guider les crawlers IA
+
+Le fichier \`llms.txt\` est l'équivalent du \`robots.txt\` pour les crawlers LLM. Il indique aux robots d'OpenAI, Anthropic, et autres quelles pages de votre site sont les plus pertinentes à indexer et à citer.
+
+C'est une pratique encore très peu connue au Maroc — l'implémenter maintenant vous donne une longueur d'avance concrète sur tous vos concurrents locaux.
+
+---
+
+## 6. Par où commencer : SEO d'abord, puis GEO — ou les deux en parallèle ?
+
+### Si votre site a moins de 6 mois : SEO en priorité
+
+Un site récent a besoin d'abord de construire son autorité de domaine, ses backlinks de base, et son architecture technique. Sans cette fondation, même un contenu parfaitement optimisé pour le GEO aura peu de chances d'être cité par les systèmes IA — qui favorisent les sources établies.
+
+**Ordre recommandé :** technique SEO → contenu SEO → intégration GEO à partir du 3e mois.
+
+### Si votre site est établi : GEO en complément immédiat
+
+Si votre site a plus de 12 mois et un historique de trafic organique, le GEO peut être intégré immédiatement sans attendre. Il s'agit principalement d'une reformatage du contenu existant : ajouter des FAQ, restructurer les introductions, enrichir les schémas, mentionner les entités locales.
+
+Le retour sur investissement est rapide — certaines citations IA apparaissent en quelques semaines pour des requêtes peu concurrentielles.
+
+### Le bon ordre d'investissement selon votre budget
+
+| Budget mensuel | Priorité recommandée |
+|---|---|
+| **< 3 000 MAD/mois** | SEO technique de base + 1 article optimisé/mois |
+| **3 000 – 8 000 MAD/mois** | SEO contenu + schema + FAQ GEO sur chaque article |
+| **> 8 000 MAD/mois** | Stratégie SEO + GEO intégrée, reporting mensuel IA |
+
+---
+
+## FAQ — Questions fréquentes sur le GEO et le SEO au Maroc
+
+**Le GEO va-t-il remplacer le SEO au Maroc ?**
+Non, le GEO ne remplace pas le SEO — il le complète. Google reste le moteur dominant au Maroc avec 97 % des parts de marché, et le SEO traditionnel reste indispensable. Cependant, la part des clics capturée par les AI Overviews augmente chaque trimestre. Les entreprises qui ne travaillent que le SEO classique perdront progressivement de la visibilité sans même changer de position dans les résultats.
+
+**Mon site doit-il être en français ou en arabe pour apparaître dans ChatGPT ?**
+Les deux langues fonctionnent, mais le **français génère actuellement plus de citations IA au Maroc** car le corpus d'entraînement des LLMs est plus riche en contenu francophone de qualité. L'arabe standard est bien traité par Gemini et ChatGPT, mais le darija reste sous-représenté. Publiez d'abord en français, ajoutez une version arabe standard pour les requêtes locales spécifiques.
+
+**Comment savoir si mon site est cité par ChatGPT ou Perplexity ?**
+Tapez vos requêtes cibles directement dans ces outils et observez si votre site apparaît dans les sources citées. Pour un suivi systématique, des outils comme Brandwatch, Mention, et certains modules Ahrefs commencent à tracker les citations LLM. Vous pouvez aussi utiliser Google Search Console pour détecter le trafic issu des AI Overviews (segment "AI Overviews" dans le rapport de performance).
+
+**Combien de temps faut-il pour voir des résultats avec le GEO ?**
+Plus rapidement que le SEO classique dans certains cas. Pour des requêtes peu concurrentielles ciblant le Maroc, des citations peuvent apparaître en **4 à 8 semaines** après publication d'un contenu bien structuré. Pour des requêtes plus compétitives, comptez 3 à 6 mois — similaire au SEO.
+
+**Le GEO fonctionne-t-il pour les petits sites marocains ?**
+Oui, et c'est même là que l'opportunité est la plus grande. Les petits sites qui publient un contenu clair, spécifique, et bien structuré sur des requêtes de niche marocaine peuvent obtenir des citations IA avant de grandes agences dont le contenu est générique. La spécificité locale est un avantage, pas un handicap.
+
+**Qu'est-ce que le LLMO (Large Language Model Optimization) ?**
+Le LLMO est un terme utilisé comme synonyme du GEO, avec une emphase plus technique sur l'optimisation pour les modèles de langage eux-mêmes (LLM) plutôt que pour les interfaces de recherche IA. En pratique, les techniques sont identiques : structure extractible, entités claires, autorité de la source, format FAQ. Le terme GEO est plus répandu dans la communauté SEO francophone.
+
+---
+
+## Conclusion
+
+Le SEO construit votre visibilité sur Google. Le GEO construit votre visibilité dans les réponses de l'IA. En 2026, au Maroc, vous avez besoin des deux — et la bonne nouvelle, c'est que la fenêtre pour être parmi les premiers à le faire est encore largement ouverte.
+
+La plupart de vos concurrents marocains n'ont pas encore entendu parler du GEO. C'est votre avantage.
+
+**Vous voulez savoir si votre site est correctement optimisé pour Google ET pour les moteurs IA ?** Demandez un audit SEO et GEO — je vous fournis une analyse complète de votre visibilité actuelle et un plan d'action concret adapté à votre marché.
+
+→ [Demander un audit SEO & GEO](#)
+
+---
+
+*Article connexe : [SEO pour e-commerce au Maroc : guide complet WooCommerce 2026](#)*
+
+---
+`.trim();
+
+const geoVsSeoMarocJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Article",
+            headline: "GEO vs SEO : quelle différence et pourquoi ça compte pour votre site au Maroc en 2026",
+            datePublished: "2026-06-01",
+            dateModified: "2026-06-01",
+            author: {
+                "@type": "Person",
+                name: "Othmane Outaghza",
+                jobTitle: "Technical SEO & GEO Consultant",
+                url: "https://othmaneoutaghza.online",
+                sameAs: ["https://www.linkedin.com/in/othmaneoutaghza"],
+            },
+            publisher: {
+                "@type": "Person",
+                name: "Othmane Outaghza",
+            },
+            image: "https://othmaneoutaghza.online/images/geo-vs-seo-maroc.jpg",
+            inLanguage: "fr-MA",
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: [
+                {
+                    "@type": "Question",
+                    name: "Le GEO va-t-il remplacer le SEO au Maroc ?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                            "Non, le GEO ne remplace pas le SEO — il le complète. Google reste dominant au Maroc avec 97 % des parts de marché. Cependant, les AI Overviews captent une part croissante des clics. Les entreprises qui travaillent uniquement le SEO classique perdront progressivement de la visibilité.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Mon site doit-il être en français ou en arabe pour apparaître dans ChatGPT ?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                            "Les deux fonctionnent, mais le français génère actuellement plus de citations IA au Maroc car le corpus d'entraînement des LLMs est plus riche en contenu francophone de qualité. Publiez d'abord en français, puis ajoutez une version arabe standard.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Comment savoir si mon site est cité par ChatGPT ou Perplexity ?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                            "Tapez vos requêtes cibles directement dans ces outils et observez si votre site apparaît dans les sources citées. Utilisez également Google Search Console pour détecter le trafic issu des AI Overviews via le segment dédié dans le rapport de performance.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Combien de temps faut-il pour voir des résultats avec le GEO ?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                            "Pour des requêtes peu concurrentielles ciblant le Maroc, des citations peuvent apparaître en 4 à 8 semaines après publication d'un contenu bien structuré. Pour des requêtes plus compétitives, comptez 3 à 6 mois.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Le GEO fonctionne-t-il pour les petits sites marocains ?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                            "Oui. Les petits sites qui publient un contenu clair et spécifique sur des requêtes de niche marocaine peuvent obtenir des citations IA avant de grandes agences dont le contenu est générique. La spécificité locale est un avantage.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    name: "Qu'est-ce que le LLMO (Large Language Model Optimization) ?",
+                    acceptedAnswer: {
+                        "@type": "Answer",
+                        text:
+                            "Le LLMO est un synonyme du GEO avec une emphase technique sur l'optimisation pour les modèles de langage eux-mêmes. Les techniques sont identiques : structure extractible, entités claires, autorité de la source, format FAQ.",
+                    },
+                },
+            ],
+        },
+    ],
+};
+
 let keyIndex = 0;
 function key(prefix = "k") {
     keyIndex += 1;
@@ -2212,6 +2551,235 @@ function htmlToPortableText(html: string) {
         .flatMap((element) => elementToBlocks($, element));
 }
 
+function markdownChildren(text: string, markDefs: Array<Record<string, string>>, marks: string[] = []) {
+    const spans: Array<{ _key: string; _type: "span"; text: string; marks?: string[] }> = [];
+
+    function appendText(value: string, activeMarks: string[]) {
+        if (!value) {
+            return;
+        }
+
+        spans.push({
+            _key: key("s"),
+            _type: "span",
+            text: value,
+            marks: activeMarks.length ? activeMarks : undefined,
+        });
+    }
+
+    function parse(value: string, activeMarks: string[]) {
+        let index = 0;
+
+        while (index < value.length) {
+            const candidates = [
+                { type: "strong", start: value.indexOf("**", index) },
+                { type: "code", start: value.indexOf("`", index) },
+                { type: "link", start: value.indexOf("[", index) },
+                { type: "em", start: value.indexOf("*", index) },
+            ]
+                .filter((candidate) => candidate.start >= 0)
+                .sort((a, b) => a.start - b.start);
+
+            const next = candidates[0];
+            if (!next) {
+                appendText(value.slice(index), activeMarks);
+                break;
+            }
+
+            if (next.start > index) {
+                appendText(value.slice(index, next.start), activeMarks);
+            }
+
+            if (next.type === "strong") {
+                const end = value.indexOf("**", next.start + 2);
+                if (end < 0) {
+                    appendText(value.slice(next.start), activeMarks);
+                    break;
+                }
+                parse(value.slice(next.start + 2, end), [...activeMarks, "strong"]);
+                index = end + 2;
+                continue;
+            }
+
+            if (next.type === "code") {
+                const end = value.indexOf("`", next.start + 1);
+                if (end < 0) {
+                    appendText(value.slice(next.start), activeMarks);
+                    break;
+                }
+                parse(value.slice(next.start + 1, end), [...activeMarks, "code"]);
+                index = end + 1;
+                continue;
+            }
+
+            if (next.type === "link") {
+                const labelEnd = value.indexOf("]", next.start + 1);
+                const hrefStart = labelEnd >= 0 ? value.indexOf("(", labelEnd) : -1;
+                const hrefEnd = hrefStart >= 0 ? value.indexOf(")", hrefStart) : -1;
+                if (labelEnd < 0 || hrefStart !== labelEnd + 1 || hrefEnd < 0) {
+                    appendText(value[next.start], activeMarks);
+                    index = next.start + 1;
+                    continue;
+                }
+
+                const markKey = key("m");
+                markDefs.push({ _key: markKey, _type: "link", href: value.slice(hrefStart + 1, hrefEnd) });
+                parse(value.slice(next.start + 1, labelEnd), [...activeMarks, markKey]);
+                index = hrefEnd + 1;
+                continue;
+            }
+
+            if (next.type === "em") {
+                if (value.startsWith("**", next.start)) {
+                    appendText("*", activeMarks);
+                    index = next.start + 1;
+                    continue;
+                }
+
+                const end = value.indexOf("*", next.start + 1);
+                if (end < 0) {
+                    appendText(value[next.start], activeMarks);
+                    index = next.start + 1;
+                    continue;
+                }
+
+                parse(value.slice(next.start + 1, end), [...activeMarks, "em"]);
+                index = end + 1;
+            }
+        }
+    }
+
+    parse(text.replace(/\s+/g, " "), marks);
+    return normalizeSpans(spans);
+}
+
+function markdownTextBlock(text: string, style = "normal", listItem?: "bullet" | "number") {
+    const markDefs: Array<Record<string, string>> = [];
+    const children = markdownChildren(text, markDefs);
+
+    if (!children.length) {
+        return null;
+    }
+
+    return {
+        _key: key("b"),
+        _type: "block",
+        style,
+        markDefs,
+        children,
+        ...(listItem ? { listItem, level: 1 } : {}),
+    };
+}
+
+function stripMarkdownMarks(text: string) {
+    return text
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+        .replace(/\*\*([^*]+)\*\*/g, "$1")
+        .replace(/\*([^*]+)\*/g, "$1")
+        .replace(/`([^`]+)`/g, "$1")
+        .trim();
+}
+
+function markdownTableBlock(lines: string[]) {
+    const rows = lines
+        .filter((line) => !/^\|\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(line.trim()))
+        .map((line) =>
+            line
+                .trim()
+                .replace(/^\||\|$/g, "")
+                .split("|")
+                .map((cell) => stripMarkdownMarks(cell))
+        )
+        .filter((cells) => cells.length > 1);
+
+    return rows.length
+        ? {
+            _key: key("tbl"),
+            _type: "table",
+            rows: rows.map((cells, index) => ({ cells, isHeader: index === 0 })),
+        }
+        : null;
+}
+
+function isMarkdownTableLine(line: string) {
+    return /^\|.*\|$/.test(line.trim());
+}
+
+function isMarkdownBlockStart(line: string) {
+    const trimmed = line.trim();
+    return (
+        !trimmed ||
+        /^#{2,3}\s+/.test(trimmed) ||
+        /^-{3,}$/.test(trimmed) ||
+        /^[-*]\s+/.test(trimmed) ||
+        isMarkdownTableLine(trimmed)
+    );
+}
+
+function markdownToPortableText(markdown: string) {
+    keyIndex = 0;
+    const blocks: any[] = [];
+    const lines = markdown.split(/\r?\n/);
+    let index = 0;
+
+    while (index < lines.length) {
+        const line = lines[index].trim();
+
+        if (!line || /^-{3,}$/.test(line)) {
+            index += 1;
+            continue;
+        }
+
+        const heading = /^(#{2,3})\s+(.+)$/.exec(line);
+        if (heading) {
+            const block = markdownTextBlock(heading[2], heading[1].length === 2 ? "h2" : "h3");
+            if (block) {
+                blocks.push(block);
+            }
+            index += 1;
+            continue;
+        }
+
+        if (isMarkdownTableLine(line)) {
+            const tableLines: string[] = [];
+            while (index < lines.length && isMarkdownTableLine(lines[index])) {
+                tableLines.push(lines[index]);
+                index += 1;
+            }
+            const block = markdownTableBlock(tableLines);
+            if (block) {
+                blocks.push(block);
+            }
+            continue;
+        }
+
+        if (/^[-*]\s+/.test(line)) {
+            while (index < lines.length && /^[-*]\s+/.test(lines[index].trim())) {
+                const block = markdownTextBlock(lines[index].trim().replace(/^[-*]\s+/, ""), "normal", "bullet");
+                if (block) {
+                    blocks.push(block);
+                }
+                index += 1;
+            }
+            continue;
+        }
+
+        const paragraphLines = [line];
+        index += 1;
+        while (index < lines.length && !isMarkdownBlockStart(lines[index])) {
+            paragraphLines.push(lines[index].trim());
+            index += 1;
+        }
+
+        const block = markdownTextBlock(paragraphLines.join(" "));
+        if (block) {
+            blocks.push(block);
+        }
+    }
+
+    return blocks;
+}
+
 function estimateReadingTimeFromBlocks(body: any[]) {
     const text = body
         .flatMap((block) => {
@@ -2233,8 +2801,76 @@ function estimateReadingTimeFromBlocks(body: any[]) {
 
 const articleBody = htmlToPortableText(articleHtml);
 const frArticleBody = htmlToPortableText(frArticleHtml);
+const geoVsSeoMarocBody = markdownToPortableText(geoVsSeoMarocMarkdown);
 
 export const localBlogPosts: BlogPost[] = [
+    {
+        _id: "local-geo-vs-seo-maroc",
+        title: "GEO vs SEO : quelle différence et pourquoi ça compte pour votre site au Maroc en 2026",
+        slug: geoVsSeoMarocSlug,
+        excerpt:
+            "Comprenez les différences entre SEO traditionnel et GEO, puis découvrez comment optimiser un site marocain pour Google, ChatGPT, Perplexity, Gemini et les AI Overviews en 2026.",
+        publishedAt: "2026-06-01T00:00:00.000Z",
+        updatedAt: "2026-06-01T00:00:00.000Z",
+        featured: false,
+        readingTime: estimateReadingTimeFromBlocks(geoVsSeoMarocBody),
+        mainImage: {
+            url: "/images/ai-search-optimization-workflow-morocco.webp",
+            alt: "Workflow d'optimisation GEO et SEO pour la recherche IA au Maroc",
+            width: 1200,
+            height: 630,
+        },
+        categories: [aiSearchOptimizationCategory, geoCategory, seoMarocCategory],
+        tags: [
+            "GEO Maroc",
+            "SEO Maroc",
+            "Generative Engine Optimization",
+            "référencement IA Maroc",
+            "ChatGPT SEO Maroc",
+            "AI Overviews Maroc",
+            "LLMO",
+            "Perplexity SEO",
+        ],
+        author: {
+            name: "Othmane Outaghza",
+            slug: "othmane-outaghza",
+            role: "Consultant SEO Technique & GEO",
+            bio: "Othmane Outaghza aide les entreprises marocaines à structurer leur SEO technique, leur contenu et leurs données pour Google et les moteurs IA.",
+            sameAs: ["https://www.linkedin.com/in/othmaneoutaghza"],
+        },
+        seoTitle: geoVsSeoMarocMetaTitle,
+        seoDescription: geoVsSeoMarocMetaDescription,
+        canonicalUrl: geoVsSeoMarocCanonicalUrl,
+        focusKeyword: "GEO vs SEO Maroc",
+        showMainImage: true,
+        seo: {
+            seoTitle: geoVsSeoMarocMetaTitle,
+            seoDescription: geoVsSeoMarocMetaDescription,
+            metaTitle: geoVsSeoMarocMetaTitle,
+            metaDescription: geoVsSeoMarocMetaDescription,
+            canonicalUrl: geoVsSeoMarocCanonicalUrl,
+            noIndex: false,
+            focusKeyword: "GEO vs SEO Maroc",
+            ogImage: {
+                url: "/images/ai-search-optimization-workflow-morocco.webp",
+                alt: "Workflow d'optimisation GEO et SEO pour la recherche IA au Maroc",
+                width: 1200,
+                height: 630,
+            },
+        },
+        language: "fr",
+        body: geoVsSeoMarocBody,
+        faqs: [],
+        cta: {
+            title: "Besoin d'un audit SEO et GEO pour votre site ?",
+            description:
+                "Je vous aide à mesurer votre visibilité actuelle sur Google et les moteurs IA, puis à prioriser les actions qui comptent pour votre marché marocain.",
+            href: "/fr#contact",
+            label: "Demander un audit SEO & GEO",
+        },
+        relatedPosts: [],
+        jsonLd: geoVsSeoMarocJsonLd,
+    },
     {
         _id: `local-${articleSlug}`,
         title: "SEO E-commerce Morocco: How to Optimize Product Pages for Google, ChatGPT and AI Search",
@@ -2251,7 +2887,7 @@ export const localBlogPosts: BlogPost[] = [
             width: 1200,
             height: 630,
         },
-        categories: localBlogCategories,
+        categories: [ecommerceSeoCategory, aiSearchOptimizationCategory],
         tags: [
             "SEO e-commerce Morocco",
             "SEO e-commerce Maroc",
@@ -2321,7 +2957,7 @@ export const localBlogPosts: BlogPost[] = [
             width: 1200,
             height: 630,
         },
-        categories: localBlogCategories,
+        categories: [ecommerceSeoCategory, aiSearchOptimizationCategory],
         tags: [
             "SEO e-commerce Maroc",
             "référencement e-commerce Maroc",

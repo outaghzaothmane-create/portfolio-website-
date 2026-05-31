@@ -107,6 +107,8 @@ const components: PortableTextComponents = {
         blockquote: ({ children }) => <blockquote>{children}</blockquote>,
     },
     marks: {
+        em: ({ children }) => <em>{children}</em>,
+        code: ({ children }) => <code>{children}</code>,
         link: ({ children, value }) => {
             const href = value?.href || "#";
             const isExternal = href.startsWith("http");

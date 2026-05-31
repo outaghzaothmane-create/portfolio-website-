@@ -77,6 +77,7 @@ export type BlogPost = BlogPostSummary & {
     faqs?: BlogFaq[];
     cta?: BlogCta;
     relatedPosts?: BlogPostSummary[];
+    jsonLd?: unknown;
 };
 
 export type BlogListResult = {

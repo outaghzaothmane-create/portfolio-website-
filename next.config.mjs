@@ -12,6 +12,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/blog/geo-vs-seo-maroc',
+        destination: '/fr/blog/geo-vs-seo-maroc',
+        permanent: true,
+      },
+      {
         source: '/en/technical-seo-consultant',
         destination: '/en',
         permanent: true,

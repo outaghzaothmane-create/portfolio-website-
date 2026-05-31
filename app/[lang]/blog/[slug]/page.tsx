@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     const toc = getTableOfContents(post.body);
-    const faqJsonLd = faqSchema(post);
+    const faqJsonLd = post.jsonLd ? null : faqSchema(post);
     const lang = params.lang;
     const dict = await getDictionary(lang as Locale);
 
@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     return (
         <DashboardWrapper>
             <SetLanguagePaths paths={customPaths} />
-            <JsonLd data={articleSchema(post, lang as Locale)} />
+            <JsonLd data={post.jsonLd || articleSchema(post, lang as Locale)} />
             <JsonLd
                 data={breadcrumbSchema([
                     { name: lang === "fr" ? "Accueil" : "Home", url: `${siteUrl}/${lang}` },
