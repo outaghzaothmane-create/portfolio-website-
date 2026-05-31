@@ -40,7 +40,7 @@ export function Hero({ dict, lang }: { dict?: any, lang?: string }) {
         >
             <OrbitSpace density={isMobile ? "low" : "high"} />
             <div className="responsive-container relative z-10">
-                <div className="space-y-8 max-w-4xl">
+                <div className="mx-auto max-w-4xl space-y-8">
                     <h1 className={cn(
                         "text-[clamp(2rem,7vw,3.75rem)] font-bold leading-[1.08] break-words",
                         "text-foreground"
