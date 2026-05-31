@@ -9,7 +9,8 @@ export function BlogSearch({ query = "", lang = "en" }: { query?: string; lang?:
                 name="q"
                 defaultValue={query}
                 placeholder="Search SEO, AI Search, Shopify..."
-                className="h-11 w-full rounded-lg border border-border bg-background/80 pl-10 pr-4 text-sm outline-none transition-colors focus:border-primary"
+                aria-label="Search blog posts"
+                className="min-h-11 w-full rounded-lg border border-border bg-background/80 pl-10 pr-4 text-sm outline-none transition-colors focus:border-primary"
             />
         </form>
     );

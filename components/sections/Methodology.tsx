@@ -35,11 +35,11 @@ export function Methodology({ dict }: { dict?: any }) {
             id="methodology"
             className="w-full py-16 md:py-24 bg-transparent relative overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <SectionWrapper>
                     <div className="space-y-10 md:space-y-12">
                         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
                                 {safeDict.title}
                             </h2>
                             <p className={cn(

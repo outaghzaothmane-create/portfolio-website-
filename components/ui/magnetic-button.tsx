@@ -76,7 +76,7 @@ export const MagneticButton = ({
         yToText.current(0);
     };
 
-    const sharedClassName = `relative inline-flex min-h-11 max-w-full items-center justify-center px-5 py-3 sm:px-8 sm:py-4 text-sm sm:text-lg font-medium text-white text-center transition-colors bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer ${className}`;
+    const sharedClassName = `relative inline-flex min-h-11 max-w-full items-center justify-center rounded-full px-5 py-3 text-center text-sm font-medium leading-snug text-white transition-colors bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer whitespace-normal break-words sm:px-8 sm:py-4 sm:text-base ${className}`;
 
     if (href) {
         return (
@@ -107,7 +107,12 @@ export const MagneticButton = ({
             className={sharedClassName}
             role={onClick ? "button" : undefined}
             tabIndex={onClick ? 0 : undefined}
-            onKeyDown={onClick ? (e) => e.key === 'Enter' && onClick() : undefined}
+            onKeyDown={onClick ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onClick();
+                }
+            } : undefined}
             aria-label={onClick && typeof children === 'string' ? children : undefined}
         >
             <span ref={textRef} className="relative z-10 block">

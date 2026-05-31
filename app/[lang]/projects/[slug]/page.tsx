@@ -218,7 +218,7 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
 
             <main className="pt-32 sm:pt-40 pb-20 sm:pb-24">
                 {/* Hero Section */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
+                <section className="responsive-container mb-16 sm:mb-24">
                     <div className="mb-8">
                         <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground -ml-4">
                             <Link href={`/${lang}#projects`}>
@@ -236,7 +236,7 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
                             <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">
                                 {study.client}
                             </Badge>
-                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">
+                            <h1 className="mb-4 text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-foreground">
                                 {study.title}
                             </h1>
                             <p className="text-base sm:text-xl md:text-2xl text-muted-foreground leading-relaxed">
@@ -272,7 +272,7 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
                 </section>
 
                 {/* Content Section: Two Columns */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section className="responsive-container">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
                         {/* Left Column: Narrative */}
@@ -346,7 +346,7 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
 
                         {/* Right Column: Sticky Sidebar */}
                         <div className="relative">
-                            <div className="sticky top-32 space-y-8">
+                            <div className="space-y-8 lg:sticky lg:top-32">
                                 <SectionWrapper delay={0.3}>
                                     <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                                         <h3 className="font-bold text-lg mb-4">Tech Stack</h3>
@@ -374,7 +374,7 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
 
                 {/* Related Projects */}
                 {caseStudies.length > 1 && (
-                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32 mb-20 sm:mb-32">
+                    <section className="responsive-container mt-20 sm:mt-32 mb-20 sm:mb-32">
                         <SectionWrapper>
                             <div className="border-t pt-16">
                                 <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">Other Case Studies</h2>
@@ -386,13 +386,13 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
                                             <Link
                                                 key={relatedProject.id}
                                                 href={`/${lang}/projects/${relatedProject.id}`}
-                                                className="group block p-5 sm:p-6 rounded-lg border border-gray-200 hover:border-primary/50 transition-colors"
+                                                className="group block rounded-lg border border-gray-200 p-5 transition-colors hover:border-primary/50 sm:p-6"
                                             >
-                                                <h3 className="text-xl font-bold group-hover:text-primary transition-colors mb-2">
+                                                <h3 className="mb-2 break-words text-xl font-bold transition-colors group-hover:text-primary">
                                                     {relatedProject.title}
                                                 </h3>
-                                                <p className="text-muted-foreground mb-4">{relatedProject.shortDescription}</p>
-                                                <div className="flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <p className="mb-4 break-words text-muted-foreground">{relatedProject.shortDescription}</p>
+                                                <div className="flex items-center gap-2 text-primary opacity-0 transition-opacity group-hover:opacity-100">
                                                     Learn more <ArrowRight className="h-4 w-4" />
                                                 </div>
                                             </Link>
@@ -405,12 +405,12 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
 
                 {/* Next Project */}
                 {nextProject && (
-                    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 sm:mt-32">
+                    <section className="responsive-container mt-20 sm:mt-32">
                         <SectionWrapper>
                             <div className="border-t pt-16">
                                 <p className="text-muted-foreground mb-4">Next Case Study</p>
                                 <Link href={`/${lang}/projects/${nextProject.id}`} className="group block">
-                                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold group-hover:text-primary transition-colors flex items-center gap-3 sm:gap-4">
+                                    <h2 className="flex flex-wrap items-center gap-3 text-[clamp(1.75rem,5vw,3rem)] font-bold leading-tight transition-colors group-hover:text-primary sm:gap-4">
                                         {nextProject.title}
                                         <ArrowRight className="h-8 w-8 md:h-12 md:w-12 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                                     </h2>

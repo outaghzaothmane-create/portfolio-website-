@@ -57,14 +57,14 @@ export function KeyMetrics({ dict }: { dict?: any }) {
             "w-full py-10 sm:py-12 md:py-16 border-y transition-colors duration-500 bg-transparent",
             "border-slate-200"
         )}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <SectionWrapper>
                     <motion.div
                         variants={container}
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="grid gap-3 sm:gap-4 grid-cols-2 md:grid-cols-4"
+                        className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4"
                     >
                         <motion.div variants={item}>
                             <MetricCard

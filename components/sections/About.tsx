@@ -31,11 +31,11 @@ export function About({ dict }: { dict?: any }) {
             id="about"
             className="w-full py-16 md:py-24 bg-transparent relative overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <SectionWrapper>
                     <div className="space-y-10 md:space-y-12 max-w-4xl mx-auto">
                         <div>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4 md:mb-6">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 md:mb-6">
                                 {safeDict.title}
                             </h2>
                             <p className={cn(

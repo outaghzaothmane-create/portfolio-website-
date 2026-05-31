@@ -161,7 +161,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             />
             <JsonLd data={faqJsonLd} />
 
-            <main className="pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
+            <main className="pt-28 sm:pt-32 pb-16 responsive-container min-h-screen">
                 <SectionWrapper>
                     <div className="mb-10">
                         <Link href={`/${lang}/blog`} className="inline-flex min-h-11 items-center text-sm text-primary hover:underline">
@@ -181,7 +181,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                                         </Link>
                                     ))}
                                 </div>
-                                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+                                <h1 className="mb-6 text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-foreground">
                                     {post.title}
                                 </h1>
                                 {post.excerpt && (
@@ -226,7 +226,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
                             {post.faqs?.length ? (
                                 <section className="mt-16 border-t border-border pt-10">
-                                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">{safeDict.faqTitle || "Frequently Asked Questions"}</h2>
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-6">{safeDict.faqTitle || "Frequently Asked Questions"}</h2>
                                     <div className="space-y-4">
                                         {post.faqs.map((faq) => (
                                             <details key={faq.question} className="rounded-lg border border-border bg-background/70 p-5">
@@ -276,7 +276,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
                             {post.relatedPosts?.length ? (
                                 <section className="mt-16">
-                                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">{safeDict.relatedPosts || "Related Posts"}</h2>
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-6">{safeDict.relatedPosts || "Related Posts"}</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                         {post.relatedPosts.slice(0, 3).map((related) => (
                                             <BlogCard key={related._id} post={related} />

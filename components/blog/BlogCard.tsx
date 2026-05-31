@@ -20,7 +20,7 @@ export function BlogCard({ post, priority = false }: { post: BlogPostSummary; pr
     const lang = post.language === "fr" ? "fr" : "en";
 
     return (
-        <article className="group rounded-lg border border-border bg-background/70 overflow-hidden transition-all hover:border-primary/40 hover:-translate-y-1">
+        <article className="group h-full overflow-hidden rounded-lg border border-border bg-background/70 transition-all hover:-translate-y-1 hover:border-primary/40">
             <Link href={`/${lang}/blog/${post.slug}`} className="block min-h-11">
                 {post.mainImage?.url ? (
                     <Image
@@ -46,7 +46,7 @@ export function BlogCard({ post, priority = false }: { post: BlogPostSummary; pr
                             {post.readingTime || 1} min read
                         </span>
                     </div>
-                    <h2 className="text-lg sm:text-xl font-bold leading-tight text-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h2 className="mb-3 break-words text-lg font-bold leading-tight text-foreground transition-colors group-hover:text-primary sm:text-xl">
                         {post.title}
                     </h2>
                     {post.excerpt && (

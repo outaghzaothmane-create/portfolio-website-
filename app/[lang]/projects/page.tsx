@@ -54,7 +54,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         <DashboardWrapper>
             <main className="pt-28 sm:pt-32 pb-16 min-h-screen">
                 <SectionWrapper>
-                    <Projects dict={dict.caseStudies} lang={lang} />
+                    <Projects dict={dict.caseStudies} lang={lang} headingLevel="h1" />
                 </SectionWrapper>
             </main>
             <Footer dict={dict.footer} lang={lang} />

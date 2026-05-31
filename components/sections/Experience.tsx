@@ -55,8 +55,8 @@ export function Experience({ dict }: { dict?: any }) {
     return (
         <section id="experience" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
-                <div className="flex items-center justify-between">
-                    <h2 className="text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                    <h2 className="text-3xl font-bold text-foreground">{safeDict.title}</h2>
                     <Badge variant="outline" className="text-muted-foreground">{safeDict.badge}</Badge>
                 </div>
                 <p className="text-muted-foreground">{safeDict.subtitle}</p>
@@ -78,21 +78,21 @@ export function Experience({ dict }: { dict?: any }) {
                             false
                         )}>
                             <CardHeader className="space-y-4">
-                                <div className="flex justify-between items-start">
-                                    <div className="space-y-1">
+                                <div className="flex items-start justify-between gap-3">
+                                    <div className="min-w-0 space-y-1">
                                         <CardTitle className={cn(
-                                            "text-xl font-bold transition-colors",
+                                            "text-xl font-bold break-words transition-colors",
                                             "text-foreground/80"
                                         )}>
                                             {item.role}
                                         </CardTitle>
                                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                             <Briefcase className="h-3 w-3" />
-                                            {item.company}
+                                            <span className="break-words">{item.company}</span>
                                         </div>
                                     </div>
                                     <Badge variant="secondary" className={cn(
-                                        "text-xs font-normal",
+                                        "shrink-0 text-xs font-normal",
                                         "bg-black/5 text-black/70"
                                     )}>
                                         {item.period}
@@ -118,7 +118,7 @@ export function Experience({ dict }: { dict?: any }) {
                                                     {item.achievements.map((achievement: string, i: number) => (
                                                         <li key={i} className="text-sm text-muted-foreground flex gap-2">
                                                             <span className={cn("mt-2 h-1.5 w-1.5 rounded-full shrink-0 opacity-70", item.color.replace('text-', 'bg-'))} />
-                                                            <span className="leading-relaxed opacity-90">{achievement}</span>
+                                                            <span className="min-w-0 break-words leading-relaxed opacity-90">{achievement}</span>
                                                         </li>
                                                     ))}
                                                 </ul>

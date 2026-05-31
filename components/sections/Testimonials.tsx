@@ -30,10 +30,10 @@ export function Testimonials({ dict }: { dict?: any }) {
 
     return (
         <section className="w-full py-14 sm:py-16 overflow-hidden bg-transparent">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <div className="flex items-center gap-2 mb-12">
                     <Quote className={cn("h-8 w-8", "text-primary")} />
-                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-foreground">{safeDict.title}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

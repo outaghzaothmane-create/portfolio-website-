@@ -112,7 +112,7 @@ function GoogleSearchPreview({ title, description, url, safeDict }: { title: str
 
     return (
         <div className="p-4 sm:p-6 rounded-xl border bg-gradient-to-br from-muted/30 to-muted/10 space-y-2">
-            <div className="text-xs text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
+            <div className="text-xs text-muted-foreground uppercase mb-3 flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
                     <div className="w-2 h-2 rounded-full bg-blue-500" />
                 </div>
@@ -521,7 +521,7 @@ export function AuditModal({ isOpen, onClose, dict }: AuditModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="w-[calc(100vw-1rem)] max-w-[calc(100vw-1rem)] sm:max-w-[800px] max-h-[90dvh] overflow-y-auto p-4 sm:p-6">
+            <DialogContent className="w-[calc(100vw-1rem)] max-w-[calc(100vw-1rem)] sm:max-w-[800px] max-h-[90dvh] overflow-y-auto p-4 pr-14 sm:p-6 sm:pr-14">
                 <DialogHeader>
                     <DialogTitle>{safeDict.title}</DialogTitle>
                     <DialogDescription>
@@ -589,7 +589,7 @@ export function AuditModal({ isOpen, onClose, dict }: AuditModalProps) {
                                 )}>
                                     <div className="flex flex-col items-center">
                                         <span className="text-4xl sm:text-5xl font-bold">{results.score}</span>
-                                        <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Score</span>
+                                        <span className="text-sm font-medium uppercase text-muted-foreground">Score</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap justify-center gap-2 mt-4">

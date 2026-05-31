@@ -86,7 +86,7 @@ const NodeCard = ({ tool, isActive }: { tool: any, isActive: boolean }) => {
                     </div>
                     <div className="min-w-0 text-left">
                         <h3 className={cn("font-semibold text-sm leading-tight mb-1 break-words", false)}>{tool.name}</h3>
-                        <p className={cn("text-[10px] font-mono uppercase tracking-wide leading-tight break-words", "text-muted-foreground")}>{tool.role}</p>
+                        <p className={cn("text-[10px] font-mono uppercase leading-tight break-words", "text-muted-foreground")}>{tool.role}</p>
                     </div>
                 </div>
             </Card>
@@ -261,9 +261,9 @@ export function AutomationStack({ dict }: { dict?: any }) {
                     backgroundSize: '24px 24px'
                 }}
             />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+            <div className="responsive-container relative z-10 space-y-8">
                 <div className="flex flex-col gap-2">
-                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-foreground">{safeDict.title}</h3>
                     <p className="text-sm sm:text-base text-muted-foreground">{safeDict.subtitle}</p>
                 </div>
 

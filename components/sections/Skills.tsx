@@ -46,7 +46,7 @@ export function Skills({ dict }: { dict?: any }) {
     return (
         <section id="tech-stack" className="w-full py-16 bg-transparent">
             <div className="flex flex-col gap-2 mb-8">
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">{safeDict.title}</h2>
                 <p className="text-sm sm:text-base text-muted-foreground">{safeDict.subtitle}</p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">

@@ -76,11 +76,11 @@ export function ServiceTemplate({
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-            <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div className="pt-32 pb-16 responsive-container">
                 <SectionWrapper>
                     {/* Hero Section */}
                     <div className="max-w-4xl mb-16">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
+                        <h1 className="mb-6 text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-foreground">
                             {title}
                         </h1>
                         <p className={cn(
@@ -150,9 +150,9 @@ export function ServiceTemplate({
                                 <Link 
                                     key={idx} 
                                     href={link.href}
-                                    className="px-4 py-2 rounded-full border border-border hover:bg-accent transition-colors"
+                                    className="inline-flex min-h-11 max-w-full items-center rounded-full border border-border px-4 py-2 transition-colors hover:bg-accent"
                                 >
-                                    {link.title}
+                                    <span className="min-w-0 break-words">{link.title}</span>
                                 </Link>
                             ))}
                         </div>
@@ -172,11 +172,12 @@ export function ServiceTemplate({
                             target="_blank"
                             rel="noopener noreferrer"
                             className={cn(
-                                "inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium transition-transform hover:scale-105",
+                                "inline-flex min-h-11 max-w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-center font-medium transition-transform hover:scale-105 sm:px-8 sm:py-4",
                                 "bg-primary text-primary-foreground hover:bg-primary/90"
                             )}
                         >
-                            Get in Touch <ArrowRight className="w-5 h-5" />
+                            <span className="min-w-0 break-words">Get in Touch</span>
+                            <ArrowRight className="h-5 w-5 shrink-0" />
                         </Link>
                     </div>
 

@@ -34,8 +34,9 @@ const epoptiqueData = [
     { year: "Q1", value: 5000, milestone: "Traffic +150%" },
 ];
 
-export function Projects({ dict, lang }: { dict?: any; lang?: string }) {
+export function Projects({ dict, lang, headingLevel = "h2" }: { dict?: any; lang?: string; headingLevel?: "h1" | "h2" }) {
     const localePrefix = lang ? `/${lang}` : '';
+    const HeadingTag = headingLevel;
     const safeDict = dict || {
         title: "Case Studies",
         viewProject: "Read Case Study",
@@ -113,9 +114,9 @@ export function Projects({ dict, lang }: { dict?: any; lang?: string }) {
         <section id="projects" className={cn(
             "w-full py-12 md:py-16 transition-colors duration-500 bg-transparent"
         )}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
+            <div className="responsive-container space-y-6 md:space-y-8">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{safeDict.title}</h2>
+                    <HeadingTag className="text-2xl sm:text-3xl font-bold text-foreground">{safeDict.title}</HeadingTag>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {projectsConfig.map((project, i) => (
@@ -178,7 +179,7 @@ export function Projects({ dict, lang }: { dict?: any; lang?: string }) {
                                         />
                                     )}
 
-                                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
+                                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                                         {project.metrics.map((metric: any) => (
                                             <div key={metric.label} className="flex items-center gap-3">
                                                 <div className={cn(
@@ -190,9 +191,9 @@ export function Projects({ dict, lang }: { dict?: any; lang?: string }) {
                                                         "text-primary"
                                                     )} />
                                                 </div>
-                                                <div>
+                                                <div className="min-w-0">
                                                     <p className="text-xs text-muted-foreground">{metric.label}</p>
-                                                    <p className="text-sm font-bold text-foreground">{metric.value}</p>
+                                                    <p className="break-words text-sm font-bold text-foreground">{metric.value}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -215,11 +216,11 @@ export function Projects({ dict, lang }: { dict?: any; lang?: string }) {
                                     <Link
                                         href={project.link}
                                         className={cn(
-                                            "flex min-h-11 items-center justify-between w-full px-4 sm:px-6 py-3 rounded-full text-sm font-semibold transition-all group",
+                                            "flex min-h-11 w-full items-center justify-between gap-3 rounded-full px-4 py-3 text-sm font-semibold transition-all group sm:px-6",
                                             "bg-white text-foreground hover:shadow-md border border-white/60 hover:border-blue-200"
                                         )}
                                     >
-                                        {safeDict.viewProject || "Read Case Study"}
+                                        <span className="min-w-0 break-words">{safeDict.viewProject || "Read Case Study"}</span>
                                         <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                                     </Link>
                                 </CardFooter>

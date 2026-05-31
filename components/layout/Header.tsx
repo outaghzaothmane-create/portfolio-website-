@@ -28,14 +28,14 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
     return (
         <>
             <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} dict={dict?.auditModal} />
-            <header className="fixed top-3 sm:top-6 left-0 w-full flex justify-center z-[999] pointer-events-none px-2">
+            <header className="fixed top-3 sm:top-6 left-0 z-[999] flex w-full justify-center px-2 pointer-events-none">
                 <motion.div
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className={cn(
-                        "w-fit max-w-full min-h-14 rounded-full pointer-events-auto transition-all duration-500",
-                        "flex items-center justify-center gap-1 px-1.5 sm:px-2 md:px-4",
+                        "w-full max-w-[calc(100vw-1rem)] min-h-14 rounded-full pointer-events-auto transition-all duration-500 sm:w-fit",
+                        "flex items-center justify-between gap-1 overflow-hidden px-1.5 sm:px-2 md:justify-center md:overflow-visible md:px-4",
                         "bg-white/20 backdrop-blur-md border border-white/20 shadow-lg hover:bg-white/50"
                     )}
                 >
@@ -43,11 +43,11 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
                     <Link
                         href={localePrefix || "/"}
                         className={cn(
-                            "flex min-h-11 items-center gap-2 px-2 sm:px-3 py-2 rounded-full transition-all",
+                            "flex min-h-11 shrink min-w-0 items-center gap-2 rounded-full px-2 py-2 transition-all sm:px-3",
                             "hover:bg-white/50"
                         )}
                     >
-                        <span className={cn("font-bold text-base sm:text-lg whitespace-nowrap", "text-foreground")}>
+                        <span className={cn("truncate whitespace-nowrap text-sm font-bold sm:text-lg", "text-foreground")}>
                             Othmane<span className={"text-muted-foreground"}>.SEO</span>
                         </span>
                     </Link>
@@ -84,7 +84,7 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
                     </nav>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-1 sm:gap-2 pl-1 sm:pl-2">
+                    <div className="flex shrink-0 items-center gap-1 pl-1 sm:gap-2 sm:pl-2">
 
                         <LanguageSwitcher />
 
@@ -104,7 +104,9 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    aria-label="Open navigation menu"
+                                    aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                                    aria-expanded={isOpen}
+                                    aria-controls="mobile-navigation"
                                     className={cn(
                                         "md:hidden rounded-full w-11 h-11 shrink-0",
                                         "text-foreground hover:bg-black/5"
@@ -115,20 +117,24 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
                             </SheetTrigger>
                             <SheetContent
                                 side="top"
+                                id="mobile-navigation"
                                 className={cn(
-                                    "w-full max-h-[92vh] overflow-y-auto border-b backdrop-blur-xl pt-20 pb-8",
+                                    "w-full max-h-[92vh] overflow-y-auto border-b backdrop-blur-xl px-4 pt-20 pb-8",
                                     "bg-white/90 border-white/20 text-foreground"
                                 )}
                             >
                                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                                 <nav className="flex flex-col items-center gap-4">
+                                    <div className="mb-1 flex justify-center">
+                                        <LanguageSwitcher />
+                                    </div>
                                     {navItems.map((item) => (
                                         <Link
                                             key={item.name}
                                             href={item.href}
                                             onClick={() => setIsOpen(false)}
                                             className={cn(
-                                                "flex min-h-12 w-full max-w-xs items-center justify-center rounded-xl text-xl font-medium transition-colors",
+                                                "flex min-h-12 w-full max-w-sm items-center justify-center rounded-xl px-4 text-center text-lg font-medium transition-colors sm:text-xl",
                                                 "text-muted-foreground hover:text-foreground"
                                             )}
                                         >
@@ -141,7 +147,7 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
                                             setIsAuditOpen(true);
                                         }}
                                         className={cn(
-                                            "mt-2 min-h-12 rounded-full px-6 text-base font-medium transition-all shadow-lg",
+                                            "mt-2 min-h-12 w-full max-w-sm rounded-full px-6 text-base font-medium transition-all shadow-lg",
                                             "bg-black text-white hover:bg-black/80"
                                         )}
                                     >

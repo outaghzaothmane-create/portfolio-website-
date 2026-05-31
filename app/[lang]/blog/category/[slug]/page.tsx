@@ -79,7 +79,7 @@ export default async function BlogCategoryPage({ params, searchParams }: PagePro
                     lang,
                 })}
             />
-            <main className="pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
+            <main className="pt-28 sm:pt-32 pb-16 responsive-container min-h-screen">
                 <SectionWrapper>
                     <div className="mb-10">
                         <Link href={`/${lang}/blog`} className="inline-flex min-h-11 items-center text-sm text-primary hover:underline">
@@ -88,7 +88,7 @@ export default async function BlogCategoryPage({ params, searchParams }: PagePro
                     </div>
                     <header className="max-w-4xl mb-12">
                         <p className="text-sm font-medium text-primary mb-4">{lang === "fr" ? "Hub thématique" : "Topical hub"}</p>
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
+                        <h1 className="mb-6 text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-foreground">
                             {category.title}
                         </h1>
                         {category.description && (

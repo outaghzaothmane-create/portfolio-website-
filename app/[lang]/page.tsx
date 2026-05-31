@@ -53,7 +53,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
         <DashboardWrapper>
             <Hero dict={dict.hero} lang={params.lang} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full">
                 <SectionWrapper delay={0.1}>
                     <About dict={dict.about} />
                 </SectionWrapper>
@@ -63,7 +63,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
 
             <Methodology dict={dict.methodology} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <SectionWrapper delay={0.1}>
                     <Experience dict={dict.experience} />
                 </SectionWrapper>
@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
 
             <Services dict={dict.services} lang={params.lang} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <SectionWrapper delay={0.1}>
                     <Skills dict={dict.skills} />
                 </SectionWrapper>
@@ -83,13 +83,13 @@ export default async function Home({ params }: { params: { lang: string } }) {
 
             <Testimonials dict={dict.testimonials} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full">
                 <SectionWrapper delay={0.1}>
                     <FAQ dict={dict.faq} />
                 </SectionWrapper>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <SectionWrapper delay={0.1}>
                     <Contact dict={dict.contact} auditModalDict={dict.auditModal} />
                 </SectionWrapper>

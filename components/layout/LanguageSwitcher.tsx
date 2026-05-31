@@ -15,12 +15,13 @@ export function LanguageSwitcher() {
     const frHref = customPaths?.fr || getLocalizedPath(pathname, 'fr');
     
     return (
-        <div className="flex min-h-11 items-center gap-1 bg-black/5 rounded-full p-1 border border-black/5">
+        <div className="flex min-h-11 items-center gap-1 rounded-full border border-black/5 bg-black/5 p-1">
             <Link 
                 href={enHref}
                 aria-label="Switch to English"
+                aria-current={!isFr ? "true" : undefined}
                 className={cn(
-                    "flex min-h-9 min-w-9 items-center justify-center px-2 text-xs font-semibold rounded-full transition-all",
+                    "flex min-h-11 min-w-11 items-center justify-center rounded-full px-2 text-xs font-semibold transition-all",
                     !isFr ? "bg-white text-black shadow-sm" : "text-muted-foreground hover:text-foreground"
                 )}
             >
@@ -29,8 +30,9 @@ export function LanguageSwitcher() {
             <Link 
                 href={frHref}
                 aria-label="Passer en français"
+                aria-current={isFr ? "true" : undefined}
                 className={cn(
-                    "flex min-h-9 min-w-9 items-center justify-center px-2 text-xs font-semibold rounded-full transition-all",
+                    "flex min-h-11 min-w-11 items-center justify-center rounded-full px-2 text-xs font-semibold transition-all",
                     isFr ? "bg-white text-black shadow-sm" : "text-muted-foreground hover:text-foreground"
                 )}
             >

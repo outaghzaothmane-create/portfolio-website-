@@ -76,7 +76,7 @@ export default function NotFound() {
                 {/* Glitch 404 */}
                 <div className="relative select-none mb-4">
                     <span
-                        className="block text-[clamp(6rem,20vw,14rem)] font-black leading-none tracking-tighter"
+                        className="block text-[clamp(6rem,20vw,14rem)] font-black leading-none"
                         style={{
                             background:
                                 "linear-gradient(135deg, hsl(214 82% 51%) 0%, hsl(265 70% 65%) 50%, hsl(214 82% 70%) 100%)",
@@ -92,7 +92,7 @@ export default function NotFound() {
                     {/* Glitch clone layers */}
                     <span
                         aria-hidden="true"
-                        className="absolute inset-0 block text-[clamp(6rem,20vw,14rem)] font-black leading-none tracking-tighter"
+                        className="absolute inset-0 block text-[clamp(6rem,20vw,14rem)] font-black leading-none"
                         style={{
                             background:
                                 "linear-gradient(135deg, hsl(214 82% 51%), hsl(265 70% 65%))",
@@ -110,7 +110,7 @@ export default function NotFound() {
 
                 {/* Badge */}
                 <span
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6"
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase mb-6"
                     style={{
                         background: "hsl(214 82% 51% / 0.12)",
                         border: "1px solid hsl(214 82% 51% / 0.3)",
@@ -124,7 +124,7 @@ export default function NotFound() {
 
                 {/* Heading */}
                 <h1
-                    className="text-3xl md:text-4xl font-bold mb-4 tracking-tight"
+                    className="text-3xl md:text-4xl font-bold mb-4"
                     style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}
                 >
                     Looks like you&apos;re lost in the void

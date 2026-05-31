@@ -28,14 +28,14 @@ export function Footer() {
     }, []);
 
     return (
-        <footer className="w-full py-10 flex justify-center px-4">
+        <footer className="w-full py-10">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className={cn(
-                    "relative w-full max-w-5xl overflow-hidden",
+                    "responsive-container relative overflow-hidden",
                     "rounded-[2.5rem] border border-white/20 shadow-2xl",
                     "bg-white/80 backdrop-blur-xl",
                     "transition-colors duration-300",
@@ -51,7 +51,7 @@ export function Footer() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
                         {/* Column 1: Identity */}
                         <div className="space-y-6">
-                            <Link href="/" className="group flex items-center gap-2 font-bold text-2xl">
+                            <Link href="/" className="group flex min-h-11 items-center gap-2 font-bold text-2xl">
                                 <span className={cn("transition-colors", "text-foreground")}>Othmane</span>
                                 <span className={cn("transition-colors", "text-muted-foreground/60")}>.SEO</span>
                             </Link>
@@ -68,16 +68,16 @@ export function Footer() {
                                     "border-border hover:border-primary/50 hover:text-primary"
                                 )}
                             >
-                                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-2">
                                     <Download className="h-4 w-4" />
-                                    Download Resume
+                                    <span className="min-w-0 break-words">Download Resume</span>
                                 </a>
                             </Button>
                         </div>
 
                         {/* Column 2: Navigation */}
                         <div className="space-y-6">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>Navigation</h3>
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase", "text-foreground/80")}>Navigation</h3>
                             <nav className="flex flex-col gap-3">
                                 {[
                                     { name: "Overview", href: "#overview" },
@@ -89,7 +89,7 @@ export function Footer() {
                                         key={item.name}
                                         href={item.href}
                                         className={cn(
-                                            "text-sm font-medium transition-colors w-fit",
+                                            "inline-flex min-h-11 w-fit items-center px-2 text-sm font-medium transition-colors",
                                             "text-muted-foreground hover:text-primary"
                                         )}
                                     >
@@ -101,7 +101,7 @@ export function Footer() {
 
                         {/* Column 3: System Status */}
                         <div className="space-y-6">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>System Status</h3>
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase", "text-foreground/80")}>System Status</h3>
                             <div className={cn(
                                 "rounded-2xl p-4 space-y-3 border backdrop-blur-sm",
                                 "bg-secondary/50 border-white/40 shadow-sm"

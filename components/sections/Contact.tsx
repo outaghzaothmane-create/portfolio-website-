@@ -23,7 +23,7 @@ export function Contact({ dict, auditModalDict }: { dict?: any, auditModalDict?:
     return (
         <section id="contact" className="w-full py-16 bg-transparent">
             <AuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} dict={auditModalDict} />
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-8">{safeDict.title}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">{safeDict.title}</h2>
             <Card className={cn(
                 "relative overflow-hidden border transition-all duration-500 rounded-2xl sm:rounded-[2.5rem]",
                 "bg-white/70 backdrop-blur-xl border-white/20 shadow-2xl shadow-black/5"
@@ -44,13 +44,13 @@ export function Contact({ dict, auditModalDict }: { dict?: any, auditModalDict?:
                         <MagneticButton
                             onClick={() => setIsAuditOpen(true)}
                             className={cn(
-                                "shadow-lg transition-colors cursor-pointer",
+                                "w-full shadow-lg transition-colors cursor-pointer sm:w-auto",
                                 "bg-black text-white hover:bg-black/90 border-transparent"
                             )}
                         >
-                            <div className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium">
-                                {safeDict.buttonText}
-                                <ArrowRight className="h-3 w-3" />
+                            <div className="flex min-w-0 items-center justify-center gap-1.5 px-2.5 py-1 text-xs font-medium">
+                                <span className="min-w-0 break-words">{safeDict.buttonText}</span>
+                                <ArrowRight className="h-3 w-3 shrink-0" />
                             </div>
                         </MagneticButton>
                     </div>

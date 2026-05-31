@@ -39,10 +39,10 @@ export function Hero({ dict, lang }: { dict?: any, lang?: string }) {
             className="w-full max-w-full bg-transparent pt-28 sm:pt-24 relative overflow-hidden min-h-[72vh] md:min-h-screen flex flex-col justify-center"
         >
             <OrbitSpace density={isMobile ? "low" : "high"} />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="responsive-container relative z-10">
                 <div className="space-y-8 max-w-4xl">
                     <h1 className={cn(
-                        "text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight md:tracking-tighter leading-[1.08] break-words",
+                        "text-[clamp(2rem,7vw,3.75rem)] font-bold leading-[1.08] break-words",
                         "text-foreground"
                     )}>
                         {safeDict.title}
@@ -50,7 +50,7 @@ export function Hero({ dict, lang }: { dict?: any, lang?: string }) {
 
                     <BlurFade delay={0.25} inView>
                         <p className={cn(
-                            "text-xl sm:text-2xl pt-4 font-bold tracking-tight animate-text-shimmer",
+                            "pt-4 text-[clamp(1rem,4vw,1.5rem)] font-bold leading-snug animate-text-shimmer",
                             "text-muted-foreground"
                         )}>
                             {safeDict.subtitle}

@@ -111,9 +111,9 @@ export function Services({ dict, lang = "en" }: { dict?: any; lang?: string }) {
         <section id="services" className={cn(
             "w-full py-16 transition-colors duration-500 bg-transparent"
         )}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="responsive-container">
                 <div className="flex flex-col items-center text-center mb-12">
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">{safeDict.title}</h2>
+                    <h2 className="mb-4 text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-foreground">{safeDict.title}</h2>
                     <p className="text-sm sm:text-base text-muted-foreground max-w-2xl">
                         {safeDict.subtitle}
                     </p>
@@ -196,11 +196,12 @@ export function Services({ dict, lang = "en" }: { dict?: any; lang?: string }) {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={cn(
-                                                    "flex min-h-11 items-center justify-between gap-3 w-full px-5 sm:px-6 py-3 rounded-full text-sm font-semibold transition-all",
+                                                    "flex min-h-11 w-full items-center justify-between gap-3 rounded-full px-5 py-3 text-sm font-semibold transition-all sm:px-6",
                                                     "bg-white text-foreground hover:shadow-md border border-white/60"
                                                 )}
                                             >
-                                                {service.bookButton} <ArrowUpRight className="h-4 w-4" />
+                                                <span className="min-w-0 break-words">{service.bookButton}</span>
+                                                <ArrowUpRight className="h-4 w-4 shrink-0" />
                                             </a>
                                         </div>
                                     </div>

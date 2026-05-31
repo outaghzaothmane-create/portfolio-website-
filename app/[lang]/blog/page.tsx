@@ -97,14 +97,14 @@ export default async function BlogPage({ searchParams, params }: BlogPageProps) 
                     lang: lang as Locale,
                 })}
             />
-            <main className="pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
+            <main className="pt-28 sm:pt-32 pb-16 responsive-container min-h-screen">
                 <SectionWrapper>
                     <header className="grid gap-8 lg:gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end mb-12">
                         <div className="max-w-4xl">
                             <Badge variant="outline" className="mb-5 border-primary/30 text-primary">
                                 {safeDict.title}
                             </Badge>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
+                            <h1 className="mb-6 text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-foreground">
                                 {safeDict.subtitle}
                             </h1>
                             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground">
@@ -133,7 +133,7 @@ export default async function BlogPage({ searchParams, params }: BlogPageProps) 
                     {!query && featuredPosts.length > 0 && (
                         <section className="mb-14">
                             <div className="mb-6 flex items-center justify-between gap-4">
-                                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">{safeDict.featuredTitle}</h2>
+                                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{safeDict.featuredTitle}</h2>
                                 <Link href={`/${lang}/blog/category/technical-seo`} className="inline-flex min-h-11 items-center text-sm font-medium text-primary hover:underline">
                                     {safeDict.technicalHub}
                                 </Link>
@@ -149,7 +149,7 @@ export default async function BlogPage({ searchParams, params }: BlogPageProps) 
                     <section className="grid gap-10 lg:grid-cols-[1fr_300px]">
                         <div>
                             <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-                                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
+                                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
                                     {query ? `${safeDict.searchResults} "${query}"` : safeDict.recentPosts}
                                 </h2>
                                 <p className="text-sm text-muted-foreground">{total} {safeDict.articles}</p>

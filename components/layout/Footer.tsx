@@ -44,14 +44,14 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
     }, []);
 
     return (
-        <footer className="w-full py-6 flex justify-center px-4">
+        <footer className="w-full py-6">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className={cn(
-                    "relative w-full max-w-7xl overflow-hidden",
+                    "responsive-container relative overflow-hidden",
                     "rounded-2xl sm:rounded-[2.5rem] border transition-all duration-500",
                     "bg-white/70 backdrop-blur-xl border-white/20 shadow-2xl shadow-black/5"
                 )}
@@ -65,7 +65,7 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 justify-items-center">
                         {/* Brand (Cols 1-4) */}
                         <div className="md:col-span-4 space-y-6 flex flex-col items-center">
-                            <Link href={`/${lang}`} className="group flex items-center gap-2 font-bold text-2xl">
+                            <Link href={`/${lang}`} className="group flex min-h-11 items-center gap-2 font-bold text-2xl">
                                 <span className={cn("transition-colors", "text-foreground")}>Othmane</span>
                                 <span className={cn("transition-colors", "text-muted-foreground/60")}>.SEO</span>
                             </Link>
@@ -85,16 +85,16 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
                                     "bg-black text-white hover:bg-black/90 border-transparent"
                                 )}
                             >
-                                <div className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium">
+                                <div className="flex min-w-0 items-center justify-center gap-1.5 px-2.5 py-1 text-xs font-medium">
                                     <Download className="h-3 w-3" />
-                                    {safeDict.downloadResume}
+                                    <span className="min-w-0 break-words">{safeDict.downloadResume}</span>
                                 </div>
                             </MagneticButton>
                         </div>
 
                         {/* Navigation (Cols 5-8) */}
                         <div className="md:col-span-4 space-y-6 flex flex-col items-center">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>{safeDict.navigation}</h3>
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase", "text-foreground/80")}>{safeDict.navigation}</h3>
                             <nav className="flex flex-col gap-3 items-center">
                                 {[
                                     { name: safeDict.overview, href: `/${lang}/#overview` },
@@ -106,7 +106,7 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
                                         key={item.name}
                                         href={item.href}
                                         className={cn(
-                                            "inline-flex min-h-11 items-center text-sm font-medium transition-colors w-fit",
+                                            "inline-flex min-h-11 w-fit items-center px-2 text-sm font-medium transition-colors",
                                             "text-muted-foreground hover:text-blue-600"
                                         )}
                                     >
@@ -118,7 +118,7 @@ export function Footer({ dict, lang = "en" }: { dict?: any, lang?: string }) {
 
                         {/* System Status Widget (Cols 9-12) */}
                         <div className="md:col-span-4 space-y-6 flex flex-col items-center">
-                            <h3 className={cn("font-mono text-xs font-semibold uppercase tracking-wider", "text-foreground/80")}>{safeDict.systemStatus}</h3>
+                            <h3 className={cn("font-mono text-xs font-semibold uppercase", "text-foreground/80")}>{safeDict.systemStatus}</h3>
                             <div className={cn(
                                 "rounded-2xl p-5 space-y-4 border backdrop-blur-sm transition-colors duration-300 w-full max-w-sm",
                                 "bg-white/50 border-white/40 shadow-sm"

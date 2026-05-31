@@ -61,17 +61,17 @@ const components: PortableTextComponents = {
 
             return (
                 <div className="my-8 overflow-x-auto rounded-lg border border-border">
-                    <table className="w-full border-collapse text-left text-sm">
+                    <table className="w-full min-w-[560px] border-collapse text-left text-sm">
                         <tbody>
                             {value.rows.map((row: { cells?: string[]; isHeader?: boolean }, rowIndex: number) => (
                                 <tr key={rowIndex} className="border-b border-border last:border-b-0">
                                     {(row.cells || []).map((cell, cellIndex) =>
                                         row.isHeader ? (
-                                            <th key={cellIndex} className="bg-primary/10 px-4 py-3 font-semibold text-foreground">
+                                            <th key={cellIndex} className="bg-primary/10 px-4 py-3 align-top font-semibold text-foreground">
                                                 {cell}
                                             </th>
                                         ) : (
-                                            <td key={cellIndex} className="px-4 py-3 text-muted-foreground">
+                                            <td key={cellIndex} className="px-4 py-3 align-top text-muted-foreground">
                                                 {cell}
                                             </td>
                                         )
