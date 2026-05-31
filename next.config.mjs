@@ -13,7 +13,37 @@ const nextConfig = {
     return [
       {
         source: '/blog/geo-vs-seo-maroc',
-        destination: '/fr/blog/geo-vs-seo-maroc',
+        destination: '/fr/blog/geo-vs-seo-maroc/',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/geo-vs-seo-maroc',
+        destination: '/fr/blog/geo-vs-seo-maroc/',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/tag/ai-overviews-maroc',
+        destination: '/fr/blog/tag/ai-overviews-maroc/',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/tag/generative-engine-optimization',
+        destination: '/fr/blog/tag/generative-engine-optimization/',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/tag/llmo',
+        destination: '/fr/blog/tag/llmo/',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/tag/perplexity-seo',
+        destination: '/fr/blog/tag/perplexity-seo/',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/tag/seo-maroc',
+        destination: '/fr/blog/tag/seo-maroc/',
         permanent: true,
       },
       {
