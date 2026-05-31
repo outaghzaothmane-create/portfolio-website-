@@ -7,6 +7,7 @@ import { alternatesForPath } from "@/lib/seo/i18n";
 import { cn } from "@/lib/utils";
 import { Schema } from "@/components/Schema";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -109,6 +110,7 @@ export default async function RootLayout({
                     <GlobalBackground />
                     <Header dict={dict} lang={params.lang} />
                     {children}
+                    <SpeedInsights />
                 </LanguageSwitcherProvider>
             </body>
             <GoogleAnalytics gaId="G-WX3YNVD7KF" />
