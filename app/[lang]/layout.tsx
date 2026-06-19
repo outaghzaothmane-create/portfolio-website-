@@ -112,6 +112,7 @@ export default async function RootLayout({
                     {children}
                     <SpeedInsights />
                 </LanguageSwitcherProvider>
+                <SpeedInsights />
             </body>
             <GoogleAnalytics gaId="G-WX3YNVD7KF" />
             <Script id="clarity-script" strategy="afterInteractive">
