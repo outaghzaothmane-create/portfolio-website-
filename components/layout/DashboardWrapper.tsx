@@ -1,25 +1,16 @@
-"use client";;
-import { motion } from "framer-motion";
-import { staggerContainer } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
+// Rendered visible from the server on purpose: an opacity-0 entrance here hides
+// the whole page (including the LCP heading) until framer-motion hydrates.
+// Sections animate themselves via SectionWrapper / BlurFade.
 export function DashboardWrapper({ children }: { children: React.ReactNode }) {
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+        <main
             className={cn(
                 "min-h-screen w-full relative pt-0 transition-colors duration-500 bg-transparent"
             )}
         >
-            <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="w-full pt-0"
-            >
-                {children}
-            </motion.div>
-        </motion.main>
+            <div className="w-full pt-0">{children}</div>
+        </main>
     );
 }
