@@ -61,15 +61,6 @@ const dictionaries = {
 };
 
 export const getDictionary = async (locale: Locale) => {
-    // #region agent log
-    const dictLoader = dictionaries[locale as keyof typeof dictionaries];
-    fetch('http://127.0.0.1:7341/ingest/f4d26d0c-b4d0-4181-9d98-e47689b7b0b8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'1fe2b6'},body:JSON.stringify({sessionId:'1fe2b6',hypothesisId:'B',location:'lib/i18n.ts:getDictionary',message:'getDictionary called',data:{locale,isValid:isValidLanguage(String(locale)),loaderType:typeof dictLoader},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
-    if (typeof dictLoader !== 'function') {
-        // #region agent log
-        fetch('http://127.0.0.1:7341/ingest/f4d26d0c-b4d0-4181-9d98-e47689b7b0b8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'1fe2b6'},body:JSON.stringify({sessionId:'1fe2b6',hypothesisId:'B',location:'lib/i18n.ts:getDictionary',message:'missing dictionary loader',data:{locale},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
-    }
     return dictionaries[locale]();
 };
 

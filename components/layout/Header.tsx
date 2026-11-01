@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavDropdown, navDropdowns } from "@/components/layout/NavDropdown";
 import { AuditModal } from "@/components/features/AuditModal";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -19,16 +19,6 @@ export function Header({ dict, lang }: { dict?: any, lang?: string }) {
     const localePrefix = lang ? `/${lang}` : '';
     const safeDict = dict || { nav: { services: "Services", caseStudies: "Case Studies", blog: "Blog", getFreeAudit: "Get Free Audit" } };
 
-    // #region agent log
-    useEffect(() => {
-        fetch('http://127.0.0.1:7341/ingest/f4d26d0c-b4d0-4181-9d98-e47689b7b0b8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'1fe2b6'},body:JSON.stringify({sessionId:'1fe2b6',hypothesisId:'E',location:'components/layout/Header.tsx',message:'header mounted',data:{lang,hasDict:Boolean(dict),hasNav:Boolean(safeDict?.nav)},timestamp:Date.now()})}).catch(()=>{});
-        const onError = (event: ErrorEvent) => {
-            fetch('http://127.0.0.1:7341/ingest/f4d26d0c-b4d0-4181-9d98-e47689b7b0b8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'1fe2b6'},body:JSON.stringify({sessionId:'1fe2b6',hypothesisId:'E',location:'components/layout/Header.tsx:window.error',message:'window error',data:{errorMessage:event.message,filename:event.filename},timestamp:Date.now()})}).catch(()=>{});
-        };
-        window.addEventListener('error', onError);
-        return () => window.removeEventListener('error', onError);
-    }, [lang, dict, safeDict?.nav]);
-    // #endregion
 
     const navItems = [
         { name: safeDict.nav.services, href: `${localePrefix}/#services` },
