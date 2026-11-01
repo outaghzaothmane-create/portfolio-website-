@@ -46,34 +46,34 @@ export const localBlogCategories: SanityCategory[] = [
 
 const faqs = [
     {
-        question: "Why is paid social media acquisition bleeding Moroccan e-commerce margins?",
+        question: "Why should a Moroccan e-commerce store invest in SEO instead of only paid ads?",
         answer:
-            "Rising ad costs (CPMs) on Meta and TikTok, combined with high local drop-shipping saturation, are crushing margins. Unlike paid ads, which cease to generate revenue the moment ad budgets stop, organic SEO acts as a compounding financial asset. Investing in optimized product pages creates a permanent, high-intent traffic source that delivers free conversions over time.",
+            "Ad costs on Meta and TikTok keep rising, and many Moroccan stores sell the same products with similar ads. Paid traffic stops the day the budget stops. An optimized product page keeps receiving search traffic after the work is done, so each page you improve adds to the traffic you already have.",
     },
     {
-        question: "How do you navigate the multilingual search behavior of Moroccan consumers?",
+        question: "Which language should a Moroccan product page use?",
         answer:
-            "Moroccan buyers search in a fluid mix of French, English, and phonetic Moroccan Arabic (Darija). A premium SEO strategy establishes a single clean language as the primary indexable version (usually French or English), then strategically maps localized Arabic/Darija synonyms, phonetic variations, and search intents directly into the FAQs, technical tables, and image alt text.",
+            "Pick one main language for the page, usually French or English depending on your buyers, and write the title, description and main sections in it. Then add Arabic and Darija variants where they read naturally: FAQ questions, product attributes, image alt text and delivery information. If you run full French and English versions of your store, connect them with hreflang tags.",
     },
     {
-        question: "What is Generative Engine Optimization (GEO) and why does it matter?",
+        question: "What is Generative Engine Optimization (GEO)?",
         answer:
-            "GEO is the practice of structuring website content so AI answer engines like ChatGPT, Perplexity, and Gemini can extract, synthesize, and cite your products. AI tools do not match basic keywords; they crawl semantic entity graphs. To be recommended, your product pages must provide rich, fact-based descriptions, structured specifications, and authoritative Q&A sections.",
+            "GEO means structuring your content so AI tools like ChatGPT, Perplexity and Gemini can understand it, quote it and recommend your products. These tools look for specific facts, named entities and clear answers, so detailed descriptions, specification tables and visible FAQ sections help the most.",
     },
     {
-        question: "How do local trust barriers like Cash on Delivery (COD) impact SEO signals?",
+        question: "Does cash on delivery affect SEO?",
         answer:
-            "Morocco's e-commerce landscape is heavily built on COD due to widespread online payment trust barriers. High cart abandonment and quick bounces signal poor user experience to Google. By embedding explicit shipping disclosures (fast delivery, free shipping) and prominent WhatsApp support buttons, you reduce page friction, keep users engaged, and boost positive on-site behavioral signals that search engines reward.",
+            "Not directly. Google does not rank pages on payment options. But many Moroccan buyers prefer to pay cash on delivery, so stating it clearly near the buy button, along with your delivery cities and a WhatsApp contact, turns more of your organic visitors into orders.",
     },
     {
-        question: "What are the exact technical requirements for e-commerce schema in Morocco?",
+        question: "What product schema does a Moroccan online store need?",
         answer:
-            "Moroccan online stores must implement clean JSON-LD Product Schema, explicitly standardizing the local currency as 'MAD' (Moroccan Dirham). It is crucial to populate required properties—such as brand, seller organization, availability status, price, and high-resolution images—to generate rich snippets, star ratings, and price tags directly in Google's organic results.",
+            "Use JSON-LD Product schema with the product name, images, description, brand and an Offer that includes the price, availability and MAD (Moroccan dirham) as the currency. Everything in the markup must match what visitors can see on the page. Check it with Google's Rich Results Test before publishing.",
     },
     {
-        question: "How do you optimize product image performance for Moroccan mobile networks?",
+        question: "How should I optimize product images for mobile shoppers in Morocco?",
         answer:
-            "Over 90% of Moroccan e-commerce traffic is mobile, often utilizing unstable 3G or 4G connections. Uncompressed supplier images severely throttle page speed, increasing bounce rates. You must compress all images into WebP or AVIF formats, utilize descriptive, hyphenated file names, implement meaningful alt texts for visual search, and enable lazy loading for below-the-fold media.",
+            "Many Moroccan shoppers browse on phones over mobile data, so heavy images cost you visitors. Convert images to WebP or AVIF, compress them, use descriptive hyphenated file names, write alt text that names the product and its key attribute, and lazy-load images below the fold.",
     },
 ];
 
@@ -97,12 +97,12 @@ const articleHtml = String.raw`
     <h1>E-commerce SEO Morocco: How to Optimize Product Pages for Google and AI Search</h1>
 
     <p class="article-description">
-      Uncover how Moroccan e-commerce stores can break their dependency on rising paid social acquisition costs. This authoritative guide by a senior SEO consultant details how to build a compounding organic traffic engine optimized for Google, ChatGPT, Gemini, and Perplexity using advanced multilingual keyword maps, MAD schema, and local COD trust signals.
+      A practical guide for Moroccan online stores: how to build product pages that rank in Google, get cited by ChatGPT, Gemini and Perplexity, and convert buyers who expect cash on delivery and WhatsApp support.
     </p>
 
     <div class="article-meta">
       <span>By <strong>Othmane Outaghza</strong></span>
-      <span>Updated May 22, 2026</span>
+      <span>Updated November 1, 2026</span>
       <span>9 min read</span>
     </div>
   </header>
@@ -112,10 +112,10 @@ const articleHtml = String.raw`
     <ol>
       <li><a href="#intro">Introduction</a></li>
       <li><a href="#multilingual-search">Multilingual Search Behavior in Morocco</a></li>
-      <li><a href="#product-pages">Product Pages as Information Hubs</a></li>
+      <li><a href="#product-pages">Product Pages as Complete Answers</a></li>
       <li><a href="#product-titles">Descriptive Product Titles</a></li>
-      <li><a href="#product-intro">Strong Product Introductions</a></li>
-      <li><a href="#features-benefits">Features into Benefits</a></li>
+      <li><a href="#product-intro">Product Introductions</a></li>
+      <li><a href="#features-benefits">Features and Benefits</a></li>
       <li><a href="#technical-specifications">Technical Specifications</a></li>
       <li><a href="#ai-search">AI Search and GEO</a></li>
       <li><a href="#trust-signals">Local Trust Signals</a></li>
@@ -123,8 +123,9 @@ const articleHtml = String.raw`
       <li><a href="#schema">Product Schema</a></li>
       <li><a href="#internal-links">Internal Linking</a></li>
       <li><a href="#checklist">SEO Checklist</a></li>
+      <li><a href="#recommended-structure">Recommended Page Structure</a></li>
+      <li><a href="#example-copy">Example Product Page Copy</a></li>
       <li><a href="#conclusion">Conclusion</a></li>
-      <li><a href="#faq">FAQ</a></li>
     </ol>
   </aside>
 
@@ -132,47 +133,42 @@ const articleHtml = String.raw`
     <h2>Introduction</h2>
 
     <p>
-      Let's be completely honest. If you are running an e-commerce store in Morocco today, your cash flow is under siege. 
-      You are likely caught in an exhausting cycle: pouring thousands of dirhams daily into Meta, TikTok, or Google Ads, 
-      only to watch your Customer Acquisition Costs (CAC) skyrocket as your margins bleed out. 
+      Many Moroccan online stores get almost all of their orders from Meta, TikTok and Google Ads.
+      As ad costs rise and more stores sell the same drop-shipped products with similar creatives,
+      each order costs more. When the budget stops, the orders stop too.
     </p>
 
     <p>
-      In a market heavily saturated with identical drop-shipped goods and identical ad creatives, relying solely on paid traffic 
-      is a high-risk gamble. The moment you stop feeding the ad manager, your sales flatline. There is no compounding value, 
-      no asset equity, and no long-term security.
+      Organic search works differently. A product page that ranks keeps bringing in buyers after
+      you have paid for the work once. The catch is that most product pages in Morocco are too thin
+      to rank: a one-line description, the supplier's photos and no structured data. They convert
+      poorly when ad traffic lands on them, and Google and AI assistants have almost nothing to read.
     </p>
 
     <p>
-      <strong>But here is the real tragedy:</strong> when prospective buyers click your expensive ads, they land on thin, empty product pages. 
-      Pages with single-sentence descriptions, uncompressed supplier images, and zero structured data. These dry layouts fail to convert 
-      local visitors, but worse—they are completely invisible to search engines and conversational AI systems.
+      Buyers are also changing how they look for products. Alongside Google, they now ask ChatGPT,
+      Gemini and Perplexity questions like "which argan oil is best for cooking?" Those tools
+      recommend pages that answer clearly and in detail.
     </p>
 
     <p>
-      Today, consumers in Morocco are shifting how they discover products. They are no longer just Googling keywords; they are asking 
-      highly contextual, high-intent questions in tools like ChatGPT, Gemini, and Perplexity. To win, your store needs a premium, 
-      deeply structured product page strategy.
-    </p>
-
-    <p>
-      This masterclass breaks down how to construct highly visible, high-converting product pages built specifically for the unique 
-      realities of the Moroccan market.
+      This guide covers what a Moroccan product page needs to rank in Google and get cited by AI
+      search. It uses two examples throughout: a bottle of culinary argan oil and a handmade caftan
+      from Fez.
     </p>
   </section>
 
   <section id="multilingual-search">
-    <h2>1. Understand the Multilingual Search Behavior in Morocco</h2>
+    <h2>1. Understand How Moroccans Search</h2>
 
     <p>
-      Morocco has a unique search environment. Buyers do not always search in one language.
-      Depending on the product, audience, and intent, they may search in French, English,
-      Arabic, or Darija written in Latin characters.
+      Moroccan buyers do not search in one language. Depending on the product and the audience,
+      the same person might type a query in French, English, Arabic or Darija written in Latin
+      letters. A page written only in formal French misses every search made in the other three.
     </p>
 
     <p>
-      If your product copy only targets a single formal language, you are completely blind to over 50% of the active organic search intent. 
-      Consider the vast search matrix for a single organic skincare product:
+      Here is how that looks for two common products:
     </p>
 
     <div class="table-wrapper">
@@ -215,17 +211,21 @@ const articleHtml = String.raw`
     </div>
 
     <p>
-      This does not mean your product page should be overloaded with keywords in every
-      language. That would make the copy look unprofessional.
+      You do not fix this by repeating keywords in every language. That makes the copy hard to
+      read, and buyers notice.
     </p>
 
     <p>
-      The best approach is <strong>structural keyword zoning</strong>. Use one main language
-      for the core page structure. For example, if the page is in English, keep the H1,
-      product description, and main sections in English. Then include French, Arabic, or
-      Darija variations in natural places such as FAQ questions, product attributes, image
-      alt text, category descriptions, search-friendly filters, internal linking anchors,
-      customer support text, delivery information, and payment information.
+      Use <strong>structural keyword zoning</strong> instead. Pick one main language for the page
+      and write the H1, the product description and the main sections in it. Then place French,
+      Arabic or Darija variants where they read naturally: FAQ questions, product attributes,
+      image alt text, category descriptions, filter labels, internal link anchors, and delivery and
+      payment information.
+    </p>
+
+    <p>
+      If you run complete French and English versions of your store, treat them as separate pages,
+      connect them with hreflang tags, and zone the Darija variants into each one.
     </p>
 
     <figure>
@@ -237,55 +237,55 @@ const articleHtml = String.raw`
         height="960"
         loading="lazy"
       />
-      <figcaption>How various language streams (French, English, and Darija) flow into a single optimized product page structure.</figcaption>
+      <figcaption>French, English and Darija search terms feeding into one product page, each placed in the part of the page where it reads naturally.</figcaption>
     </figure>
   </section>
 
   <section id="product-pages">
-    <h2>2. Build Product Pages as Complete Information Hubs</h2>
+    <h2>2. Make Each Product Page a Complete Answer</h2>
 
     <p>
-      A product page should not only say what the product is. It should explain why the
-      product matters, who it is for, how it works, what makes it different, and why the buyer
-      can trust it.
+      A product page should answer everything a buyer wants to know before ordering: what the
+      product is, who it is for, how to use it, how it differs from the cheaper option, and why
+      your store can be trusted.
     </p>
 
     <p>
-      Search engines and AI systems understand pages through entities, facts, attributes,
-      and relationships. The more complete and structured your page is, the easier it becomes
-      for Google and AI search engines to understand your product.
+      Google and AI tools read pages in a similar way. They look for named things, such as the
+      product, its origin and its materials, and the facts attached to them. The more of those
+      facts your page states clearly, the more confidently they can show or recommend it.
     </p>
 
-    <p>A strong Moroccan e-commerce product page should include:</p>
+    <p>A complete product page for a Moroccan store includes:</p>
 
     <ul>
       <li>A descriptive product title</li>
-      <li>A short persuasive introduction</li>
+      <li>A short, specific introduction</li>
       <li>Key features and benefits</li>
       <li>Technical specifications</li>
-      <li>Product use cases</li>
+      <li>Use cases</li>
       <li>Delivery information</li>
       <li>Payment options</li>
       <li>Trust signals</li>
-      <li>Product images with optimized alt text</li>
+      <li>Product images with descriptive alt text</li>
       <li>Frequently asked questions</li>
-      <li>Related categories or related products</li>
+      <li>Links to related categories and products</li>
       <li>Product schema markup</li>
     </ul>
   </section>
 
   <section id="product-titles">
-    <h2>3. Use Descriptive Product Titles</h2>
+    <h2>3. Write Product Titles That Describe the Product</h2>
 
     <p>
-      Many e-commerce stores use product titles that are too short.
+      Most store titles are too short to tell a buyer, or Google, what the product actually is.
     </p>
 
     <div class="example-box">
       <p><strong>Weak title:</strong> Argan Oil</p>
       <p>
-        This title is too generic. It does not explain the product type, size, origin, use
-        case, or quality.
+        This could be any of hundreds of products. It does not say what type of oil it is, the
+        size, where it comes from, what it is for or its quality.
       </p>
     </div>
 
@@ -296,15 +296,15 @@ const articleHtml = String.raw`
       </p>
     </div>
 
-    <p>This title is stronger because it includes:</p>
+    <p>This title tells the buyer six things:</p>
 
     <ul>
       <li>Product type</li>
-      <li>Quality level</li>
-      <li>Usage</li>
+      <li>Quality grade</li>
+      <li>Use</li>
       <li>Size</li>
       <li>Extraction method</li>
-      <li>Local origin</li>
+      <li>Origin</li>
     </ul>
 
     <div class="example-box">
@@ -319,15 +319,15 @@ const articleHtml = String.raw`
     </div>
 
     <p>
-      A descriptive product title helps users, Google, and AI search systems understand the
-      product faster.
+      Here the title adds the exact color, the fabric, how it was made and the trim. A buyer can
+      tell from the title alone whether this is the caftan they want, and so can Google.
     </p>
   </section>
 
   <section id="product-intro">
-    <h2>4. Write a Strong Product Introduction</h2>
+    <h2>4. Open With a Specific Product Introduction</h2>
 
-    <p>The introduction should quickly answer three questions:</p>
+    <p>The first paragraph should answer three questions in two or three sentences:</p>
 
     <ol>
       <li>What is the product?</li>
@@ -338,27 +338,29 @@ const articleHtml = String.raw`
     <h3>Example for argan oil</h3>
 
     <blockquote>
-      Sourced directly from the UNESCO-protected argan biospheres of Taroudant, our extra-virgin culinary argan oil is slowly cold-pressed by local women's cooperatives. Every drop delivers an intense, toasted nutty aroma and a smooth golden texture, packing your gourmet dishes with rich Vitamin E, plant sterols, and healthy monounsaturated fats.
+      Cold-pressed in Taroudant by a women's cooperative, this extra-virgin culinary argan oil is made from toasted kernels, which give it a nutty taste and a deep golden color. Drizzle it over salads, couscous or grilled vegetables, or use it to make amlou. Each 250ml dark glass bottle keeps the oil fresh after opening.
     </blockquote>
 
     <h3>Example for a Moroccan caftan</h3>
 
     <blockquote>
-      Wrap yourself in timeless Moroccan royalty. Hand-embroidered over forty hours by master artisans in Fez, this emerald green caftan seamlessly merges an elegant modern tailored silhouette with the unmatched weight of Italian silk velvet. Adorned with authentic gold silk sfifa and hand-woven aakad closures, it stands as an enduring masterpiece for weddings and prestigious family occasions.
+      Embroidered by hand in Fez over about forty hours, this emerald green caftan is cut from Italian silk velvet and finished with gold silk sfifa and hand-woven aakad closures. It has a modern fitted shape with a hidden inner belt, and it is made for weddings, engagements and family celebrations.
     </blockquote>
 
     <p>
-      The introduction should be clear, useful, and specific. Avoid generic copy like:
-      <em>High-quality product at the best price.</em>
+      Every detail in these introductions is something a buyer can check. Compare them with copy
+      like <em>High-quality product at the best price</em>, which could appear on any store. Only
+      include facts that are true for your product: if your oil is not from a cooperative, leave
+      that out.
     </p>
   </section>
 
   <section id="features-benefits">
-    <h2>5. Turn Features into Benefits</h2>
+    <h2>5. Show What Each Feature Does for the Buyer</h2>
 
     <p>
-      Many product pages only list features. A better product page connects each feature to a
-      buyer benefit.
+      Most product pages list features. Buyers want to know what each feature means for them, so
+      put the two side by side.
     </p>
 
     <h3>Example for culinary argan oil</h3>
@@ -373,24 +375,24 @@ const articleHtml = String.raw`
         </thead>
         <tbody>
           <tr>
-            <td>Mechanical First Cold-pressing</td>
-            <td>Retains 100% of the natural tocopherols and essential fatty acids that heat-extracted oils destroy.</td>
+            <td>First mechanical cold-pressing</td>
+            <td>Keeps the natural vitamin E and fatty acids that heat extraction breaks down.</td>
           </tr>
           <tr>
-            <td>Origin from Taroudant (UNESCO Biosphere)</td>
-            <td>Builds authenticity, builds local Moroccan identity, and guarantees pristine terroir.</td>
+            <td>Pressed in Taroudant, inside the UNESCO Arganeraie Biosphere Reserve</td>
+            <td>Gives the buyer a specific origin they can verify.</td>
           </tr>
           <tr>
             <td>Dark glass bottle</td>
-            <td>Protects the delicate extra-virgin oil from light degradation and preserves absolute freshness.</td>
+            <td>Protects the oil from light so it stays fresh longer.</td>
           </tr>
           <tr>
             <td>250ml size</td>
-            <td>Practical format for daily kitchen finishing oil use</td>
+            <td>A practical size for everyday use as a finishing oil.</td>
           </tr>
           <tr>
-            <td>100% pure organic toasted kernels</td>
-            <td>Reassures buyers that the product is completely undiluted, clean, and authentic.</td>
+            <td>100% toasted argan kernels</td>
+            <td>Tells the buyer the oil is pure, with nothing blended in.</td>
           </tr>
         </tbody>
       </table>
@@ -408,24 +410,24 @@ const articleHtml = String.raw`
         </thead>
         <tbody>
           <tr>
-            <td>Master Handmade embroidery (Tarz Fez)</td>
-            <td>Gives the product an exquisite, durable artisanal finish machine replication can never match.</td>
+            <td>Hand embroidery (tarz fassi)</td>
+            <td>A finish that machine embroidery cannot copy, built to last for years of wear.</td>
           </tr>
           <tr>
-            <td>Premium Italian Silk velvet fabric</td>
-            <td>Creates a luxurious look, rich color depth, and exceptionally elegant heavy drape.</td>
+            <td>Italian silk velvet</td>
+            <td>Deep color and a heavy, elegant drape.</td>
           </tr>
           <tr>
-            <td>Authentic Gold Silk sfifa</td>
-            <td>Reinforces Moroccan cultural authenticity and reinforces prestige aesthetics.</td>
+            <td>Gold silk sfifa</td>
+            <td>The traditional trim buyers look for in an authentic Moroccan caftan.</td>
           </tr>
           <tr>
-            <td>Hand-woven gold aakad closures</td>
-            <td>Adds traditional handcrafted details and highly premium luxury finishing.</td>
+            <td>Hand-woven aakad closures</td>
+            <td>Traditional handmade buttons that show the quality of the finishing.</td>
           </tr>
           <tr>
             <td>Adjustable hidden inner belt</td>
-            <td>Allows customized waist styling for comfort and a tailored silhouette.</td>
+            <td>Lets the wearer adjust the waist for comfort and a fitted look.</td>
           </tr>
         </tbody>
       </table>
@@ -433,15 +435,12 @@ const articleHtml = String.raw`
   </section>
 
   <section id="technical-specifications">
-    <h2>6. Add Technical Specifications in a Clean Table</h2>
+    <h2>6. Put Technical Specifications in a Table</h2>
 
     <p>
-      Technical specifications are extremely important for e-commerce SEO. They help buyers
-      compare products and allow search engines to extract structured product attributes.
-    </p>
-
-    <p>
-      Do not hide specifications inside long paragraphs. Use clean HTML tables.
+      Specifications help buyers compare products, and they give Google and AI tools product
+      attributes they can read directly. Put them in a proper HTML table instead of burying them
+      in a paragraph.
     </p>
 
     <h3>Culinary Argan Oil Specifications</h3>
@@ -461,7 +460,7 @@ const articleHtml = String.raw`
           </tr>
           <tr>
             <td>Usage</td>
-            <td>Food finishing, salads, amlou, gourmet Moroccan dishes</td>
+            <td>Food finishing, salads, amlou, Moroccan dishes</td>
           </tr>
           <tr>
             <td>Extraction Method</td>
@@ -481,11 +480,11 @@ const articleHtml = String.raw`
           </tr>
           <tr>
             <td>Ingredients</td>
-            <td>100% pure organic toasted argan kernels</td>
+            <td>100% toasted argan kernels</td>
           </tr>
           <tr>
             <td>Additives</td>
-            <td>No preservatives, zero artificial additives, GMO-free</td>
+            <td>No preservatives or additives</td>
           </tr>
           <tr>
             <td>Storage</td>
@@ -508,11 +507,11 @@ const articleHtml = String.raw`
         <tbody>
           <tr>
             <td>Product Type</td>
-            <td>Moroccan caftan (Single-piece luxury cut)</td>
+            <td>Moroccan caftan (single-piece cut)</td>
           </tr>
           <tr>
             <td>Style</td>
-            <td>Modern luxury caftan</td>
+            <td>Modern fitted caftan</td>
           </tr>
           <tr>
             <td>Color</td>
@@ -520,23 +519,23 @@ const articleHtml = String.raw`
           </tr>
           <tr>
             <td>Fabric</td>
-            <td>Premium Italian silk velvet</td>
+            <td>Italian silk velvet</td>
           </tr>
           <tr>
             <td>Embroidery</td>
-            <td>100% handmade traditional embroidery (Tarz Fez)</td>
+            <td>Handmade traditional embroidery (tarz fassi)</td>
           </tr>
           <tr>
             <td>Details</td>
-            <td>Pure gold silk Sfifa and handmade Aakad closures</td>
+            <td>Gold silk sfifa and handmade aakad closures</td>
           </tr>
           <tr>
             <td>Occasion</td>
-            <td>Weddings, engagements, prestigious family events</td>
+            <td>Weddings, engagements, family celebrations</td>
           </tr>
           <tr>
             <td>Origin</td>
-            <td>Fez, Morocco (Artisanal Workshop)</td>
+            <td>Artisan workshop in Fez, Morocco</td>
           </tr>
           <tr>
             <td>Care Instructions</td>
@@ -548,23 +547,24 @@ const articleHtml = String.raw`
   </section>
 
   <section id="ai-search">
-    <h2>7. Optimize for AI Search and Generative Engine Optimization</h2>
+    <h2>7. Optimize for AI Search (GEO)</h2>
 
     <p>
-      Traditional SEO focuses on ranking in search results. AI Search optimization focuses on
-      making your content easy for answer engines to understand, extract, and cite.
-    </p>
-
-    <p>
-      Tools like ChatGPT, Gemini, and Perplexity look for clear answers, reliable entities,
-      structured information, and specific details.
+      Traditional SEO aims to rank your page in Google's results. AI search optimization, often
+      called GEO (Generative Engine Optimization), aims to make your page easy for ChatGPT, Gemini
+      and Perplexity to read, quote and recommend. These tools favor pages with clear answers,
+      named entities and specific facts.
     </p>
 
     <h3>Entity Clarity</h3>
 
-    <p>Mention the important entities connected to your product.</p>
+    <p>
+      Name the places, materials, techniques and uses connected to your product in plain words.
+      A page that mentions Taroudant, cold-pressing and amlou tells an AI tool far more than one
+      that only says "premium oil."
+    </p>
 
-    <p>For culinary argan oil, relevant entities may include:</p>
+    <p>For culinary argan oil, relevant entities include:</p>
 
     <ul>
       <li>Argan oil</li>
@@ -579,7 +579,7 @@ const articleHtml = String.raw`
       <li>Toasted argan kernels</li>
     </ul>
 
-    <p>For a Moroccan caftan, relevant entities may include:</p>
+    <p>For a Moroccan caftan, relevant entities include:</p>
 
     <ul>
       <li>Moroccan caftan</li>
@@ -595,51 +595,47 @@ const articleHtml = String.raw`
     <h3>Structured Q&amp;A</h3>
 
     <p>
-      Add a visible FAQ section to answer buyer questions directly. A visible FAQ is useful
-      for SEO, AI Search, and conversion because it answers real buying objections.
+      Add a visible FAQ section that answers the questions buyers actually ask before ordering.
+      It removes doubts that stop a sale, and it gives AI tools ready-made answers to quote.
+      Three examples:
     </p>
 
     <div class="faq-preview">
-      <h4>Can culinary argan oil be used on the skin or hair?</h4>
+      <h3>Can culinary argan oil be used on the skin or hair?</h3>
       <p>
-        Culinary argan oil is made from toasted argan kernels and is mainly intended for food
-        use. For skin and hair, cosmetic argan oil made from untoasted kernels is usually more
-        appropriate.
+        Culinary argan oil is made from toasted kernels and is meant for food. For skin and hair,
+        choose cosmetic argan oil, which is pressed from untoasted kernels.
       </p>
 
-      <h4>Is this caftan handmade?</h4>
+      <h3>Is this caftan handmade?</h3>
       <p>
-        Yes, the caftan includes handmade Moroccan details such as traditional embroidery,
-        sfifa, and aakad closures, depending on the specific model.
+        Yes. The embroidery, sfifa and aakad closures on this model are made by hand in a workshop
+        in Fez.
       </p>
 
-      <h4>Can I pay on delivery in Morocco?</h4>
+      <h3>Can I pay on delivery in Morocco?</h3>
       <p>
-        If Cash on Delivery is available, mention it clearly near the add-to-cart button and
-        inside the FAQ section.
+        Yes. Cash on delivery is available in every city we deliver to. You pay the courier when
+        your order arrives.
       </p>
     </div>
   </section>
 
   <section id="trust-signals">
-    <h2>8. Add Local Trust Signals for Morocco</h2>
+    <h2>8. Add Local Trust Signals</h2>
 
     <p>
-      Trust is one of the biggest conversion factors in Moroccan e-commerce.
+      Trust decides a lot of orders in Moroccan e-commerce. Before buying, many customers want to
+      know that the store is real, that delivery will arrive, that they can pay cash on delivery,
+      and that a real person will answer if something goes wrong.
     </p>
 
-    <p>
-      Many customers want reassurance before ordering. They may want to know if the store is
-      real, if delivery is reliable, if Cash on Delivery is available, and whether they can
-      speak to a real person before buying.
-    </p>
-
-    <p>Your product page should include local trust signals such as:</p>
+    <p>Answer those questions on the product page itself with:</p>
 
     <ul>
-      <li>Cash on Delivery availability</li>
+      <li>Cash on delivery availability</li>
       <li>WhatsApp support</li>
-      <li>Delivery cities</li>
+      <li>The cities you deliver to</li>
       <li>Return policy</li>
       <li>Exchange policy</li>
       <li>Customer reviews</li>
@@ -658,14 +654,20 @@ const articleHtml = String.raw`
 
     <div class="trust-box">
       <p>
-        <strong>Example WhatsApp CTA:</strong> Need help before ordering? Contact us on
-        WhatsApp for product details, size advice, delivery information, or order confirmation.
+        <strong>Example WhatsApp CTA:</strong> Need help before ordering? Message us on WhatsApp
+        for product details, size advice, delivery times or to confirm your order.
       </p>
     </div>
 
     <p>
-      For the Moroccan market, WhatsApp is not just a support tool. It is often part of the
-      conversion funnel.
+      In Morocco, WhatsApp is often where the sale happens. Many buyers message the store to
+      confirm the price, size or delivery date before ordering, so place the WhatsApp button next
+      to the price and the add-to-cart button, where those questions come up.
+    </p>
+
+    <p>
+      These signals do not rank a page on their own. They turn more of the visitors your SEO brings
+      in into orders, and that is what makes the SEO work pay off.
     </p>
 
     <figure>
@@ -677,32 +679,29 @@ const articleHtml = String.raw`
         height="960"
         loading="lazy"
       />
-      <figcaption>How local trust indicators (Cash on Delivery disclosures and WhatsApp chatflows) build consumer confidence, lower bounce rates, and boost conversions.</figcaption>
+      <figcaption>Cash on delivery details and a WhatsApp button placed next to the buy button answer the questions that stop Moroccan shoppers from ordering.</figcaption>
     </figure>
   </section>
 
   <section id="image-seo">
-    <h2>9. Optimize Product Images for SEO and Speed</h2>
+    <h2>9. Optimize Product Images for Search and Speed</h2>
 
     <p>
-      Product images have a direct impact on SEO, user experience, and conversion.
+      Images affect how fast the page loads, whether it appears in image search and whether people
+      buy. Many Moroccan shoppers browse on their phones over mobile data, so a page full of
+      uncompressed supplier photos loads slowly and loses visitors before they see the price.
     </p>
 
-    <p>
-      Large, uncompressed images can slow down product pages, especially for mobile users.
-      Slow pages increase bounce rates and reduce conversions.
-    </p>
-
-    <p>Use these image SEO best practices:</p>
+    <p>For every product image:</p>
 
     <ul>
-      <li>Use WebP or AVIF format when possible</li>
-      <li>Compress images before uploading</li>
-      <li>Use descriptive file names</li>
-      <li>Add clear alt text</li>
-      <li>Include product name, color, material, or use case</li>
-      <li>Avoid uploading supplier images with random file names</li>
-      <li>Use original product photos when possible</li>
+      <li>Use WebP or AVIF format where possible</li>
+      <li>Compress the file before uploading</li>
+      <li>Give the file a descriptive name</li>
+      <li>Write alt text that describes the image</li>
+      <li>Include the product name, color, material or use in the alt text</li>
+      <li>Rename supplier images instead of uploading them with random file names</li>
+      <li>Use your own product photos where you can</li>
     </ul>
 
     <div class="example-box">
@@ -712,7 +711,7 @@ const articleHtml = String.raw`
 
     <div class="example-box">
       <p><strong>Bad file name:</strong> product-final-new.png</p>
-      <p><strong>Good file name:</strong> 'emerald-green-caftan-silk-velvet.webp'</p>
+      <p><strong>Good file name:</strong> emerald-green-caftan-silk-velvet.webp</p>
     </div>
 
     <p>Example alt text:</p>
@@ -724,16 +723,16 @@ const articleHtml = String.raw`
   </section>
 
   <section id="schema">
-    <h2>10. Add Product Schema with MAD Currency</h2>
+    <h2>10. Add Product Schema With MAD Currency</h2>
 
     <p>
-      Product schema helps Google understand your product details, including name, image,
-      description, SKU, price, currency, availability, and brand.
+      Product schema is a block of code that tells Google the product's name, images, description,
+      SKU, price, currency, availability and brand. It is what allows Google to show price and
+      stock information next to your result.
     </p>
 
     <p>
-      For Moroccan e-commerce websites, make sure your pricing uses <strong>MAD</strong> as
-      the currency.
+      For a Moroccan store, set the currency to <strong>MAD</strong> (Moroccan dirham).
     </p>
 
     <pre><code>&lt;script type="application/ld+json"&gt;
@@ -766,54 +765,50 @@ const articleHtml = String.raw`
 &lt;/script&gt;</code></pre>
 
     <p>
-      Product schema does not replace good content, but it helps search engines understand
-      your page more accurately.
+      Everything in the markup must match what visitors can see on the page. Only mention
+      certifications such as ONSSA approval or an organic label if your product actually has them.
+    </p>
+
+    <p>
+      Schema will not make a weak page rank, but it helps Google read a good one accurately. Test
+      it with Google's Rich Results Test before publishing.
     </p>
   </section>
 
   <section id="internal-links">
-    <h2>11. Improve Internal Linking</h2>
+    <h2>11. Link Product Pages to Related Pages</h2>
 
     <p>
-      Internal links help users and search engines discover related content.
+      Internal links help buyers find related products, and they help Google discover your pages
+      and understand how they relate to each other.
     </p>
 
-    <p>On product pages, link to:</p>
+    <p>From each product page, link to:</p>
 
     <ul>
-      <li>Related categories</li>
+      <li>Its category</li>
       <li>Similar products</li>
       <li>Buying guides</li>
       <li>Size guides</li>
-      <li>Delivery policy</li>
-      <li>Return policy</li>
-      <li>Blog articles</li>
+      <li>Your delivery policy</li>
+      <li>Your return policy</li>
+      <li>Related blog articles</li>
       <li>Brand pages</li>
     </ul>
 
-    <p>Example internal links:</p>
-
-    <ul>
-      <li>
-        <a href="/en/#services">Technical SEO Audit</a>
-      </li>
-      <li>
-        <a href="/en/#services">AI Search Optimization</a>
-      </li>
-      <li>
-        <a href="/en/#services">E-commerce SEO</a>
-      </li>
-      <li>
-        <a href="/en/#services">Structured Data SEO</a>
-      </li>
-    </ul>
+    <p>
+      For example, the culinary argan oil page could link to the culinary argan oil category, to
+      the cosmetic argan oil page for buyers who need the other type, and to a guide on how to spot
+      fake argan oil. Use descriptive link text such as "cosmetic argan oil for hair" instead of
+      "click here."
+    </p>
   </section>
 
   <section id="checklist">
-    <h2>12. Product Page SEO Checklist for Moroccan E-commerce Stores</h2>
+    <h2>12. Product Page SEO Checklist for Moroccan Stores</h2>
 
     <p>
-      Use this checklist before publishing or updating any product page:
+      Run through this list before publishing or updating a product page:
     </p>
 
     <div class="table-wrapper">
@@ -854,7 +849,7 @@ const articleHtml = String.raw`
             <td>Required</td>
           </tr>
           <tr>
-            <td>Product schema added</td>
+            <td>Product schema added and tested</td>
             <td>Required</td>
           </tr>
           <tr>
@@ -862,7 +857,7 @@ const articleHtml = String.raw`
             <td>Required</td>
           </tr>
           <tr>
-            <td>Cash on Delivery information</td>
+            <td>Cash on delivery information</td>
             <td>Recommended</td>
           </tr>
           <tr>
@@ -906,7 +901,9 @@ const articleHtml = String.raw`
     <h2>13. Recommended Product Page Structure</h2>
 
     <p>
-      A strong product page structure for Moroccan e-commerce should look like this:
+      This order works well for Moroccan stores, from the top of the page down. The first six items
+      should be visible on a phone with very little scrolling, because that is where most buying
+      decisions happen.
     </p>
 
     <ol>
@@ -914,7 +911,7 @@ const articleHtml = String.raw`
       <li>Product images</li>
       <li>Price and availability</li>
       <li>Add to cart button</li>
-      <li>Cash on Delivery and delivery information</li>
+      <li>Cash on delivery and delivery information</li>
       <li>WhatsApp support button</li>
       <li>Short product introduction</li>
       <li>Key benefits</li>
@@ -925,7 +922,7 @@ const articleHtml = String.raw`
       <li>FAQ section</li>
       <li>Related products</li>
       <li>Related categories</li>
-      <li>Product schema</li>
+      <li>Product schema (in the page code)</li>
     </ol>
   </section>
 
@@ -939,18 +936,17 @@ const articleHtml = String.raw`
 
     <h3>Short Description</h3>
     <p>
-      Discover authentic Moroccan culinary argan oil made from carefully selected toasted
-      argan kernels and cold-pressed in Taroudant. With its rich nutty flavor and smooth
-      golden texture, this oil is ideal for salads, couscous, grilled vegetables, amlou, and
-      traditional Moroccan recipes.
+      Culinary argan oil made from toasted argan kernels and cold-pressed in Taroudant. It has a
+      rich, nutty flavor and a smooth golden texture. Use it on salads, couscous and grilled
+      vegetables, or to make amlou and other traditional Moroccan recipes.
     </p>
 
     <h3>Key Benefits</h3>
     <ul>
-      <li>Cold-pressed to preserve natural flavor and nutritional value</li>
-      <li>Made from 100% pure toasted argan kernels</li>
-      <li>Ideal for Moroccan dishes, salads, and gourmet cooking</li>
-      <li>Produced in Morocco using traditional expertise</li>
+      <li>Cold-pressed to keep its natural flavor and nutrients</li>
+      <li>Made from 100% toasted argan kernels</li>
+      <li>Suited to Moroccan dishes, salads and everyday cooking</li>
+      <li>Pressed in Taroudant, in the Souss-Massa region</li>
       <li>Packaged in a dark glass bottle to protect freshness</li>
     </ul>
 
@@ -1006,49 +1002,42 @@ const articleHtml = String.raw`
     <h2>Conclusion</h2>
 
     <p>
-      E-commerce SEO in Morocco is still a major opportunity. Many online stores depend
-      almost entirely on paid ads while their product pages remain thin, slow, and poorly
-      structured.
+      Most Moroccan online stores still rely on paid ads while their product pages stay thin, slow
+      and hard for search engines to read. That leaves an opening for any store willing to fix
+      them.
     </p>
 
     <p>
-      That creates an advantage for brands that invest in organic visibility early.
+      Start with your best-selling products. Give each one a descriptive title, a specific
+      introduction, a specifications table, compressed images, product schema in MAD, clear cash
+      on delivery and WhatsApp details, and an FAQ that answers real buyer questions. Then track
+      organic clicks for those pages in Google Search Console and move on to the next batch.
     </p>
 
     <p>
-      By building detailed product pages, targeting multilingual search behavior, adding
-      structured data, improving image performance, including local trust signals, and
-      answering buyer questions clearly, Moroccan e-commerce businesses can create long-term
-      SEO assets that generate traffic and sales over time.
-    </p>
-
-    <p>
-      Paid ads can bring short-term visibility. Strong SEO builds a compounding acquisition
-      channel.
+      Each page you improve keeps attracting searches after the work is done, so the results build
+      up month after month.
     </p>
   </section>
 
   <section class="cta-section" aria-label="SEO audit call to action">
-    <h2>Need Help with E-commerce SEO in Morocco?</h2>
+    <h2>Need Help With Your Store's Product Pages?</h2>
 
     <p>
-      I’m <strong>Othmane Outaghza</strong>, a Technical SEO Consultant and AI Search
-      Specialist based in Morocco.
+      I’m <strong>Othmane Outaghza</strong>, a technical SEO consultant based in Morocco. I audit
+      and fix product pages, structured data, internal linking and image performance for stores on
+      Shopify, WooCommerce, YouCan and custom platforms, so they get found in Google, ChatGPT,
+      Gemini and Perplexity.
     </p>
 
-    <p>
-      I help e-commerce and service businesses improve technical SEO, product page
-      optimization, structured data, internal linking, image SEO, and visibility across
-      Google, ChatGPT, Gemini, and Perplexity.
-    </p>
+    <ul>
+      <li><a href="/en/#services">Technical SEO Audit</a></li>
+      <li><a href="/en/#services">AI Search Optimization</a></li>
+      <li><a href="/en/#services">E-commerce SEO</a></li>
+      <li><a href="/en/#services">Structured Data SEO</a></li>
+    </ul>
 
-    <p>
-      Whether your store is built on Shopify, WooCommerce, YouCan, or a custom platform, I
-      can help you identify technical issues, improve product pages, and build a stronger
-      organic growth strategy.
-    </p>
-
-    <a class="cta-button" href="/contact">Request an SEO and AI Search Visibility Audit</a>
+    <a class="cta-button" href="/en#contact">Request an SEO and AI Search Visibility Audit</a>
   </section>
 
   <script type="application/ld+json">
@@ -1068,10 +1057,10 @@ const articleHtml = String.raw`
       "url": "https://othmaneoutaghza.online/"
     },
     "datePublished": "2026-05-22",
-    "dateModified": "2026-05-22",
+    "dateModified": "2026-11-01",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://othmaneoutaghza.online/blog/ecommerce-seo-morocco-product-pages"
+      "@id": "https://othmaneoutaghza.online/en/blog/seo-ecommerce-morocco-ai-search-product-pages/"
     },
     "keywords": [
       "e-commerce SEO Morocco",
@@ -2878,7 +2867,7 @@ export const localBlogPosts: BlogPost[] = [
         excerpt:
             "A complete guide for Moroccan e-commerce businesses that want stronger product page SEO, structured data, image optimization, internal links, and AI search visibility.",
         publishedAt: "2026-05-22T00:00:00.000Z",
-        updatedAt: "2026-05-22T00:00:00.000Z",
+        updatedAt: "2026-11-01T00:00:00.000Z",
         featured: false,
         readingTime: estimateReadingTimeFromBlocks(articleBody),
         mainImage: {
@@ -2930,7 +2919,7 @@ export const localBlogPosts: BlogPost[] = [
         },
         language: "en",
         body: articleBody,
-        faqs: [],
+        faqs,
         cta: {
             title: "Need help with e-commerce SEO in Morocco?",
             description:
