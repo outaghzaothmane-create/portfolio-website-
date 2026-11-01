@@ -48,6 +48,9 @@ const AutomationStack = dynamic(() => import("@/components/sections/AutomationSt
 });
 
 export default async function Home({ params }: { params: { lang: string } }) {
+    // #region agent log
+    fetch('http://127.0.0.1:7341/ingest/f4d26d0c-b4d0-4181-9d98-e47689b7b0b8',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'1fe2b6'},body:JSON.stringify({sessionId:'1fe2b6',hypothesisId:'A',location:'app/[lang]/page.tsx:Home',message:'home render start',data:{lang:params.lang},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
     const dict = await getDictionary(params.lang as Locale);
     return (
         <DashboardWrapper>
