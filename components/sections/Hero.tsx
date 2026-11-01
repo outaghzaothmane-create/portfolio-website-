@@ -27,7 +27,7 @@ export function Hero({ dict, lang }: { dict?: any, lang?: string }) {
     }, []);
 
     const safeDict = dict || {
-        title: "Technical SEO Consultant & AI Automation Specialist Driving $1.3M+ in Organic Revenue",
+        title: "Technical SEO consultant behind $1.3M+ in organic revenue",
         subtitle: "Othmane Outaghza is a Technical SEO Consultant and AI Automation Specialist based in Morocco.",
         cta: "Download Resume"
     };
