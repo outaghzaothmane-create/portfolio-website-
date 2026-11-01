@@ -27,9 +27,11 @@ export function middleware(request: NextRequest) {
         const locale = defaultLanguage;
         
         // e.g. incoming request is /services
-        // The new URL is now /en/services
+        // The new URL is now /en/services/ (trailing slash matches trailingSlash: true,
+        // so visitors and crawlers get one redirect instead of two)
+        const withSlash = pathname.endsWith('/') ? pathname : `${pathname}/`;
         return NextResponse.redirect(
-            new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
+            new URL(`/${locale}${withSlash}`, request.url)
         );
     }
 }
