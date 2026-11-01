@@ -1018,6 +1018,10 @@ const articleHtml = String.raw`
       Each page you improve keeps attracting searches after the work is done, so the results build
       up month after month.
     </p>
+    <p>
+      Running your store on YouCan? Read our <a href="/en/blog/youcan-seo-guide/">YouCan SEO guide</a>
+      for the 7 mistakes we found on real stores and where to fix each one in your dashboard.
+    </p>
   </section>
 
   <section class="cta-section" aria-label="SEO audit call to action">
@@ -1922,6 +1926,10 @@ const frArticleHtml = String.raw`
     <p>
       L'acquisition payante offre un coup de projecteur temporaire ; le SEO e-commerce solide construit un moteur de croissance perpétuel.
     </p>
+      <p>
+      Votre boutique tourne sur YouCan ? Consultez notre <a href="/fr/blog/seo-youcan/">guide SEO YouCan</a>
+      : les 7 erreurs trouvées en analysant des boutiques réelles et où les corriger dans votre tableau de bord.
+    </p>
   </section>
 
   <section class="cta-section" aria-label="Appel à l’action audit SEO">
@@ -2331,6 +2339,1074 @@ const geoVsSeoMarocJsonLd = {
         },
     ],
 };
+
+const youcanSlug = "seo-youcan";
+const youcanCanonicalUrl = "https://othmaneoutaghza.online/fr/blog/seo-youcan/";
+const youcanMetaTitle = "SEO YouCan : guide complet pour référencer votre boutique (2026)";
+const youcanMetaDescription =
+    "Audit de boutiques YouCan réelles : doublons de domaine, titres méta, schema produit, Search Console. Les 7 erreurs SEO à corriger et où les régler.";
+const youcanImage = "/images/seo-ecommerce-morocco-ai-search-product-pages.webp";
+const youcanImageAlt = "SEO YouCan : audit et optimisation d'une boutique YouCan au Maroc";
+
+const youcanFaqs = [
+    {
+        question: "YouCan est-il bon pour le SEO ?",
+        answer:
+            "Oui, la base est correcte : sitemap automatique, schema produit en MAD et champs méta par produit. Les problèmes viennent surtout des réglages laissés vides et de certains thèmes. Une boutique YouCan bien configurée peut se positionner sur Google comme une boutique Shopify ou WooCommerce.",
+    },
+    {
+        question: "Faut-il un domaine personnalisé pour le SEO sur YouCan ?",
+        answer:
+            "Ce n'est pas obligatoire, mais c'est recommandé. Un domaine à vous (.ma ou .com) inspire plus confiance, permet de modifier le robots.txt et de vérifier toute la boutique dans Search Console par DNS. Définissez-le comme domaine principal et vérifiez que l'ancienne adresse .youcan.store redirige.",
+    },
+    {
+        question: "YouCan ou Shopify : lequel est meilleur pour le SEO ?",
+        answer:
+            "Shopify offre plus d'applications et de contrôle sur le thème. YouCan est pensé pour le marché marocain, avec le paiement à la livraison et YouCan Ship intégrés. Pour le SEO, la différence vient surtout de la qualité des fiches produits et des réglages techniques, pas de la plateforme.",
+    },
+    {
+        question: "Comment ajouter Google Search Console à une boutique YouCan ?",
+        answer:
+            "Utilisez la balise HTML de Google dans Paramètres → Online → CSS/JavaScript configs → Additional header code, ou un enregistrement TXT chez le vendeur de votre domaine. Ajoutez ensuite sitemap.xml dans la section Sitemaps de Search Console.",
+    },
+    {
+        question: "Combien de temps faut-il pour voir des résultats SEO sur YouCan ?",
+        answer:
+            "Les corrections techniques sont prises en compte en quelques jours à quelques semaines, selon la fréquence d'exploration de Google. Les gains de positionnement prennent généralement plusieurs mois. Suivez les impressions et les clics de vos fiches corrigées dans Search Console.",
+    },
+];
+
+const youcanEnSlug = "youcan-seo-guide";
+const youcanEnCanonicalUrl = "https://othmaneoutaghza.online/en/blog/youcan-seo-guide/";
+const youcanEnMetaTitle = "YouCan SEO Guide: 7 Mistakes to Fix on Your Store (2026)";
+const youcanEnMetaDescription =
+    "An audit of real YouCan stores: duplicate domains, meta titles, product schema, Search Console. The 7 most common SEO mistakes and where to fix them.";
+
+const youcanEnFaqs = [
+    {
+        question: "Is YouCan good for SEO?",
+        answer:
+            "Yes, the base is solid: an automatic sitemap, product schema in MAD and meta fields for each product. Most problems come from settings left empty and from some themes. A well-configured YouCan store can rank in Google just like a Shopify or WooCommerce store.",
+    },
+    {
+        question: "Do I need a custom domain for SEO on YouCan?",
+        answer:
+            "It is not required, but it is recommended. Your own domain (.ma or .com) builds more trust, lets you edit robots.txt and lets you verify the whole store in Search Console through DNS. Set it as the primary domain and check that the old .youcan.store address redirects.",
+    },
+    {
+        question: "YouCan or Shopify: which is better for SEO?",
+        answer:
+            "Shopify offers more apps and more control over the theme. YouCan is built for the Moroccan market, with cash on delivery and YouCan Ship included. For SEO, the difference comes mostly from the quality of your product pages and technical setup, not the platform.",
+    },
+    {
+        question: "How do I add Google Search Console to a YouCan store?",
+        answer:
+            "Paste Google's HTML verification tag into Settings → Online → CSS/JavaScript configs → Additional header code, or add a TXT record at the company you bought your domain from. Then add sitemap.xml in the Sitemaps section of Search Console.",
+    },
+    {
+        question: "How long does it take to see SEO results on YouCan?",
+        answer:
+            "Technical fixes are picked up within a few days to a few weeks, depending on how often Google crawls your store. Ranking gains usually take several months. Track impressions and clicks for the pages you fixed in Search Console.",
+    },
+];
+
+const youcanEnHtml = String.raw`
+<article class="blog-article youcan-seo-guide blog-post">
+  <header class="article-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en">Home</a>
+      <span>/</span>
+      <a href="/en/blog">Blog</a>
+      <span>/</span>
+      <span>YouCan SEO</span>
+    </nav>
+
+    <h1>YouCan SEO: 7 Mistakes We Found on 9 Moroccan Stores (and How to Fix Them)</h1>
+
+    <p class="article-description">
+      We audited real YouCan stores to see what holds back their visibility in Google and AI search. Here are the 7 most common mistakes, where to fix each one in your dashboard, and what YouCan already does for you.
+    </p>
+
+    <div class="article-meta">
+      <span>By <strong>Othmane Outaghza</strong></span>
+      <span>Updated November 1, 2026</span>
+    </div>
+  </header>
+
+  <section id="intro">
+    <h2>Introduction</h2>
+
+    <p>
+      Of 9 YouCan stores we analyzed, 7 had no canonical tag on their product pages, and none listed
+      their sitemap in their robots.txt file.
+    </p>
+
+    <p>
+      Shoppers never see these settings, but Google does. They help explain why so many YouCan stores
+      rely almost entirely on Meta and TikTok ads: their product pages exist, but Google either
+      misreads them or finds them twice.
+    </p>
+
+    <p>
+      This guide is built on that audit. For each mistake, you will see what we found, why it matters
+      and where to fix it in YouCan. For the content of your product pages (titles, descriptions,
+      specifications), see our guide to
+      <a href="/en/blog/seo-ecommerce-morocco-ai-search-product-pages/">optimizing product pages for Google and AI search</a>.
+    </p>
+  </section>
+
+  <section id="what-youcan-does">
+    <h2>1. What YouCan Already Does for Your SEO</h2>
+
+    <p>
+      YouCan's technical base is solid. Without any setup, your store has:
+    </p>
+
+    <ul>
+      <li><strong>An automatic sitemap</strong> at <code>/sitemap.xml</code>, split into categories, pages and products.</li>
+      <li><strong>Product schema</strong> (JSON-LD structured data) generated for each product, with the price in MAD.</li>
+      <li><strong>SEO fields for each product</strong>: slug, meta title, meta description and sharing image.</li>
+      <li><strong>An editable robots.txt</strong>, once your own domain is the store's primary domain.</li>
+      <li><strong>A header code field</strong>, useful for verifying your site in Google Search Console.</li>
+    </ul>
+
+    <p>
+      Most problems come from two places: fields left empty or filled in badly, and themes that do not
+      output certain tags. Both can be fixed.
+    </p>
+  </section>
+
+  <section id="audit">
+    <h2>2. The Audit: What We Checked on 13 Stores</h2>
+
+    <p>
+      We picked 13 public Moroccan YouCan stores found through Google search. For each one, we read the
+      robots.txt file, the sitemap and one product page, as Google receives it. Nine stores had a product
+      page we could inspect.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Check</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>robots.txt lists the sitemap</td>
+            <td>0 of 12 stores</td>
+          </tr>
+          <tr>
+            <td>Sitemap available at /sitemap.xml</td>
+            <td>9 of 12</td>
+          </tr>
+          <tr>
+            <td>Canonical tag on the product page</td>
+            <td>2 of 9</td>
+          </tr>
+          <tr>
+            <td>Stores with their own domain whose .youcan.store address still loads without a redirect</td>
+            <td>4 of 4</td>
+          </tr>
+          <tr>
+            <td>H1 heading on the product page</td>
+            <td>2 of 9</td>
+          </tr>
+          <tr>
+            <td>Product schema present</td>
+            <td>3 of 9, all in MAD</td>
+          </tr>
+          <tr>
+            <td>Schema with availability, brand, SKU or reviews</td>
+            <td>0 of 3</td>
+          </tr>
+          <tr>
+            <td>Weak meta title ("First product", the URL slug, a single word)</td>
+            <td>3 of 9</td>
+          </tr>
+          <tr>
+            <td>Images using the store name as alt text</td>
+            <td>5 of 9</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example-box">
+      <p>
+        <strong>Audit limits:</strong> the sample is small and was not random. We checked one product page
+        per store on November 1, 2026, without running JavaScript, and results vary by theme. Treat this
+        as a list of things to check on your own store, not as a statistic about all YouCan stores.
+      </p>
+    </div>
+  </section>
+
+  <section id="duplicate-pages">
+    <h2>3. Mistake 1: Every Page Exists Twice</h2>
+
+    <p>
+      When you connect your own domain (for example <code>mystore.ma</code>), the old
+      <code>mystore.youcan.store</code> address often keeps working. All 4 stores in the audit that had
+      their own domain also served every product page on the YouCan subdomain, with no redirect and no
+      canonical tag.
+    </p>
+
+    <p>
+      To Google, these are two identical pages at two different addresses. It has to guess which one to
+      show, and the links your store earns can be split between the two versions.
+    </p>
+
+    <h3>How to fix it</h3>
+
+    <ol>
+      <li>
+        In <strong>Store → Domains</strong>, connect your domain and set it as the
+        <strong>primary</strong> domain.
+      </li>
+      <li>
+        Then open a product page on the <code>.youcan.store</code> address. If it loads instead of sending
+        you to your domain, ask YouCan support to set up a 301 redirect to the primary domain.
+      </li>
+      <li>
+        If your theme is editable (Liquid themes), add a canonical tag to the <code>&lt;head&gt;</code> of
+        the layout file:
+      </li>
+    </ol>
+
+    <pre><code>&lt;link rel="canonical" href="https://{{ store.domain }}{{ request.path }}"&gt;</code></pre>
+
+    <p>
+      According to YouCan's theme documentation, <code>store.domain</code> returns the store's primary
+      domain and <code>request.path</code> returns the page path. After adding it, view the source of a
+      product page (right-click, "View page source") to confirm the tag points to your domain.
+    </p>
+  </section>
+
+  <section id="meta-titles">
+    <h2>4. Mistake 2: Empty or Default Meta Titles and Descriptions</h2>
+
+    <p>
+      In the audit, one product page appeared in Google with the title "First product" and the
+      description "The first product": text from a duplicated template product that was never changed.
+      On another store, the meta title was just the URL slug, hyphens included.
+    </p>
+
+    <p>
+      The meta title is the blue clickable text in Google's results. It affects both rankings and how
+      many people click.
+    </p>
+
+    <h3>Where to edit it</h3>
+
+    <p>
+      <strong>Products → edit a product → SEO section</strong> (collapsed by default, at the bottom of the
+      page). It holds the slug, meta title, meta description and sharing images.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Meta title:</strong> product type, main attribute and place, under 60 characters. Example:
+        <em>Culinary Argan Oil 250ml – Cold-Pressed in Taroudant</em>.
+      </li>
+      <li>
+        <strong>Meta description:</strong> about 150 characters that give a reason to buy, including
+        delivery and payment. Example: <em>Cold-pressed culinary argan oil from Taroudant. Delivery across
+        Morocco, cash on delivery available.</em>
+      </li>
+      <li>
+        <strong>Slug:</strong> short, lowercase, with hyphens: <code>culinary-argan-oil-250ml</code>.
+      </li>
+    </ul>
+
+    <p>
+      For the homepage, the fields are in <strong>Settings → General → Details</strong> (store title and
+      store description).
+    </p>
+  </section>
+
+  <section id="product-schema">
+    <h2>5. Mistake 3: Incomplete Product Schema</h2>
+
+    <p>
+      The good news: when the theme outputs it, YouCan generates product schema with the name, image,
+      category and price in MAD. But in the 3 audited stores that had it, availability, brand, SKU and
+      reviews were always missing. Those are exactly the details Google uses to show stock and star
+      ratings in its results.
+    </p>
+
+    <p>
+      Here is the default schema we observed (simplified):
+    </p>
+
+    <pre><code>{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "…",
+  "description": "…",
+  "image": "…",
+  "category": "Montres Femmes",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "MAD",
+    "price": 249,
+    "seller": { "@type": "Store", "name": "…" }
+  }
+}</code></pre>
+
+    <h3>How to fix it</h3>
+
+    <ul>
+      <li>
+        <strong>Editable theme:</strong> in the product template, replace the default schema with a
+        complete version that adds <code>availability</code>, <code>brand</code>, <code>sku</code> and, if
+        you have genuine reviews, <code>aggregateRating</code>. Keep only one Product block per page.
+      </li>
+      <li>
+        <strong>Old theme:</strong> the header code field is shared by every page, so it cannot hold
+        product-specific schema. In that case, focus on mistakes 1, 2 and 4, and consider moving to an
+        editable theme.
+      </li>
+      <li>
+        Test each product page with Google's <a href="https://search.google.com/test/rich-results">Rich
+        Results Test</a>.
+      </li>
+    </ul>
+
+    <p>
+      The schema rules (MAD, required fields, full example) are covered in the schema section of our
+      <a href="/en/blog/seo-ecommerce-morocco-ai-search-product-pages/">product pages guide</a>.
+    </p>
+  </section>
+
+  <section id="missing-h1">
+    <h2>6. Mistake 4: No H1 on the Product Page</h2>
+
+    <p>
+      On 7 of the 9 product pages we checked, the product name was not marked up as an H1 in the HTML sent
+      to Google. The H1 tells Google what the page is mainly about. Without it, Google has to work that out
+      from the rest of the content.
+    </p>
+
+    <p>
+      Check your theme: view the source of a product page and search for <code>&lt;h1</code>. If there
+      isn't one, the product name should be wrapped in an H1 in the product template. On an editable theme
+      it is a one-line change. Otherwise, report it to YouCan support or the theme developer.
+    </p>
+  </section>
+
+  <section id="image-alt-text">
+    <h2>7. Mistake 5: The Store Name as Image Alt Text</h2>
+
+    <p>
+      In 5 of the 9 stores, most product images used the store name as their alt text. Google Images has
+      no way of knowing the photo shows a gold watch or a black abaya.
+    </p>
+
+    <p>
+      Alt text should describe the image: product, color, material or use. For example:
+      <em>Women's watch with green dial and gold strap</em>. Rename your files before uploading as well:
+      <code>womens-watch-green-dial-gold.webp</code> instead of <code>IMG_1581.jpg</code>.
+    </p>
+
+    <p>
+      If your theme does not let you set alt text per image, it often falls back to the product or store
+      name, which makes a precise product name even more important.
+    </p>
+  </section>
+
+  <section id="search-console">
+    <h2>8. Mistake 6: A Sitemap Google Doesn't Know About</h2>
+
+    <p>
+      Every store in the audit had a robots.txt that allows everything, but none listed its sitemap there.
+      Google can find the sitemap on its own, but there is no guarantee it will do so quickly. The reliable
+      fix is to submit it yourself in Google Search Console.
+    </p>
+
+    <h3>Verify your store in Search Console</h3>
+
+    <p>YouCan has no Search Console integration. Two methods work:</p>
+
+    <ul>
+      <li>
+        <strong>HTML tag</strong> (also works on the .youcan.store address): copy the
+        <code>&lt;meta name="google-site-verification" …&gt;</code> tag Google gives you and paste it into
+        <strong>Settings → Online → CSS/JavaScript configs → Additional header code</strong>. Then check the
+        homepage source to confirm the tag appears, because this field belongs to the old theme.
+      </li>
+      <li>
+        <strong>DNS record</strong> ("Domain" property, recommended): add the TXT record Google gives you at
+        the company you bought your domain from. It covers every version of your domain but requires a
+        domain of your own.
+      </li>
+    </ul>
+
+    <p>
+      Once the store is verified, open <strong>Sitemaps</strong> in Search Console and add
+      <code>sitemap.xml</code>. If your own domain is the primary domain, you can also add the line
+      <code>Sitemap: https://mystore.ma/sitemap.xml</code> to the custom robots.txt
+      (<strong>Settings → General</strong>).
+    </p>
+  </section>
+
+  <section id="cloaking">
+    <h2>9. Mistake 7: Turning On the "Cloaking" Option</h2>
+
+    <p>
+      YouCan product pages include a "cloaking" option that shows different content depending on the
+      visitor. Google treats cloaking as a violation of its
+      <a href="https://developers.google.com/search/docs/essentials/spam-policies#cloaking">spam
+      policies</a>. A page that shows one thing to Google and another to shoppers risks being demoted or
+      removed from search results.
+    </p>
+
+    <p>
+      If you want your product pages to bring in organic traffic, leave this option off.
+    </p>
+  </section>
+
+  <section id="categories">
+    <h2>10. Don't Forget Category Pages</h2>
+
+    <p>
+      A category page such as "Women's watches" targets broader searches than any single product, and it
+      often gets more traffic. YouCan categories support a description and meta information. A category
+      with no text is just a grid of photos to Google.
+    </p>
+
+    <p>
+      Give each important category a short paragraph describing the range, uses and delivery, plus its own
+      meta title.
+    </p>
+  </section>
+
+  <section id="ai-search">
+    <h2>11. Your YouCan Store in ChatGPT and Perplexity</h2>
+
+    <p>
+      AI assistants recommend products whose pages state specific facts: origin, material, size, use and
+      delivery terms. The fixes in this guide help there too. A clear title, complete schema and a single
+      version of each page make your product page easier to read and to cite.
+    </p>
+
+    <p>
+      For the bigger picture, see our
+      <a href="/en/blog/seo-ecommerce-morocco-ai-search-product-pages/">product pages guide</a>, which has a
+      full section on AI search optimization.
+    </p>
+  </section>
+
+  <section id="checklist">
+    <h2>12. YouCan SEO Checklist</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Where</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Set your own domain as primary</td>
+            <td>Store → Domains</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Check that the .youcan.store address redirects</td>
+            <td>Browser, then YouCan support</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Add a canonical tag</td>
+            <td>Theme (layout)</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Fill in each product's meta title and description</td>
+            <td>Products → SEO</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Store title and description</td>
+            <td>Settings → General → Details</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Verify the store in Search Console and submit the sitemap</td>
+            <td>Search Console + header code or DNS</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Keep cloaking turned off</td>
+            <td>Product page</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Product name as H1</td>
+            <td>Theme (product template)</td>
+            <td>Recommended</td>
+          </tr>
+          <tr>
+            <td>Complete the product schema</td>
+            <td>Theme (product template)</td>
+            <td>Recommended</td>
+          </tr>
+          <tr>
+            <td>Descriptive alt text and file names</td>
+            <td>Product images</td>
+            <td>Recommended</td>
+          </tr>
+          <tr>
+            <td>Description and meta for each category</td>
+            <td>Categories</td>
+            <td>Recommended</td>
+          </tr>
+          <tr>
+            <td>Sitemap line in robots.txt</td>
+            <td>Settings → General</td>
+            <td>Recommended</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="conclusion">
+    <h2>Conclusion</h2>
+
+    <p>
+      YouCan gives you a sound SEO base: a sitemap, schema in MAD and meta fields. What most stores are
+      missing is the setup around it: a single domain, filled-in titles, complete schema and a store
+      registered in Search Console.
+    </p>
+
+    <p>
+      Start with the first three rows of the checklist, then work through your 10 best-selling products.
+      Track their clicks in Search Console before moving on to the rest of the catalog.
+    </p>
+  </section>
+
+  <section class="cta-section" aria-label="YouCan SEO audit">
+    <h2>Need an SEO Audit for Your YouCan Store?</h2>
+
+    <p>
+      I'm <strong>Othmane Outaghza</strong>, a technical SEO consultant based in Morocco. I audit YouCan,
+      Shopify and WooCommerce stores: duplicate domains, schema, product pages, categories and visibility in
+      Google and AI search.
+    </p>
+
+    <a class="cta-button" href="/en#contact">Request an SEO Audit</a>
+  </section>
+</article>
+`;
+
+const youcanHtml = String.raw`
+<article class="blog-article seo-youcan blog-post">
+  <header class="article-header">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/fr">Accueil</a>
+      <span>/</span>
+      <a href="/fr/blog">Blog</a>
+      <span>/</span>
+      <span>SEO YouCan</span>
+    </nav>
+
+    <h1>SEO YouCan : 7 erreurs trouvées sur 9 boutiques marocaines (et comment les corriger)</h1>
+
+    <p class="article-description">
+      Nous avons analysé des boutiques YouCan réelles pour voir ce qui bloque leur référencement sur Google et dans la recherche IA. Voici les 7 erreurs les plus fréquentes, où les corriger dans votre tableau de bord, et ce que YouCan fait déjà pour vous.
+    </p>
+
+    <div class="article-meta">
+      <span>Par <strong>Othmane Outaghza</strong></span>
+      <span>Mis à jour le 1er novembre 2026</span>
+    </div>
+  </header>
+
+  <section id="intro">
+    <h2>Introduction</h2>
+
+    <p>
+      Sur 9 boutiques YouCan que nous avons analysées, 7 n'ont aucune balise canonical sur leurs fiches
+      produits, et aucune n'indique son sitemap à Google dans son fichier robots.txt.
+    </p>
+
+    <p>
+      Ce sont des réglages invisibles pour le client, mais pas pour Google. Ils expliquent en partie
+      pourquoi tant de boutiques YouCan dépendent presque entièrement des publicités Meta et TikTok :
+      leurs fiches produits existent, mais Google les comprend mal ou les trouve en double.
+    </p>
+
+    <p>
+      Ce guide part de cet audit. Pour chaque erreur, vous verrez ce que nous avons constaté, pourquoi
+      cela compte et où la corriger dans YouCan. Pour le contenu de vos fiches (titres, descriptions,
+      caractéristiques), consultez aussi notre guide pour
+      <a href="/fr/blog/seo-ecommerce-maroc/">optimiser vos fiches produits pour Google et l'IA</a>.
+    </p>
+  </section>
+
+  <section id="ce-que-youcan-fait">
+    <h2>1. Ce que YouCan fait déjà pour votre SEO</h2>
+
+    <p>
+      La base technique de YouCan est correcte. Sans rien configurer, votre boutique dispose de :
+    </p>
+
+    <ul>
+      <li><strong>Un sitemap automatique</strong> à l'adresse <code>/sitemap.xml</code>, divisé en catégories, pages et produits.</li>
+      <li><strong>Un schema produit</strong> (données structurées JSON-LD) généré pour chaque fiche, avec le prix en MAD.</li>
+      <li><strong>Des champs SEO par produit</strong> : slug, titre méta, description méta et image de partage.</li>
+      <li><strong>Un fichier robots.txt modifiable</strong>, si votre propre domaine est le domaine principal de la boutique.</li>
+      <li><strong>Un champ de code pour l'en-tête</strong> des pages, utile pour vérifier votre site dans Google Search Console.</li>
+    </ul>
+
+    <p>
+      Les problèmes viennent surtout de deux sources : des champs laissés vides ou mal remplis, et des
+      thèmes qui n'affichent pas certaines balises. Les deux se corrigent.
+    </p>
+  </section>
+
+  <section id="audit">
+    <h2>2. L'audit : ce que nous avons vérifié sur 13 boutiques</h2>
+
+    <p>
+      Nous avons sélectionné 13 boutiques YouCan marocaines publiques, trouvées via la recherche Google.
+      Pour chacune, nous avons lu le fichier robots.txt, le sitemap et une fiche produit, telle que Google
+      la reçoit. Neuf boutiques avaient une fiche produit exploitable.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Point vérifié</th>
+            <th>Résultat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>robots.txt qui indique le sitemap</td>
+            <td>0 boutique sur 12</td>
+          </tr>
+          <tr>
+            <td>Sitemap présent à /sitemap.xml</td>
+            <td>9 sur 12</td>
+          </tr>
+          <tr>
+            <td>Balise canonical sur la fiche produit</td>
+            <td>2 sur 9</td>
+          </tr>
+          <tr>
+            <td>Boutiques avec domaine propre dont l'adresse .youcan.store reste accessible sans redirection</td>
+            <td>4 sur 4</td>
+          </tr>
+          <tr>
+            <td>Titre H1 sur la fiche produit</td>
+            <td>2 sur 9</td>
+          </tr>
+          <tr>
+            <td>Schema produit présent</td>
+            <td>3 sur 9, tous en MAD</td>
+          </tr>
+          <tr>
+            <td>Schema avec disponibilité, marque, SKU ou avis</td>
+            <td>0 sur 3</td>
+          </tr>
+          <tr>
+            <td>Titre méta faible (« First product », slug, un seul mot)</td>
+            <td>3 sur 9</td>
+          </tr>
+          <tr>
+            <td>Images dont le texte alternatif est le nom de la boutique</td>
+            <td>5 sur 9</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example-box">
+      <p>
+        <strong>Limites de l'audit :</strong> l'échantillon est petit et n'a pas été tiré au hasard. Nous
+        avons analysé une fiche produit par boutique, le 1er novembre 2026, sans exécuter le JavaScript.
+        Les résultats varient selon le thème. Prenez-les comme une liste de points à vérifier sur votre
+        boutique, pas comme une statistique sur toutes les boutiques YouCan.
+      </p>
+    </div>
+  </section>
+
+  <section id="erreur-doublons">
+    <h2>3. Erreur 1 : chaque page existe en deux exemplaires</h2>
+
+    <p>
+      Quand vous connectez votre propre domaine (par exemple <code>maboutique.ma</code>), l'ancienne
+      adresse <code>maboutique.youcan.store</code> continue souvent de fonctionner. Sur les 4 boutiques
+      de l'audit qui avaient leur propre domaine, toutes les fiches produits répondaient aussi sur le
+      sous-domaine YouCan, sans redirection et sans balise canonical.
+    </p>
+
+    <p>
+      Pour Google, ce sont deux pages identiques à deux adresses différentes. Il doit deviner laquelle
+      afficher, et les liens que reçoit votre boutique peuvent se répartir entre les deux versions.
+    </p>
+
+    <h3>Comment corriger</h3>
+
+    <ol>
+      <li>
+        Dans <strong>Boutique → Domaines</strong>, connectez votre domaine et définissez-le comme
+        domaine <strong>principal</strong>.
+      </li>
+      <li>
+        Ouvrez ensuite une fiche produit sur l'adresse <code>.youcan.store</code>. Si elle s'affiche
+        au lieu de vous renvoyer vers votre domaine, demandez au support YouCan d'activer une
+        redirection 301 vers le domaine principal.
+      </li>
+      <li>
+        Si votre thème est modifiable (thèmes en Liquid), ajoutez une balise canonical dans le
+        <code>&lt;head&gt;</code> du fichier de mise en page :
+      </li>
+    </ol>
+
+    <pre><code>&lt;link rel="canonical" href="https://{{ store.domain }}{{ request.path }}"&gt;</code></pre>
+
+    <p>
+      <code>store.domain</code> renvoie le domaine principal de la boutique et <code>request.path</code>
+      le chemin de la page, d'après la documentation des thèmes YouCan. Après l'ajout, vérifiez le code
+      source d'une fiche produit (clic droit, « Afficher le code source ») pour confirmer que la balise
+      pointe bien vers votre domaine.
+    </p>
+  </section>
+
+  <section id="erreur-titres">
+    <h2>4. Erreur 2 : titres et descriptions méta oubliés</h2>
+
+    <p>
+      Dans l'audit, une fiche produit s'affichait dans Google avec le titre « First product » et la
+      description « The first product » : les textes d'un produit modèle dupliqué, jamais modifiés. Sur
+      une autre boutique, le titre méta était simplement le slug de l'URL, avec des tirets.
+    </p>
+
+    <p>
+      Le titre méta est le texte bleu cliquable dans les résultats Google. Il compte pour le classement
+      et pour le taux de clic.
+    </p>
+
+    <h3>Où le modifier</h3>
+
+    <p>
+      <strong>Produits → modifier un produit → section SEO</strong> (fermée par défaut, en bas de la
+      page). Vous y trouverez le slug, le titre méta, la description méta et les images de partage.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Titre méta :</strong> type de produit, attribut principal et lieu, en moins de 60
+        caractères. Exemple : <em>Huile d'argan alimentaire 250 ml – Pressée à froid, Taroudant</em>.
+      </li>
+      <li>
+        <strong>Description méta :</strong> environ 150 caractères qui donnent une raison d'acheter, avec
+        la livraison et le paiement. Exemple : <em>Huile d'argan alimentaire pressée à froid à
+        Taroudant. Livraison partout au Maroc, paiement à la livraison.</em>
+      </li>
+      <li>
+        <strong>Slug :</strong> court, en minuscules, avec des tirets : <code>huile-argan-alimentaire-250ml</code>.
+      </li>
+    </ul>
+
+    <p>
+      Pour la page d'accueil, les champs se trouvent dans <strong>Paramètres → Général → Détails</strong>
+      (titre et description de la boutique).
+    </p>
+  </section>
+
+  <section id="erreur-schema">
+    <h2>5. Erreur 3 : un schema produit incomplet</h2>
+
+    <p>
+      Bonne nouvelle : quand le thème l'affiche, YouCan génère un schema produit avec le nom, l'image, la
+      catégorie et le prix en MAD. Mais dans les 3 boutiques de l'audit qui en avaient un, il manquait
+      toujours la disponibilité, la marque, le SKU et les avis. Ce sont justement les informations qui
+      permettent à Google d'afficher le stock et les étoiles dans les résultats.
+    </p>
+
+    <p>
+      Voici à quoi ressemblait le schema par défaut observé (simplifié) :
+    </p>
+
+    <pre><code>{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "…",
+  "description": "…",
+  "image": "…",
+  "category": "Montres Femmes",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "MAD",
+    "price": 249,
+    "seller": { "@type": "Store", "name": "…" }
+  }
+}</code></pre>
+
+    <h3>Comment corriger</h3>
+
+    <ul>
+      <li>
+        <strong>Thème modifiable :</strong> dans le modèle de fiche produit, remplacez le schema par
+        défaut par une version complète qui ajoute <code>availability</code>, <code>brand</code>,
+        <code>sku</code> et, si vous avez de vrais avis, <code>aggregateRating</code>. Ne gardez qu'un
+        seul bloc Product par page.
+      </li>
+      <li>
+        <strong>Ancien thème :</strong> le champ de code d'en-tête est le même pour toutes les pages, il
+        ne peut donc pas contenir un schema par produit. Dans ce cas, concentrez-vous sur les erreurs 1,
+        2 et 4, puis envisagez un thème modifiable.
+      </li>
+      <li>
+        Testez chaque fiche avec le <a href="https://search.google.com/test/rich-results">test des
+        résultats enrichis de Google</a>.
+      </li>
+    </ul>
+
+    <p>
+      Les règles du schema (MAD, champs obligatoires, exemple complet) sont détaillées dans la section
+      schema de notre <a href="/fr/blog/seo-ecommerce-maroc/">guide des fiches produits</a>.
+    </p>
+  </section>
+
+  <section id="erreur-h1">
+    <h2>6. Erreur 4 : pas de titre H1 sur la fiche produit</h2>
+
+    <p>
+      Sur 7 des 9 fiches analysées, le nom du produit n'était pas balisé en H1 dans le code envoyé à
+      Google. Le H1 indique le sujet principal de la page. Sans lui, Google doit déduire de quoi parle
+      la fiche à partir du reste du contenu.
+    </p>
+
+    <p>
+      Vérifiez votre thème : affichez le code source d'une fiche produit et cherchez
+      <code>&lt;h1</code>. S'il n'y en a pas, le nom du produit doit être balisé en H1 dans le modèle de
+      fiche produit. Sur un thème modifiable, c'est une modification d'une ligne. Sinon, signalez-le au
+      support ou à l'éditeur du thème.
+    </p>
+  </section>
+
+  <section id="erreur-images">
+    <h2>7. Erreur 5 : le nom de la boutique comme texte alternatif</h2>
+
+    <p>
+      Dans 5 boutiques sur 9, la plupart des images produits avaient pour texte alternatif le nom de la
+      boutique. Google Images ne sait donc pas que la photo montre une montre dorée ou une abaya noire.
+    </p>
+
+    <p>
+      Le texte alternatif doit décrire l'image : produit, couleur, matière ou usage. Par exemple :
+      <em>Montre femme cadran vert et bracelet doré</em>. Avant l'envoi, renommez aussi vos fichiers :
+      <code>montre-femme-cadran-vert-dore.webp</code> plutôt que <code>IMG_1581.jpg</code>.
+    </p>
+
+    <p>
+      Si votre thème ne permet pas de saisir un texte alternatif par image, il utilise souvent le nom du
+      produit ou de la boutique : un nom de produit précis devient alors encore plus important.
+    </p>
+  </section>
+
+  <section id="erreur-search-console">
+    <h2>8. Erreur 6 : un sitemap que Google ne connaît pas</h2>
+
+    <p>
+      Toutes les boutiques de l'audit avaient un robots.txt qui autorise tout, mais aucune n'y indiquait
+      l'adresse de son sitemap. Google peut le trouver seul, mais rien ne garantit qu'il le fasse vite.
+      La solution la plus fiable est de le déclarer vous-même dans Google Search Console.
+    </p>
+
+    <h3>Vérifier votre boutique dans Search Console</h3>
+
+    <p>YouCan n'a pas d'intégration Search Console. Deux méthodes fonctionnent :</p>
+
+    <ul>
+      <li>
+        <strong>Balise HTML</strong> (fonctionne aussi sur l'adresse .youcan.store) : copiez la balise
+        <code>&lt;meta name="google-site-verification" …&gt;</code> fournie par Google et collez-la dans
+        <strong>Paramètres → Online → CSS/JavaScript configs → Additional header code</strong>.
+        Vérifiez ensuite dans le code source de la page d'accueil que la balise apparaît bien, car ce
+        champ concerne l'ancien thème.
+      </li>
+      <li>
+        <strong>Enregistrement DNS</strong> (propriété « Domaine », recommandée) : ajoutez
+        l'enregistrement TXT fourni par Google chez le vendeur de votre domaine. Cette méthode couvre
+        toutes les versions de votre domaine, mais exige d'avoir votre propre domaine.
+      </li>
+    </ul>
+
+    <p>
+      Une fois la boutique vérifiée, ouvrez <strong>Sitemaps</strong> dans Search Console et ajoutez
+      <code>sitemap.xml</code>. Si votre propre domaine est le domaine principal, vous pouvez aussi
+      ajouter la ligne <code>Sitemap: https://maboutique.ma/sitemap.xml</code> dans le robots.txt
+      personnalisé (<strong>Paramètres → Général</strong>).
+    </p>
+  </section>
+
+  <section id="erreur-cloaking">
+    <h2>9. Erreur 7 : activer l'option « Cloaking »</h2>
+
+    <p>
+      Les fiches produits YouCan proposent une option de « cloaking », qui affiche un contenu différent
+      selon le visiteur. Google considère le cloaking comme une violation de ses
+      <a href="https://developers.google.com/search/docs/essentials/spam-policies#cloaking">règles
+      contre le spam</a>. Une page qui montre une chose à Google et une autre aux clients risque d'être
+      rétrogradée ou retirée des résultats.
+    </p>
+
+    <p>
+      Si vous voulez que vos fiches produits génèrent du trafic organique, laissez cette option
+      désactivée.
+    </p>
+  </section>
+
+  <section id="categories">
+    <h2>10. N'oubliez pas les pages catégories</h2>
+
+    <p>
+      Une page catégorie comme « Montres femmes » vise des recherches plus larges que chaque produit, et
+      elle reçoit souvent plus de trafic. YouCan permet d'ajouter une description et des informations
+      méta aux catégories. Une catégorie sans texte n'est qu'une grille de photos pour Google.
+    </p>
+
+    <p>
+      Ajoutez à chaque catégorie importante un court paragraphe qui décrit la gamme, les usages et la
+      livraison, et un titre méta propre.
+    </p>
+  </section>
+
+  <section id="recherche-ia">
+    <h2>11. Votre boutique YouCan dans ChatGPT et Perplexity</h2>
+
+    <p>
+      Les assistants IA recommandent les produits dont les pages donnent des faits précis : origine,
+      matière, taille, usage, conditions de livraison. Les corrections de ce guide les aident aussi :
+      un titre clair, un schema complet et une seule version de chaque page rendent votre fiche plus
+      facile à lire et à citer.
+    </p>
+
+    <p>
+      Pour aller plus loin, lisez notre comparatif <a href="/fr/blog/geo-vs-seo-maroc/">GEO vs SEO au
+      Maroc</a>.
+    </p>
+  </section>
+
+  <section id="checklist">
+    <h2>12. Checklist SEO YouCan</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Où</th>
+            <th>Priorité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Définir votre domaine comme domaine principal</td>
+            <td>Boutique → Domaines</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Vérifier que l'adresse .youcan.store redirige</td>
+            <td>Navigateur, puis support YouCan</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Ajouter une balise canonical</td>
+            <td>Thème (mise en page)</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Remplir titre et description méta de chaque produit</td>
+            <td>Produits → SEO</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Titre et description de la boutique</td>
+            <td>Paramètres → Général → Détails</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Vérifier la boutique dans Search Console et envoyer le sitemap</td>
+            <td>Search Console + code d'en-tête ou DNS</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Laisser le cloaking désactivé</td>
+            <td>Fiche produit</td>
+            <td>Obligatoire</td>
+          </tr>
+          <tr>
+            <td>Nom du produit en H1</td>
+            <td>Thème (fiche produit)</td>
+            <td>Recommandé</td>
+          </tr>
+          <tr>
+            <td>Compléter le schema produit</td>
+            <td>Thème (fiche produit)</td>
+            <td>Recommandé</td>
+          </tr>
+          <tr>
+            <td>Textes alternatifs et noms de fichiers descriptifs</td>
+            <td>Images produits</td>
+            <td>Recommandé</td>
+          </tr>
+          <tr>
+            <td>Description et méta pour chaque catégorie</td>
+            <td>Catégories</td>
+            <td>Recommandé</td>
+          </tr>
+          <tr>
+            <td>Ligne Sitemap dans le robots.txt</td>
+            <td>Paramètres → Général</td>
+            <td>Recommandé</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="conclusion">
+    <h2>Conclusion</h2>
+
+    <p>
+      YouCan vous donne une base SEO correcte : sitemap, schema en MAD et champs méta. Ce qui manque
+      dans la plupart des boutiques, ce sont les réglages autour : un seul domaine, des titres remplis,
+      un schema complet et une boutique déclarée dans Search Console.
+    </p>
+
+    <p>
+      Commencez par les trois premières lignes de la checklist, puis traitez vos 10 produits les plus
+      vendus. Suivez ensuite leurs clics dans Search Console avant de passer au reste du catalogue.
+    </p>
+  </section>
+
+  <section class="cta-section" aria-label="Audit SEO YouCan">
+    <h2>Besoin d'un audit SEO de votre boutique YouCan ?</h2>
+
+    <p>
+      Je suis <strong>Othmane Outaghza</strong>, consultant SEO technique au Maroc. J'audite les
+      boutiques YouCan, Shopify et WooCommerce : doublons, schema, fiches produits, catégories et
+      visibilité dans Google et la recherche IA.
+    </p>
+
+    <a class="cta-button" href="/fr#contact">Demander un audit SEO</a>
+  </section>
+</article>
+`;
+
 
 let keyIndex = 0;
 function key(prefix = "k") {
@@ -2789,10 +3865,139 @@ function estimateReadingTimeFromBlocks(body: any[]) {
 }
 
 const articleBody = htmlToPortableText(articleHtml);
+const youcanBody = htmlToPortableText(youcanHtml);
+const youcanEnBody = htmlToPortableText(youcanEnHtml);
 const frArticleBody = htmlToPortableText(frArticleHtml);
 const geoVsSeoMarocBody = markdownToPortableText(geoVsSeoMarocMarkdown);
 
 export const localBlogPosts: BlogPost[] = [
+    {
+        _id: "local-youcan-seo-guide",
+        title: "YouCan SEO: 7 Mistakes We Found on 9 Moroccan Stores (and How to Fix Them)",
+        slug: youcanEnSlug,
+        excerpt:
+            "We audited real YouCan stores: duplicate domains, default meta titles, incomplete product schema and sitemaps Google never received. The 7 most common SEO mistakes and where to fix them in YouCan.",
+        publishedAt: "2026-11-01T00:00:00.000Z",
+        updatedAt: "2026-11-01T00:00:00.000Z",
+        featured: false,
+        readingTime: estimateReadingTimeFromBlocks(youcanEnBody),
+        mainImage: {
+            url: youcanImage,
+            alt: "YouCan SEO audit and optimization for a Moroccan online store",
+            width: 1200,
+            height: 630,
+        },
+        categories: [ecommerceSeoCategory],
+        tags: [
+            "YouCan SEO",
+            "SEO e-commerce Morocco",
+            "ecommerce SEO Morocco",
+            "product page SEO",
+        ],
+        author: {
+            name: "Othmane Outaghza",
+            slug: "othmane-outaghza",
+            role: "Technical SEO Consultant & AI Search Specialist",
+            bio: "Othmane Outaghza helps Moroccan e-commerce stores improve technical SEO, product pages and AI search visibility.",
+            sameAs: ["https://www.linkedin.com/in/othmaneoutaghza"],
+        },
+        seoTitle: youcanEnMetaTitle,
+        seoDescription: youcanEnMetaDescription,
+        canonicalUrl: youcanEnCanonicalUrl,
+        focusKeyword: "YouCan SEO",
+        showMainImage: false,
+        seo: {
+            seoTitle: youcanEnMetaTitle,
+            seoDescription: youcanEnMetaDescription,
+            metaTitle: youcanEnMetaTitle,
+            metaDescription: youcanEnMetaDescription,
+            canonicalUrl: youcanEnCanonicalUrl,
+            noIndex: false,
+            focusKeyword: "YouCan SEO",
+            ogImage: {
+                url: youcanImage,
+                alt: "YouCan SEO audit and optimization for a Moroccan online store",
+                width: 1200,
+                height: 630,
+            },
+        },
+        language: "en",
+        body: youcanEnBody,
+        faqs: youcanEnFaqs,
+        cta: {
+            title: "Need an SEO audit for your YouCan store?",
+            description:
+                "I check duplicate domains, product schema, meta titles, categories and your store's visibility in Google and AI search.",
+            href: "/en#contact",
+            label: "Request a YouCan SEO audit",
+        },
+        translatedSlug: youcanSlug,
+        relatedPosts: [],
+    },
+    {
+        _id: "local-seo-youcan",
+        title: "SEO YouCan : 7 erreurs trouvées sur 9 boutiques marocaines (et comment les corriger)",
+        slug: youcanSlug,
+        excerpt:
+            "Nous avons analysé des boutiques YouCan réelles : doublons de domaine, titres méta oubliés, schema produit incomplet, sitemap non déclaré. Les 7 erreurs SEO les plus fréquentes et où les corriger dans YouCan.",
+        publishedAt: "2026-11-01T00:00:00.000Z",
+        updatedAt: "2026-11-01T00:00:00.000Z",
+        featured: false,
+        readingTime: estimateReadingTimeFromBlocks(youcanBody),
+        mainImage: {
+            url: youcanImage,
+            alt: youcanImageAlt,
+            width: 1200,
+            height: 630,
+        },
+        categories: [ecommerceSeoCategory, seoMarocCategory],
+        tags: [
+            "SEO YouCan",
+            "référencement YouCan",
+            "SEO e-commerce Maroc",
+            "référencement e-commerce Maroc",
+            "optimisation fiche produit Maroc",
+        ],
+        author: {
+            name: "Othmane Outaghza",
+            slug: "othmane-outaghza",
+            role: "Consultant SEO Technique & Spécialiste Référencement IA",
+            bio: "Othmane Outaghza aide les sites e-commerce marocains à améliorer leur SEO technique, leurs fiches produits et leur visibilité dans la recherche IA.",
+            sameAs: ["https://www.linkedin.com/in/othmaneoutaghza"],
+        },
+        seoTitle: youcanMetaTitle,
+        seoDescription: youcanMetaDescription,
+        canonicalUrl: youcanCanonicalUrl,
+        focusKeyword: "SEO YouCan",
+        showMainImage: false,
+        seo: {
+            seoTitle: youcanMetaTitle,
+            seoDescription: youcanMetaDescription,
+            metaTitle: youcanMetaTitle,
+            metaDescription: youcanMetaDescription,
+            canonicalUrl: youcanCanonicalUrl,
+            noIndex: false,
+            focusKeyword: "SEO YouCan",
+            ogImage: {
+                url: youcanImage,
+                alt: youcanImageAlt,
+                width: 1200,
+                height: 630,
+            },
+        },
+        language: "fr",
+        body: youcanBody,
+        faqs: youcanFaqs,
+        cta: {
+            title: "Besoin d'un audit SEO de votre boutique YouCan ?",
+            description:
+                "Je vérifie les doublons de domaine, le schema produit, les titres méta, les catégories et la visibilité de votre boutique dans Google et la recherche IA.",
+            href: "/fr#contact",
+            label: "Demander un audit SEO YouCan",
+        },
+        translatedSlug: youcanEnSlug,
+        relatedPosts: [],
+    },
     {
         _id: "local-geo-vs-seo-maroc",
         title: "GEO vs SEO : quelle différence et pourquoi ça compte pour votre site au Maroc en 2026",

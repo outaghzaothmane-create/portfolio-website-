@@ -8,6 +8,8 @@ const pages = [
   { path: '/blog/seo-ecommerce-morocco-ai-search-product-pages/', locales: ['en'] },
   { path: '/blog/seo-ecommerce-maroc/', locales: ['fr'] },
   { path: '/blog/geo-vs-seo-maroc/', locales: ['en', 'fr'] },
+  { path: '/blog/youcan-seo-guide/', locales: ['en'] },
+  { path: '/blog/seo-youcan/', locales: ['fr'] },
   { path: '/blog/tag/ai-overviews-maroc/', locales: ['en', 'fr'] },
   { path: '/blog/tag/generative-engine-optimization/', locales: ['en', 'fr'] },
   { path: '/blog/tag/llmo/', locales: ['en', 'fr'] },

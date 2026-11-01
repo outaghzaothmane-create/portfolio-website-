@@ -14,6 +14,14 @@ const translatedBlogSlugs: Record<string, Record<Locale, string>> = {
         en: "seo-ecommerce-morocco-ai-search-product-pages",
         fr: "seo-ecommerce-maroc",
     },
+    "youcan-seo-guide": {
+        en: "youcan-seo-guide",
+        fr: "seo-youcan",
+    },
+    "seo-youcan": {
+        en: "youcan-seo-guide",
+        fr: "seo-youcan",
+    },
 };
 
 const localizedBlogFallbackPaths: Record<string, Partial<Record<Locale, string>>> = {
